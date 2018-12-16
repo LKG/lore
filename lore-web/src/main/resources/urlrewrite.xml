@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+        "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+<urlrewrite>
+    <rule>
+        <!--拦截页面以/_开头的数据,作为转发给前端使用-->
+        <from>^/(\w+)/_([\w\d])+\.jhtml</from>
+        <!-- to: 真实的URL -->
+        <to type="forward">/$1.jhtml?param=$2</to>
+    </rule>
+    <rule>
+        <!--拦截页面以/_开头的数据,作为转发给前端使用-->
+        <from>/11111.jhtml</from>
+        <!-- to: 真实的URL -->
+        <to type="forward">/index.jhtml</to>
+    </rule>
+</urlrewrite>

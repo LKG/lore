@@ -1,0 +1,142 @@
+package im.heart.security.filter;
+
+import com.google.common.collect.Lists;
+import im.heart.security.cache.ShiroCacheConfig;
+import im.heart.security.session.ShiroSessionDAO;
+import im.heart.security.utils.SecurityUtilsHelper;
+import im.heart.usercore.vo.FrameUserVO;
+import org.apache.shiro.session.Session;
+import org.apache.shiro.session.SessionException;
+import org.apache.shiro.subject.Subject;
+import org.apache.shiro.web.filter.authc.LogoutFilter;
+import org.apache.shiro.web.util.WebUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
+
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import java.io.Serializable;
+import java.util.Deque;
+
+/**
+ * 
+ * @author gg
+ * @desc 控制用户登录个数
+ */
+public class KickoutSessionControlFilter extends LogoutFilter {
+
+	protected static final Logger logger = LoggerFactory.getLogger(KickoutSessionControlFilter.class);
+    public static final String DEFAULT_REDIRECT_URL = "/login.jhtml?logout=2";
+    private String redirectUrl = DEFAULT_REDIRECT_URL;
+    private String kickoutParam = "kickout";
+	/**
+	 * 踢出之前登录的/之后登录的用户 默认踢出之前登录的用户
+	 */
+	private boolean kickoutAfter = false;
+	/**
+	 * // 同一个帐号最大会话数 默认1
+	 */
+	private int maxSession = 1;
+	protected static final String CACHE_NAME = ShiroCacheConfig.SESSION_KICKOUT.keyPrefix;
+	@Autowired
+	private ShiroSessionDAO shiroSessionDAO;
+
+	private Cache cache;
+
+	@Autowired(required = false)
+	private CacheManager cacheManager;
+
+
+    protected void saveRequest(ServletRequest request) {
+        WebUtils.saveRequest(request);
+    }
+	@Override
+	protected boolean preHandle(ServletRequest request, ServletResponse response)
+			throws Exception {
+		Subject subject = getSubject(request, response);
+		// 如果没有登录，直接进行之后的流程
+		if (!subject.isAuthenticated() && !subject.isRemembered()) {
+			return true;
+		}
+		Session session = subject.getSession();
+		Serializable sessionId = session.getId();
+		FrameUserVO user = SecurityUtilsHelper.getCurrentUser();
+		// 如果没有登录，直接进行之后的流程
+		if(user==null){
+			return true;
+		}
+		if(this.cache==null){
+			this.cache = this.cacheManager.getCache(CACHE_NAME);
+		}
+		String username=user.getUserName();
+		Deque<Serializable> deque = this.cache.get(username,Deque.class);
+		if (deque == null) {
+			deque = Lists.newLinkedList();
+			this.cache.put(username, deque);
+		}
+		Object kickout = session.getAttribute(kickoutParam);
+		if (!deque.contains(sessionId) && kickout == null) {
+			deque.push(sessionId);
+			this.cache.put(username, deque);
+		}
+		while (deque.size() > maxSession) {
+			Serializable kickoutSessionId = null;
+			// 如果踢出后者
+			if (kickoutAfter) {
+				kickoutSessionId = deque.removeFirst();
+			} else {
+				// 否则踢出前者
+				kickoutSessionId = deque.removeLast();
+			}
+			try {
+				Session onlineSession = this.shiroSessionDAO.readSession(kickoutSessionId);
+				/// 设置会话的kickout属性表示踢出了
+				if (onlineSession != null) {
+					onlineSession.setAttribute(kickoutParam, true);
+				}
+			} catch (SessionException ise) {
+				logger.debug("Encountered session exception during logout.  This can generally safely be ignored."
+						+ ise);
+			}
+		}
+		if (kickout != null) {
+			try {
+				logger.info("检测到用户重复登录，移除用户"+username);
+				subject.logout();
+			} catch (SessionException ise) {
+				logger.debug("Encountered session exception during logout.  This can generally safely be ignored."
+						+ ise);
+			}
+			saveRequest(request);  
+			issueRedirect(request, response, redirectUrl);
+			return false;
+		}
+		return true;
+	}
+	@Override
+	public String getRedirectUrl() {
+		return redirectUrl;
+	}
+	@Override
+	public void setRedirectUrl(String redirectUrl) {
+		this.redirectUrl = redirectUrl;
+	}
+	public boolean isKickoutAfter() {
+		return kickoutAfter;
+	}
+
+	public void setKickoutAfter(boolean kickoutAfter) {
+		this.kickoutAfter = kickoutAfter;
+	}
+
+	public int getMaxSession() {
+		return maxSession;
+	}
+
+	public void setMaxSession(int maxSession) {
+		this.maxSession = maxSession;
+	}
+}
