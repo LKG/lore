@@ -1,6 +1,7 @@
 package im.heart.material.parser.impl;
 
 import com.google.common.collect.Lists;
+import com.hankcs.hanlp.HanLP;
 import im.heart.core.CommonConst;
 import im.heart.core.utils.DateUtilsEx;
 import im.heart.core.utils.FileUtilsEx;
@@ -93,8 +94,18 @@ public class MaterialPeriodicalParserImpl implements MaterialPeriodicalParser {
                 pages = maxPage;
             }
             PDFTextStripper pdfTextStripper = new PDFTextStripper();
-            String string = pdfTextStripper.getText(pdDocument);
-            System.out.println(string);
+            String content = pdfTextStripper.getText(pdDocument);
+            if(StringUtilsEx.isBlank(periodical.getSeoKeywords())){
+                List<String> seokeywords=HanLP.extractKeyword(content, 13);
+                //设置关键词
+                periodical.setSeoKeywords(StringUtilsEx.join(seokeywords,","));
+            }
+            if(StringUtilsEx.isBlank(periodical.getSeoKeywords())){
+                List<String> summarys= HanLP.extractSummary(content,5);;
+                //生成文章摘要
+                periodical.setSeoDescription(StringUtilsEx.join(summarys,","));
+            }
+            periodical.setContent(content);
             List<MaterialPeriodicalImg> entities= Lists.newArrayList();
             BigInteger periodicalId= periodical.getId();
             String periodicalCode=periodical.getPeriodicalCode();

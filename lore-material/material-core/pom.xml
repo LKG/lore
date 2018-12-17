@@ -71,6 +71,10 @@
             <artifactId>jurt</artifactId>
             <version>4.1.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.hankcs</groupId>
+            <artifactId>hanlp</artifactId>
+        </dependency>
     </dependencies>
     <!--<build>-->
         <!--<plugins>-->

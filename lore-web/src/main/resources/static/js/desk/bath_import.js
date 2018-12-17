@@ -59,7 +59,7 @@ define(function(require, exports, moudles) {
          autoUpload: false ,
          callbacks: {
            onComplete: function(id, name, response) {
-        	   var content="上传成功";
+        	   var content="上传成功，解析任务已提交";
         	   if(response.success){
                    message($(this),content);
         		   return ;

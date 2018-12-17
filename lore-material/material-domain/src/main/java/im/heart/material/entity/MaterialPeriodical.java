@@ -9,9 +9,11 @@ import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.Formula;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -120,6 +122,23 @@ public class MaterialPeriodical implements AbstractEntity<BigInteger> {
 	@Column(name = "REAL_FILE_PATH", nullable = false,length=512)
 	private String realFilePath;
 
+	/** 页面标题. */
+	@Column(name = "SEO_TITLE", nullable = false)
+	@Length(max = 200)
+	private String seoTitle="";
+
+	/** 页面关键词. */
+	@Length(max = 200)
+	@Column(name = "SEO_KEYWORDS", nullable = false)
+	private String seoKeywords="";
+
+	/** 页面描述 . */
+	@Length(max = 200)
+	@Column(name = "SEO_DESCRIPTION", nullable = false)
+	private String seoDescription="";
+
+	@Column(name = "CONTENT", nullable = false)
+	private String content;
 	/**
 	 * 封面图片
 	 */
