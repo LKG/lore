@@ -22,7 +22,7 @@ public interface   ArticleService extends CommonService<Article, BigInteger>{
 	 * @param entities
 	 * @return
 	 */
-	public List<Article>  save(Iterable<Article> entities);
+	public List<Article>  saveAll(Iterable<Article> entities);
 
 	public boolean exists(BigInteger id);
 }

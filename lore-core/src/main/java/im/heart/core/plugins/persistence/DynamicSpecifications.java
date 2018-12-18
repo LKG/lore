@@ -174,7 +174,9 @@ public class DynamicSpecifications {
 							}
 						}
 						if (classz.equals(String.class)) {
-							val=StringUtilsEx.trim(val.toString());
+							if(val!=null){
+								val=StringUtilsEx.trim(val.toString());
+							}
 						}
 						if (classz.equals(Boolean.class)) {
 							logger.debug("Boolean类型......");

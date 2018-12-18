@@ -75,14 +75,14 @@
                 <version>2.1.1.RELEASE</version>
                 <configuration>
                     <mainClass>im.heart.App</mainClass>
-                  <!--  <layout>ZIP</layout>
-                    <includes>
-                        &lt;!&ndash; 不包含lib 目录 &ndash;&gt;
-                        <include>
-                            <groupId>nothing</groupId>
-                            <artifactId>nothing</artifactId>
-                        </include>
-                    </includes>-->
+                  <!--<layout>ZIP</layout>-->
+                    <!--<excludeGroupIds>im.heart</excludeGroupIds>-->
+                    <!--<includes>-->
+                        <!--<include>-->
+                            <!--<groupId>${project.groupId}</groupId>-->
+                            <!--<artifactId></artifactId>-->
+                        <!--</include>-->
+                    <!--</includes>-->
                 </configuration>
                 <executions>
                     <execution>

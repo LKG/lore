@@ -14,4 +14,8 @@
         <!-- to: 真实的URL -->
         <to type="forward">/index.jhtml</to>
     </rule>
+    <rule>
+        <from>^/aboutus.jhtml?(.*)$</from>
+        <to>/index/aboutus.jhtml</to>
+    </rule>
 </urlrewrite>

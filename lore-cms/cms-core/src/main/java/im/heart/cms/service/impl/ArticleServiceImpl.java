@@ -23,8 +23,8 @@ public class ArticleServiceImpl extends CommonServiceImpl<Article, BigInteger> i
 	@Autowired
 	private ArticleRepository articleRepository;
 	@Override
-	public List<Article> save(Iterable<Article> entities) {
-		return this.articleRepository.save(entities);
+	public List<Article> saveAll(Iterable<Article> entities) {
+		return this.articleRepository.saveAll(entities);
 	}
 
 	@Override
