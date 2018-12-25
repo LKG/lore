@@ -16,6 +16,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.util.WebUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -59,10 +60,7 @@ public abstract  class AbstractController {
      * @param para
      */
     protected void setSessionPara(HttpServletRequest request, String paraName, Object para) {
-        HttpSession session = request.getSession(false);
-        if (session != null) {
-            session.setAttribute(paraName, para);
-        }
+        WebUtils.setSessionAttribute(request,paraName,para);
     }
     /**
      *
@@ -72,14 +70,7 @@ public abstract  class AbstractController {
      * @return
      */
     protected Object getSessionPara(HttpServletRequest request, String paraName) {
-        HttpSession session = request.getSession(false);
-        if (session != null) {
-            Object para = session.getAttribute(paraName);
-            if (para != null) {
-                return para;
-            }
-        }
-        return null;
+        return WebUtils.getSessionAttribute(request,paraName);
     }
     /**
      *
