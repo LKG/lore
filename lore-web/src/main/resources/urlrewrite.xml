@@ -9,12 +9,6 @@
         <to type="forward">/$1.jhtml?param=$2</to>
     </rule>
     <rule>
-        <!--拦截页面以/_开头的数据,作为转发给前端使用-->
-        <from>/11111.jhtml</from>
-        <!-- to: 真实的URL -->
-        <to type="forward">/index.jhtml</to>
-    </rule>
-    <rule>
         <from>^/aboutus.jhtml?(.*)$</from>
         <to>/index/aboutus.jhtml</to>
     </rule>

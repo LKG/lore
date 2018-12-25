@@ -52,10 +52,7 @@
 				   <u style="display: none;" class="helpDelimiterInfo">
 				   <b class="arrow"><b class="arrow-one">◆</b>
 				   <b class="arrow-two">◆</b></b>
-				   <p>订单号：${result.orderId}</p>
-				   <p>商品名称：${result.order}</p>
-				   <p>商品描述：为18668169331交费100元</p>
-				   <p>应付金额：￥98.5</p> </u>
+
 			   </span>
 
                 <div class="clearfix"></div>
