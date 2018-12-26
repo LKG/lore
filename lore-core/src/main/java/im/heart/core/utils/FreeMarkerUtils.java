@@ -5,6 +5,7 @@ import freemarker.template.Template;
 import org.apache.commons.io.IOUtils;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
+import org.springframework.util.ResourceUtils;
 
 import java.io.*;
 import java.util.Locale;
@@ -64,8 +65,8 @@ public class FreeMarkerUtils {
 
 	public static Configuration buildConfiguration(String directory)
 			throws IOException {
-		Resource path = new DefaultResourceLoader().getResource(directory);
-		configuration.setDirectoryForTemplateLoading(path.getFile());
+		File file= ResourceUtils.getFile(directory);
+		configuration.setDirectoryForTemplateLoading(file);
 		return configuration;
 	}
 

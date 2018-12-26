@@ -20,7 +20,8 @@ public enum WebError {
     REQUEST_PARAMETER_MISSING("request_parameter_missing", "21101","缺少请求参数,或者参数错误"),
     REQUEST_PARAMETER_EXIT("request_parameter_exit", "21102","重复操作"),
     REQUEST_EXCEPTION("request_exception", "21103","处理请求异常"),
-    REQUEST_AUTH_VERIFY("request_auth_verify ", "20031","需要验证码"),
+    REQUEST_AUTH_VERIFY("request_auth_verify", "21104","需要验证码"),
+    REQUEST_VERIFY_EXCEPTION("request_verify_exception", "21105","验证发送异常"),
     /**普通登录认证错误*/
     AUTH_ACCOUNT_UNKNOWN("auth_account_unknown", "20101","账号不存在"),
     AUTH_CREDENTIALS_INCORRECT("auth_credentials_incorrect", "20102","登录密码错误"),
