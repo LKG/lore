@@ -62,7 +62,7 @@ define(function (require, exports, moudles) {
 				clearInterval(interval);
 			}
 		},1000);
-		$.get(baseRoot+"/validate/passmobliecode.json",{moblie:userPhone},function(json){
+		$.get(baseRoot+"/validate/passMobileCode.json",{mobile:userPhone},function(json){
 			var content="验证码发送成功";
 			 if(!json.success){
 				 content=json.result.error_description;

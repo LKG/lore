@@ -40,7 +40,7 @@ define(function (require, exports, moudles) {
 				clearInterval(interval);
 			}
 		},1000);
-		$.get(baseRoot+"/findPwd/passmobliecode.json",{k:key},function(json){
+		$.get(baseRoot+"/findPwd/passMobileCode.json",{k:key},function(json){
 			var content="验证码发送成功";
 			 if(!json.success){
 				 content=json.result.error_description;
@@ -85,7 +85,7 @@ define(function (require, exports, moudles) {
 				 maxlength: 5,
 				 minlength: 5,
 				 remote: {
-					 url: baseRoot+"/findPwd/checkMobliecode.json",
+					 url: baseRoot+"/findPwd/checkMobileCode.json",
                     type: "get",               //数据发送方式
                     dataType: "json",
                     data: {

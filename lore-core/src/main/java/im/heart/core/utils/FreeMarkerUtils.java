@@ -65,8 +65,8 @@ public class FreeMarkerUtils {
 
 	public static Configuration buildConfiguration(String directory)
 			throws IOException {
-		File file= ResourceUtils.getFile(directory);
-		configuration.setDirectoryForTemplateLoading(file);
+		Resource path = new DefaultResourceLoader().getResource(directory);
+		configuration.setDirectoryForTemplateLoading(path.getFile());
 		return configuration;
 	}
 

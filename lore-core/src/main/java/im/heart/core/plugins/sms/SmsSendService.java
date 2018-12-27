@@ -26,9 +26,9 @@ public interface SmsSendService {
 	 * @Desc：根据手机短信模板返送短信
 	 * @param model
 	 * @param templatePath
-	 * @param moblieTo
+	 * @param mobileTo
 	 * @return
 	 */
-	public ResponseError sendSms(Map<String, Object> model, String templatePath, String[] moblieTo);
+	public ResponseError sendSms(Map<String, Object> model, String templatePath, String[] mobileTo);
 	
 }

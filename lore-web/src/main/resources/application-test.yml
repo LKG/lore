@@ -5,11 +5,11 @@ logging:
   path: /var/www/logs
   config: classpath:logback-spring.xml
 spring:
-#  redis:
-#    host: 127.0.0.1
-#    database: 0
-#    port: 6379
-#    password:
+  redis:
+    host: ss.itaobao.pub
+    database: 0
+    port: 6379
+    password:
   output:
     ansi:
       enabled: DETECT
@@ -66,23 +66,23 @@ spring:
      hibernate:
        dialect: org.hibernate.dialect.MySQL5Dialect
        enable_lazy_load_no_trans: true
-  data:
-    elasticsearch:
-      cluster-name: elasticsearch #节点名字，默认elasticsearch
-      cluster-nodes: 127.0.0.1:9200 #节点地址，多个节点用逗号隔开
-      local: false
-      repositories:
-        enable: true
-      properties:
-        path:
-          logs: /var/log/elasticsearch #elasticsearch日志存储目录
-          data: /var/elasticsearch/data #elasticsearch数据存储目录
-jodconverter:
-  local:
-    enabled: true
-    office-home: ${pom.office.home} # 设置LibreOffice主目录
-    portNumbers: 8100,8101,8102 # 开启多个LibreOffice进程，每个端口对应一个进程
-    maxTasksPerProcess: 50 # LibreOffice进程重启前的最大进程数
+#  data:
+#    elasticsearch:
+#      cluster-name: elasticsearch #节点名字，默认elasticsearch
+#      cluster-nodes: 127.0.0.1:9200 #节点地址，多个节点用逗号隔开
+#      local: false
+#      repositories:
+#        enable: true
+#      properties:
+#        path:
+#          logs: /var/log/elasticsearch #elasticsearch日志存储目录
+#          data: /var/elasticsearch/data #elasticsearch数据存储目录
+#jodconverter:
+#  local:
+#    enabled: true
+#    office-home: ${pom.office.home} # 设置LibreOffice主目录
+#    portNumbers: 8100,8101,8102 # 开启多个LibreOffice进程，每个端口对应一个进程
+#    maxTasksPerProcess: 50 # LibreOffice进程重启前的最大进程数
 wechat:
    open:
      appId:

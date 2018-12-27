@@ -151,17 +151,17 @@ public class ValidateController extends AbstractController {
 	 * @param response
 	 * @param model
 	 */
-	@RequestMapping(value = "/passmobliecode")
-	public ModelAndView passmobliecode(HttpServletRequest request,
+	@RequestMapping(value = "/passMobileCode")
+	public ModelAndView passMobileCode(HttpServletRequest request,
                                        HttpServletResponse response,
-                                       @RequestParam(value = "moblie", required = false ) String moblie,
+                                       @RequestParam(value = "mobile", required = false ) String mobile,
                                        @RequestParam(value = "type", required = false,defaultValue="1") String type, ModelMap model) {
 		int mobileCode = (int)((Math.random()*9+1)*10000);
 		Map<String,Object> modeltemp = Maps.newHashMap();
 		modeltemp.put("mobileCode", mobileCode);
-		logger.info("mobileCode:[{}],moblie:[{}], type:[{}],mobliecode-host:[{}]", BaseUtils.getIpAddr(request),moblie,mobileCode,type);
-		CacheUtils.generateMobileCache(moblie, mobileCode);
-		ResponseError responseError=this.smsSendService.sendSms(modeltemp, "register.ftl", new String[]{moblie});
+		logger.info("mobileCode:[{}],mobile:[{}], type:[{}],mobilecode-host:[{}]", BaseUtils.getIpAddr(request),mobile,mobileCode,type);
+		CacheUtils.generateMobileCache(mobile, mobileCode);
+		ResponseError responseError=this.smsSendService.sendSms(modeltemp, "register.ftl", new String[]{mobile});
 		if(responseError==null){
 			this.success(model);
 			return new ModelAndView(RESULT_PAGE);
@@ -174,20 +174,20 @@ public class ValidateController extends AbstractController {
 	 * @Desc：验证码校验接口
 	 * @param request
 	 * @param response
-	 * @param moblie
+	 * @param mobile
 	 * @param phoneCode
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/checkMobliecode")
-	public ModelAndView ValidateMobliecode(HttpServletRequest request,
+	@RequestMapping(value = "/checkMobileCode")
+	public ModelAndView ValidateMobileCode(HttpServletRequest request,
                                            HttpServletResponse response,
-                                           @RequestParam(value = "userPhone", required = false ) String moblie,
+                                           @RequestParam(value = "userPhone", required = false ) String userPhone,
                                            @RequestParam(value = "phoneCode", required = false) String phoneCode,
                                            ModelMap model){
 		logger.debug("passcode-host:"+request.getLocalAddr());
 		Boolean isResponseCorrect = Boolean.FALSE;
-		isResponseCorrect=CacheUtils.checkMobileCode(moblie, phoneCode);
+		isResponseCorrect=CacheUtils.checkMobileCode(userPhone, phoneCode);
 		if(isResponseCorrect){
 			super.success(model);
 			return new ModelAndView(RESULT_PAGE);

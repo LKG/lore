@@ -63,6 +63,14 @@ public abstract  class AbstractController {
         WebUtils.setSessionAttribute(request,paraName,para);
     }
     /**
+     * 移除session
+     * @param request
+     * @param paraName
+     */
+    protected void removeAttribute(HttpServletRequest request, String paraName) {
+        WebUtils.setSessionAttribute(request,paraName,null);
+    }
+    /**
      *
      * 根据参数名获取SESSION 对应值
      * @param request

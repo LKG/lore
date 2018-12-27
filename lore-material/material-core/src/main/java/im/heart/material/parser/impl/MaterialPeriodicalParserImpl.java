@@ -39,7 +39,7 @@ import java.util.List;
 public class MaterialPeriodicalParserImpl implements MaterialPeriodicalParser {
     protected static final Logger logger = LoggerFactory.getLogger(MaterialPeriodicalParserImpl.class);
     protected static final String  FILE_ROOT_PATH= CommonConst.STATIC_UPLOAD_ROOT;
-    @Resource
+//    @Resource
     private DocumentConverter documentConverter;
     @Autowired
     private MaterialPeriodicalService materialPeriodicalService;
@@ -53,13 +53,13 @@ public class MaterialPeriodicalParserImpl implements MaterialPeriodicalParser {
         String realfilePath=periodical.getRealFilePath();
         File targetFile=new File(realfilePath+".pdf");
         DocumentFormat documentFormat= DefaultDocumentFormatRegistry.getInstance().getFormatByExtension(suffixes);
-        try {
-            this.documentConverter.convert(is,true).as(documentFormat).to(targetFile).as(DefaultDocumentFormatRegistry.PDF).execute();
-            Integer pageNum=this.pdf2Image(targetFile, "",10,periodical);
-        } catch (OfficeException e) {
-            e.printStackTrace();
-        } finally {
-        }
+//        try {
+//            this.documentConverter.convert(is,true).as(documentFormat).to(targetFile).as(DefaultDocumentFormatRegistry.PDF).execute();
+//            Integer pageNum=this.pdf2Image(targetFile, "",10,periodical);
+//        } catch (OfficeException e) {
+//            e.printStackTrace();
+//        } finally {
+//        }
     }
 
     @Async
