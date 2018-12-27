@@ -180,7 +180,7 @@ public class ValidateController extends AbstractController {
 	 * @return
 	 */
 	@RequestMapping(value = "/checkMobileCode")
-	public ModelAndView ValidateMobileCode(HttpServletRequest request,
+	public ModelAndView checkMobileCode(HttpServletRequest request,
                                            HttpServletResponse response,
                                            @RequestParam(value = "userPhone", required = false ) String userPhone,
                                            @RequestParam(value = "phoneCode", required = false) String phoneCode,
@@ -205,7 +205,7 @@ public class ValidateController extends AbstractController {
 	 * @return
 	 */
 	@RequestMapping(value = "/checkRandCode")
-	public ModelAndView ValidateCaptchaImage(HttpServletRequest request,
+	public ModelAndView checkRandCode(HttpServletRequest request,
                                              HttpServletResponse response,
                                              @RequestParam(value = "validateCode", required = false) String captchaValue,
                                              ModelMap model){
