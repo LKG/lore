@@ -75,6 +75,7 @@ public class CommonConst {
          */
         public static final String CURRENT_URL = "current_url";
         public static final String SUCCESS = "success";
+        public static final String REQUEST_URL = "requestUrl";
         public static final String START_TIME = "startTime";
         public static final String EXECUTE_TIME = "executeTime";
         /**

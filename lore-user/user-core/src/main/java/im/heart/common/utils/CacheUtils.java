@@ -134,7 +134,7 @@ public  class CacheUtils {
 	 * @return
 	 */
 	public static boolean checkMobileCode(String userPhone,String phoneCode){
-		logger.debug("moblie:[{}] mobileCode:[{}]",userPhone,phoneCode);
+		logger.debug("mobile:[{}] mobileCode:[{}]",userPhone,phoneCode);
 		if (StringUtilsEx.isNotBlank(phoneCode)&& StringUtilsEx.isNotBlank(userPhone)&& ValidatorUtils.isPhone(userPhone)){
 			return checkWrapper(CacheConfig.MOBILE_CODE.keyPrefix,userPhone,phoneCode);
 		}

@@ -5,6 +5,7 @@ import freemarker.template.Template;
 import org.apache.commons.io.IOUtils;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
+import org.springframework.util.ResourceUtils;
 
 import java.io.*;
 import java.util.Locale;

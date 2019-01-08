@@ -59,7 +59,7 @@ public class CommonServiceImpl<T, ID extends Serializable> implements 	CommonSer
 	}
 
 	@Override
-	public void delete(Iterable<? extends T> entities) {
+	public void deleteAll(Iterable<? extends T> entities) {
 		this.jpaRepository.deleteAll(entities);
 	}
 

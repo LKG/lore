@@ -37,5 +37,5 @@ public interface CrudService<T, ID>  extends BaseService<T, ID> {
 	 *  批量删除
 	 * @param entities
 	 */
-	public void delete(Iterable<? extends T> entities);
+	public void deleteAll(Iterable<? extends T> entities);
 }

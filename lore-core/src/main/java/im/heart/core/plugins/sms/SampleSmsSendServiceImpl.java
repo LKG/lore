@@ -34,7 +34,7 @@ public class SampleSmsSendServiceImpl implements SmsSendService {
 	@Override
 	@Async
 	public ResponseError sendSms(Map<String, Object> model, String templatePath,
-                                 String[] moblieTo) {
+                                 String[] mobileTo) {
 		logger.info("模拟发送短信啦................................");
 		return null;
 	}

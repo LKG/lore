@@ -364,9 +364,9 @@ public class FindPwdController extends AbstractController {
 				this.sendFindPwdEmail(user);
 				return new ModelAndView("redirect:"+apiVer+"/sendEmailSuccess."+format+"?k="+key);
 			}
-			String moblie=user.getUserPhone();
+			String mobile=user.getUserPhone();
 			Boolean isResponseCorrect = Boolean.FALSE;
-			isResponseCorrect=CacheUtils.checkMobileCode(moblie, phoneCode);
+			isResponseCorrect=CacheUtils.checkMobileCode(mobile, phoneCode);
 			if(isResponseCorrect){
 				return new ModelAndView("redirect:"+apiVer+"/checkPhoneSuccess."+format+"?k="+key);
 			}
@@ -383,7 +383,7 @@ public class FindPwdController extends AbstractController {
 	 */
 	private void sendFindPwdEmail(FrameUser user){
 		int emailCode = (int) ((Math.random() * 9 + 1) * 100000);
-		Map<String, Object> modeltemp = new HashMap<String, Object>();// 定义邮件模版
+		Map<String, Object> modeltemp = Maps.newHashMap();
 		String userEmail=user.getUserEmail();
 		CacheUtils.generatEmailCodeCache(userEmail,emailCode);
 		modeltemp.put("emailCode", emailCode);
@@ -403,8 +403,8 @@ public class FindPwdController extends AbstractController {
      * @param model
      * @return
      */
-	@RequestMapping(value = apiVer + "/checkMobliecode")
-	public ModelAndView ValidateMobliecode(HttpServletRequest request,
+	@RequestMapping(value = apiVer + "/checkMobileCode")
+	public ModelAndView checkMobileCode(HttpServletRequest request,
                                            HttpServletResponse response,
                                            @RequestParam(value = "k", required = false ) String key,
                                            @RequestParam(value = "phoneCode", required = false) String phoneCode,
@@ -418,9 +418,9 @@ public class FindPwdController extends AbstractController {
 		Object obj= CacheUtils.getCacheObject(CacheUtils.CacheConfig.FIND_PWD.keyPrefix, key);
 		if(obj!=null&&obj instanceof FrameUser){
 			FrameUser user =(FrameUser)obj;
-			String moblie=user.getUserPhone();
+			String mobile=user.getUserPhone();
 			Boolean isResponseCorrect = Boolean.FALSE;
-			isResponseCorrect=CacheUtils.checkMobileCode(moblie, phoneCode);
+			isResponseCorrect=CacheUtils.checkMobileCode(mobile, phoneCode);
 			if(isResponseCorrect){
 				super.success(model);
 				return new ModelAndView(RESULT_PAGE);
@@ -437,7 +437,7 @@ public class FindPwdController extends AbstractController {
 	 * @param response
 	 * @param model
 	 */
-	@RequestMapping(value = apiVer + "/passmobliecode")
+	@RequestMapping(value = apiVer + "/passMobileCode")
 	public ModelAndView sendFindPwdPhone(HttpServletRequest request,
                                          HttpServletResponse response,
                                          @RequestParam(value = "k", required = false ) String key,
@@ -451,12 +451,12 @@ public class FindPwdController extends AbstractController {
 		if(obj!=null&&obj instanceof FrameUser){
 			FrameUser user =(FrameUser)obj;
 			int mobileCode = (int)((Math.random()*9+1)*10000);
-			Map<String,Object> modeltemp = Maps.newHashMap();
-			modeltemp.put("mobileCode", mobileCode);
+			Map<String,Object> modelTemp = Maps.newHashMap();
+			modelTemp.put("mobileCode", mobileCode);
 			String mobile=user.getUserPhone();
-			logger.info("mobliecode-host:[{}],moblie:[{}] mobileCode:[{}] type:[{}]", BaseUtils.getIpAddr(request),mobile,mobileCode,type);
+			logger.info("mobilecode-host:[{}],mobile:[{}] mobileCode:[{}] type:[{}]", BaseUtils.getIpAddr(request),mobile,mobileCode,type);
 			CacheUtils.generateMobileCache(mobile, mobileCode);
-			responseError=this.smsSendService.sendSms(modeltemp, "findPwd.ftl", new String[]{mobile});
+			responseError=this.smsSendService.sendSms(modelTemp, "findPwd.ftl", new String[]{mobile});
 			if(responseError==null){
 				this.success(model);
 			}else{
