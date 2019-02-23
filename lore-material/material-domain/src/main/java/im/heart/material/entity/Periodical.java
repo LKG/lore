@@ -25,11 +25,11 @@ import java.util.Date;
  * 材料上传记录表
  */
 @Entity()
-@Table(name = "material_periodical")
+@Table(name = "media_periodical")
 @DynamicUpdate()
 @DynamicInsert()
 @Data
-public class MaterialPeriodical implements AbstractEntity<BigInteger> {
+public class Periodical implements AbstractEntity<BigInteger> {
 	
 	public enum PeriodicalType {
 		sharing(1, "sharing", "共享文档");
@@ -134,8 +134,8 @@ public class MaterialPeriodical implements AbstractEntity<BigInteger> {
 
 	/** 页面描述 . */
 	@Length(max = 200)
-	@Column(name = "SEO_DESCRIPTION", nullable = false)
-	private String seoDescription="";
+	@Column(name = "SEO_DESC", nullable = false)
+	private String seoDesc="";
 
 	@Column(name = "CONTENT", nullable = false)
 	private String content;

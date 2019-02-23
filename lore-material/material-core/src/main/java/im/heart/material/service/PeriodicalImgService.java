@@ -7,7 +7,7 @@ import java.math.BigInteger;
 import java.util.Collection;
 import java.util.List;
 
-import im.heart.material.entity.MaterialPeriodicalImg;
+import im.heart.material.entity.PeriodicalImg;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -16,15 +16,15 @@ import org.springframework.data.domain.Pageable;
  * @author gg
  * 材料表期刊扫描件对外Service 接口
  */
-public interface MaterialPeriodicalImgService extends CommonService<MaterialPeriodicalImg, BigInteger>{
-	public static final String BEAN_NAME = "materialPeriodicalImg";
+public interface PeriodicalImgService extends CommonService<PeriodicalImg, BigInteger>{
+	public static final String BEAN_NAME = "periodicalImgService";
 	/**
 	 *
 	 *批量保存
 	 * @param entities
 	 * @return
 	 */
-	public List<MaterialPeriodicalImg>  saveAll(Iterable<MaterialPeriodicalImg> entities);
+	public List<PeriodicalImg>  saveAll(Iterable<PeriodicalImg> entities);
 
 	
 	/**
@@ -42,10 +42,10 @@ public interface MaterialPeriodicalImgService extends CommonService<MaterialPeri
 	 * @param periodicalCode
 	 * @return
 	 */
-	public List<MaterialPeriodicalImg> findByCityIdAndperiodicalCode(String cityId, String periodicalCode);
+	public List<PeriodicalImg> findByCityIdAndperiodicalCode(String cityId, String periodicalCode);
 	
 	
 	public  void updateStatusByPeriodicalId(BigInteger periodicalId, Status status);
-	public Page<MaterialPeriodicalImg> findSearchFilters(Collection<SearchFilter> filters, Pageable pageable);
+	public Page<PeriodicalImg> findSearchFilters(Collection<SearchFilter> filters, Pageable pageable);
 	
 }

@@ -15,11 +15,11 @@ import java.math.BigInteger;
 import java.util.Date;
 
 @Entity()
-@Table(name = "material_periodical_img")
+@Table(name = "media_periodical_img")
 @DynamicUpdate()
 @DynamicInsert()
 @Data
-public class MaterialPeriodicalImg  implements AbstractEntity<BigInteger> {
+public class PeriodicalImg  implements AbstractEntity<BigInteger> {
 
 	/**
 	 * 

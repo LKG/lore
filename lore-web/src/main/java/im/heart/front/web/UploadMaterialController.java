@@ -6,9 +6,9 @@ import im.heart.core.utils.StringUtilsEx;
 import im.heart.core.web.AbstractController;
 import im.heart.core.web.ResponseError;
 import im.heart.core.web.enums.WebError;
-import im.heart.material.entity.MaterialPeriodical;
-import im.heart.material.parser.MaterialPeriodicalParser;
-import im.heart.material.service.MaterialPeriodicalService;
+import im.heart.material.entity.Periodical;
+import im.heart.material.parser.PeriodicalParser;
+import im.heart.material.service.PeriodicalService;
 import im.heart.security.utils.SecurityUtilsHelper;
 import im.heart.usercore.vo.FrameUserVO;
 import org.apache.commons.lang3.StringUtils;
@@ -44,10 +44,10 @@ public class UploadMaterialController extends AbstractController {
     private String uploadFilePath="";
 
     @Autowired
-    private MaterialPeriodicalService materialPeriodicalService;
+    private PeriodicalService periodicalService;
 
     @Autowired
-    private MaterialPeriodicalParser materialPeriodicalParser;
+    private PeriodicalParser periodicalParser;
 
     /**
      *
@@ -63,7 +63,7 @@ public class UploadMaterialController extends AbstractController {
     }
 
     @RequestMapping(apiVer + "/material")
-    public ModelAndView importBathMaterialImg(HttpServletRequest request,
+    public ModelAndView importBathImg(HttpServletRequest request,
             @RequestParam(value = "jsoncallback", required = false) String jsoncallback,
             @RequestParam(value = "periodicalCode", required = false) String periodicalCode,
             @RequestParam(value = "categoryId", required = false) BigInteger categoryId,
@@ -89,11 +89,11 @@ public class UploadMaterialController extends AbstractController {
                     if (StringUtilsEx.isBlank(filename)) {
                         filename = file.getOriginalFilename();
                     }
-                    MaterialPeriodical periodical = new MaterialPeriodical();
+                    Periodical periodical = new Periodical();
                     periodical.setRealFilePath(realPath+realFileName);
                     String suffixes = StringUtils.substringAfterLast(realFileName, ".");
                     periodical.setFileHeader(suffixes);
-                    periodical.setPeriodicalType(MaterialPeriodical.PeriodicalType.sharing.code);
+                    periodical.setPeriodicalType(Periodical.PeriodicalType.sharing.code);
                     periodical.setAuthor(user.getNickName());
                     periodical.setUserId(user.getUserId());
                     periodical.setCategoryId(categoryId);
@@ -110,8 +110,8 @@ public class UploadMaterialController extends AbstractController {
                     String url = StringUtilsEx.replace(path + realFileName, File.separator, "/");
                     String pathUrl="/"+FILE_ROOT_PATH+"/"+url;
                     periodical.setPathUrl(pathUrl);
-                    this.materialPeriodicalService.save(periodical);
-                    this.materialPeriodicalParser.addParserTask(periodical,file.getInputStream());
+                    this.periodicalService.save(periodical);
+                    this.periodicalParser.addParserTask(periodical,file.getInputStream());
                     super.success(model, "url", pathUrl);
                 } catch (Exception e) {
                     logger.error(e.getStackTrace()[0].getMethodName(), e);

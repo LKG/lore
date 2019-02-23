@@ -6,10 +6,10 @@ import im.heart.core.enums.Status;
 import im.heart.core.plugins.persistence.DynamicPageRequest;
 import im.heart.core.plugins.persistence.DynamicSpecifications;
 import im.heart.core.web.AbstractController;
-import im.heart.material.entity.MaterialPeriodical;
-import im.heart.material.service.MaterialPeriodicalImgService;
-import im.heart.material.service.MaterialPeriodicalService;
-import im.heart.material.vo.MaterialPeriodicalVO;
+import im.heart.material.entity.Periodical;
+import im.heart.material.service.PeriodicalImgService;
+import im.heart.material.service.PeriodicalService;
+import im.heart.material.vo.PeriodicalVO;
 import im.heart.security.utils.SecurityUtilsHelper;
 import im.heart.usercore.entity.FrameUserFollow;
 import im.heart.usercore.service.FrameUserFollowService;
@@ -37,16 +37,12 @@ public class DocController extends AbstractController {
     protected static final String apiVer = "/doc";
     protected static final String VIEW_LIST="front/doc/doc_list";
     protected static final String VIEW_DETAILS="front/doc/doc_details";
-    protected static final String VIEW_CREATE="front/doc/doc_create";
 
     @Autowired
-    private MaterialPeriodicalService materialPeriodicalService;
+    private PeriodicalService materialPeriodicalService;
 
     @Autowired
     private FrameUserFollowService frameUserFollowService;
-
-    @Autowired
-    private MaterialPeriodicalImgService materialPeriodicalImgService;
 
     @RequestMapping(value = apiVer+"/{id}")
     protected ModelAndView findById(
@@ -55,8 +51,8 @@ public class DocController extends AbstractController {
             @RequestParam(value = "access_token", required = false) String token,
             HttpServletRequest request,
             ModelMap model) {
-        MaterialPeriodical po = this.materialPeriodicalService.findById(id);
-        MaterialPeriodicalVO vo=new MaterialPeriodicalVO(po);
+        Periodical po = this.materialPeriodicalService.findById(id);
+        PeriodicalVO vo=new PeriodicalVO(po);
         super.success(model, vo);
         return new ModelAndView(VIEW_DETAILS);
     }
@@ -69,15 +65,15 @@ public class DocController extends AbstractController {
                              @RequestParam(value = "order", required = false,defaultValue = CommonConst.Page.DEFAULT_ORDER) String order,
                              @RequestParam(value = "access_token", required = false) String token,
                              ModelMap model) {
-        Specification<MaterialPeriodical> spec= DynamicSpecifications.bySearchFilter(request, MaterialPeriodical.class);
-        PageRequest pageRequest= DynamicPageRequest.buildPageRequest(page,size,sort,order,MaterialPeriodical.class);
-        Page<MaterialPeriodical> pag = this.materialPeriodicalService.findAll(spec, pageRequest);
+        Specification<Periodical> spec= DynamicSpecifications.bySearchFilter(request, Periodical.class);
+        PageRequest pageRequest= DynamicPageRequest.buildPageRequest(page,size,sort,order,Periodical.class);
+        Page<Periodical> pag = this.materialPeriodicalService.findAll(spec, pageRequest);
         if(pag!=null&&pag.hasContent()){
-            List<MaterialPeriodicalVO> vos = Lists.newArrayList();
-            for(MaterialPeriodical po:pag.getContent()){
-                vos.add(new MaterialPeriodicalVO(po));
+            List<PeriodicalVO> vos = Lists.newArrayList();
+            for(Periodical po:pag.getContent()){
+                vos.add(new PeriodicalVO(po));
             }
-            Page<MaterialPeriodicalVO> docVos  =new PageImpl<MaterialPeriodicalVO>(vos,pageRequest,pag.getTotalElements());
+            Page<PeriodicalVO> docVos  =new PageImpl<PeriodicalVO>(vos,pageRequest,pag.getTotalElements());
             super.success(model,docVos);
             return new ModelAndView(VIEW_LIST);
         }
@@ -92,7 +88,7 @@ public class DocController extends AbstractController {
             @RequestParam(value = "access_token", required = false) String token,
             HttpServletRequest request,
             ModelMap model) {
-//        MaterialPeriodical po = this.materialPeriodicalService.findOne(id);
+//        Periodical po = this.materialPeriodicalService.findOne(id);
 //        super.success(model, po);
         return new ModelAndView(VIEW_DETAILS);
     }
@@ -105,7 +101,7 @@ public class DocController extends AbstractController {
             HttpServletRequest request,
             ModelMap model) {
         BigInteger userId= SecurityUtilsHelper.getCurrentUser().getUserId();
-        MaterialPeriodical materialPeriodical=this.materialPeriodicalService.findById(id);
+        Periodical materialPeriodical=this.materialPeriodicalService.findById(id);
         Optional<FrameUserFollow> optional= this.frameUserFollowService.findByUserIdAndRelateId(userId,id);
         if(!optional.isPresent()){
             FrameUserFollow userFollow=new FrameUserFollow();

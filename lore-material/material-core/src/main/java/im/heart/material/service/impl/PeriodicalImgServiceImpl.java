@@ -6,9 +6,9 @@ import im.heart.core.plugins.persistence.DynamicSpecifications;
 import im.heart.core.plugins.persistence.SearchFilter;
 import im.heart.core.plugins.persistence.SearchFilter.Operator;
 import im.heart.core.service.impl.CommonServiceImpl;
-import im.heart.material.entity.MaterialPeriodicalImg;
-import im.heart.material.repository.MaterialPeriodicalImgRepository;
-import im.heart.material.service.MaterialPeriodicalImgService;
+import im.heart.material.entity.PeriodicalImg;
+import im.heart.material.repository.PeriodicalImgRepository;
+import im.heart.material.service.PeriodicalImgService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,16 +21,16 @@ import java.math.BigInteger;
 import java.util.Collection;
 import java.util.List;
 
-@Service(value = MaterialPeriodicalImgService.BEAN_NAME)
+@Service(value = PeriodicalImgService.BEAN_NAME)
 @Transactional(propagation = Propagation.SUPPORTS,rollbackFor = Exception.class)
-public class MaterialPeriodicalImgServiceImpl  extends CommonServiceImpl<MaterialPeriodicalImg, BigInteger> implements MaterialPeriodicalImgService {
+public class PeriodicalImgServiceImpl  extends CommonServiceImpl<PeriodicalImg, BigInteger> implements PeriodicalImgService {
 
 	@Autowired
-	private MaterialPeriodicalImgRepository materialPeriodicalImgRepository;
+	private PeriodicalImgRepository periodicalImgRepository;
 
 	@Override
-	public List<MaterialPeriodicalImg> saveAll(Iterable<MaterialPeriodicalImg> entities) {
-		return this.materialPeriodicalImgRepository.saveAll(entities);
+	public List<PeriodicalImg> saveAll(Iterable<PeriodicalImg> entities) {
+		return this.periodicalImgRepository.saveAll(entities);
 	}
 
 	@Override
@@ -39,35 +39,35 @@ public class MaterialPeriodicalImgServiceImpl  extends CommonServiceImpl<Materia
 		filters.add(new SearchFilter("pageNum", Operator.EQ, pageNum));
 		filters.add(new SearchFilter("cityId", Operator.EQ, cityId));
 		filters.add(new SearchFilter("periodicalCode", Operator.EQ, periodicalCode));
-		Specification<MaterialPeriodicalImg> spec = DynamicSpecifications.bySearchFilter(filters, MaterialPeriodicalImg.class);
-		long countSign = this.materialPeriodicalImgRepository.count(spec);
+		Specification<PeriodicalImg> spec = DynamicSpecifications.bySearchFilter(filters, PeriodicalImg.class);
+		long countSign = this.periodicalImgRepository.count(spec);
 		return countSign <= 0;
 	}
 
 	@Override
-	public List<MaterialPeriodicalImg> findByCityIdAndperiodicalCode(
+	public List<PeriodicalImg> findByCityIdAndperiodicalCode(
 			String cityId, String periodicalCode) {
 		final Collection<SearchFilter> filters = Sets.newHashSet();
 		filters.add(new SearchFilter("cityId", Operator.EQ, cityId));
 		filters.add(new SearchFilter("periodicalCode", Operator.EQ, periodicalCode));
-		Specification<MaterialPeriodicalImg> spec = DynamicSpecifications.bySearchFilter(filters, MaterialPeriodicalImg.class);
-		return this.materialPeriodicalImgRepository.findAll(spec);
+		Specification<PeriodicalImg> spec = DynamicSpecifications.bySearchFilter(filters, PeriodicalImg.class);
+		return this.periodicalImgRepository.findAll(spec);
 	}
 
 	@Override
 	public void updateStatusByPeriodicalId(BigInteger periodicalId,
 			Status status) {
-		this.materialPeriodicalImgRepository.updateStatusByPeriodicalId(periodicalId,status);
+		this.periodicalImgRepository.updateStatusByPeriodicalId(periodicalId,status);
 	}
 
 	@Override
-	public Page<MaterialPeriodicalImg> findSearchFilters(
+	public Page<PeriodicalImg> findSearchFilters(
 			Collection<SearchFilter> filters, Pageable pageable) {
 		if(filters==null||filters.isEmpty()){
 			return null;
 		}
-		Specification<MaterialPeriodicalImg> spec = DynamicSpecifications.bySearchFilter(filters, MaterialPeriodicalImg.class);
-		return this.materialPeriodicalImgRepository.findAll(spec,pageable);
+		Specification<PeriodicalImg> spec = DynamicSpecifications.bySearchFilter(filters, PeriodicalImg.class);
+		return this.periodicalImgRepository.findAll(spec,pageable);
 
 	}
 }

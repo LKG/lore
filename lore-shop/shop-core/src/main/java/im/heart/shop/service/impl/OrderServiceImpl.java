@@ -3,8 +3,8 @@ package im.heart.shop.service.impl;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import im.heart.core.service.impl.CommonServiceImpl;
-import im.heart.material.entity.MaterialPeriodical;
-import im.heart.material.service.MaterialPeriodicalService;
+import im.heart.material.entity.Periodical;
+import im.heart.material.service.PeriodicalService;
 import im.heart.shop.dto.OrderDto;
 import im.heart.shop.dto.OrderItemDto;
 import im.heart.shop.entity.Order;
@@ -30,7 +30,7 @@ public class OrderServiceImpl extends CommonServiceImpl<Order, BigInteger> imple
 	@Autowired
 	private OrderRepository orderRepository;
 	@Autowired
-	private MaterialPeriodicalService materialPeriodicalService;
+	private PeriodicalService periodicalService;
 	@Autowired
 	private OrderItemRepository orderItemRepository;
 
@@ -48,9 +48,9 @@ public class OrderServiceImpl extends CommonServiceImpl<Order, BigInteger> imple
         order.setItems(null);
         this.orderRepository.save(order);
         BigInteger orderId=order.getOrderId();
-        List<MaterialPeriodical> list= this.materialPeriodicalService.findAllById(itemDtos.keySet());
+        List<Periodical> list= this.periodicalService.findAllById(itemDtos.keySet());
         List<OrderItem> orderItems= Lists.newArrayList();
-        for(MaterialPeriodical prod:list){
+        for(Periodical prod:list){
             OrderItem orderItem=new OrderItem();
             orderItem.setProdId(prod.getId());
             orderItem.setOrderId(orderId);

@@ -5,8 +5,8 @@ import im.heart.core.CommonConst.RequestResult;
 import im.heart.core.plugins.persistence.DynamicPageRequest;
 import im.heart.core.plugins.persistence.DynamicSpecifications;
 import im.heart.core.web.AbstractController;
-import im.heart.material.entity.MaterialCategory;
-import im.heart.material.service.MaterialCategoryService;
+import im.heart.material.entity.PeriodicalCategory;
+import im.heart.material.service.PeriodicalCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -28,7 +28,7 @@ import java.math.BigInteger;
 public class PeriodicalCategoryController extends AbstractController {
 	protected static final String apiVer = "/periodical/category";
 	@Autowired
-	private MaterialCategoryService materialCategoryService;
+	private PeriodicalCategoryService periodicalCategoryService;
 
 	/**
 	 * 
@@ -53,9 +53,9 @@ public class PeriodicalCategoryController extends AbstractController {
                              @RequestParam(value = "order", required = false,defaultValue = CommonConst.Page.DEFAULT_ORDER) String order,
                              @RequestParam(value = RequestResult.ACCESS_TOKEN, required = false) String token,
                              ModelMap model) {
-		Specification<MaterialCategory> spec= DynamicSpecifications.bySearchFilter(request, MaterialCategory.class);
-		PageRequest pageRequest= DynamicPageRequest.buildPageRequest(page,size,sort,order,MaterialCategory.class);
-		Page<MaterialCategory> pag = this.materialCategoryService.findAll(spec, pageRequest);
+		Specification<PeriodicalCategory> spec= DynamicSpecifications.bySearchFilter(request, PeriodicalCategory.class);
+		PageRequest pageRequest= DynamicPageRequest.buildPageRequest(page,size,sort,order,PeriodicalCategory.class);
+		Page<PeriodicalCategory> pag = this.periodicalCategoryService.findAll(spec, pageRequest);
 		super.success(model,pag);
 		return new ModelAndView(VIEW_SUCCESS);
 	}
@@ -66,7 +66,7 @@ public class PeriodicalCategoryController extends AbstractController {
 			 @PathVariable BigInteger id,
 			HttpServletRequest request,
 			ModelMap model) {
-		MaterialCategory po = this.materialCategoryService.findById(id);
+		PeriodicalCategory po = this.periodicalCategoryService.findById(id);
 		super.success(model, po);
 		return new ModelAndView(VIEW_SUCCESS);
 	}

@@ -1,12 +1,12 @@
 package im.heart.material.vo;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import im.heart.material.entity.MaterialPeriodical;
+import im.heart.material.entity.Periodical;
 import org.springframework.beans.BeanUtils;
 
 import java.util.Date;
 
-public class MaterialPeriodicalVO  extends MaterialPeriodical {
+public class PeriodicalVO  extends Periodical {
     @JSONField(serialize = false)
     private String importLog;
 
@@ -39,10 +39,10 @@ public class MaterialPeriodicalVO  extends MaterialPeriodical {
 
 //    @JSONField (serialize = false)
 //    private Status status;
-    public MaterialPeriodicalVO(MaterialPeriodical po){
+    public PeriodicalVO(Periodical po){
         this(po,true);
     }
-    public MaterialPeriodicalVO(MaterialPeriodical po,boolean lazy){
+    public PeriodicalVO(Periodical po,boolean lazy){
         BeanUtils.copyProperties(po, this);
     }
 }

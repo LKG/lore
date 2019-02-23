@@ -21,21 +21,21 @@ import java.util.Date;
  */
 
 @Entity()
-@Table(name = "material_periodical_category")
+@Table(name = "media_periodical_category")
 @DynamicUpdate()
 @DynamicInsert()
 @Data
-public class MaterialCategory implements TreeEntity<BigInteger> {
+public class PeriodicalCategory implements TreeEntity<BigInteger> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1163397145222684789L;
 	
-	public MaterialCategory(){
+	public PeriodicalCategory(){
 		
 	}
-	public MaterialCategory(BigInteger categoryId, String categoryCode, String categoryName, BigInteger parentId, Integer level, Status status){
+	public PeriodicalCategory(BigInteger categoryId, String categoryCode, String categoryName, BigInteger parentId, Integer level, Status status){
 		this.categoryId=categoryId;
 		this.categoryCode=categoryCode;
 		this.categoryName=categoryName;
@@ -76,12 +76,12 @@ public class MaterialCategory implements TreeEntity<BigInteger> {
 	
 	@Column(name = "REMARK", nullable = false, length=512)
 	private String remark;
-	@Formula(value = "(select model.category_name from material_periodical_category model where model.category_id = parent_id)")
+	@Formula(value = "(select model.category_name from media_periodical_category model where model.category_id = parent_id)")
 	private String parentName="";
 	/**
 	 * //是否有子节点
 	 */
-	@Formula(value = "(select count(*) from material_periodical_category model where model.parent_id = category_id)")
+	@Formula(value = "(select count(*) from media_periodical_category model where model.parent_id = category_id)")
 	private boolean hasChildren;
 	
 

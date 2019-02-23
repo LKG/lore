@@ -6,11 +6,12 @@ import im.heart.core.CommonConst;
 import im.heart.core.utils.DateUtilsEx;
 import im.heart.core.utils.FileUtilsEx;
 import im.heart.core.utils.StringUtilsEx;
-import im.heart.material.entity.MaterialPeriodical;
-import im.heart.material.entity.MaterialPeriodicalImg;
-import im.heart.material.parser.MaterialPeriodicalParser;
-import im.heart.material.service.MaterialPeriodicalImgService;
-import im.heart.material.service.MaterialPeriodicalService;
+import im.heart.material.entity.Periodical;
+import im.heart.material.entity.PeriodicalImg;
+import im.heart.material.parser.PeriodicalParser;
+import im.heart.material.parser.PeriodicalParser;
+import im.heart.material.service.PeriodicalImgService;
+import im.heart.material.service.PeriodicalService;
 import org.apache.commons.io.IOUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.PDFRenderer;
@@ -36,19 +37,19 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class MaterialPeriodicalParserImpl implements MaterialPeriodicalParser {
-    protected static final Logger logger = LoggerFactory.getLogger(MaterialPeriodicalParserImpl.class);
+public class PeriodicalParserImpl implements PeriodicalParser {
+    protected static final Logger logger = LoggerFactory.getLogger(PeriodicalParserImpl.class);
     protected static final String  FILE_ROOT_PATH= CommonConst.STATIC_UPLOAD_ROOT;
 //    @Resource
     private DocumentConverter documentConverter;
     @Autowired
-    private MaterialPeriodicalService materialPeriodicalService;
+    private PeriodicalService materialPeriodicalService;
     @Value("${prod.upload.path.root}")
     private String uploadFilePath="";
     @Autowired
-    private MaterialPeriodicalImgService materialPeriodicalImgService;
+    private PeriodicalImgService materialPeriodicalImgService;
     @Override
-    public void parser(MaterialPeriodical periodical, InputStream is) {
+    public void parser(Periodical periodical, InputStream is) {
         String suffixes=periodical.getFileHeader();
         String realfilePath=periodical.getRealFilePath();
         File targetFile=new File(realfilePath+".pdf");
@@ -64,7 +65,7 @@ public class MaterialPeriodicalParserImpl implements MaterialPeriodicalParser {
 
     @Async
     @Override
-    public void addParserTask(MaterialPeriodical periodical, InputStream is) {
+    public void addParserTask(Periodical periodical, InputStream is) {
         parser(periodical,is);
     }
 
@@ -76,7 +77,7 @@ public class MaterialPeriodicalParserImpl implements MaterialPeriodicalParser {
      * @return
      */
     @Async
-    public Integer pdf2Image(File pdfFile, String dstImgFolder, int maxPage, MaterialPeriodical periodical) {
+    public Integer pdf2Image(File pdfFile, String dstImgFolder, int maxPage, Periodical periodical) {
         PDDocument pdDocument=null;
         //pdf 总页数
         Integer pageNum=0;
@@ -103,10 +104,10 @@ public class MaterialPeriodicalParserImpl implements MaterialPeriodicalParser {
             if(StringUtilsEx.isBlank(periodical.getSeoKeywords())){
                 List<String> summarys= HanLP.extractSummary(content,5);;
                 //生成文章摘要
-                periodical.setSeoDescription(StringUtilsEx.join(summarys,","));
+                periodical.setSeoDesc(StringUtilsEx.join(summarys,","));
             }
             periodical.setContent(content);
-            List<MaterialPeriodicalImg> entities= Lists.newArrayList();
+            List<PeriodicalImg> entities= Lists.newArrayList();
             BigInteger periodicalId= periodical.getId();
             String periodicalCode=periodical.getPeriodicalCode();
             String periodicalType=periodical.getPeriodicalType();
@@ -121,7 +122,7 @@ public class MaterialPeriodicalParserImpl implements MaterialPeriodicalParser {
                 }
                 BufferedImage image = renderer.renderImageWithDPI(i, dpi);
                 ImageIO.write(image, "png", dstFile);
-                MaterialPeriodicalImg materialPeriodicalImg=new MaterialPeriodicalImg();
+                PeriodicalImg materialPeriodicalImg=new PeriodicalImg();
                 materialPeriodicalImg.setCityId(cityId);
                 materialPeriodicalImg.setPageNum(page);
                 materialPeriodicalImg.setPeriodicalCode(periodicalCode);

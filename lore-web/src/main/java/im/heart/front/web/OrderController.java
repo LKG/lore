@@ -4,9 +4,9 @@ import im.heart.core.CommonConst;
 import im.heart.core.web.AbstractController;
 import im.heart.core.web.ResponseError;
 import im.heart.core.web.enums.WebError;
-import im.heart.material.entity.MaterialPeriodical;
-import im.heart.material.service.MaterialPeriodicalService;
-import im.heart.material.vo.MaterialPeriodicalVO;
+import im.heart.material.entity.Periodical;
+import im.heart.material.service.PeriodicalService;
+import im.heart.material.vo.PeriodicalVO;
 import im.heart.security.utils.SecurityUtilsHelper;
 import im.heart.shop.dto.OrderDto;
 import im.heart.shop.dto.OrderItemDto;
@@ -36,7 +36,7 @@ public class OrderController extends AbstractController {
     private OrderService orderService;
 
     @Autowired
-    private MaterialPeriodicalService materialPeriodicalService;
+    private PeriodicalService periodicalService;
 
     /**
      * @功能说明： 提交订单
@@ -47,8 +47,8 @@ public class OrderController extends AbstractController {
     public ModelAndView getOrderInfo(HttpServletRequest request,
                                      @RequestParam(value = CommonConst.RequestResult.ACCESS_TOKEN , required = false) String token,
                                      ModelMap model, BigInteger id) {
-        MaterialPeriodical materialPeriodical=this.materialPeriodicalService.findById(id);
-       super.success(model, new MaterialPeriodicalVO(materialPeriodical));
+        Periodical materialPeriodical=this.periodicalService.findById(id);
+       super.success(model, new PeriodicalVO(materialPeriodical));
         return new ModelAndView(CREATE_LIST);
     }
     /**

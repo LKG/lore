@@ -5,8 +5,8 @@ import im.heart.core.plugins.persistence.DynamicPageRequest;
 import im.heart.core.plugins.persistence.DynamicSpecifications;
 import im.heart.core.plugins.persistence.SearchFilter;
 import im.heart.core.web.AbstractController;
-import im.heart.material.entity.MaterialPeriodicalImg;
-import im.heart.material.service.MaterialPeriodicalImgService;
+import im.heart.material.entity.PeriodicalImg;
+import im.heart.material.service.PeriodicalImgService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -30,7 +30,7 @@ public class DocImgController extends AbstractController {
     protected static final String VIEW_DETAILS="front/doc/doc_details";
     protected static final String VIEW_CREATE="front/doc/doc_create";
     @Autowired
-    private MaterialPeriodicalImgService materialPeriodicalImgService;
+    private PeriodicalImgService periodicalImgService;
     @RequestMapping(value = apiVer+"/{id}/imgs")
     public ModelAndView list(HttpServletRequest request, HttpServletResponse response,
                              @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
@@ -43,9 +43,9 @@ public class DocImgController extends AbstractController {
                              ModelMap model) {
         final Collection<SearchFilter> filters= DynamicSpecifications.buildSearchFilters(request);
         filters.add(new SearchFilter("periodicalId", SearchFilter.Operator.EQ,id));
-        Specification<MaterialPeriodicalImg> spec= DynamicSpecifications.bySearchFilter(filters, MaterialPeriodicalImg.class);
-        PageRequest pageRequest= DynamicPageRequest.buildPageRequest(page,size,sort,order,MaterialPeriodicalImg.class);
-        Page<MaterialPeriodicalImg> pag = this.materialPeriodicalImgService.findAll(spec, pageRequest);
+        Specification<PeriodicalImg> spec= DynamicSpecifications.bySearchFilter(filters, PeriodicalImg.class);
+        PageRequest pageRequest= DynamicPageRequest.buildPageRequest(page,size,sort,order,PeriodicalImg.class);
+        Page<PeriodicalImg> pag = this.periodicalImgService.findAll(spec, pageRequest);
         super.success(model,pag);
         return new ModelAndView(VIEW_LIST);
     }
