@@ -11,6 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  *
@@ -21,6 +22,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAutoConfiguration
 @ComponentScan(basePackages={"im.heart"})
 @EnableAsync
+@EnableScheduling
 @EnableCaching
 public class App extends SpringBootServletInitializer implements CommandLineRunner{
 
@@ -32,6 +34,7 @@ public class App extends SpringBootServletInitializer implements CommandLineRunn
         if(args.length==0){
             //	args=new String[] {"--spring.config.location=file:/mnt/conf/itaobao/application-prod.properties"};
         }
+        System.setProperty("es.set.netty.runtime.available.processors", "false");
         SpringApplication application=new SpringApplication(App.class);
         application.setBannerMode(Banner.Mode.OFF);
         context = application.run(args);

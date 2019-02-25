@@ -28,7 +28,7 @@ import java.util.Date;
 @DynamicInsert()
 @Data
 @Document(indexName = "periodical",type = "periodical", shards = 1,replicas = 0, refreshInterval = "-1")
-public class MaterialPeriodical implements AbstractEntity<BigInteger> {
+public class Periodical implements AbstractEntity<BigInteger> {
 	
 	public enum PeriodicalType {
 		sharing(1, "sharing", "共享文档");

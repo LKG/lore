@@ -30,7 +30,7 @@ info:
   app-version: ${project.version}
 #######maven pom \u91cc\u7684\u914d\u7f6e
 server:
-  port: 9080
+  port: 8080
 management:
   endpoints:
     web:
