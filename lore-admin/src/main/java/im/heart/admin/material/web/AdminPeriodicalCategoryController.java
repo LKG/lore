@@ -6,8 +6,8 @@ import im.heart.core.plugins.persistence.DynamicPageRequest;
 import im.heart.core.plugins.persistence.DynamicSpecifications;
 import im.heart.core.service.ServiceException;
 import im.heart.core.web.AbstractController;
-import im.heart.material.entity.MaterialCategory;
-import im.heart.material.service.MaterialCategoryService;
+import im.heart.material.entity.PeriodicalCategory;
+import im.heart.material.service.PeriodicalCategoryService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -38,7 +38,7 @@ public class  AdminPeriodicalCategoryController extends AbstractController {
 		return new ModelAndView(VIEW_LIST,model);
 	}
 	@Autowired
-	private MaterialCategoryService materialCategoryService;
+	private PeriodicalCategoryService periodicalCategoryService;
 	
 	@RequestMapping(value = apiVer + "/checkCode", method = RequestMethod.GET)
 	protected ModelAndView checkUserName(
@@ -51,7 +51,7 @@ public class  AdminPeriodicalCategoryController extends AbstractController {
 			model.put(RequestResult.RESULT, false);
 			return new ModelAndView(RESULT_PAGE);
 		}
-		boolean exit = this.materialCategoryService.exit(categoryCode);
+		boolean exit = this.periodicalCategoryService.exit(categoryCode);
 		if (exit) {
 			super.fail(model);
 			model.put(RequestResult.RESULT, false);
@@ -84,19 +84,19 @@ public class  AdminPeriodicalCategoryController extends AbstractController {
 			@RequestParam(value = "order", required = false,defaultValue = CommonConst.Page.DEFAULT_ORDER) String order,
 			@RequestParam(value = RequestResult.ACCESS_TOKEN, required = false) String token,
 			ModelMap model) {
-		Specification<MaterialCategory> spec= DynamicSpecifications.bySearchFilter(request, MaterialCategory.class);
-		PageRequest pageRequest= DynamicPageRequest.buildPageRequest(page,size,sort,order, MaterialCategory.class);
-		Page<MaterialCategory> pag = this.materialCategoryService.findAll(spec, pageRequest);
+		Specification<PeriodicalCategory> spec= DynamicSpecifications.bySearchFilter(request, PeriodicalCategory.class);
+		PageRequest pageRequest= DynamicPageRequest.buildPageRequest(page,size,sort,order, PeriodicalCategory.class);
+		Page<PeriodicalCategory> pag = this.periodicalCategoryService.findAll(spec, pageRequest);
 		super.success(model,pag);
 		return new ModelAndView(VIEW_TABLE);
 	}
 	@RequestMapping(value = apiVer + "/subGeneral")
 	public ModelAndView registerAjaxUser(HttpServletRequest request,
-			@Valid @ModelAttribute(RequestResult.RESULT) MaterialCategory materialCategory,
+			@Valid @ModelAttribute(RequestResult.RESULT) PeriodicalCategory periodicalCategory,
 			BindingResult result, 
 			@RequestParam(value = "format", required = false) String format,
 			ModelMap model) throws ServiceException {
-		MaterialCategory entity = this.materialCategoryService.save(materialCategory);
+		PeriodicalCategory entity = this.periodicalCategoryService.save(periodicalCategory);
 		super.success(model,entity);
 		return new ModelAndView(VIEW_SUCCESS);
 	}
@@ -107,7 +107,7 @@ public class  AdminPeriodicalCategoryController extends AbstractController {
 			 @PathVariable BigInteger id,
 			HttpServletRequest request,
 			ModelMap model) {
-		MaterialCategory po = this.materialCategoryService.findById(id);
+		PeriodicalCategory po = this.periodicalCategoryService.findById(id);
 		super.success(model, po);
 		return new ModelAndView(VIEW_DETAILS);
 	}
@@ -115,9 +115,9 @@ public class  AdminPeriodicalCategoryController extends AbstractController {
 	public ModelAndView add(HttpServletRequest request, HttpServletResponse response,
                             @RequestParam(value = RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
                             @PathVariable() BigInteger parentId,
-                            ModelMap model, MaterialCategory po){
+                            ModelMap model, PeriodicalCategory po){
 		if(parentId!=null&&parentId.intValue()!=0){
-			MaterialCategory parentCategory = this.materialCategoryService.findById(parentId);
+			PeriodicalCategory parentCategory = this.periodicalCategoryService.findById(parentId);
 			if(parentCategory!=null){
 				po.setLevel(parentCategory.getLevel()+1);
 				po.setParentId(parentCategory.getCategoryId());

@@ -5,8 +5,8 @@ import im.heart.core.enums.Status;
 import im.heart.core.plugins.persistence.DynamicPageRequest;
 import im.heart.core.plugins.persistence.DynamicSpecifications;
 import im.heart.core.web.AbstractController;
-import im.heart.material.entity.MaterialPeriodical;
-import im.heart.material.service.MaterialPeriodicalService;
+import im.heart.material.entity.Periodical;
+import im.heart.material.service.PeriodicalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -30,7 +30,7 @@ public class AdminMaterialPeriodicalController extends AbstractController {
 	protected static final String VIEW_LIST="admin/periodical/list";
 	protected static final String VIEW_DETAILS="admin/periodical/details";
 	@Autowired
-	private MaterialPeriodicalService materialPeriodicalService;
+	private PeriodicalService periodicalService;
 
 	/**
 	 * 
@@ -55,9 +55,9 @@ public class AdminMaterialPeriodicalController extends AbstractController {
 			@RequestParam(value = "order", required = false,defaultValue = CommonConst.Page.DEFAULT_ORDER) String order,
 			@RequestParam(value = CommonConst.RequestResult.ACCESS_TOKEN, required = false) String token,
 			ModelMap model) {
-		Specification<MaterialPeriodical> spec= DynamicSpecifications.bySearchFilter(request, MaterialPeriodical.class);
-		PageRequest pageRequest= DynamicPageRequest.buildPageRequest(page,size,sort,order, MaterialPeriodical.class);
-		Page<MaterialPeriodical> pag = this.materialPeriodicalService.findAll(spec, pageRequest);
+		Specification<Periodical> spec= DynamicSpecifications.bySearchFilter(request, Periodical.class);
+		PageRequest pageRequest= DynamicPageRequest.buildPageRequest(page,size,sort,order, Periodical.class);
+		Page<Periodical> pag = this.periodicalService.findAll(spec, pageRequest);
 		super.success(model,pag);
 		return new ModelAndView(VIEW_LIST);
 	}
@@ -68,7 +68,7 @@ public class AdminMaterialPeriodicalController extends AbstractController {
 			@PathVariable BigInteger id,
 			HttpServletRequest request,
 			ModelMap model) {
-		MaterialPeriodical po = this.materialPeriodicalService.findById(id);
+		Periodical po = this.periodicalService.findById(id);
 		super.success(model, po);
 		return new ModelAndView(VIEW_DETAILS);
 	}
@@ -79,7 +79,7 @@ public class AdminMaterialPeriodicalController extends AbstractController {
 			HttpServletRequest request,
 			ModelMap model) {
 		for(BigInteger id:ids){
-			this.materialPeriodicalService.deleteById(id);
+			this.periodicalService.deleteById(id);
 		}
 		super.success(model);
 		return new ModelAndView(VIEW_SUCCESS);
@@ -91,7 +91,7 @@ public class AdminMaterialPeriodicalController extends AbstractController {
 			HttpServletRequest request,
 			ModelMap model) {
 		for(BigInteger periodicalId:ids){
-			this.materialPeriodicalService.updateStatusByPeriodicalId(periodicalId, Status.enabled);
+			this.periodicalService.updateStatusByPeriodicalId(periodicalId, Status.enabled);
 		}
 		super.success(model);
 		return new ModelAndView(VIEW_SUCCESS);
@@ -104,7 +104,7 @@ public class AdminMaterialPeriodicalController extends AbstractController {
 			HttpServletRequest request,
 			ModelMap model) {
 		for(BigInteger periodicalId:ids){
-			this.materialPeriodicalService.updateStatusByPeriodicalId(periodicalId, Status.disabled);
+			this.periodicalService.updateStatusByPeriodicalId(periodicalId, Status.disabled);
 		}
 		super.success(model);
 		return new ModelAndView(VIEW_SUCCESS);
