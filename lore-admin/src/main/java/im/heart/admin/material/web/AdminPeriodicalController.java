@@ -25,7 +25,7 @@ import java.math.BigInteger;
 
 @Controller
 @RequestMapping("/admin")
-public class AdminMaterialPeriodicalController extends AbstractController {
+public class AdminPeriodicalController extends AbstractController {
 	protected static final String apiVer = "/periodical";
 	protected static final String VIEW_LIST="admin/periodical/list";
 	protected static final String VIEW_DETAILS="admin/periodical/details";
