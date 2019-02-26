@@ -22,7 +22,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAutoConfiguration
 @ComponentScan(basePackages={"im.heart"})
 @EnableAsync
-@EnableScheduling
 @EnableCaching
 public class App extends SpringBootServletInitializer implements CommandLineRunner{
 

@@ -16,7 +16,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Date;
 
 /**
@@ -28,8 +27,8 @@ import java.util.Date;
 @DynamicInsert()
 @Data
 @Document(indexName = "periodical",type = "periodical", shards = 1,replicas = 0, refreshInterval = "-1")
-public class Periodical implements AbstractEntity<BigInteger> {
-	
+public class Periodical implements AbstractEntity<Long> {
+
 	public enum PeriodicalType {
 		sharing(1, "sharing", "共享文档");
 
@@ -41,7 +40,7 @@ public class Periodical implements AbstractEntity<BigInteger> {
 			this.value = value;
 			this.info = info;
 		}
-		
+
 		public static PeriodicalType findPeriodicalType(int value){
 			for(PeriodicalType periodicalType: PeriodicalType.values()){
 				if(periodicalType.value==value){
@@ -52,17 +51,17 @@ public class Periodical implements AbstractEntity<BigInteger> {
 		}
 	}
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 4316965064793331760L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(length = 32, name = "ID", nullable = false, unique = true, updatable = false)
-	private BigInteger id;
-	
+	private Long id;
+
 	@Column(length = 32, name = "USER_ID", nullable = false, unique = true, updatable = false)
-	private BigInteger userId;
+	private Long userId;
 
 	@Column(name = "AUTHOR", nullable = false,length=128 , updatable = false)
 	private String author;
@@ -74,13 +73,14 @@ public class Periodical implements AbstractEntity<BigInteger> {
 	private BigDecimal finalPrice;
 
 	@Column(name = "CATEGORY_ID", nullable = false,length=64 )
-	private BigInteger categoryId;
+	private Long categoryId;
+
 	@Column(name = "CATEGORY_CODE", nullable = false,length=128 )
 	private String categoryCode;
 
 	@Column(name = "PERIODICAL_CODE", nullable = false,length=64 , updatable = false)
 	private String periodicalCode;
-	
+
 	@Column(name = "PERIODICAL_NAME", nullable = false,length=64)
 	private String periodicalName;
 
@@ -107,13 +107,13 @@ public class Periodical implements AbstractEntity<BigInteger> {
 
 	@Column(name = "PERIODICAL_TYPE", nullable = false,length=32)
 	private String periodicalType;
-	
+
 	@Column(name = "CITY_ID", nullable = false,length=64)
 	private String cityId;
-	
+
 	@Formula(value = "(select model.area_name from dic_frame_area model where model.area_code = city_id)")
 	private String cityName;
-	
+
 	@Column(name = "PATH_URL", nullable = false,length=256)
 	private String pathUrl;
 
@@ -133,8 +133,8 @@ public class Periodical implements AbstractEntity<BigInteger> {
 
 	/** 页面描述 . */
 	@Length(max = 200)
-	@Column(name = "SEO_DESCRIPTION", nullable = false)
-	private String seoDescription="";
+	@Column(name = "SEO_DESC", nullable = false)
+	private String seoDesc="";
 
 	@Column(name = "CONTENT", nullable = false)
 	private String content;
@@ -168,6 +168,9 @@ public class Periodical implements AbstractEntity<BigInteger> {
 	@Column(name = "FILE_HEADER", nullable = false,length=32)
 	private String fileHeader;
 
+	@Column(name = "IMPORT_LOG", nullable = false,length=80000)
+	private String importLog;
+
 	@Column(name = "CHECK_STATUS", nullable = false)
 	@Enumerated(EnumType.STRING)
 	private Status checkStatus= Status.pending;
@@ -198,14 +201,14 @@ public class Periodical implements AbstractEntity<BigInteger> {
 		createTime = new Date();
 		modifyTime = new Date();
 		pushTime = new Date();
-    }
+	}
 	@PreUpdate
 	protected void onUpdate() {
 		modifyTime = new Date();
 		if(isPub){
 			pushTime = new Date();
 		}
-    }
+	}
 	public String getDataSizeHuman() {
 		return FileUtilsEx.getHumanReadableFileSize(dataSize);
 	}

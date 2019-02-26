@@ -40,7 +40,7 @@ import java.util.List;
 public class PeriodicalParserImpl implements PeriodicalParser {
     protected static final Logger logger = LoggerFactory.getLogger(PeriodicalParserImpl.class);
     protected static final String  FILE_ROOT_PATH= CommonConst.STATIC_UPLOAD_ROOT;
-//    @Resource
+    @Resource
     private DocumentConverter documentConverter;
     @Autowired
     private PeriodicalService materialPeriodicalService;
@@ -51,16 +51,16 @@ public class PeriodicalParserImpl implements PeriodicalParser {
     @Override
     public void parser(Periodical periodical, InputStream is) {
         String suffixes=periodical.getFileHeader();
-        String realfilePath=periodical.getRealFilePath();
-        File targetFile=new File(realfilePath+".pdf");
+        String realFilePath=periodical.getRealFilePath();
+        File targetFile=new File(realFilePath+".pdf");
         DocumentFormat documentFormat= DefaultDocumentFormatRegistry.getInstance().getFormatByExtension(suffixes);
-//        try {
-//            this.documentConverter.convert(is,true).as(documentFormat).to(targetFile).as(DefaultDocumentFormatRegistry.PDF).execute();
-//            Integer pageNum=this.pdf2Image(targetFile, "",10,periodical);
-//        } catch (OfficeException e) {
-//            e.printStackTrace();
-//        } finally {
-//        }
+        try {
+            this.documentConverter.convert(is,true).as(documentFormat).to(targetFile).as(DefaultDocumentFormatRegistry.PDF).execute();
+            Integer pageNum=this.pdf2Image(targetFile, "",10,periodical);
+        } catch (OfficeException e) {
+            e.printStackTrace();
+        } finally {
+        }
     }
 
     @Async
@@ -97,14 +97,14 @@ public class PeriodicalParserImpl implements PeriodicalParser {
             PDFTextStripper pdfTextStripper = new PDFTextStripper();
             String content = pdfTextStripper.getText(pdDocument);
             if(StringUtilsEx.isBlank(periodical.getSeoKeywords())){
-                List<String> seokeywords=HanLP.extractKeyword(content, 13);
+                List<String> seoKeywords=HanLP.extractKeyword(content, 13);
                 //设置关键词
-                periodical.setSeoKeywords(StringUtilsEx.join(seokeywords,","));
+                periodical.setSeoKeywords(StringUtilsEx.join(seoKeywords,","));
             }
             if(StringUtilsEx.isBlank(periodical.getSeoKeywords())){
-                List<String> summarys= HanLP.extractSummary(content,5);;
+                List<String> summary= HanLP.extractSummary(content,5);;
                 //生成文章摘要
-                periodical.setSeoDesc(StringUtilsEx.join(summarys,","));
+                periodical.setSeoDesc(StringUtilsEx.join(summary,","));
             }
             periodical.setContent(content);
             List<PeriodicalImg> entities= Lists.newArrayList();
