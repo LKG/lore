@@ -343,7 +343,7 @@
             </activation>
             <properties>
                 <pom.uploads.home>D:/var/www/uploads/</pom.uploads.home>
-                <pom.office.home>C:\Program Files\LibreOffice</pom.office.home>
+                <pom.office.home>C:\Program Files\openOffice</pom.office.home>
             </properties>
         </profile>
         <profile>
@@ -351,7 +351,7 @@
             <id>linux</id>
             <properties>
                 <pom.uploads.home>/var/www/uploads/</pom.uploads.home>
-                <pom.office.home>/opt/LibreOffice</pom.office.home>
+                <pom.office.home>/opt/openOffice</pom.office.home>
             </properties>
         </profile>
     </profiles>
