@@ -8,9 +8,10 @@ import im.heart.core.utils.FileUtilsEx;
 import im.heart.core.utils.StringUtilsEx;
 import im.heart.material.entity.Periodical;
 import im.heart.material.entity.PeriodicalImg;
-import im.heart.material.parser.PeriodicalParser;
+import im.heart.material.entity.PeriodicalLog;
 import im.heart.material.parser.PeriodicalParser;
 import im.heart.material.service.PeriodicalImgService;
+import im.heart.material.service.PeriodicalLogService;
 import im.heart.material.service.PeriodicalService;
 import org.apache.commons.io.IOUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -43,11 +44,13 @@ public class PeriodicalParserImpl implements PeriodicalParser {
     @Resource
     private DocumentConverter documentConverter;
     @Autowired
-    private PeriodicalService materialPeriodicalService;
+    private PeriodicalService periodicalService;
+    @Autowired
+    private PeriodicalLogService periodicalLogService;
+    @Autowired
+    private PeriodicalImgService periodicalImgService;
     @Value("${prod.upload.path.root}")
     private String uploadFilePath="";
-    @Autowired
-    private PeriodicalImgService materialPeriodicalImgService;
     @Override
     public void parser(Periodical periodical, InputStream is) {
         String suffixes=periodical.getFileHeader();
@@ -56,6 +59,11 @@ public class PeriodicalParserImpl implements PeriodicalParser {
         DocumentFormat documentFormat= DefaultDocumentFormatRegistry.getInstance().getFormatByExtension(suffixes);
         try {
             this.documentConverter.convert(is,true).as(documentFormat).to(targetFile).as(DefaultDocumentFormatRegistry.PDF).execute();
+            PeriodicalLog periodicalLog=new PeriodicalLog();
+            periodicalLog.setUserId(periodical.getUserId());
+            periodicalLog.setType("convert");
+            periodicalLog.setLogDesc( "{desc: ' pdf 转换成功！'}");
+            this.periodicalLogService.save(periodicalLog);
             Integer pageNum=this.pdf2Image(targetFile, "",10,periodical);
         } catch (OfficeException e) {
             e.printStackTrace();
@@ -139,16 +147,20 @@ public class PeriodicalParserImpl implements PeriodicalParser {
                 entities.add(materialPeriodicalImg);
             }
             periodical.setPageNum(pageNum);
-            periodical.setImportLog(periodical.getImportLog()+ DateUtilsEx.timeToString(new Date()) +" 图片生成成功！<br/>");
             periodical.setStatus(CommonConst.FlowStatus.PROCESSED);
-            this.materialPeriodicalService.save(periodical);
-            this.materialPeriodicalImgService.saveAll(entities);
+            this.periodicalService.save(periodical);
+            this.periodicalImgService.saveAll(entities);
+            PeriodicalLog periodicalLog=new PeriodicalLog();
+            periodicalLog.setUserId(periodical.getUserId());
+            periodicalLog.setType("parser");
+            periodicalLog.setLogDesc( "{desc:  '解析文件并生成图片成功！' }");
+            this.periodicalLogService.save(periodicalLog);
         } catch (Exception e) {
             logger.error(e.getStackTrace()[0].getMethodName(), e);
         }finally {
             IOUtils.closeQuietly(pdDocument);
             //删除pdf 文件
-            logger.info("文件处理完毕，删除 pdf原文件");
+            logger.info("文件处理完毕，删除临时pdf文件");
             FileUtilsEx.deleteQuietly(pdfFile);
         }
         return pageNum;

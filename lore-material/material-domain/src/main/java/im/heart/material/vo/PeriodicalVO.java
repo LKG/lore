@@ -7,8 +7,6 @@ import org.springframework.beans.BeanUtils;
 import java.util.Date;
 
 public class PeriodicalVO  extends Periodical {
-    @JSONField(serialize = false)
-    private String importLog;
 
     /**
      * //用户是否收藏该商品

@@ -26,7 +26,6 @@ public interface PeriodicalImgService extends CommonService<PeriodicalImg, BigIn
 	 */
 	public List<PeriodicalImg>  saveAll(Iterable<PeriodicalImg> entities);
 
-	
 	/**
 	 * 扫描件是否存在
 	 * @param periodicalCode
@@ -43,9 +42,20 @@ public interface PeriodicalImgService extends CommonService<PeriodicalImg, BigIn
 	 * @return
 	 */
 	public List<PeriodicalImg> findByCityIdAndperiodicalCode(String cityId, String periodicalCode);
-	
-	
+
+	/**
+	 * 根据期刊Id 更新状态
+	 * @param periodicalId
+	 * @param status
+	 */
 	public  void updateStatusByPeriodicalId(BigInteger periodicalId, Status status);
+
+	/**
+	 * 条件查询
+	 * @param filters
+	 * @param pageable
+	 * @return
+	 */
 	public Page<PeriodicalImg> findSearchFilters(Collection<SearchFilter> filters, Pageable pageable);
 	
 }

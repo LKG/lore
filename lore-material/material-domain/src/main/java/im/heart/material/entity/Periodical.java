@@ -169,8 +169,6 @@ public class Periodical implements AbstractEntity<BigInteger> {
 	@Column(name = "FILE_HEADER", nullable = false,length=32)
 	private String fileHeader;
 
-	@Column(name = "IMPORT_LOG", nullable = false,length=80000)
-	private String importLog;
 
 	@Column(name = "CHECK_STATUS", nullable = false)
 	@Enumerated(EnumType.STRING)
