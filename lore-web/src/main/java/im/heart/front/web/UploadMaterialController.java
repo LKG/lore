@@ -7,7 +7,9 @@ import im.heart.core.web.AbstractController;
 import im.heart.core.web.ResponseError;
 import im.heart.core.web.enums.WebError;
 import im.heart.material.entity.Periodical;
+import im.heart.material.entity.PeriodicalLog;
 import im.heart.material.parser.PeriodicalParser;
+import im.heart.material.service.PeriodicalLogService;
 import im.heart.material.service.PeriodicalService;
 import im.heart.security.utils.SecurityUtilsHelper;
 import im.heart.usercore.vo.FrameUserVO;
@@ -45,6 +47,9 @@ public class UploadMaterialController extends AbstractController {
 
     @Autowired
     private PeriodicalService periodicalService;
+
+    @Autowired
+    private PeriodicalLogService periodicalLogService;
 
     @Autowired
     private PeriodicalParser periodicalParser;
@@ -106,12 +111,16 @@ public class UploadMaterialController extends AbstractController {
                     periodical.setOriginPrice(originPrice);
                     periodical.setDataSize(file.getSize());
                     periodical.setStatus(CommonConst.FlowStatus.INITIAL);
-                    periodical.setImportLog(DateUtilsEx.timeToString(new Date()) + " ,上传成功！<br/>");
                     String url = StringUtilsEx.replace(path + realFileName, File.separator, "/");
                     String pathUrl="/"+FILE_ROOT_PATH+"/"+url;
                     periodical.setPathUrl(pathUrl);
                     this.periodicalService.save(periodical);
                     this.periodicalParser.addParserTask(periodical,file.getInputStream());
+                    PeriodicalLog periodicalLog=new PeriodicalLog();
+                    periodicalLog.setUserId(periodical.getUserId());
+                    periodicalLog.setType("upload");
+                    periodicalLog.setLogDesc( "{desc: '文件上传成功,添加解析任务' }");
+                    this.periodicalLogService.save(periodicalLog);
                     super.success(model, "url", pathUrl);
                 } catch (Exception e) {
                     logger.error(e.getStackTrace()[0].getMethodName(), e);
