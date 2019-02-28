@@ -26,16 +26,17 @@ import java.util.Deque;
  * @author gg
  * @desc 控制用户登录个数
  */
-public class KickoutSessionControlFilter extends LogoutFilter {
+public class KickOutSessionControlFilter extends LogoutFilter {
 
-	protected static final Logger logger = LoggerFactory.getLogger(KickoutSessionControlFilter.class);
+	protected static final Logger logger = LoggerFactory.getLogger(KickOutSessionControlFilter.class);
     public static final String DEFAULT_REDIRECT_URL = "/login.jhtml?logout=2";
+	public static final String DEFAULT_KICK_OUT_PARAM = "kickOut";
     private String redirectUrl = DEFAULT_REDIRECT_URL;
-    private String kickoutParam = "kickout";
+    private String kickOutParam = DEFAULT_KICK_OUT_PARAM;
 	/**
 	 * 踢出之前登录的/之后登录的用户 默认踢出之前登录的用户
 	 */
-	private boolean kickoutAfter = false;
+	private boolean kickOutAfter = false;
 	/**
 	 * // 同一个帐号最大会话数 默认1
 	 */
@@ -77,7 +78,7 @@ public class KickoutSessionControlFilter extends LogoutFilter {
 			deque = Lists.newLinkedList();
 			this.cache.put(username, deque);
 		}
-		Object kickout = session.getAttribute(kickoutParam);
+		Object kickout = session.getAttribute(kickOutParam);
 		if (!deque.contains(sessionId) && kickout == null) {
 			deque.push(sessionId);
 			this.cache.put(username, deque);
@@ -85,7 +86,7 @@ public class KickoutSessionControlFilter extends LogoutFilter {
 		while (deque.size() > maxSession) {
 			Serializable kickoutSessionId = null;
 			// 如果踢出后者
-			if (kickoutAfter) {
+			if (kickOutAfter) {
 				kickoutSessionId = deque.removeFirst();
 			} else {
 				// 否则踢出前者
@@ -95,7 +96,7 @@ public class KickoutSessionControlFilter extends LogoutFilter {
 				Session onlineSession = this.shiroSessionDAO.readSession(kickoutSessionId);
 				/// 设置会话的kickout属性表示踢出了
 				if (onlineSession != null) {
-					onlineSession.setAttribute(kickoutParam, true);
+					onlineSession.setAttribute(kickOutParam, true);
 				}
 			} catch (SessionException ise) {
 				logger.debug("Encountered session exception during logout.  This can generally safely be ignored."
@@ -124,12 +125,20 @@ public class KickoutSessionControlFilter extends LogoutFilter {
 	public void setRedirectUrl(String redirectUrl) {
 		this.redirectUrl = redirectUrl;
 	}
-	public boolean isKickoutAfter() {
-		return kickoutAfter;
+	public boolean isKickOutAfter() {
+		return kickOutAfter;
 	}
 
-	public void setKickoutAfter(boolean kickoutAfter) {
-		this.kickoutAfter = kickoutAfter;
+	public void setKickOutAfter(boolean kickOutAfter) {
+		this.kickOutAfter = kickOutAfter;
+	}
+
+	public String getKickOutParam() {
+		return kickOutParam;
+	}
+
+	public void setKickOutParam(String kickOutParam) {
+		this.kickOutParam = kickOutParam;
 	}
 
 	public int getMaxSession() {
