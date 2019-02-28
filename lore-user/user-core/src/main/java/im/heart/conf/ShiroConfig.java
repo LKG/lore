@@ -5,7 +5,7 @@ import com.google.common.collect.Maps;
 import im.heart.security.credentials.RetryLimitCredentialsMatcher;
 import im.heart.security.filter.FrameAuthenticationFilter;
 import im.heart.security.filter.FrameLogoutFilter;
-import im.heart.security.filter.KickoutSessionControlFilter;
+import im.heart.security.filter.KickOutSessionControlFilter;
 import im.heart.security.filter.ShiroFilterFactory;
 import im.heart.security.realm.FrameUserRealm;
 import im.heart.security.session.*;
@@ -109,8 +109,8 @@ public class ShiroConfig {
 	}
 
 	@Bean(name = "kickout")
-	public KickoutSessionControlFilter kickoutSessionControlFilter() {
-		KickoutSessionControlFilter kickoutSessionControlFilter = new KickoutSessionControlFilter();
+	public KickOutSessionControlFilter kickoutSessionControlFilter() {
+		KickOutSessionControlFilter kickoutSessionControlFilter = new KickOutSessionControlFilter();
 		return kickoutSessionControlFilter;
 	}
 //	@Bean(name = "forceLogout")
