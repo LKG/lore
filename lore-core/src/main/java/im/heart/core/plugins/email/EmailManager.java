@@ -35,15 +35,15 @@ public class EmailManager {
 	 * 
 	 * mergeEmailContent
 	 * @param model
-	 * @param tplfile
+	 * @param tplFile
 	 * @return
 	 */
 	public String mergeEmailContent(final Map<String, Object> model,
-			final String tplfile) {
+			final String tplFile) {
 		String content = "";
 		try {
 			Configuration cfg = FreeMarkerUtils.buildConfiguration(this.mailTemplatePath);
-			Template template = cfg.getTemplate(tplfile);
+			Template template = cfg.getTemplate(tplFile);
 			content = FreeMarkerUtils.renderTemplate(template, model);
 		} catch (Exception e) {
 			logger.error(e.getStackTrace()[0].getMethodName(), e);
@@ -54,33 +54,40 @@ public class EmailManager {
 	/**
 	 * 
 	 * 发送邮件
-	 * @param preparator
+	 * @param mimeMessagePreparator
 	 */
-	protected void sendJavaMail(MimeMessagePreparator preparator) {
+	protected void sendJavaMail(MimeMessagePreparator mimeMessagePreparator) {
 		try {
 			logger.info("Begin to send mail...");
-			this.javaMailSender.send(preparator);// 发送邮件
+			// 发送邮件
+			this.javaMailSender.send(mimeMessagePreparator);
 			logger.info("End to send mail!");
 		} catch (Exception e) {
 			logger.error(e.getStackTrace()[0].getMethodName(), e);
 		}
 	}
   
-	private MimeMessagePreparator bulidMimeMessagePreparator(final String[] mailTo,final String subject ,final String content ,final String[] files){
-		MimeMessagePreparator preparator = new MimeMessagePreparator() {
+	private MimeMessagePreparator buildMimeMessage(final String[] mailTo,final String subject ,final String content ,final String[] files){
+		MimeMessagePreparator mimeMessagePreparator = new MimeMessagePreparator() {
 			@Override
 			public void prepare(MimeMessage mimeMessage) throws Exception {
 				try {
 					MimeMessageHelper message = new MimeMessageHelper(
 							mimeMessage, true, "UTF-8");
-					message.setTo(mailTo);// 设置接收方的email地址
-					message.setSubject(subject);// 设置邮件主题
-					message.setFrom(mailFrom);// 设置发送方地址
+					//// 设置接收方的email地址
+					message.setTo(mailTo);
+					// 设置邮件主题
+					message.setSubject(subject);
+					message.setFrom(mailFrom);
+					// 设置发送方地址
 					message.setText(content, true);
 					if(files!=null){
-						for (String s : files){// 添加附件
-							FileSystemResource	file = new FileSystemResource(new File(s));// 读取附件
-							message.addAttachment(s, file);// 向email中添加附件
+						// 添加附件
+						for (String s : files){
+							// 读取附件
+							FileSystemResource	file = new FileSystemResource(new File(s));
+							// 向email中添加附件
+							message.addAttachment(s, file);
 						}	
 					}
 
@@ -89,25 +96,25 @@ public class EmailManager {
 				}
 			}
 		};
-		return preparator;
+		return mimeMessagePreparator;
 	}
 	/**
 	 * 
 	 * 发送邮件
 	 * @param model 传入对象信息
 	 * @param subject    邮件标题
-	 * @param tplfile    邮件模板路径
+	 * @param tplFile    邮件模板路径
 	 * @param mailTo  邮件接收方
 	 * @param files  附件
 	 * 
 	 * @throws Exception
 	 */
 	public void sendEmail(final Map<String, Object> model,
-			final String subject, final String tplfile, final String[] mailTo,
+			final String subject, final String tplFile, final String[] mailTo,
 			final String[] files) throws Exception {
-		String content = mergeEmailContent(model, tplfile);
-		MimeMessagePreparator preparator=this.bulidMimeMessagePreparator(mailTo,subject,content,files);
-		this.sendJavaMail(preparator);
+		String content = mergeEmailContent(model, tplFile);
+		MimeMessagePreparator mimeMessagePreparator=this.buildMimeMessage(mailTo,subject,content,files);
+		this.sendJavaMail(mimeMessagePreparator);
 	}
 
 	/**
@@ -121,8 +128,8 @@ public class EmailManager {
 	 */
 	public void sendEmail(final String subject, final String content,
 			final String[] mailTo, final String[] files) throws Exception {
-		MimeMessagePreparator preparator =this.bulidMimeMessagePreparator(mailTo,subject,content,files);
-		this.sendJavaMail(preparator);
+		MimeMessagePreparator mimeMessagePreparator =this.buildMimeMessage(mailTo,subject,content,files);
+		this.sendJavaMail(mimeMessagePreparator);
 	}
 	public String getMailFrom() {
 		return mailFrom;

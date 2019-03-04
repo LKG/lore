@@ -33,6 +33,9 @@
 </head>
 <body>
 <div class="wrapper section1">
+    <!-- toolbar begin-->
+<#include "/index-toolbar.ftl"/>
+    <!-- toolbar end-->
     <!--header start-->
     <div class="header">
         <div class="head-main">
@@ -94,12 +97,6 @@
                 <input class="search-btn" type="button" value="">
             </div>
             <!--input-box-->
-
-            <div class="readvce">
-                <a href="http://nvsm.cnki.net/kns/brief/result.aspx?dbprefix=scdb" target="_blank" id="highSearch">高级检索</a>
-                <a href="http://navi.cnki.net/knavi" target="_blank">出版物检索</a>
-            </div>
-
             <div class="option-list">
                 <div class="wx">
                     <span class="tit">跨库</span>
