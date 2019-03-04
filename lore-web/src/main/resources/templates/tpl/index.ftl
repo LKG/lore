@@ -1,30 +1,38 @@
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<#include "/includes/taglib.ftl" />
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="referrer" content="origin" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=1100, maximum-scale=1.0, user-scalable=yes" />
+    <link rel="shortcut icon" href="//www.aliyun.com/favicon.ico" type="image/x-icon" />
+    <base href="${contextPath}" id="baseRoot"/>
     <title>中国知网</title>
     <meta name="keywords" content="中国知网,数字出版,知识发现,知识服务,知识管理,数字出版,增强出版,CAJ-N,网络首发,CNKI首发,数字图书馆,学术文献,期刊,博士论文,硕士论文,会议论文,报纸,年鉴,统计数据,专利,科技成果,标准,法规,古籍,工具书,引文,图片搜索,外文文献" />
     <meta name="description" content="中国知网知识发现网络平台—面向海内外读者提供中国学术文献、外文文献、学位论文、报纸、会议、年鉴、工具书等各类资源统一检索、统一导航、在线阅读和下载服务。涵盖基础科学、文史哲、工程科技、社会科学、农业、经济与管理科学、医药卫生、信息科技等十大领域。" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="//piccache.cnki.net/kdn/index/nvsm/nvsmCSS_min/kindex.min.css?v=1.0">
-    <link rel="stylesheet" href="//piccache.cnki.net/kdn/index/nvsm/nvsmCSS_min/royalslider.min.css?v=1.0">
-    <link rel="stylesheet" href="//piccache.cnki.net/kdn/index/nvsm/nvsmCSS_min/rs-default.min.css?v=1.0">
+    <link rel="stylesheet" href="//piccache.cnki.net/kdn/index/nvsm/nvsmCSS_min/kindex.min.css?v=${ver!'1'}">
+    <link rel="stylesheet" href="//piccache.cnki.net/kdn/index/nvsm/nvsmCSS_min/royalslider.min.css?v=${ver!'1'}>
+    <link rel="stylesheet" href="//piccache.cnki.net/kdn/index/nvsm/nvsmCSS_min/rs-default.min.css?v=${ver!'1'}">
     <link rel="stylesheet" href="//piccache.cnki.net/kdn/index/nvsm/nvsmCSS_min/index.min.css?v=1.5">
     <!--[if lte IE 8]>
-    <link rel="stylesheet" href="//piccache.cnki.net/kdn/index/nvsm/nvsmCSS_min/index-ie.min.css?v=1.01">
+    <link rel="stylesheet" href="//piccache.cnki.net/kdn/index/nvsm/nvsmCSS_min/index-ie.min.css?v=${ver!'1'}">
     <![endif]-->
-    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/jQuery-hijack.js"></script>
-    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/jQuery-1.11.3.min.js?v=1.0"></script>
-    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/jquery.cookie.js?v=1.0"></script>
-    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/GlobalVar.min.js?v=1.0"></script>
-    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/cachespace.min.js?v=1.0"></script>
-    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/jquery.royalslider.js?v=1.1"></script>
-    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/fieldJson.min.js?v=1.1"></script>
-    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/slidebox.min.js?v=1.0"></script>
-    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/index.min.js?v=1.56"></script>
-    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/cnkisug.min.js?v=1.0"></script>
+    <base href="${contextPath}" id="baseRoot"/>
+    <script type="text/javascript" src="${contextPath}/js/jQuery-hijack.js${ver!'1'}"></script>
+    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/jQuery-1.11.3.min.js?v=${ver!'1'}"></script>
+    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/jquery.cookie.js?v=${ver!'1'}"></script>
+    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/GlobalVar.min.js?v=${ver!'1'}"></script>
+    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/cachespace.min.js?v=${ver!'1'}"></script>
+    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/jquery.royalslider.js?v=${ver!'1'}"></script>
+    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/fieldJson.min.js?v=${ver!'1'}"></script>
+    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/slidebox.min.js?v=${ver!'1'}"></script>
+    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/index.min.js?v=${ver!'1'}></script>
+    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/cnkisug.min.js?v=${ver!'1'}"></script>
     <script type="text/javascript">
         try {
             CheckTerminalType();

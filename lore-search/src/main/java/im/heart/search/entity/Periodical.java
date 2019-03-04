@@ -29,27 +29,6 @@ import java.util.Date;
 @Document(indexName = "periodical",type = "periodical", shards = 1,replicas = 0, refreshInterval = "-1")
 public class Periodical implements AbstractEntity<Long> {
 
-	public enum PeriodicalType {
-		sharing(1, "sharing", "共享文档");
-
-		public String code;
-		public int value;
-		public final String info;
-		private PeriodicalType(int value, String code, String info) {
-			this.code = code;
-			this.value = value;
-			this.info = info;
-		}
-
-		public static PeriodicalType findPeriodicalType(int value){
-			for(PeriodicalType periodicalType: PeriodicalType.values()){
-				if(periodicalType.value==value){
-					return periodicalType;
-				}
-			}
-			return null;
-		}
-	}
 	/**
 	 *
 	 */
