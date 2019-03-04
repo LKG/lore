@@ -3,7 +3,7 @@
 <script type="text/javascript">(function(x){x&&(x.className+=" loading")})(document.getElementById("J_ForgotPasswordBox"))</script>
 <form class="form-horizontal" id="J_ForgotpasswdForm"  action="${contextPath}/findPwd/sendFindPwd.jhtml" method="post" >
   <div class="form-group">
-    <label for="J_Type_choose" class="col-sm-3 col-xs-3 control-label"><sapn class="text-danger" >*</span>请选择验证身份方式：</label>
+    <label for="J_Type_choose" class="col-sm-3 col-xs-3 control-label"><b class="text-danger" >*</b>请选择验证身份方式：</label>
      <div class="col-sm-6 col-xs-6">
 			<select class="form-control" name="type" id="J_Type_choose">
 			  <option value=1 >手机号码</option>
@@ -11,26 +11,26 @@
 			</select>
     </div>
   </div>
-    <div class="form-group">
-   <label class="col-sm-3 col-xs-3 control-label"><sapn class="text-danger" >*</span>昵称：</label>
+    <div class="form-group" style="display:none;">
+   <label class="col-sm-3 col-xs-3 control-label"><b class="text-danger" >*</b>昵称：</label>
     <div class="col-sm-9 col-xs-9">
-      <p class="form-control-static">${result.nickName}</p>
+      <p class="form-control-static">${result.nickName!''}</p>
     </div>
   </div>
-   <div class="form-group email_div" style="display:none;">
-   <label class="col-sm-3 col-xs-3 control-label"><sapn class="text-danger" >*</span>已验证邮箱：</label>
+   <div class="form-group email_div" >
+   <label class="col-sm-3 col-xs-3 control-label"><b class="text-danger" >*</b>已验证邮箱：</label>
     <div class="col-sm-9 col-xs-9">
-      <p class="form-control-static">${result.userEmail}</p>
+      <p class="form-control-static">${result.userEmail!''}</p>
     </div>
   </div>
    <div class="form-group phone_div">
-   <label class="col-sm-3  col-xs-3 control-label"><sapn class="text-danger" >*</span>已验证手机号：</label>
+   <label class="col-sm-3  col-xs-3 control-label"><b class="text-danger" >*</b>已验证手机号：</label>
     <div class="col-sm-9  col-xs-9">
-      <p class="form-control-static">${result.userPhone}</p>
+      <p class="form-control-static">${result.userPhone!''}</p>
     </div>
   </div>
   <div class="form-group phone_div" id="phone_div">
-     <label for="phoneCode" class="col-sm-3 col-xs-3 control-label"><sapn class="text-danger" >*</span>短信码：</label>
+     <label for="phoneCode" class="col-sm-3 col-xs-3 control-label"><b class="text-danger" >*</b>短信码：</label>
     <div class="col-sm-6 col-xs-6">
 	    <div class="input-group">
 	          <div class="">

@@ -2,6 +2,8 @@ package im.heart.common.web;
 
 
 import com.google.common.collect.Maps;
+import im.heart.common.EmailTplEnum;
+import im.heart.common.SmsTplEnum;
 import im.heart.common.utils.CacheUtils;
 import im.heart.core.CommonConst;
 import im.heart.core.CommonConst.RequestResult;
@@ -210,7 +212,7 @@ public class FindPwdController extends AbstractController {
             @RequestParam(value = "account", required = false) String account,
             HttpServletRequest request, HttpServletResponse response,
             ModelMap model) throws Exception {
-		if(StringUtilsEx.isNotBlank(account)&&account.length()  >=5&& account.length() <= 30){
+		if(StringUtilsEx.isNotBlank(account)&&account.length()  >=FrameUser.minAccountLength&& account.length() <= FrameUser.maxAccountLength){
 			FrameUser user = this.frameUserService.findFrameUser(account);
 			if (user != null) {
 				super.success(model);
@@ -315,7 +317,6 @@ public class FindPwdController extends AbstractController {
 			this.fail(model,responseError);
 			return new ModelAndView(RESULT_PAGE);
 		}
-
 		Object obj= CacheUtils.getCacheObject(CacheUtils.CacheConfig.FIND_PWD.keyPrefix, key);
 		if(obj!=null&&obj instanceof FrameUser){
 			FrameUser user =(FrameUser)obj;
@@ -388,8 +389,9 @@ public class FindPwdController extends AbstractController {
 		CacheUtils.generatEmailCodeCache(userEmail,emailCode);
 		modeltemp.put("emailCode", emailCode);
 		modeltemp.put(RequestResult.RESULT, user);
-		this.sendEmailService.sendEmail(modeltemp, "忘记密码提示",
-				"findPwd.ftl",
+		EmailTplEnum tpl=EmailTplEnum.FIND_PWD;
+		this.sendEmailService.sendEmail(modeltemp, tpl.description,
+				tpl.templatePath,
 				new String[] { userEmail },
 				new String[] {});
 	}
@@ -454,9 +456,10 @@ public class FindPwdController extends AbstractController {
 			Map<String,Object> modelTemp = Maps.newHashMap();
 			modelTemp.put("mobileCode", mobileCode);
 			String mobile=user.getUserPhone();
-			logger.info("mobilecode-host:[{}],mobile:[{}] mobileCode:[{}] type:[{}]", BaseUtils.getIpAddr(request),mobile,mobileCode,type);
+			logger.info("mobileCode-host:[{}],mobile:[{}] mobileCode:[{}] type:[{}]", BaseUtils.getIpAddr(request),mobile,mobileCode,type);
 			CacheUtils.generateMobileCache(mobile, mobileCode);
-			responseError=this.smsSendService.sendSms(modelTemp, "findPwd.ftl", new String[]{mobile});
+			SmsTplEnum tpl= SmsTplEnum.FIND_PWD;
+			responseError=this.smsSendService.sendSms(modelTemp, tpl.templatePath, new String[]{mobile});
 			if(responseError==null){
 				this.success(model);
 			}else{

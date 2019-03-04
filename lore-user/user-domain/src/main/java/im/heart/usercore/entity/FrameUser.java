@@ -29,6 +29,8 @@ import java.util.Date;
 @Data
 public class FrameUser implements AbstractEntity<BigInteger> {
 
+	public static int minAccountLength=5;
+	public static int maxAccountLength=30;
 	/**
 	 * 
 	 */
