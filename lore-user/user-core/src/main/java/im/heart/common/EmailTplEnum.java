@@ -1,7 +1,10 @@
 package im.heart.common;
 
-import lombok.Data;
-
+/**
+ *
+ * @author gg
+ * @desc 邮件模板枚举
+ */
 public enum EmailTplEnum {
     FIND_PWD("EMAIL_02","findPwd","用户密码找回", "findPwd.ftl");
     public String templateId;

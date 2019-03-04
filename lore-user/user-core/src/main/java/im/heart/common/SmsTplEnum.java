@@ -1,5 +1,9 @@
 package im.heart.common;
-
+/**
+ *
+ * @author gg
+ * @desc 短信模板枚举
+ */
 public enum SmsTplEnum {
     FIND_PWD("SMS_02","findPwd","用户密码找回", "findPwd.ftl");
     public String templateId;
