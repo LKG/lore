@@ -57,10 +57,6 @@ public class FindPwdController extends AbstractController {
 		phone("phone",1);
 		public String code;
 		public int intVal;
-		/**
-		 * 模板路径
-		 */
-		public String templatePath;
 		FindPwdTypeEnum(String code, int intVal) {
 			this.code = code;
 			this.intVal = intVal;
