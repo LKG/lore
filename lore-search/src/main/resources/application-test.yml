@@ -5,11 +5,6 @@ logging:
   path: /var/www/logs
   config: classpath:logback-spring.xml
 spring:
-#  redis:
-#    host: 127.0.0.1
-#    database: 0
-#    port: 6379
-#    password:
   output:
     ansi:
       enabled: DETECT
@@ -69,7 +64,7 @@ spring:
   data:
     elasticsearch:
       cluster-name: elasticsearch #节点名字，默认elasticsearch
-      cluster-nodes: 192.168.100.240:9200 #节点地址，多个节点用逗号隔开
+      cluster-nodes: 127.0.0.1:9300 #节点地址，多个节点用逗号隔开
       local: false
       repositories:
         enable: true
