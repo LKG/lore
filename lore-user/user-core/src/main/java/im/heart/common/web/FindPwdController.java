@@ -81,37 +81,16 @@ public class FindPwdController extends AbstractController {
 	 * @Desc：忘记密码
 	 * @param request
 	 * @param response
-	 * @param key
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value=apiVer+"/index",method = RequestMethod.GET)
+	@RequestMapping(value={apiVer+"/",apiVer+"/index"},method = RequestMethod.GET)
 	public ModelAndView findPwdIndex(HttpServletRequest request, HttpServletResponse response,
-                                     @RequestParam(value = "k", required = false) String key,
-                                     ModelMap model) {
-		if(StringUtilsEx.isNotBlank(key)){
-			Object obj= CacheUtils.getCacheObject(CacheUtils.CacheConfig.FIND_PWD.keyPrefix, key);
-			if(obj!=null){
-
-			}
-		}
+              ModelMap model) {
 		super.success(model);
 		return new ModelAndView("findpwd/index");
 	}
 
-    /**
-     * @Desc 忘记密码
-     * @param request
-     * @param response
-     * @param model
-     * @return
-     */
-	@RequestMapping(value=apiVer+"/",method = RequestMethod.GET)
-	public ModelAndView findPwd(HttpServletRequest request, HttpServletResponse response,
-                                 ModelMap model) {
-		super.success(model);
-		return new ModelAndView("findpwd/index");
-	}
 	@RequestMapping(value=apiVer+"/findpwd",method = RequestMethod.GET)
 	public ModelAndView findPwd(HttpServletRequest request, HttpServletResponse response,
                                 @RequestParam(value = "k", required = false) String key,
