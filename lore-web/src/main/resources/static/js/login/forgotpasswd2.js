@@ -69,12 +69,12 @@ define(function (require, exports, moudles) {
 
 	$("#J_Type_choose").on("change",function(){
 		var type=$(this).val();
-		if(type=="1"){
-			$(".phone_div").show();
-			$(".email_div").hide();
+		if(type=="2"){
+            $(".phone_div").hide();
+            $(".email_div").show();
 		}else{
-			$(".phone_div").hide();
-			$(".email_div").show();
+            $(".phone_div").show();
+            $(".email_div").hide();
 		}
 		
 	});

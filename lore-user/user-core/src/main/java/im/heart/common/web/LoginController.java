@@ -39,6 +39,9 @@ public class LoginController extends AbstractController {
 	
 	protected static final String loginDialogFrom="pages/login-in";
 	protected static final String appLoginFrom="app/login-in";
+
+	private static int MAX_LOGIN_TIMES=2;
+
 	@Value("${shiro.login.success.url}")
 	private String successUrl = "/";
 	
@@ -93,7 +96,7 @@ public class LoginController extends AbstractController {
 		logger.debug("用户需要登录跳转到登录页面############LoginFail########post#########");
 		WebError webError = this.parseException(request,username);
 		Integer times = ShiroLoginHelper.getLoginTimes();
-		if(times>=2){
+		if(times>=MAX_LOGIN_TIMES){
 			model.put(CommonConst.SESSION_LOGIN_TIMES, times);
 		}
 		if(webError!=null){

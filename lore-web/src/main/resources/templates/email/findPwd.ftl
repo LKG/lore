@@ -44,7 +44,7 @@
                     <td width="720" style="padding-top: 10px; padding-bottom: 10px;">
                         <div style="border-top: 1px dashed #e9ecf0; border-bottom: 1px dashed #e9ecf0; color: #000000; font-size: 14px; padding-top: 10px; padding-bottom: 10px;">
                             <div style="line-height: 20px; width:720px; color: #000000; padding-top: 5px; padding-bottom: 5px; font-weight: bold;">
-                                <a href="http://127.0.0.1:9080/findPwd/checkPhoneSuccess.jhtml?k=7b23329b42ec488b94bcacead2f417cc">
+                                <a href="http://127.0.0.1:9080/findPwd/sendEmailSuccess.jhtml?k=7b23329b42ec488b94bcacead2f417cc">
 									http://127.0.0.1:9080/findPwd/checkPhoneSuccess.jhtml?k=7b23329b42ec488b94bcacead2f417cc
 								</a>
                             </div>

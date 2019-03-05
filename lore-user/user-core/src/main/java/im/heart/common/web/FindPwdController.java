@@ -73,7 +73,7 @@ public class FindPwdController extends AbstractController {
 	}
 
 	/**
-	 * @Desc：忘记密码
+	 * @Desc：忘记密码页面 step_1
 	 * @param request
 	 * @param response
 	 * @param key
@@ -85,7 +85,7 @@ public class FindPwdController extends AbstractController {
 									 @RequestParam(value = "k", required = false) String key,
               ModelMap model) {
 		model.put("key",key);
-		super.success(model);
+		this.success(model);
 		return new ModelAndView("findpwd/index");
 	}
 
@@ -98,7 +98,7 @@ public class FindPwdController extends AbstractController {
 			if(obj!=null&&obj instanceof FrameUser){
 				FrameUser user =(FrameUser)obj;
 				FrameUserVO userVo=new FrameUserVO(user);
-				super.success(model, userVo);
+				this.success(model, userVo);
 				model.put("k", key);
 				return new ModelAndView("findpwd/findPwd");
 			}
@@ -108,6 +108,17 @@ public class FindPwdController extends AbstractController {
 		return new ModelAndView(RESULT_PAGE);
 	}
 
+	/**
+	 * @Desc：忘记密码页面  step_2
+	 * @param request
+	 * @param response
+	 * @param account
+	 * @param key
+	 * @param format
+	 * @param validateCode
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value=apiVer+"/subGeneral")
 	public ModelAndView subGeneral(HttpServletRequest request, HttpServletResponse response,
                                           @RequestParam(value = "account", required = false ) String account,
@@ -124,7 +135,7 @@ public class FindPwdController extends AbstractController {
 			}
 			FrameUser user=this.frameUserService.findFrameUser(account);
 			if(user!=null){
-				super.success(model,user);
+				this.success(model,user);
 				String uuid= StringUtilsEx.getUUID2();
 				CacheUtils.generatCache(CacheUtils.CacheConfig.FIND_PWD.keyPrefix,uuid, user);
 				if(StringUtilsEx.isBlank(format)){
@@ -133,51 +144,8 @@ public class FindPwdController extends AbstractController {
 				return new ModelAndView(redirectToUrl(apiVer+"/findpwd."+format+"?k="+uuid));
 			}
 		}
-		super.fail(model);
+		this.fail(model,new ResponseError(WebError.REQUEST_PARAMETER_MISSING));
 		return new ModelAndView("findpwd/index");
-	}
-
-
-    /**
-     * @Desc：用户邮箱激活
-     * @param request
-     * @param response
-     * @param emailcode
-     * @param format
-     * @param userEmail
-     * @param model
-     * @return
-     */
-	@RequestMapping(value = apiVer + "/passEmailcode")
-	public ModelAndView passEmailcode(
-			HttpServletRequest request,
-			HttpServletResponse response,
-			@RequestParam(value = "emailcode", required = false) String emailcode,
-			@RequestParam(value = "format", required = false) String format,
-			@RequestParam(value = "userEmail", required = false) String userEmail,
-			ModelMap model) {
-		if (StringUtilsEx.isNotBlank(emailcode)&& StringUtilsEx.isNotBlank(userEmail)) {
-			// 检测邮件验证码使用有效
-			if(CacheUtils.checkEmailCode(userEmail,emailcode)){
-				try {
-					FrameUser user = this.frameUserService.activateUserEmail(userEmail);
-					if (user!=null) {
-						this.success(model, true);
-						CacheUtils.evictEmailCache(userEmail);
-						super.success(model,user);
-						if(StringUtilsEx.isBlank(format)){
-							format="jhtml";
-						}
-						return new ModelAndView(redirectToUrl(apiVer + "/success."+format));
-					}
-				} catch (ServiceException e) {
-					logger.error(e.getStackTrace()[0].getMethodName(), e);
-				}
-			}
-		}
-
-		this.fail(model);
-		return new ModelAndView(RESULT_PAGE);
 	}
 
 	/**
@@ -199,11 +167,11 @@ public class FindPwdController extends AbstractController {
 		if(StringUtilsEx.isNotBlank(account)&&account.length()  >=FrameUser.minAccountLength&& account.length() <= FrameUser.maxAccountLength){
 			FrameUser user = this.frameUserService.findFrameUser(account);
 			if (user != null) {
-				super.success(model);
+				this.success(model);
 				return new ModelAndView(RESULT_PAGE);
 			}
 		}
-		super.fail(model);
+		this.fail(model);
 		return new ModelAndView(RESULT_PAGE);
 	}
 	/**
@@ -218,7 +186,7 @@ public class FindPwdController extends AbstractController {
 	 * @return
 	 */
 	@RequestMapping(value = apiVer + "/sendEmailSuccess")
-	protected ModelAndView sendFindPwdEmailSuccess(      @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
+	protected ModelAndView sendEmailSuccess(      @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
                                                    HttpServletRequest request, HttpServletResponse response,
                                                    @RequestParam(value = "format", required = false) String format,
                                                    @RequestParam(value = "k", required = false) String key,
@@ -234,12 +202,12 @@ public class FindPwdController extends AbstractController {
 			String userEmail=user.getUserEmail();
 			if(StringUtilsEx.isNotBlank(userEmail)){
 				String emailServer = StringUtilsEx.substringAfterLast(userEmail, "@");
-				super.success(model);
+				this.success(model);
 				model.put("emailServer", emailServer);
 				return new ModelAndView("findpwd/sendEmailSuccess");
 			}
 		}
-		super.success(model);
+		this.success(model);
 		return new ModelAndView("findpwd/sendEmailSuccess");
 	}
 	/**
@@ -267,7 +235,7 @@ public class FindPwdController extends AbstractController {
 		model.put("k", key);
 		Object obj= CacheUtils.getCacheObject(CacheUtils.CacheConfig.FIND_PWD.keyPrefix, key);
 		if(obj!=null&&obj instanceof FrameUser){
-			super.success(model);
+			this.success(model);
 			return new ModelAndView("findpwd/resetPwd");
 		}
 		this.fail(model,responseError);
@@ -311,7 +279,7 @@ public class FindPwdController extends AbstractController {
 			}
 			return new ModelAndView(redirectToUrl(apiVer+"/resetPwdSuccess."+format+"?k="+key));
 		}
-		super.fail(model,responseError);
+		this.fail(model,responseError);
 		return new ModelAndView("findpwd/resetPwd");
 	}
 	@RequestMapping(value = apiVer + "/resetPwdSuccess")
@@ -321,7 +289,7 @@ public class FindPwdController extends AbstractController {
             @RequestParam(value = "format", required = false) String format,
             @RequestParam(value = "k", required = false) String key,
             ModelMap model) throws Exception {
-		super.success(model);
+		this.success(model);
 		return new ModelAndView("findpwd/resetPwdSuccess");
 	}
 
@@ -345,8 +313,19 @@ public class FindPwdController extends AbstractController {
 			if(StringUtilsEx.isBlank(format)){
 				format="jhtml";
 			}
-			if(StringUtilsEx.isNotBlank(type)&&type.equals(FindPwdTypeEnum.email.intVal)){
-				this.sendFindPwdEmail(user);
+			if(StringUtilsEx.isNotBlank(type)&&type.equals(FindPwdTypeEnum.email.intVal+"")){
+				int emailCode = (int) ((Math.random() * 9 + 1) * 100000);
+				Map<String, Object> modelTemp = Maps.newHashMap();
+				String userEmail=user.getUserEmail();
+				CacheUtils.generatEmailCodeCache(userEmail,emailCode);
+				modelTemp.put("k", key);
+				modelTemp.put("emailCode", emailCode);
+				modelTemp.put(RequestResult.RESULT, user);
+				EmailTplEnum tpl=EmailTplEnum.FIND_PWD;
+				this.sendEmailService.sendEmail(modelTemp, tpl.description,
+						tpl.templatePath,
+						new String[] { userEmail },
+						new String[] {});
 				return new ModelAndView(redirectToUrl(apiVer+"/sendEmailSuccess."+format+"?k="+key));
 			}
 			String mobile=user.getUserPhone();
@@ -359,25 +338,6 @@ public class FindPwdController extends AbstractController {
 		}
 		this.fail(model,responseError);
 		return new ModelAndView(RESULT_PAGE);
-	}
-
-	/**
-	 *
-	 * @Desc：发送邮件
-	 * @param user
-	 */
-	private void sendFindPwdEmail(FrameUser user){
-		int emailCode = (int) ((Math.random() * 9 + 1) * 100000);
-		Map<String, Object> modelTemp = Maps.newHashMap();
-		String userEmail=user.getUserEmail();
-		CacheUtils.generatEmailCodeCache(userEmail,emailCode);
-		modelTemp.put("emailCode", emailCode);
-		modelTemp.put(RequestResult.RESULT, user);
-		EmailTplEnum tpl=EmailTplEnum.FIND_PWD;
-		this.sendEmailService.sendEmail(modelTemp, tpl.description,
-				tpl.templatePath,
-				new String[] { userEmail },
-				new String[] {});
 	}
 
     /**
@@ -408,7 +368,7 @@ public class FindPwdController extends AbstractController {
 			Boolean isResponseCorrect = Boolean.FALSE;
 			isResponseCorrect=CacheUtils.checkMobileCode(mobile, phoneCode);
 			if(isResponseCorrect){
-				super.success(model);
+				this.success(model);
 				return new ModelAndView(RESULT_PAGE);
 			}
 		}
@@ -424,7 +384,7 @@ public class FindPwdController extends AbstractController {
 	 * @param model
 	 */
 	@RequestMapping(value = apiVer + "/passMobileCode")
-	public ModelAndView sendFindPwdPhone(HttpServletRequest request,
+	public ModelAndView passMobileCode(HttpServletRequest request,
                                          HttpServletResponse response,
                                          @RequestParam(value = "k", required = false ) String key,
                                          @RequestParam(value = "type", required = false ,defaultValue="1") String type, ModelMap model) {
