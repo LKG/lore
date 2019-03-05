@@ -73,7 +73,7 @@ public class FindPwdController extends AbstractController {
 	}
 
 	/**
-	 * @Desc：忘记密码页面 step_1
+	 * @Desc：忘记密码页面
 	 * @param request
 	 * @param response
 	 * @param key
@@ -84,7 +84,7 @@ public class FindPwdController extends AbstractController {
 	public ModelAndView findPwdIndex(HttpServletRequest request, HttpServletResponse response,
 									 @RequestParam(value = "k", required = false) String key,
               ModelMap model) {
-		model.put("key",key);
+		model.put("k",key);
 		this.success(model);
 		return new ModelAndView("findpwd/index");
 	}
@@ -107,9 +107,34 @@ public class FindPwdController extends AbstractController {
 		this.fail(model,responseError);
 		return new ModelAndView(RESULT_PAGE);
 	}
-
 	/**
-	 * @Desc：忘记密码页面  step_2
+	 * @Desc：检测帐号信息是否存在、（邮箱，电话号码。帐号 ）step_1
+	 * @param jsoncallback
+	 * @param account
+	 * @param request
+	 * @param response
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = apiVer + "/checkUserAccount", method = RequestMethod.GET)
+	protected ModelAndView checkUserPhone(
+			@RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
+			@RequestParam(value = "account", required = false) String account,
+			HttpServletRequest request, HttpServletResponse response,
+			ModelMap model) throws Exception {
+		if(StringUtilsEx.isNotBlank(account)&&account.length()  >=FrameUser.minAccountLength&& account.length() <= FrameUser.maxAccountLength){
+			FrameUser user = this.frameUserService.findFrameUser(account);
+			if (user != null) {
+				this.success(model);
+				return new ModelAndView(RESULT_PAGE);
+			}
+		}
+		this.fail(model);
+		return new ModelAndView(RESULT_PAGE);
+	}
+	/**
+	 * @Desc：忘记密码页面  step_1 验证账号信息
 	 * @param request
 	 * @param response
 	 * @param account
@@ -148,31 +173,37 @@ public class FindPwdController extends AbstractController {
 		return new ModelAndView("findpwd/index");
 	}
 
+
 	/**
-	 * @Desc：检测帐号信息是否存在、（邮箱，电话号码。帐号 ）
+	 *
+	 * @Desc：通过手机号码校验成功
 	 * @param jsoncallback
-	 * @param account
 	 * @param request
 	 * @param response
+	 * @param format
+	 * @param key
 	 * @param model
 	 * @return
-	 * @throws Exception
 	 */
-	@RequestMapping(value = apiVer + "/checkUserAccount", method = RequestMethod.GET)
-	protected ModelAndView checkUserPhone(
-			@RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
-            @RequestParam(value = "account", required = false) String account,
-            HttpServletRequest request, HttpServletResponse response,
-            ModelMap model) throws Exception {
-		if(StringUtilsEx.isNotBlank(account)&&account.length()  >=FrameUser.minAccountLength&& account.length() <= FrameUser.maxAccountLength){
-			FrameUser user = this.frameUserService.findFrameUser(account);
-			if (user != null) {
-				this.success(model);
-				return new ModelAndView(RESULT_PAGE);
-			}
+	@RequestMapping(value = apiVer + "/checkSuccess")
+	protected ModelAndView checkSuccess(@RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
+                                             HttpServletRequest request, HttpServletResponse response,
+                                             @RequestParam(value = "format", required = false) String format,
+                                             @RequestParam(value = "k2", required = false) String key,
+                                             ModelMap model){
+		ResponseError responseError=new ResponseError(WebError.REQUEST_PARAMETER_MISSING);
+		if(StringUtilsEx.isBlank(key)){
+			this.fail(model,responseError);
+			return new ModelAndView(RESULT_PAGE);
 		}
-		this.fail(model);
-		return new ModelAndView(RESULT_PAGE);
+		model.put("k2", key);
+		Object obj= CacheUtils.getCacheObject(CacheUtils.CacheConfig.FIND_PWD.keyPrefix, key);
+		if(obj!=null&&obj instanceof FrameUser){
+			this.success(model);
+			return new ModelAndView("findpwd/resetPwd");
+		}
+		this.fail(model,responseError);
+		return new ModelAndView("findpwd/resetPwd");
 	}
 	/**
 	 *
@@ -187,10 +218,10 @@ public class FindPwdController extends AbstractController {
 	 */
 	@RequestMapping(value = apiVer + "/sendEmailSuccess")
 	protected ModelAndView sendEmailSuccess(      @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
-                                                   HttpServletRequest request, HttpServletResponse response,
-                                                   @RequestParam(value = "format", required = false) String format,
-                                                   @RequestParam(value = "k", required = false) String key,
-                                                   ModelMap model){
+												  HttpServletRequest request, HttpServletResponse response,
+												  @RequestParam(value = "format", required = false) String format,
+												  @RequestParam(value = "k", required = false) String key,
+												  ModelMap model){
 		ResponseError responseError=new ResponseError(WebError.REQUEST_PARAMETER_MISSING);
 		if(StringUtilsEx.isBlank(key)){
 			this.fail(model,responseError);
@@ -207,43 +238,12 @@ public class FindPwdController extends AbstractController {
 				return new ModelAndView("findpwd/sendEmailSuccess");
 			}
 		}
-		this.success(model);
+		this.fail(model,responseError);
 		return new ModelAndView("findpwd/sendEmailSuccess");
 	}
 	/**
 	 *
-	 * @Desc：通过手机号码校验成功
-	 * @param jsoncallback
-	 * @param request
-	 * @param response
-	 * @param format
-	 * @param key
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value = apiVer + "/checkSuccess")
-	protected ModelAndView checkSuccess(      @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
-                                             HttpServletRequest request, HttpServletResponse response,
-                                             @RequestParam(value = "format", required = false) String format,
-                                             @RequestParam(value = "k", required = false) String key,
-                                             ModelMap model){
-		ResponseError responseError=new ResponseError(WebError.REQUEST_PARAMETER_MISSING);
-		if(StringUtilsEx.isBlank(key)){
-			this.fail(model,responseError);
-			return new ModelAndView(RESULT_PAGE);
-		}
-		model.put("k", key);
-		Object obj= CacheUtils.getCacheObject(CacheUtils.CacheConfig.FIND_PWD.keyPrefix, key);
-		if(obj!=null&&obj instanceof FrameUser){
-			this.success(model);
-			return new ModelAndView("findpwd/resetPwd");
-		}
-		this.fail(model,responseError);
-		return new ModelAndView("findpwd/resetPwd");
-	}
-	/**
-	 *
-	 * 修改密码
+	 * @Desc 修改密码
 	 * @param jsoncallback
 	 * @param request
 	 * @param response
@@ -282,6 +282,47 @@ public class FindPwdController extends AbstractController {
 		this.fail(model,responseError);
 		return new ModelAndView("findpwd/resetPwd");
 	}
+	@RequestMapping(value = apiVer + "/checkEmailCode")
+	protected ModelAndView checkEmailCode(
+			@RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
+			HttpServletRequest request, HttpServletResponse response,
+			@RequestParam(value = "format", required = false) String format,
+			@RequestParam(value = "emailCode", required = false) String emailCode,
+			@RequestParam(value = "k", required = false) String key,
+			ModelMap model) throws Exception {
+		ResponseError responseError=new ResponseError(WebError.REQUEST_PARAMETER_MISSING);
+		if(StringUtilsEx.isBlank(key)){
+			this.fail(model,responseError);
+			return new ModelAndView(RESULT_PAGE);
+		}
+		Object obj= CacheUtils.getCacheObject(CacheUtils.CacheConfig.FIND_PWD.keyPrefix, key);
+		if(obj!=null&&obj instanceof FrameUser) {
+			FrameUser user = (FrameUser) obj;
+			String userEmail=user.getUserEmail();
+			if (StringUtilsEx.isBlank(format)) {
+				format = "jhtml";
+			}
+			Boolean isResponseCorrect = Boolean.FALSE;
+			isResponseCorrect=CacheUtils.checkEmailCode(userEmail, emailCode);
+			if(isResponseCorrect){
+				return new ModelAndView(redirectToUrl(apiVer+"/checkSuccess."+format+"?k2="+key));
+			}
+		}
+
+		this.fail(model,responseError);
+		return new ModelAndView(RESULT_PAGE);
+	}
+	/**
+	 * @Desc：密码修改成功页面 step_4
+	 * @param jsoncallback
+	 * @param request
+	 * @param response
+	 * @param format
+	 * @param key
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value = apiVer + "/resetPwdSuccess")
 	protected ModelAndView resetPwdSuccess(
 			@RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
@@ -332,51 +373,13 @@ public class FindPwdController extends AbstractController {
 			Boolean isResponseCorrect = Boolean.FALSE;
 			isResponseCorrect=CacheUtils.checkMobileCode(mobile, phoneCode);
 			if(isResponseCorrect){
-				return new ModelAndView(redirectToUrl(apiVer+"/checkSuccess."+format+"?k="+key));
+				return new ModelAndView(redirectToUrl(apiVer+"/checkSuccess."+format+"?k2="+key));
 			}
 			responseError=new ResponseError(WebError.AUTH_PHONECODE_INCORRECT);
 		}
 		this.fail(model,responseError);
 		return new ModelAndView(RESULT_PAGE);
 	}
-
-    /**
-     * @Desc：验证码校验接口
-     * @param request
-     * @param response
-     * @param key
-     * @param phoneCode
-     * @param model
-     * @return
-     */
-	@RequestMapping(value = apiVer + "/checkMobileCode")
-	public ModelAndView checkMobileCode(HttpServletRequest request,
-                                           HttpServletResponse response,
-                                           @RequestParam(value = "k", required = false ) String key,
-                                           @RequestParam(value = "phoneCode", required = false) String phoneCode,
-                                           ModelMap model){
-		ResponseError responseError=new ResponseError(WebError.REQUEST_PARAMETER_MISSING);
-		if(StringUtilsEx.isBlank(key)){
-			this.fail(model,responseError);
-			return new ModelAndView(RESULT_PAGE);
-		}
-		logger.debug("passcode-host:"+request.getLocalAddr());
-		Object obj= CacheUtils.getCacheObject(CacheUtils.CacheConfig.FIND_PWD.keyPrefix, key);
-		if(obj!=null&&obj instanceof FrameUser){
-			FrameUser user =(FrameUser)obj;
-			String mobile=user.getUserPhone();
-			Boolean isResponseCorrect = Boolean.FALSE;
-			isResponseCorrect=CacheUtils.checkMobileCode(mobile, phoneCode);
-			if(isResponseCorrect){
-				this.success(model);
-				return new ModelAndView(RESULT_PAGE);
-			}
-		}
-		this.fail(model);
-		return new ModelAndView(RESULT_PAGE);
-	}
-
-
 	/**
 	 * @Desc： 发送短信验证码
 	 * @param request
@@ -385,9 +388,9 @@ public class FindPwdController extends AbstractController {
 	 */
 	@RequestMapping(value = apiVer + "/passMobileCode")
 	public ModelAndView passMobileCode(HttpServletRequest request,
-                                         HttpServletResponse response,
-                                         @RequestParam(value = "k", required = false ) String key,
-                                         @RequestParam(value = "type", required = false ,defaultValue="1") String type, ModelMap model) {
+									   HttpServletResponse response,
+									   @RequestParam(value = "k", required = false ) String key,
+									   @RequestParam(value = "type", required = false ,defaultValue="1") String type, ModelMap model) {
 		ResponseError responseError=new ResponseError(WebError.REQUEST_PARAMETER_MISSING);
 		if(StringUtilsEx.isBlank(key)){
 			this.fail(model,responseError);
@@ -412,4 +415,42 @@ public class FindPwdController extends AbstractController {
 		}
 		return new ModelAndView(RESULT_PAGE);
 	}
+    /**
+     * @Desc：验证码校验接口
+     * @param request
+     * @param response
+     * @param key
+     * @param phoneCode
+     * @param model
+     * @return
+     */
+	@RequestMapping(value = apiVer + "/checkMobileCode")
+	public ModelAndView checkMobileCode(HttpServletRequest request,
+                                           HttpServletResponse response,
+                                           @RequestParam(value = "k", required = false ) String key,
+                                           @RequestParam(value = "phoneCode", required = false) String phoneCode,
+                                           ModelMap model){
+		ResponseError responseError=new ResponseError(WebError.REQUEST_PARAMETER_MISSING);
+		if(StringUtilsEx.isBlank(key)){
+			this.fail(model,responseError);
+			return new ModelAndView(RESULT_PAGE);
+		}
+		logger.info("passcode-host:"+request.getLocalAddr());
+		Object obj= CacheUtils.getCacheObject(CacheUtils.CacheConfig.FIND_PWD.keyPrefix, key);
+		if(obj!=null&&obj instanceof FrameUser){
+			FrameUser user =(FrameUser)obj;
+			String mobile=user.getUserPhone();
+			Boolean isResponseCorrect = Boolean.FALSE;
+			isResponseCorrect=CacheUtils.checkMobileCode(mobile, phoneCode);
+			if(isResponseCorrect){
+				this.success(model);
+				return new ModelAndView(RESULT_PAGE);
+			}
+		}
+		this.fail(model);
+		return new ModelAndView(RESULT_PAGE);
+	}
+
+
+
 }

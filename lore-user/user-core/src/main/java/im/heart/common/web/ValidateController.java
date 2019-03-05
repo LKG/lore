@@ -174,7 +174,7 @@ public class ValidateController extends AbstractController {
 	 * @Desc：验证码校验接口
 	 * @param request
 	 * @param response
-	 * @param mobile
+	 * @param userPhone
 	 * @param phoneCode
 	 * @param model
 	 * @return

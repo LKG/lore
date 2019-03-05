@@ -16,9 +16,9 @@ public  class CacheUtils {
 	public static final String CACHE_MANAGER_BEAN_NAME = CommonConst.CACHE_MANAGER_NAME;
 
 	public enum CacheConfig {
-		EMAIL_CODE("emailCode-cache", 30 * 60 * 1),
-		MOBILE_CODE("mobileCode-cache", 30 * 60 * 1),
-		FIND_PWD("findPwd-cache", 30 * 60 * 1);
+		EMAIL_CODE("emailCode_cache", 30 * 60 * 1),
+		MOBILE_CODE("mobileCode_cache", 30 * 60 * 1),
+		FIND_PWD("findPwd_cache", 30 * 60 * 1);
 		CacheConfig(String keyPrefix, long expiredTime) {
 			this.keyPrefix = keyPrefix;
 			this.expiredTime = expiredTime;
