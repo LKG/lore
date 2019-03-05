@@ -29,7 +29,7 @@
             <table cellspacing="0" cellpadding="0" width="720px" style="border-spacing: 0; color: #333333;">
                 <tbody>
                 <tr>
-                    <td width="720" style="font-size: 16px; height: 40px; font-weight: bold;"> 尊敬的 <span style="color: #ff764c;">用户：</span> </td>
+                    <td width="720" style="font-size: 16px; height: 40px; font-weight: bold;"> 尊敬的 <span style="color: #ff764c;">${result.nickName!''} ：</span> </td>
                 </tr>
                 <tr>
                     <td width="720">
@@ -37,7 +37,7 @@
                             您好！
                         </div>
                         <div style="line-height: 20px; font-size: 12px;">
-                            您在 ${.now?string['yyyy年MM月dd日 hh时mm分']}  提交找回密码请求，请点击下面的链接修改密码:
+                            您在 ${.now?string['yyyy年MM月dd日 hh时mm分']}  提交找回密码请求，请点击下面的链接修改用户${result.uerName!''} 密码:
                         </div> </td>
                 </tr>
                 <tr>

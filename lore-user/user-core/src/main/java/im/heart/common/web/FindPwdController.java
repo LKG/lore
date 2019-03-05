@@ -51,6 +51,31 @@ public class FindPwdController extends AbstractController {
 
 	@Autowired
 	private ImageCaptchaExService imageCaptchaService;
+
+    enum  FindPwdTypeEnum {
+		email("email",2),
+		phone("phone",1);
+		public String code;
+		public int intVal;
+		/**
+		 * 模板路径
+		 */
+		public String templatePath;
+		FindPwdTypeEnum(String code, int intVal) {
+			this.code = code;
+			this.intVal = intVal;
+		}
+
+		public static FindPwdTypeEnum fromCode(String code){
+			for(FindPwdTypeEnum refer : FindPwdTypeEnum.values()) {
+				if (refer.code.equals(code)) {
+					return refer;
+				}
+			}
+			return null;
+		}
+	}
+
 	/**
 	 *
 	 * @Desc：忘记密码
@@ -82,7 +107,7 @@ public class FindPwdController extends AbstractController {
      * @return
      */
 	@RequestMapping(value=apiVer+"/",method = RequestMethod.GET)
-	public ModelAndView findPwd2(HttpServletRequest request, HttpServletResponse response,
+	public ModelAndView findPwd(HttpServletRequest request, HttpServletResponse response,
                                  ModelMap model) {
 		super.success(model);
 		return new ModelAndView("findpwd/index");
@@ -107,7 +132,7 @@ public class FindPwdController extends AbstractController {
 	}
 
 	@RequestMapping(value=apiVer+"/subGeneral")
-	public ModelAndView findPwdsubGeneral(HttpServletRequest request, HttpServletResponse response,
+	public ModelAndView subGeneral(HttpServletRequest request, HttpServletResponse response,
                                           @RequestParam(value = "account", required = false ) String account,
                                           @RequestParam(value = "k", required = false) String key,
                                           @RequestParam(value = "format", required = false) String format,
@@ -269,8 +294,8 @@ public class FindPwdController extends AbstractController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = apiVer + "/checkPhoneSuccess")
-	protected ModelAndView checkPhoneSuccess(      @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
+	@RequestMapping(value = apiVer + "/checkSuccess")
+	protected ModelAndView checkSuccess(      @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
                                              HttpServletRequest request, HttpServletResponse response,
                                              @RequestParam(value = "format", required = false) String format,
                                              @RequestParam(value = "k", required = false) String key,
@@ -361,7 +386,7 @@ public class FindPwdController extends AbstractController {
 			if(StringUtilsEx.isBlank(format)){
 				format="jhtml";
 			}
-			if(StringUtilsEx.isNotBlank(type)&&"2".equals(type)){
+			if(StringUtilsEx.isNotBlank(type)&&type.equals(FindPwdTypeEnum.email.intVal)){
 				this.sendFindPwdEmail(user);
 				return new ModelAndView("redirect:"+apiVer+"/sendEmailSuccess."+format+"?k="+key);
 			}
@@ -369,7 +394,7 @@ public class FindPwdController extends AbstractController {
 			Boolean isResponseCorrect = Boolean.FALSE;
 			isResponseCorrect=CacheUtils.checkMobileCode(mobile, phoneCode);
 			if(isResponseCorrect){
-				return new ModelAndView("redirect:"+apiVer+"/checkPhoneSuccess."+format+"?k="+key);
+				return new ModelAndView("redirect:"+apiVer+"/checkSuccess."+format+"?k="+key);
 			}
 			responseError=new ResponseError(WebError.AUTH_PHONECODE_INCORRECT);
 		}
@@ -384,13 +409,13 @@ public class FindPwdController extends AbstractController {
 	 */
 	private void sendFindPwdEmail(FrameUser user){
 		int emailCode = (int) ((Math.random() * 9 + 1) * 100000);
-		Map<String, Object> modeltemp = Maps.newHashMap();
+		Map<String, Object> modelTemp = Maps.newHashMap();
 		String userEmail=user.getUserEmail();
 		CacheUtils.generatEmailCodeCache(userEmail,emailCode);
-		modeltemp.put("emailCode", emailCode);
-		modeltemp.put(RequestResult.RESULT, user);
+		modelTemp.put("emailCode", emailCode);
+		modelTemp.put(RequestResult.RESULT, user);
 		EmailTplEnum tpl=EmailTplEnum.FIND_PWD;
-		this.sendEmailService.sendEmail(modeltemp, tpl.description,
+		this.sendEmailService.sendEmail(modelTemp, tpl.description,
 				tpl.templatePath,
 				new String[] { userEmail },
 				new String[] {});

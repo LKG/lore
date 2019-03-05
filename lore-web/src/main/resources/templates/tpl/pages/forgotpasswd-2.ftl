@@ -6,8 +6,8 @@
     <label for="J_Type_choose" class="col-sm-3 col-xs-3 control-label"><b class="text-danger" >*</b>请选择验证身份方式：</label>
      <div class="col-sm-6 col-xs-6">
 			<select class="form-control" name="type" id="J_Type_choose">
-			  <option value=1 >手机号码</option>
-			  <option value=2 >注册邮箱</option>
+			  <option value="1"  >手机号码</option>
+			  <option value="2" selected>注册邮箱</option>
 			</select>
     </div>
   </div>
@@ -23,13 +23,13 @@
       <p class="form-control-static">${result.userEmail!''}</p>
     </div>
   </div>
-   <div class="form-group phone_div">
+   <div class="form-group phone_div" style="display: none;">
    <label class="col-sm-3  col-xs-3 control-label"><b class="text-danger" >*</b>已验证手机号：</label>
     <div class="col-sm-9  col-xs-9">
       <p class="form-control-static">${result.userPhone!''}</p>
     </div>
   </div>
-  <div class="form-group phone_div" id="phone_div">
+  <div class="form-group phone_div" id="phone_div" style="display: none;">
      <label for="phoneCode" class="col-sm-3 col-xs-3 control-label"><b class="text-danger" >*</b>短信码：</label>
     <div class="col-sm-6 col-xs-6">
 	    <div class="input-group">
