@@ -153,7 +153,7 @@ public class FindPwdController extends AbstractController {
 				if(StringUtilsEx.isBlank(format)){
 					format="jhtml";
 				}
-				return new ModelAndView("redirect:"+apiVer+"/findpwd."+format+"?k="+uuid);
+				return new ModelAndView(redirectToUrl(apiVer+"/findpwd."+format+"?k="+uuid));
 			}
 		}
 		super.fail(model);
@@ -191,7 +191,7 @@ public class FindPwdController extends AbstractController {
 						if(StringUtilsEx.isBlank(format)){
 							format="jhtml";
 						}
-						return new ModelAndView("redirect:" + apiVer + "/success."+format);
+						return new ModelAndView(redirectToUrl(apiVer + "/success."+format));
 					}
 				} catch (ServiceException e) {
 					logger.error(e.getStackTrace()[0].getMethodName(), e);
@@ -350,7 +350,7 @@ public class FindPwdController extends AbstractController {
 			if(StringUtilsEx.isBlank(format)){
 				format="jhtml";
 			}
-			return new ModelAndView("redirect:"+apiVer+"/resetPwdSuccess."+format+"?k="+key);
+			return new ModelAndView(redirectToUrl(apiVer+"/resetPwdSuccess."+format+"?k="+key));
 		}
 		super.fail(model,responseError);
 		return new ModelAndView("findpwd/resetPwd");
@@ -388,13 +388,13 @@ public class FindPwdController extends AbstractController {
 			}
 			if(StringUtilsEx.isNotBlank(type)&&type.equals(FindPwdTypeEnum.email.intVal)){
 				this.sendFindPwdEmail(user);
-				return new ModelAndView("redirect:"+apiVer+"/sendEmailSuccess."+format+"?k="+key);
+				return new ModelAndView(redirectToUrl(apiVer+"/sendEmailSuccess."+format+"?k="+key));
 			}
 			String mobile=user.getUserPhone();
 			Boolean isResponseCorrect = Boolean.FALSE;
 			isResponseCorrect=CacheUtils.checkMobileCode(mobile, phoneCode);
 			if(isResponseCorrect){
-				return new ModelAndView("redirect:"+apiVer+"/checkSuccess."+format+"?k="+key);
+				return new ModelAndView(redirectToUrl(apiVer+"/checkSuccess."+format+"?k="+key));
 			}
 			responseError=new ResponseError(WebError.AUTH_PHONECODE_INCORRECT);
 		}
