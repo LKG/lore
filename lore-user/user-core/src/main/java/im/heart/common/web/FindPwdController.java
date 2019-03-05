@@ -73,16 +73,18 @@ public class FindPwdController extends AbstractController {
 	}
 
 	/**
-	 *
 	 * @Desc：忘记密码
 	 * @param request
 	 * @param response
+	 * @param key
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value={apiVer+"/",apiVer+"/index"},method = RequestMethod.GET)
+	@RequestMapping(value={apiVer,apiVer+"/",apiVer+"/index"},method = RequestMethod.GET)
 	public ModelAndView findPwdIndex(HttpServletRequest request, HttpServletResponse response,
+									 @RequestParam(value = "k", required = false) String key,
               ModelMap model) {
+		model.put("key",key);
 		super.success(model);
 		return new ModelAndView("findpwd/index");
 	}
@@ -177,24 +179,6 @@ public class FindPwdController extends AbstractController {
 		this.fail(model);
 		return new ModelAndView(RESULT_PAGE);
 	}
-	/**
-	 *
-	 * @Desc：忘记密码
-	 * @param request
-	 * @param response
-	 * @param key
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value=apiVer,method = RequestMethod.GET)
-	public ModelAndView findPwdDefault(HttpServletRequest request, HttpServletResponse response,
-                                       @RequestParam(value = "k", required = false) String key,
-                                       ModelMap model) {
-		super.success(model);
-		model.put("k", key);
-		return new ModelAndView("findpwd/index");
-	}
-
 
 	/**
 	 * @Desc：检测帐号信息是否存在、（邮箱，电话号码。帐号 ）
