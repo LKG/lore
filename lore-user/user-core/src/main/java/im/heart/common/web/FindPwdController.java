@@ -267,7 +267,7 @@ public class FindPwdController extends AbstractController {
 			@RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
             HttpServletRequest request, HttpServletResponse response,
             @RequestParam(value = "format", required = false) String format,
-            @RequestParam(value = "k", required = false) String key,
+            @RequestParam(value = "k2", required = false) String key,
             @RequestParam(value = "passWord", required = false) String passWord,
             @RequestParam(value = "retryPassWord", required = false) String retryPassWord,
             ModelMap model) throws Exception {
@@ -376,7 +376,7 @@ public class FindPwdController extends AbstractController {
 						tpl.templatePath,
 						new String[] { userEmail },
 						new String[] {});
-				return new ModelAndView(redirectToUrl(apiVer+"/sendEmailSuccess."+format));
+				return new ModelAndView(redirectToUrl(apiVer+"/sendEmailSuccess."+format+"?k="+key));
 			}
 			String mobile=user.getUserPhone();
 			Boolean isResponseCorrect = Boolean.FALSE;
