@@ -12,10 +12,16 @@
     <meta name="viewport" content="width=1100, maximum-scale=1.0, user-scalable=yes" />
     <link rel="shortcut icon" href="//www.aliyun.com/favicon.ico" type="image/x-icon" />
     <base href="${contextPath}" id="baseRoot"/>
-    <title>中国知网</title>
-    <meta name="keywords" content="中国知网,数字出版,知识发现,知识服务,知识管理,数字出版,增强出版,CAJ-N,网络首发,CNKI首发,数字图书馆,学术文献,期刊,博士论文,硕士论文,会议论文,报纸,年鉴,统计数据,专利,科技成果,标准,法规,古籍,工具书,引文,图片搜索,外文文献" />
-    <meta name="description" content="中国知网知识发现网络平台—面向海内外读者提供中国学术文献、外文文献、学位论文、报纸、会议、年鉴、工具书等各类资源统一检索、统一导航、在线阅读和下载服务。涵盖基础科学、文史哲、工程科技、社会科学、农业、经济与管理科学、医药卫生、信息科技等十大领域。" />
-    <link rel="stylesheet" href="//piccache.cnki.net/kdn/index/nvsm/nvsmCSS_min/kindex.min.css?v=${ver!'1'}">
+    <base href="${contextPath}" id="baseRoot"/>
+    <link rel="stylesheet" type="text/css" href="${contextPath}/modules/fontawesome/4.7.0/css/font-awesome.min.css?v=${ver!'1'}" />
+    <link rel="stylesheet" type="text/css" href="${contextPath}/modules/nprogress/nprogress.css?v=${ver!'1'}" />
+    <link rel="stylesheet" type="text/css" href="${contextPath}/css/animate.css?v=${ver!'1'}" />
+    <title><@spring.message  code="label.system.index" /></title>
+    <meta name="description" content="为您提供愉悦的资料分享体验!" />
+    <meta name="Keywords" content="ppt模板下载，简历模板，PPT定制，视频教程，图片素材下载，ppt素材库、工作总结、工作计划、调研报告、竞聘演讲稿、会议发言稿、学习心得体会、入党申请书、应用公文、论文范文、范文写作技巧" />
+    <link rel="stylesheet" href="${contextPath}/modules/bootstrap/3.3.5/css/bootstrap.min.css?v=${ver!'1'}">
+    <link href="${contextPath}/css/index.css?v=${ver!'1'}" type="text/css" rel="stylesheet">
+    <link href="${contextPath}/css/main.css?v=${ver!'1'}" type="text/css" rel="stylesheet"><link rel="stylesheet" href="//piccache.cnki.net/kdn/index/nvsm/nvsmCSS_min/kindex.min.css?v=${ver!'1'}">
     <link rel="stylesheet" href="//piccache.cnki.net/kdn/index/nvsm/nvsmCSS_min/royalslider.min.css?v=${ver!'1'}>
     <link rel="stylesheet" href="//piccache.cnki.net/kdn/index/nvsm/nvsmCSS_min/rs-default.min.css?v=${ver!'1'}">
     <link rel="stylesheet" href="//piccache.cnki.net/kdn/index/nvsm/nvsmCSS_min/index.min.css?v=1.5">
@@ -23,7 +29,7 @@
     <link rel="stylesheet" href="//piccache.cnki.net/kdn/index/nvsm/nvsmCSS_min/index-ie.min.css?v=${ver!'1'}">
     <![endif]-->
     <base href="${contextPath}" id="baseRoot"/>
-    <script type="text/javascript" src="${contextPath}/js/jQuery-hijack.js${ver!'1'}"></script>
+    <script type="text/javascript" src="${contextPath}/js/jQuery-hijack.js?v=${ver!'1'}"></script>
     <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/jQuery-1.11.3.min.js?v=${ver!'1'}"></script>
     <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/jquery.cookie.js?v=${ver!'1'}"></script>
     <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/GlobalVar.min.js?v=${ver!'1'}"></script>
@@ -31,7 +37,7 @@
     <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/jquery.royalslider.js?v=${ver!'1'}"></script>
     <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/fieldJson.min.js?v=${ver!'1'}"></script>
     <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/slidebox.min.js?v=${ver!'1'}"></script>
-    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/index.min.js?v=${ver!'1'}></script>
+    <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/index.min.js?v=${ver!'1'}"></script>
     <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/cnkisug.min.js?v=${ver!'1'}"></script>
     <script type="text/javascript">
         try {
@@ -44,27 +50,13 @@
     <!-- toolbar begin-->
 <#include "/index-toolbar.ftl"/>
     <!-- toolbar end-->
+    <!-- header begin-->
+    <#include "/index-header.ftl" />
+    <!-- header end-->
     <!--header start-->
     <div class="header">
         <div class="head-main">
             <a class="link-home" href="/"></a>
-            <div class="head-right">
-                <ul class="login-btns">
-                    <li class="login"><a class="btn-login" target="_self" href="/login.jhtml">登录</a></li>
-                    <li class="register"><a class="btn-register" target="_blank" href="/regist.jhtml">注册</a></li>
-                </ul>
-
-                <ul class="link-list">
-                    <li><a href="http://m.cnki.net/mcnkidown/index.html" target="_blank">手机版</a></li>
-                    <li><a href="http://oversea.cnki.net" target="_blank">English</a></li>
-                    <li><a href="//www.cnki.net/subpages/webMap.html" target="_blank">网站地图</a></li>
-                    <li><a href="http://service.cnki.net/helpcenter/" target="_blank">帮助中心</a></li>
-                    <li><a href="http://zhifu.cnki.net/" target="_blank">充值中心</a></li>
-                    <li><a href="http://elib.cnki.net/" target="_blank">个人/机构馆</a></li>
-                    <li><a href="http://my.cnki.net/" target="_blank">我的CNKI<i class="icon-new"></i></a></li>
-                    <!--<li><a href="http://cnki.net/gycnki/gycnki.htm" target="_blank">关于我们</a></li>-->
-                </ul>
-            </div>
             <!--head-right-->
         </div>
         <!--head-main-->
@@ -678,18 +670,13 @@
         </div>
 
         <div class="foot-bot clearfix">
-            <div class="t">
+            <div class="t" style="height: 80px;">
                 <img src="//piccache.cnki.net/kdn/index/nvsm/nimages/foot-logo.png" alt="中国知网" />
                 <p class="mid">
                         <span>
                             <a target="_blank" href="//www.cnki.net/gycnki/gycnki.htm">关于我们</a>
-                            <a target="_blank" href="//www.cnki.net/other/gonggao/bqsm.htm">版权公告</a>
-                            <a target="_blank" href="http://service.cnki.net/">客服中心</a>
-                            <a target="_blank" href="http://help.cnki.net/">在线咨询</a>
-                            <a target="_blank" href="http://help.cnki.net/Live800_1_2.aspx?GroupID=503&amp;PageID=101008&amp;Name=&amp;CookieName=TTKN_OnLine_800">用户建议</a>
                         </span>
-                    <span id="copyright">© 1998-2018 中国知网（CNKI）</span>
-                    <script type="text/javascript">var date = new Date; document.getElementById('copyright').innerHTML = "© 1998-" + date.getFullYear() + " 中国知网（CNKI）";</script>
+                    <span id="copyright">© 2009-${.now?string("yyyy")} </span>
                 </p>
                 <p class="right">
                     <!--可信网站图片LOGO安装开始-->
@@ -698,13 +685,14 @@
                     <!--可信网站图片LOGO安装结束-->
                     <!--诚信网站图片LOGO安装开始-->
                     <a id="A1" href="https://credit.cecdc.com/CX20140929005220005306.html" target="_blank">
-                        <img alt="诚信网站" src="//piccache.cnki.net/kdn/index/nvsm/nimages/cert.jpg" height="33" width="86"></a>
-                    <script type="text/javascript">(function () { document.getElementById('___szfw_logo___').oncontextmenu = function () { return false; } })();</script>
+                        <img alt="诚信网站" src="//piccache.cnki.net/kdn/index/nvsm/nimages/cert.jpg" height="33" width="86">
+                    </a>
                     <!--诚信网站图片LOGO安装结束-->
                 </p>
             </div>
             <div class="b">
-
+                <span>京 ICP 证 040431 号<a target="_blank" href="//piccache.cnki.net/index/images/gb/271.jpg">网络出版服务许可证 (总)网出证(京)字第 271 号</a>
+                    <a target="_blank" href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202005012100021">经营性网站备案信息</a> 京公网安备 11010802020460 号</span>
             </div>
         </div>
         <!--foot-bot-->
@@ -718,13 +706,7 @@
     </ul>
 </div><!--wrapper-->
 
-<script type="text/javascript">
-    var sugpath = "//search.cnki.net";
-    LoadScript('//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/cnkisug.min.js?v=1.000', function () { sugPara.IsTopK = true; sugPara.IsExp = true; sugPara.IsAttr = false; InitSug('//search.cnki.net'); });
-</script>
-
 <div id="__droplist" class="dictdiv"></div>
-<script type="text/javascript" id="TopWords_Request" src="//search.cnki.net/sug/topk.ashx?jsonvar=top_Words_Json&amp;v=1507789236929&amp;td=1507789236929" charset="utf-8"></script>
 <!-- Track -->
 <#include "/pages/track.ftl"/>
 <!-- End Track Code -->
