@@ -15,6 +15,7 @@ import im.heart.core.utils.StringUtilsEx;
 import im.heart.core.web.AbstractController;
 import im.heart.core.web.ResponseError;
 import im.heart.core.web.enums.WebError;
+import im.heart.core.web.utils.WebUtilsEx;
 import im.heart.usercore.entity.FrameUser;
 import im.heart.usercore.service.FrameUserService;
 import im.heart.usercore.vo.FrameUserVO;
@@ -272,6 +273,7 @@ public class FindPwdController extends AbstractController {
             @RequestParam(value = "retryPassWord", required = false) String retryPassWord,
             ModelMap model) throws Exception {
 		ResponseError responseError=new ResponseError(WebError.REQUEST_PARAMETER_MISSING);
+		logger.info(WebUtilsEx.getParametersJson(request));
 		if(StringUtilsEx.isBlank(key)){
 			this.fail(model,responseError);
 			return new ModelAndView(RESULT_PAGE);

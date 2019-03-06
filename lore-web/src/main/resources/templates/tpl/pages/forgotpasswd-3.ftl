@@ -36,14 +36,12 @@
      	<!--
    	 <input type="hidden" name="format" value="json" />
    	   ---->
-   	  <#if k??>
-     	 <input type="hidden" name="k2" id="key" value="${k2}" />
-      </#if>
+		 <input type="hidden" name="k2" id="key" value="${k2!''}" />
    	 <#if sub_token??>
-   	 <input type="hidden" name="sub_token" value="${sub_token}" />
+   	 <input type="hidden" name="sub_token" value="${sub_token!''}" />
    	 </#if>
-   	  
-   	
+
+
    	 </div>
    	  <div class="col-sm-6">
      <button  id="J_RegisterSubmit" class="btn btn-success btn-lg btn-block"  data-loading-text="<@spring.message  code="label.default.button.loading" />"   tabindex="5" >
