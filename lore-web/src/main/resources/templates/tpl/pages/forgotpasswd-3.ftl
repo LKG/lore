@@ -37,7 +37,7 @@
    	 <input type="hidden" name="format" value="json" />
    	   ---->
    	  <#if k??>
-     	 <input type="hidden" name="k" id="key" value="${k}" />
+     	 <input type="hidden" name="k2" id="key" value="${k2}" />
       </#if>
    	 <#if sub_token??>
    	 <input type="hidden" name="sub_token" value="${sub_token}" />
