@@ -272,15 +272,14 @@ public class FindPwdController extends AbstractController {
             @RequestParam(value = "passWord", required = false) String passWord,
             @RequestParam(value = "retryPassWord", required = false) String retryPassWord,
             ModelMap model) throws Exception {
-		ResponseError responseError=new ResponseError(WebError.REQUEST_PARAMETER_MISSING);
-		logger.info(WebUtilsEx.getParametersJson(request));
 		if(StringUtilsEx.isBlank(key)){
-			this.fail(model,responseError);
+			this.fail(model,new ResponseError(WebError.REQUEST_PARAMETER_MISSING));
 			return new ModelAndView(RESULT_PAGE);
 		}
 		Object obj= CacheUtils.getCacheObject(CacheUtils.CacheConfig.FIND_PWD.keyPrefix, key);
 		if(obj!=null&&obj instanceof FrameUser){
 			FrameUser user =(FrameUser)obj;
+			logger.info(WebUtilsEx.getParametersJson(request));
 			this.frameUserService.resetPassword(user.getUserId(), retryPassWord);
 			CacheUtils.evictCache(CacheUtils.CacheConfig.FIND_PWD.keyPrefix, key);
 			if(StringUtilsEx.isBlank(format)){
@@ -288,7 +287,7 @@ public class FindPwdController extends AbstractController {
 			}
 			return new ModelAndView(redirectToUrl(apiVer+"/resetPwdSuccess."+format+"?k="+key));
 		}
-		this.fail(model,responseError);
+		this.fail(model,new ResponseError(WebError.INVALID_REQUEST));
 		return new ModelAndView("findpwd/resetPwd");
 	}
 	@RequestMapping(value = apiVer + "/checkEmailCode")
