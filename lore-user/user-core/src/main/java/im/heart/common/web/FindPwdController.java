@@ -52,10 +52,19 @@ public class FindPwdController extends AbstractController {
 	@Autowired
 	private ImageCaptchaExService imageCaptchaService;
 
-    enum  FindPwdTypeEnum {
+	/**
+	 * 找回密码方式
+	 */
+	public  enum  FindPwdTypeEnum {
 		email("email",2),
 		phone("phone",1);
+		/**
+		 *  code
+		 */
 		public String code;
+		/**
+		 *  intVal
+		 */
 		public int intVal;
 		FindPwdTypeEnum(String code, int intVal) {
 			this.code = code;
