@@ -5,18 +5,18 @@ logging:
   path: /var/www/logs
   config: classpath:logback-spring.xml
 spring:
-#  redis:
-#    host: 127.0.0.1
-#    database: 0
-#    port: 6379
-#    password:
+  redis:
+    host: 127.0.0.1
+    database: 0
+    port: 6379
+    password:
   output:
     ansi:
       enabled: DETECT
   mail:
     host: smtp.163.com
     username: lkg61230413@163.com
-    password: ######
+    password: lkg178wk
     from: GG<lkg61230413@163.com>
     template-path: classpath:/templates/email/
     properties:mail:

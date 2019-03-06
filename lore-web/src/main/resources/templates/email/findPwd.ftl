@@ -44,8 +44,13 @@
                     <td width="720" style="padding-top: 10px; padding-bottom: 10px;">
                         <div style="border-top: 1px dashed #e9ecf0; border-bottom: 1px dashed #e9ecf0; color: #000000; font-size: 14px; padding-top: 10px; padding-bottom: 10px;">
                             <div style="line-height: 20px; width:720px; color: #000000; padding-top: 5px; padding-bottom: 5px; font-weight: bold;">
+<<<<<<< HEAD
                                 <a href="http://127.0.0.1:7080/findPwd/sendEmailSuccess.jhtml?k=7b23329b42ec488b94bcacead2f417cc">
 									http://127.0.0.1:7080/findPwd/checkPhoneSuccess.jhtml?k=7b23329b42ec488b94bcacead2f417cc
+=======
+                                <a href="http://127.0.0.1:9080/findPwd/checkEmailCode.jhtml?k=${k}&emailCode=${emailCode}">
+                                    http://127.0.0.1:9080/findPwd/checkEmailCode.jhtml?k=${k}&emailCode=${emailCode}
+>>>>>>> a8bbf9e319cf5172f620eddddbb26629ebffda50
 								</a>
                             </div>
                             <div style="line-height: 20px; color: #000000; padding-top: 5px; padding-bottom: 5px; font-weight: bold;">

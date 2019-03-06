@@ -10,7 +10,6 @@ import im.heart.core.CommonConst.RequestResult;
 import im.heart.core.plugins.captcha.ImageCaptchaExService;
 import im.heart.core.plugins.email.SendEmailService;
 import im.heart.core.plugins.sms.SmsSendService;
-import im.heart.core.service.ServiceException;
 import im.heart.core.utils.BaseUtils;
 import im.heart.core.utils.StringUtilsEx;
 import im.heart.core.web.AbstractController;
@@ -29,7 +28,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -313,11 +311,13 @@ public class FindPwdController extends AbstractController {
 			}
 			Boolean isResponseCorrect = Boolean.FALSE;
 			isResponseCorrect=CacheUtils.checkEmailCode(userEmail, emailCode);
+			CacheUtils.evictCache(CacheUtils.CacheConfig.FIND_PWD.keyPrefix, key);
 			if(isResponseCorrect){
+				String uuid= StringUtilsEx.getUUID2();
+				CacheUtils.generatCache(CacheUtils.CacheConfig.FIND_PWD.keyPrefix,uuid, user);
 				return new ModelAndView(redirectToUrl(apiVer+"/checkSuccess."+format+"?k2="+key));
 			}
 		}
-
 		this.fail(model,responseError);
 		return new ModelAndView(RESULT_PAGE);
 	}
@@ -376,13 +376,17 @@ public class FindPwdController extends AbstractController {
 						tpl.templatePath,
 						new String[] { userEmail },
 						new String[] {});
-				return new ModelAndView(redirectToUrl(apiVer+"/sendEmailSuccess."+format+"?k="+key));
+				return new ModelAndView(redirectToUrl(apiVer+"/sendEmailSuccess."+format));
 			}
 			String mobile=user.getUserPhone();
 			Boolean isResponseCorrect = Boolean.FALSE;
 			isResponseCorrect=CacheUtils.checkMobileCode(mobile, phoneCode);
 			if(isResponseCorrect){
-				return new ModelAndView(redirectToUrl(apiVer+"/checkSuccess."+format+"?k2="+key));
+				//移除key
+				CacheUtils.evictCache(CacheUtils.CacheConfig.FIND_PWD.keyPrefix, key);
+				String uuid= StringUtilsEx.getUUID2();
+				CacheUtils.generatCache(CacheUtils.CacheConfig.FIND_PWD.keyPrefix,uuid, user);
+				return new ModelAndView(redirectToUrl(apiVer+"/checkSuccess."+format+"?k2="+uuid));
 			}
 			responseError=new ResponseError(WebError.AUTH_PHONECODE_INCORRECT);
 		}
