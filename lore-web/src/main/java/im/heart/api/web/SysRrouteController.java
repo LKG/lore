@@ -41,7 +41,7 @@ public class SysRrouteController extends AbstractController {
 		return false;
 	}
 	
-	
+	private static int PACK_LENGTH=10;
 	/**
 	 * 
 	 * @功能说明：处理请求参数
@@ -52,11 +52,13 @@ public class SysRrouteController extends AbstractController {
 		RequestParas requestParameters = null;
 		try {
 			byte[] pack = IOUtils.toByteArray(input);
-			byte[] key = new byte[8]; // 密钥
-			if (pack == null || pack.length <= 10) {
+			// 密钥
+			byte[] key = new byte[8];
+			if (pack == null || pack.length <= PACK_LENGTH) {
 				return null;
 			}
-			byte[] body = new byte[pack.length - 10]; // 有效的数据体
+			// 有效的数据体
+			byte[] body = new byte[pack.length - PACK_LENGTH];
 			logger.info("====recv data length {{{" + pack.length + "}}}");
 			// 取出密钥
 			System.arraycopy(pack, 2, key, 0, key.length);
@@ -142,30 +144,30 @@ public class SysRrouteController extends AbstractController {
 			RequestParas requestParameters = this.getRequestParameter(input);
 			if (requestParameters != null) {
 				long start = System.currentTimeMillis();
-				Map<String, Object> params = new HashMap<String, Object>();
+				Map<String, Object> params = Maps.newHashMap();
 				params=this.pickCommonparams(requestParameters);
 				params.put("cpIp", ip);
 				// 共用参数 end
 				List<RequestBody> actions = requestParameters.getActions();
 				if (actions != null) {
 					for (RequestBody body : actions) {
-						String action = body.getAction();// 请求方法ID
-						String requuid = body.getRequuid();// 请求uuid
+						String action = body.getAction();
+						String requuid = body.getRequuid();
 						String cpImei = (String) params.get("cpImei");
 						String cpPhoneNum = (String) params.get("cpPhoneNum");
 						String cpPrt = (String) params.get("cpPrt");
 						String cpUid = (String) params.get("cpUid");
-						logger.info(">>>>>>FLOW_UP|" + requuid + "|" + cpImei
-								+ "|" + cpPhoneNum+ "|" +  cpPrt + "|" + cpUid);
-						StringBuffer stbuff = new StringBuffer("http://");
+						logger.info(">>>>>>FLOW_UP|{}|{}|{}|{}|{}|",requuid,cpImei,cpPhoneNum,cpPrt,cpUid);
+						StringBuffer strBuff = new StringBuffer();
 						// 状态为可用状态
-						stbuff.append(request.getServerName());
-						stbuff.append(":");
-						stbuff.append(request.getServerPort());
-						stbuff.append(request.getContextPath()+"/" + action);
+						strBuff.append("http://");
+						strBuff.append(request.getServerName());
+						strBuff.append(":");
+						strBuff.append(request.getServerPort());
+						strBuff.append(request.getContextPath()+"/" + action);
 						// 参数处理
 						Map<String, String> paras = body.getParas();
-						if (paras != null) {// 请求参数
+						if (paras != null) {
 							if (paras.containsKey("ps")) {
 								String value = paras.get("ps");
 								paras.remove("ps");
@@ -178,28 +180,29 @@ public class SysRrouteController extends AbstractController {
 							}
 							params.putAll(paras);
 						}
-						logger.info(">>>>>>|UUID:" + requuid + "|IP:" + ip
-								+ "|REQ_ACTION:" + stbuff.toString()
-								+ "|REDIRECT_URL:" +  cpPrt+ "|PARAMS:"
-								+ JSON.toJSONString(params));
-						outStream.write(requuid.getBytes());// 写入UUID
-						byte[] data = OkHttpClientUtils.fetchEntity(stbuff.toString(), params);
+						logger.info(">>>>>>|UUID:{}|IP:{}|REQ_ACTION:{}|REDIRECT_URL:{}|PARAMS:{}" , requuid,ip,
+								strBuff.toString(),cpPrt,JSON.toJSONString(params));
+						// 写入UUID
+						outStream.write(requuid.getBytes());
+						byte[] data = OkHttpClientUtils.fetchEntity(strBuff.toString(), params);
 						byte[] pack = null;
 						// //处理反馈结果,判断反馈结果是否为压缩流，不是压缩流对数据进行压缩后再返回给客户端
 						if (FileUtilsEx.isSpecFile(data, FileHeader.ZIP.getValue())) {
 							logger.info("outStream  is zip ...");
 							pack = data;
 						} else {
-							logger.info("outStream  is not zip  begin commpress to byte ...");
+							logger.info("outStream  is not zip  begin commpres to byte ...");
 							pack = FileUtilsEx.compressToByte(data);
-							logger.info("outStream  commpress to byte  end...");
+							logger.info("outStream  commpres to byte  end...");
 						}
-						outStream.write(StringUtilsEx.changebytelength(pack.length).getBytes());// 写入长度
-						outStream.write(pack);// 写入数据
+						// 写入长度
+						outStream.write(StringUtilsEx.changebytelength(pack.length).getBytes());
+						// 写入数据
+						outStream.write(pack);
 						long end = System.currentTimeMillis();
 						long time = (end - start);
 						logger.info("====FLOW_DOWN,{},{},{},{},{},{}|",requuid,cpImei,cpPhoneNum, pack.length, cpPrt,time);
-						logger.info(">>>>>>请求 {} [{}]耗时[{}]ms",action,stbuff.toString(),time);
+						logger.info(">>>>>>请求 {} [{}]耗时[{}]ms",action,strBuff.toString(),time);
 						outStream.flush();
 					}
 				}
