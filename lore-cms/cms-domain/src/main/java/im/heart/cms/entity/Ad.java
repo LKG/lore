@@ -6,13 +6,12 @@ import java.math.BigInteger;
 import java.util.Date;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.alibaba.fastjson.annotation.JSONField;
@@ -73,7 +72,7 @@ public class Ad implements AbstractEntity<BigInteger>{
 	 */
 	public enum AdState {
 		UN_SUPPORT(-1, "未知类型"), UN_ACTIVE(0, "未上架"), ACTIVE(1, "正上架"), 
-		ACTIVED(2, "已下架"), FORCE_ACTIVED(3, "已下架");/** 强制下架 */
+		ACTIVED(2, "已下架"), FORCE_ACTIVED(3, "已下架");
 		public int intValue;
 		private final String desc;
 
@@ -119,11 +118,10 @@ public class Ad implements AbstractEntity<BigInteger>{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(length = 20, name = "AD_ID", nullable = false, unique = true, updatable = false)
-	private BigInteger adId;// id
+	private BigInteger adId;
 	
 	/** 标题 */
 	@NotBlank
-	@Length(min=3)
 	@Column(name = "AD_TITLE", nullable = false)
 	private String title;
 
@@ -165,14 +163,13 @@ public class Ad implements AbstractEntity<BigInteger>{
 	@Column(name = "HITS", nullable = false, length=20)
 	private Long hits=0L;
 	/** 链接地址 */
-	@Length(max = 200)
 	@Column(name = "URL", nullable = false, updatable = false)
 	private String url;
 
-	/** 广告位 */
+	/** 广告位/关联的表为广告位表，其主键是id */
 	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false,name="POSITION_ID")//关联的表为广告位表，其主键是id
+    @JoinColumn(nullable = false,name="POSITION_ID")
     @JSONField(serialzeFeatures={SerializerFeature.DisableCircularReferenceDetect})
 	private AdPosition adPosition;
 	
@@ -180,7 +177,7 @@ public class Ad implements AbstractEntity<BigInteger>{
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@Column(name = "CREATE_TIME", nullable = false, updatable = false)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date createTime; // 创建日期
+	private Date createTime;
 
 	@JSONField(format = "yyyy-MM-dd HH:mm:ss", serialize = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")

@@ -60,11 +60,13 @@ public class Comment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(length = 20, name = "COMMENT_ID", nullable = false, unique = true, updatable = false)
-	private BigInteger commentId;// id
-	
+	private BigInteger commentId;
+	/**
+	 * //父类节点ID
+	 */
 	@NotNull
 	@Column(name = "PARENT_ID",length=32,nullable = false)
-	private BigInteger parentId=BigInteger.ZERO;//父类节点ID
+	private BigInteger parentId=BigInteger.ZERO;
 	
 	@Column(length = 32, name = "USER_ID", nullable = false, updatable = false)
 	private BigInteger userId;
@@ -75,10 +77,12 @@ public class Comment {
 	
 	@Column(name = "USER_HOST" ,updatable = false, nullable = false)
 	private String userHost;
-	
+	/**
+	 * 审核认证状态，已审核，待审核，审核中，审核驳回
+	 */
 	@Column(nullable = false, name = "CHECK_STATUS" ,length=16)
 	@Enumerated(EnumType.STRING)
-	private CheckStatus checkStatus = CheckStatus.pending;// 用户审核认证状态，已审核，待审核，审核中，审核驳回
+	private CheckStatus checkStatus = CheckStatus.pending;
 	
 	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")

@@ -52,7 +52,7 @@ public class ArticleCategory implements TreeEntity<BigInteger>{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(length = 20, name = "ID", nullable = false, unique = true, updatable = false)
-	private BigInteger id;// id
+	private BigInteger id;
 	
 	/** 名称 */
 	@NotEmpty
@@ -78,7 +78,7 @@ public class ArticleCategory implements TreeEntity<BigInteger>{
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@Column(name = "CREATE_TIME", nullable = false, updatable = false)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date createTime; // 创建日期
+	private Date createTime;
 
 	@JSONField(format = "yyyy-MM-dd HH:mm:ss", serialize = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")

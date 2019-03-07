@@ -74,7 +74,7 @@ public class FriendLink {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(length = 20, name = "ID", nullable = false, unique = true, updatable = false)
-	private BigInteger id;// id
+	private BigInteger id;
 
 	@NotEmpty
 	@NotBlank
