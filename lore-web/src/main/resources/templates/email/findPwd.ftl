@@ -44,7 +44,7 @@
                     <td width="720" style="padding-top: 10px; padding-bottom: 10px;">
                         <div style="border-top: 1px dashed #e9ecf0; border-bottom: 1px dashed #e9ecf0; color: #000000; font-size: 14px; padding-top: 10px; padding-bottom: 10px;">
                             <div style="line-height: 20px; width:720px; color: #000000; padding-top: 5px; padding-bottom: 5px; font-weight: bold;">
-                                <a href="http://127.0.0.1:9080/findPwd/checkEmailCode.jhtml?k=${k}&emailCode=${emailCode}">
+                                <a href="http://127.0.0.1:7080/findPwd/checkEmailCode.jhtml?k=${k}&emailCode=${emailCode}">
                                     http://127.0.0.1:9080/findPwd/checkEmailCode.jhtml?k=${k}&emailCode=${emailCode}
 								</a>
                             </div>

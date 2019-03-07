@@ -22,8 +22,14 @@
 			  <div class="panel-body">
 			     <!--userInfo begin---->
 	 			    <div class="alert alert-danger alert-dismissible fade in" role="alert">
-				      <h4>Oh snap! You got an error!</h4>
-				      <p>${message!''}</p>
+				      <p>
+						  <#if result??>
+						<div class="alert alert-warning alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<strong>Warning!</strong> ${result.error_description!''}
+						</div>
+						</#if>
+						  ${message!''}</p>
 				      <p>
 				        <button type="button" class="btn btn-danger">Take this action</button>
 				        <button type="button" class="btn btn-default">Or do this</button>

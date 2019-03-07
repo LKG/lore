@@ -1,6 +1,7 @@
 package im.heart.common.web;
 
 
+import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Maps;
 import im.heart.common.EmailTplEnum;
 import im.heart.common.SmsTplEnum;
@@ -15,6 +16,7 @@ import im.heart.core.utils.StringUtilsEx;
 import im.heart.core.web.AbstractController;
 import im.heart.core.web.ResponseError;
 import im.heart.core.web.enums.WebError;
+import im.heart.core.web.utils.WebUtilsEx;
 import im.heart.usercore.entity.FrameUser;
 import im.heart.usercore.service.FrameUserService;
 import im.heart.usercore.vo.FrameUserVO;
@@ -50,10 +52,19 @@ public class FindPwdController extends AbstractController {
 	@Autowired
 	private ImageCaptchaExService imageCaptchaService;
 
-    enum  FindPwdTypeEnum {
+	/**
+	 * 找回密码方式
+	 */
+	public  enum  FindPwdTypeEnum {
 		email("email",2),
 		phone("phone",1);
+		/**
+		 *  code
+		 */
 		public String code;
+		/**
+		 *  intVal
+		 */
 		public int intVal;
 		FindPwdTypeEnum(String code, int intVal) {
 			this.code = code;
@@ -200,7 +211,7 @@ public class FindPwdController extends AbstractController {
 			this.success(model);
 			return new ModelAndView("findpwd/resetPwd");
 		}
-		this.fail(model,responseError);
+		this.fail(model,new ResponseError(WebError.INVALID_REQUEST));
 		return new ModelAndView("findpwd/resetPwd");
 	}
 	/**
@@ -236,7 +247,7 @@ public class FindPwdController extends AbstractController {
 				return new ModelAndView("findpwd/sendEmailSuccess");
 			}
 		}
-		this.fail(model,responseError);
+		this.fail(model,new ResponseError(WebError.INVALID_REQUEST));
 		return new ModelAndView("findpwd/sendEmailSuccess");
 	}
 	/**
@@ -258,18 +269,20 @@ public class FindPwdController extends AbstractController {
 			@RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
             HttpServletRequest request, HttpServletResponse response,
             @RequestParam(value = "format", required = false) String format,
-            @RequestParam(value = "k", required = false) String key,
+            @RequestParam(value = "k2", required = false) String key,
             @RequestParam(value = "passWord", required = false) String passWord,
             @RequestParam(value = "retryPassWord", required = false) String retryPassWord,
             ModelMap model) throws Exception {
-		ResponseError responseError=new ResponseError(WebError.REQUEST_PARAMETER_MISSING);
+		logger.info(WebUtilsEx.getParametersJson(request));
 		if(StringUtilsEx.isBlank(key)){
-			this.fail(model,responseError);
+			this.fail(model,new ResponseError(WebError.REQUEST_PARAMETER_MISSING));
 			return new ModelAndView(RESULT_PAGE);
 		}
 		Object obj= CacheUtils.getCacheObject(CacheUtils.CacheConfig.FIND_PWD.keyPrefix, key);
+		logger.info(JSON.toJSONString(obj));
 		if(obj!=null&&obj instanceof FrameUser){
 			FrameUser user =(FrameUser)obj;
+			logger.info(WebUtilsEx.getParametersJson(request));
 			this.frameUserService.resetPassword(user.getUserId(), retryPassWord);
 			CacheUtils.evictCache(CacheUtils.CacheConfig.FIND_PWD.keyPrefix, key);
 			if(StringUtilsEx.isBlank(format)){
@@ -277,8 +290,8 @@ public class FindPwdController extends AbstractController {
 			}
 			return new ModelAndView(redirectToUrl(apiVer+"/resetPwdSuccess."+format+"?k="+key));
 		}
-		this.fail(model,responseError);
-		return new ModelAndView("findpwd/resetPwd");
+		this.fail(model,new ResponseError(WebError.INVALID_REQUEST));
+		return new ModelAndView(RESULT_PAGE);
 	}
 	@RequestMapping(value = apiVer + "/checkEmailCode")
 	protected ModelAndView checkEmailCode(
@@ -288,9 +301,8 @@ public class FindPwdController extends AbstractController {
 			@RequestParam(value = "emailCode", required = false) String emailCode,
 			@RequestParam(value = "k", required = false) String key,
 			ModelMap model) throws Exception {
-		ResponseError responseError=new ResponseError(WebError.REQUEST_PARAMETER_MISSING);
 		if(StringUtilsEx.isBlank(key)){
-			this.fail(model,responseError);
+			this.fail(model,new ResponseError(WebError.REQUEST_PARAMETER_MISSING));
 			return new ModelAndView(RESULT_PAGE);
 		}
 		Object obj= CacheUtils.getCacheObject(CacheUtils.CacheConfig.FIND_PWD.keyPrefix, key);
@@ -304,21 +316,25 @@ public class FindPwdController extends AbstractController {
 			isResponseCorrect=CacheUtils.checkEmailCode(userEmail, emailCode);
 			CacheUtils.evictCache(CacheUtils.CacheConfig.FIND_PWD.keyPrefix, key);
 			if(isResponseCorrect){
-				String uuid= StringUtilsEx.getUUID2();
-				CacheUtils.generatCache(CacheUtils.CacheConfig.FIND_PWD.keyPrefix,uuid, user);
-				return new ModelAndView(redirectToUrl(apiVer+"/checkSuccess."+format+"?k2="+key));
+				String key2=generatCache(user);
+				return new ModelAndView(redirectToUrl(apiVer+"/checkSuccess."+format+"?k2="+key2));
 			}
 		}
-		this.fail(model,responseError);
+		this.fail(model,new ResponseError(WebError.INVALID_REQUEST));
 		return new ModelAndView(RESULT_PAGE);
 	}
+
+	private String generatCache(Object val){
+		String key=StringUtilsEx.getUUID2();
+		CacheUtils.generatCache(CacheUtils.CacheConfig.FIND_PWD.keyPrefix,key, val);
+		return  key;
+	}
+
 	/**
 	 * @Desc：密码修改成功页面 step_4
 	 * @param jsoncallback
 	 * @param request
 	 * @param response
-	 * @param format
-	 * @param key
 	 * @param model
 	 * @return
 	 * @throws Exception
@@ -327,8 +343,6 @@ public class FindPwdController extends AbstractController {
 	protected ModelAndView resetPwdSuccess(
 			@RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
             HttpServletRequest request, HttpServletResponse response,
-            @RequestParam(value = "format", required = false) String format,
-            @RequestParam(value = "k", required = false) String key,
             ModelMap model) throws Exception {
 		this.success(model);
 		return new ModelAndView("findpwd/resetPwdSuccess");
@@ -367,7 +381,7 @@ public class FindPwdController extends AbstractController {
 						tpl.templatePath,
 						new String[] { userEmail },
 						new String[] {});
-				return new ModelAndView(redirectToUrl(apiVer+"/sendEmailSuccess."+format));
+				return new ModelAndView(redirectToUrl(apiVer+"/sendEmailSuccess."+format+"?k="+key));
 			}
 			String mobile=user.getUserPhone();
 			Boolean isResponseCorrect = Boolean.FALSE;
@@ -375,9 +389,8 @@ public class FindPwdController extends AbstractController {
 			if(isResponseCorrect){
 				//移除key
 				CacheUtils.evictCache(CacheUtils.CacheConfig.FIND_PWD.keyPrefix, key);
-				String uuid= StringUtilsEx.getUUID2();
-				CacheUtils.generatCache(CacheUtils.CacheConfig.FIND_PWD.keyPrefix,uuid, user);
-				return new ModelAndView(redirectToUrl(apiVer+"/checkSuccess."+format+"?k2="+uuid));
+				String key2=generatCache(user);
+				return new ModelAndView(redirectToUrl(apiVer+"/checkSuccess."+format+"?k2="+key2));
 			}
 			responseError=new ResponseError(WebError.AUTH_PHONECODE_INCORRECT);
 		}
@@ -419,6 +432,7 @@ public class FindPwdController extends AbstractController {
 		}
 		return new ModelAndView(RESULT_PAGE);
 	}
+
     /**
      * @Desc：验证码校验接口
      * @param request

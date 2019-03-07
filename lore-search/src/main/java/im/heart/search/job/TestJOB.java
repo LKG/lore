@@ -28,7 +28,7 @@ public class TestJOB {
 
      @Scheduled(cron = "0/15 * * * * *")
     void executeJob()throws Exception{
-        this.jdbcTemplate.queryForList("select * from media_periodical",Periodical.class);
+        this.jdbcTemplate.queryForList("select * from media_periodical;");
          Iterable<Periodical> its=this.periodicalRepository.findAll();
          //多条件设置
          MatchPhraseQueryBuilder mpq1 = QueryBuilders
