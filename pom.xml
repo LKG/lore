@@ -68,6 +68,8 @@
         <commons-io.version>2.6</commons-io.version>
         <commons-codec.version>1.11</commons-codec.version>
         <commons-compress.version>1.18</commons-compress.version>
+        <commons-fileupload.version>1.4</commons-fileupload.version>
+
         <aliyun.oss.version>2.7.0</aliyun.oss.version>
         <aliyun.ons.version>1.7.8.Final</aliyun.ons.version>
         <validation.version>2.0.1.Final</validation.version>
@@ -205,6 +207,11 @@
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
                 <version>${commons-codec.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${commons-fileupload.version}</version>
             </dependency>
             <!-- html解析begin -->
             <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-compress -->
