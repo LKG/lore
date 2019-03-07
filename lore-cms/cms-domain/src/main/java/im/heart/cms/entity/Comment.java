@@ -27,7 +27,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.alibaba.fastjson.annotation.JSONField;
 
 @Entity
-@Table(name = "dic_cms_comment")
+@Table(name = "cms_comment")
 @DynamicUpdate()
 @DynamicInsert()
 @Data

@@ -21,7 +21,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import im.heart.core.entity.AbstractEntity;
 
 @Entity
-@Table(name = "dic_cms_ad")
+@Table(name = "cms_ad")
 @DynamicUpdate()
 @DynamicInsert()
 @Data

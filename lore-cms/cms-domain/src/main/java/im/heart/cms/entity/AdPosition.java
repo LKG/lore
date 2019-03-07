@@ -19,7 +19,7 @@ import im.heart.core.entity.AbstractEntity;
  * @Desc 广告位
  */
 @Entity
-@Table(name = "dic_cms_ad_position")
+@Table(name = "cms_ad_position")
 @DynamicUpdate()
 @DynamicInsert()
 @Data

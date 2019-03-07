@@ -1,13 +1,17 @@
 package im.heart.cms.job;
 
-import im.heart.core.utils.OkHttpClientUtils;
+import im.heart.cms.entity.Article;
+import im.heart.cms.service.ArticleService;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -15,30 +19,50 @@ import java.net.URL;
 @Component
 public class Reptile71Job {
     //http://www.71.cn/2019/0306/1036178.shtml
-
-    public static void main(String[] args) {
+    @Autowired
+    ArticleService articleService;
+    @Scheduled(cron = "0/15 * * * * *")
+    void executeJob()throws Exception{
+        log.info(".....................");
+        String url="http://www.71.cn/2019/0306/1036178.shtml";
+        Article entity= parseArticle(url);
+        if(entity!=null){
+            this.articleService.save(entity);
+        }
+    }
+    private  Article parseArticle(String url){
+        Article entity=null;
         try
         {
-            URL url=new URL("http://www.71.cn/2019/0306/1036178.shtml");
-            Document html=Jsoup.parse(url,3000);
-            Elements keywords=html.select("meta[name=keywords]");
-            Elements description=html.select("meta[name=description]");
+            URL uri=new URL(url);
+            entity= new Article();
+            Document html=Jsoup.parse(uri,3000);
+            Elements keywordsEle=html.select("meta[name=keywords]");
+            String keywords=keywordsEle.attr("content");
+            entity.setSeoKeywords(keywords);
+            Elements descriptionEle=html.select("meta[name=description]");
+            String description=descriptionEle.attr("content");
+            entity.setSeoDescription(description);
             Elements article=html.select(".article-main");
-            Elements title=article.select(".article-title");
+            Elements titleEle=article.select(".article-title");
+            String title= titleEle.text();
+            entity.setTitle(title);
             Elements subtitle=article.select(".article-subtitle");
-            Elements editors=article.select(".editors");
+            Elements editorsEle=article.select(".editors");
+            String editors=editorsEle.text();
+            entity.setAuthor(editors);
             Elements date=article.select(".date");
             Elements source=article.select(".source");
             Elements describe=article.select("#describe");
-            Elements content=article.select("#article-content");
-
-            System.out.println(keywords);
-            System.out.println(html);
+            Elements contentEle=article.select("#article-content");
+            entity.setContent(contentEle.html());
+            entity.setCategoryId(BigInteger.ZERO);
+            entity.setUserId(BigInteger.ZERO);
         }catch (MalformedURLException e){
-
+            log.error(e.getStackTrace()[0].getMethodName(), e);
         }catch (IOException e){
-
+            log.error(e.getStackTrace()[0].getMethodName(), e);
         }
-
+        return entity;
     }
 }

@@ -23,6 +23,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
@@ -31,8 +33,6 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.Formula;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -49,7 +49,7 @@ import com.alibaba.fastjson.annotation.JSONField;
  * @Desc 文章实体类
  */
 @Entity
-@Table(name = "dic_cms_article")
+@Table(name = "cms_article")
 @DynamicUpdate()
 @DynamicInsert()
 @Data
@@ -83,7 +83,7 @@ public class Article implements AbstractEntity<BigInteger>{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(length = 20, name = "ID", nullable = false, unique = true, updatable = false)
-	private BigInteger id;// id
+	private BigInteger id;
 	/** 标题 . */
 	@NotEmpty
 	@NotBlank
@@ -95,6 +95,15 @@ public class Article implements AbstractEntity<BigInteger>{
 	@Length(max = 200)
 	@Column(name = "AUTHOR", nullable = false,updatable = false)
 	private String author="";
+
+	/**
+	 * 文章来源
+	 */
+	@Length(max = 200)
+	@Column(name = "SOURCE", nullable = false,updatable = false)
+	private String source="";
+
+
 
 	/** 内容 . */
 	@NotBlank
@@ -149,22 +158,22 @@ public class Article implements AbstractEntity<BigInteger>{
 	private Integer pageNumber;
 	
 	@Column(name = "CATEGORY_ID", nullable = false, length=20)
-	private BigInteger categoryId;// categoryId
+	private BigInteger categoryId;
 	
 	@Formula(value = "(select model.name from dic_cms_article_category model where model.id = category_id)")
-	private String categoryName;//
+	private String categoryName;
 
 	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@Column(name = "CREATE_TIME", nullable = false, updatable = false)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date createTime; // 创建日期
+	private Date createTime;
 
 	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@Column(name = "PUSH_TIME")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date pushTime; // 发布日期
+	private Date pushTime;
 
 	@JSONField(format = "yyyy-MM-dd HH:mm:ss", serialize = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
@@ -238,7 +247,7 @@ public class Article implements AbstractEntity<BigInteger>{
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("id", getId());
 		model.put("createTime", getCreateTime());
-		model.put("modiTime", getModifyTime());
+		model.put("modifyTime", getModifyTime());
 		model.put("title", getTitle());
 		model.put("seoTitle", getSeoTitle());
 		model.put("seoKeywords", getSeoKeywords());

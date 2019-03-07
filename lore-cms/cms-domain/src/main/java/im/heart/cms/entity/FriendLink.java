@@ -33,7 +33,7 @@ import im.heart.core.enums.Status;
  * @Desc : 友链表
  */
 @Entity
-@Table(name = "dic_cms_friend_link")
+@Table(name = "cms_friend_link")
 @DynamicUpdate()
 @DynamicInsert()
 @Data

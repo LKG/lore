@@ -34,7 +34,6 @@ public class FrameImage implements AbstractEntity<BigInteger> {
 	 */
 	private static final long serialVersionUID = 2864825909067283477L;
 
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(length = 32, name = "IMAGE_ID", nullable = false, unique = true, updatable = false)
@@ -44,14 +43,7 @@ public class FrameImage implements AbstractEntity<BigInteger> {
 	@Length(max = 32)
 	@Column(length = 10, name = "RELATE_ID", nullable = false)
 	private String relateId;
-	
-	public String getRelateId() {
-		return relateId;
-	}
 
-	public void setRelateId(String relateId) {
-		this.relateId = relateId;
-	}
 
 	@Length(max = 32)
 	@Column(length = 10, name = "IMAGE_GROUP", nullable = false)
@@ -59,7 +51,7 @@ public class FrameImage implements AbstractEntity<BigInteger> {
 
 	@Length(max = 32)
 	@Column(length = 10, name = "IMAGE_URL", nullable = false)
-	private String imageUrl;// 图片地址
+	private String imageUrl;
 
 	@Length(max = 10)
 	@Column(length = 10, name = "STATUS", nullable = false)
@@ -76,16 +68,16 @@ public class FrameImage implements AbstractEntity<BigInteger> {
 	@Column(name = "MODIFY_TIME")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date modifyTime;
-
+	// 活动描述信息
 	@Length(max = 512)
 	@Column(length = 512, name = "REMARK")
-	private String remark;// 活动描述信息
+	private String remark;
 
 	@Column(length = 32, name = "USER_ID", nullable = false, unique = true, updatable = false)
 	private BigInteger userId;
 
 	@Column(length = 512, name = "USER_NAME")
-	private String userName;// 活动描述信息
+	private String userName;
 
 	@PrePersist
 	protected void onCreate() {

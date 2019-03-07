@@ -26,7 +26,7 @@ import com.alibaba.fastjson.annotation.JSONField;
  * @功能说明：宣传图片信息
  */
 @Entity
-@Table(name = "dic_cms_frame_notice")
+@Table(name = "cms_frame_notice")
 @DynamicUpdate()
 @DynamicInsert()
 @Data

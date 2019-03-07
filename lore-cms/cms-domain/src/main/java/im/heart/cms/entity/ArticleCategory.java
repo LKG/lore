@@ -34,7 +34,7 @@ import com.alibaba.fastjson.annotation.JSONField;
  *
  */
 @Entity
-@Table(name = "dic_cms_article_category")
+@Table(name = "cms_article_category")
 @DynamicUpdate()
 @DynamicInsert()
 @Data
