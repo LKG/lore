@@ -47,7 +47,7 @@ define(function (require, exports, moudles) {
 				var dialog = dialog=artDialog.getCurrent();
 			   	if(dialog){
 			   		$.httpUtil.curl({
-						url : json.loginSuccUrl,
+						url : json.successUrl,
 						type : "get",
 						loading : false,
 						success :function(data) {
@@ -56,7 +56,7 @@ define(function (require, exports, moudles) {
 					});
 			   		
 			   	}else{
-			   		window.parent.location.href= json.loginSuccUrl;
+			   		window.parent.location.href= json.successUrl;
 			   	}
 			}else{
 				$btn.html(dataHtml).removeAttr("disabled");

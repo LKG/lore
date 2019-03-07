@@ -45,9 +45,10 @@ define(function (require, exports, moudles) {
 		$.post(url,data,function(json){
 			if(json.success){
 				var dialog = dialog=artDialog.getCurrent();
+				var successUrl=json.successUrl;
 			   	if(dialog){
 			   		$.httpUtil.curl({
-						url : json.loginSuccUrl,
+						url : successUrl,
 						type : "get",
 						loading : false,
 						success :function(data) {
@@ -56,7 +57,7 @@ define(function (require, exports, moudles) {
 					});
 			   		
 			   	}else{
-			   		window.parent.location.href= json.loginSuccUrl;
+			   		window.parent.location.href=successUrl;
 			   	}
 			}else{
 				$btn.html(dataHtml).removeAttr("disabled");

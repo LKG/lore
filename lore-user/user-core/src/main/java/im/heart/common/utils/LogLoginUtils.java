@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public class LogLoginUtils{
 	
-	public static  void loginlog(HttpServletRequest request){
+	public static  void loginLog(HttpServletRequest request){
 		FrameLogLoginService logLoginService=(FrameLogLoginService) ContextManager.getBean(FrameLogLoginService.BEAN_NAME);
 		FrameLogLogin entity=new FrameLogLogin();
 		entity.setSystemHost(BaseUtils.getServerIp() + ":" + request.getLocalPort());

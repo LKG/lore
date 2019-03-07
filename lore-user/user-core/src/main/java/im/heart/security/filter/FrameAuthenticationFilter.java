@@ -2,6 +2,7 @@ package im.heart.security.filter;
 
 import com.alibaba.fastjson.JSONObject;
 import im.heart.common.utils.LogLoginUtils;
+import im.heart.core.CommonConst;
 import im.heart.core.utils.BaseUtils;
 import im.heart.security.AccountToken;
 import im.heart.security.utils.ShiroLoginHelper;
@@ -121,24 +122,24 @@ public class FrameAuthenticationFilter extends FormAuthenticationFilter {
 		HttpServletRequest httpServletRequest = WebUtils.toHttp(request);
 		ShiroLoginHelper.setLoginSuccessSession();//清空登录次数限制
 		//记录登录成功日志
-		LogLoginUtils.loginlog(httpServletRequest);
-		String loginSuccUrl = httpServletRequest.getContextPath()+ this.getSuccessUrl();
+		LogLoginUtils.loginLog(httpServletRequest);
+		String loginSuccessUrl = httpServletRequest.getContextPath()+ this.getSuccessUrl();
 		SavedRequest savedRequest = WebUtils.getAndClearSavedRequest(request);
 		if (savedRequest != null) {
 			String savedRequestUrl = savedRequest.getRequestUrl();
 			if (!savedRequestUrl.equals(getLoginUrl())) {
-				loginSuccUrl = savedRequestUrl;
+				loginSuccessUrl = savedRequestUrl;
 			}
 		}
 		if (BaseUtils.isAjaxRequest(httpServletRequest)) {
 			HttpServletResponse httpServletResponse = (HttpServletResponse) response;
 			httpServletResponse.setCharacterEncoding("UTF-8");
 			PrintWriter out = httpServletResponse.getWriter();
-			JSONObject jsobj = new JSONObject();
-			jsobj.put("loginSuccUrl", loginSuccUrl);
-			jsobj.put("success", true);
-			jsobj.put("httpstatus", HttpStatus.OK.toString());
-			out.println(jsobj);
+			JSONObject jsObj = new JSONObject();
+			jsObj.put("successUrl", loginSuccessUrl);
+			jsObj.put(CommonConst.RequestResult.SUCCESS, true);
+			jsObj.put(CommonConst.RequestResult.HTTP_STATUS, HttpStatus.OK.toString());
+			out.println(jsObj);
 			out.flush();
 			out.close();
 			return false;
