@@ -81,7 +81,6 @@ public class Article implements AbstractEntity<BigInteger>{
 	private static String staticPath="";
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(length = 20, name = "ID", nullable = false, unique = true, updatable = false)
 	private BigInteger id;
 	/** 标题 . */
@@ -149,7 +148,9 @@ public class Article implements AbstractEntity<BigInteger>{
 	/** 点击数 . */
 	@Column(name = "HITS", nullable = false, length=20)
 	private Long hits=0L;
-	
+	@Column(name = "IS_DELETED", nullable = false, length=20)
+	private Boolean isDeleted=Boolean.FALSE;
+
 	@Column(name = "ALLOW_COMMENT")
 	private boolean allowComment=Boolean.FALSE;
 	

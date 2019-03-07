@@ -29,5 +29,5 @@ public interface   ArticleService extends CommonService<Article, BigInteger>{
 	 * @param id
 	 * @return
 	 */
-	public boolean exists(BigInteger id);
+	public boolean existsById(BigInteger id);
 }

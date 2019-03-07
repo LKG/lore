@@ -57,7 +57,7 @@ public class Reptile71Job {
             log.error(e.getStackTrace()[0].getMethodName(), e);
         }
     }
-    @Async
+
     public   Article parseArticle(String url){
         Article entity=null;
         try
@@ -95,8 +95,6 @@ public class Reptile71Job {
             entity.setContent(contentEle.outerHtml());
             entity.setCategoryId(BigInteger.ZERO);
             entity.setUserId(BigInteger.ZERO);
-
-
             this.articleService.save(entity);
         }catch (MalformedURLException e){
             log.error(e.getStackTrace()[0].getMethodName(), e);

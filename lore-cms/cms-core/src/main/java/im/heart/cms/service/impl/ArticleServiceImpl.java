@@ -28,8 +28,8 @@ public class ArticleServiceImpl extends CommonServiceImpl<Article, BigInteger> i
 	}
 
 	@Override
-	public boolean exists(BigInteger id) {
-		return this.articleRepository.existsId(id);
+	public boolean existsById(BigInteger id) {
+		return this.articleRepository.existsById(id);
 	}
 
 }
