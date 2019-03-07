@@ -165,7 +165,7 @@ public class Article implements AbstractEntity<BigInteger>{
 	@Column(name = "CATEGORY_ID", nullable = false, length=20)
 	private BigInteger categoryId;
 	
-	@Formula(value = "(select model.name from dic_cms_article_category model where model.id = category_id)")
+	@Formula(value = "(select model.name from cms_article_category model where model.id = category_id)")
 	private String categoryName;
 
 	@JSONField(format = "yyyy-MM-dd HH:mm:ss")

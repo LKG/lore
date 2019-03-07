@@ -17,6 +17,6 @@ import im.heart.cms.entity.Article;
  */
 public interface ArticleRepository extends JpaRepository<Article, BigInteger>, JpaSpecificationExecutor<Article> {
 	@Transactional
-	@Query(value="select count(1) from dic_cms_article model where model.id = :id",nativeQuery=true)
+	@Query(value="select count(1) from cms_article model where model.id = :id",nativeQuery=true)
 	public Boolean existsId(@Param("id") BigInteger id);
 }

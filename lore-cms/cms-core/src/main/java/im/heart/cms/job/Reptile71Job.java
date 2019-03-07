@@ -6,8 +6,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +17,8 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Map;
+import java.util.Set;
 
 @Slf4j
 @Component
@@ -22,22 +26,49 @@ public class Reptile71Job {
     //http://www.71.cn/2019/0306/1036178.shtml
     @Autowired
     ArticleService articleService;
+    //http://www.71.cn/acastudies/expcolumn/
+    //http://www.71.cn/acastudies/expcolumn/politics/1.shtml
+    //http://www.71.cn/acastudies/expcolumn/economy/1.shtml
     @Scheduled(cron = "0/15 * * * * *")
     void executeJob()throws Exception{
         log.info(".....................");
         String url="http://www.71.cn/2019/0306/1036178.shtml";
         Article entity= parseArticle(url);
         if(entity!=null){
-            this.articleService.save(entity);
+
         }
     }
-    private  Article parseArticle(String url){
+
+
+    public static void main(String[] args) {
+        String url="http://www.71.cn/acastudies/expcolumn/";
+        try{
+            URL uri=new URL(url);
+            Document htmlEle=Jsoup.parse(uri,3000);
+            Element liEle=htmlEle.select("a.cur[href="+url+"]").parents().first();
+            Elements aEles=liEle.select("ul.subvideotree").select("a");
+            for(Element aEle: aEles){
+                log.info(aEle.attr("href"));
+            }
+
+        }catch (MalformedURLException e){
+            log.error(e.getStackTrace()[0].getMethodName(), e);
+        }catch (IOException e){
+            log.error(e.getStackTrace()[0].getMethodName(), e);
+        }
+    }
+    @Async
+    public   Article parseArticle(String url){
         Article entity=null;
         try
         {
             URL uri=new URL(url);
             entity= new Article();
             Document html=Jsoup.parse(uri,3000);
+            Elements tIco=html.select("a.t-ico");
+            String href=tIco.attr("href");
+            String id=StringUtils.substringAfter(href,"contentid=");
+            entity.setId(new BigInteger(id));
             Elements keywordsEle=html.select("meta[name=keywords]");
             String keywords=keywordsEle.attr("content");
             entity.setSeoKeywords(keywords);
@@ -57,13 +88,16 @@ public class Reptile71Job {
             String source=sourceEle.text();
             Elements describe=article.select("#describe");
             Elements contentEle=article.select("#article-content");
-            url=StringUtils.substringAfter(url,"//");
-            url=StringUtils.substringAfter(url,"/");
+            entity.setObtainUrl(url);
+            url=StringUtils.substringBetween(url,"//","/");
             entity.setUrl(url);
             entity.setSource(source);
             entity.setContent(contentEle.outerHtml());
             entity.setCategoryId(BigInteger.ZERO);
             entity.setUserId(BigInteger.ZERO);
+
+
+            this.articleService.save(entity);
         }catch (MalformedURLException e){
             log.error(e.getStackTrace()[0].getMethodName(), e);
         }catch (IOException e){
