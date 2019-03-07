@@ -39,8 +39,7 @@ public class Reptile71Job {
         }
     }
 
-
-    public static void main(String[] args) {
+    private Map<String ,String> expcolumn(){
         String url="http://www.71.cn/acastudies/expcolumn/";
         try{
             URL uri=new URL(url);
@@ -50,14 +49,15 @@ public class Reptile71Job {
             for(Element aEle: aEles){
                 log.info(aEle.attr("href"));
             }
-
         }catch (MalformedURLException e){
             log.error(e.getStackTrace()[0].getMethodName(), e);
         }catch (IOException e){
             log.error(e.getStackTrace()[0].getMethodName(), e);
         }
+        return null;
     }
 
+    @Async
     public   Article parseArticle(String url){
         Article entity=null;
         try
@@ -89,7 +89,8 @@ public class Reptile71Job {
             Elements describe=article.select("#describe");
             Elements contentEle=article.select("#article-content");
             entity.setObtainUrl(url);
-            url=StringUtils.substringBetween(url,"//","/");
+            url=StringUtils.substringAfter(url,"//");
+            url=StringUtils.substringAfter(url,"/");
             entity.setUrl(url);
             entity.setSource(source);
             entity.setContent(contentEle.outerHtml());
