@@ -16,7 +16,7 @@ spring:
   mail:
     host: smtp.163.com
     username: lkg61230413@163.com
-    password: ######
+    password: lkg178wk
     from: GG<lkg61230413@163.com>
     template-path: classpath:/templates/email/
     properties:mail:
