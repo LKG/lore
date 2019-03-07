@@ -57,7 +57,9 @@ public class Reptile71Job {
             String source=sourceEle.text();
             Elements describe=article.select("#describe");
             Elements contentEle=article.select("#article-content");
-            entity.setUrl(StringUtils.substringAfter(url,":"));
+            url=StringUtils.substringAfter(url,"//");
+            url=StringUtils.substringAfter(url,"/");
+            entity.setUrl(url);
             entity.setSource(source);
             entity.setContent(contentEle.outerHtml());
             entity.setCategoryId(BigInteger.ZERO);

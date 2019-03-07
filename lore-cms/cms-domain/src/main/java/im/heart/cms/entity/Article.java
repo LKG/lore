@@ -128,7 +128,12 @@ public class Article implements AbstractEntity<BigInteger>{
 
 	@Column(name = "URL", nullable = false)
 	private String url;
-	
+	/**
+	 * 原始地址
+	 */
+	@Column(name = "OBTAIN_URL", nullable = false)
+	private String obtainUrl;
+
 	@Column(name = "TYPE", nullable = false)
 	private String type;
 	/** 是否发布. */
