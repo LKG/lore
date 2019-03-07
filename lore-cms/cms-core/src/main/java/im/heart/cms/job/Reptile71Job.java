@@ -55,7 +55,7 @@ public class Reptile71Job {
             Elements source=article.select(".source");
             Elements describe=article.select("#describe");
             Elements contentEle=article.select("#article-content");
-            entity.setContent(contentEle.html());
+            entity.setContent(contentEle.outerHtml());
             entity.setCategoryId(BigInteger.ZERO);
             entity.setUserId(BigInteger.ZERO);
         }catch (MalformedURLException e){

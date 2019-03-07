@@ -17,7 +17,7 @@ import java.util.*;
  */
 public class WebUtilsEx extends WebUtils {
     protected static final Logger logger = LoggerFactory.getLogger(WebUtilsEx.class);
-
+    private static final String METHOD_GET = "GET";
     /**
      * @param request
      * @return
@@ -62,7 +62,7 @@ public class WebUtilsEx extends WebUtils {
         Validate.notNull(request, "Request must not be null");
         Enumeration<?> paramNames = request.getParameterNames();
         boolean isGet = false;
-        if ("GET".equalsIgnoreCase(request.getMethod())) {
+        if (METHOD_GET.equalsIgnoreCase(request.getMethod())) {
             isGet = true;
         }
         Map<String, Object> params = new TreeMap<String, Object>();
