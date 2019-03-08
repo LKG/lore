@@ -42,7 +42,7 @@ public class UserOrderController extends AbstractController {
                              ModelMap model) {
         BigInteger userId= SecurityUtilsHelper.getCurrentUser().getUserId();
         final Collection<SearchFilter> filters= DynamicSpecifications.buildSearchFilters(request);
-        filters.add(new SearchFilter("userId", SearchFilter.Operator.EQ,userId));//查询
+        filters.add(new SearchFilter("userId", SearchFilter.Operator.EQ,userId));
         Specification<Order> spec= DynamicSpecifications.bySearchFilter(filters, Order.class);
         PageRequest pageRequest= DynamicPageRequest.buildPageRequest(page,size,sort,order, Order.class);
         Page<Order> pag = this.orderService.findAll(spec, pageRequest);
@@ -84,7 +84,7 @@ public class UserOrderController extends AbstractController {
         BigInteger userId= SecurityUtilsHelper.getCurrentUser().getUserId();
         Order order=this.orderService.findById(orderId);
         if(order!=null&& Order.OrderStatus.unprocessed.equals(order.getOrderStatus())&&order.getUserId().equals(userId)){
-            order.setOrderStatus(Order.OrderStatus.invalid);//设置订单失效
+            order.setOrderStatus(Order.OrderStatus.invalid);
             this.orderService.save(order);
         }
         return new ModelAndView(VIEW_SUCCESS);
