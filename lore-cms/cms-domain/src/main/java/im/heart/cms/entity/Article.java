@@ -102,8 +102,6 @@ public class Article implements AbstractEntity<BigInteger>{
 	@Column(name = "SOURCE", nullable = false,updatable = false)
 	private String source="";
 
-
-
 	/** 内容 . */
 	@NotBlank
 	@Length(min=3)
@@ -128,8 +126,9 @@ public class Article implements AbstractEntity<BigInteger>{
 	@Column(name = "URL", nullable = false)
 	private String url;
 	/**
-	 * 原始地址
+	 * 原始地址 不序列化
 	 */
+	@JSONField(serialize = false)
 	@Column(name = "OBTAIN_URL", nullable = false)
 	private String obtainUrl;
 
