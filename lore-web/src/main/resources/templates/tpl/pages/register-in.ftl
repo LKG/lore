@@ -120,8 +120,6 @@
    	 <#if sub_token??>
    	 <input type="hidden" name="sub_token" value="${sub_token}" />
    	 </#if>
-   	  
-   	
    	 </div>
    	  <div class="col-sm-6">
      <button  id="J_RegisterSubmit" class="btn btn-success btn-lg btn-block"  data-loading-text="注册中..."   tabindex="5" >

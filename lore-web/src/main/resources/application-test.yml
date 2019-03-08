@@ -87,9 +87,11 @@ wechat:
    open:
      appId:
      appSecret:
+     cllbackuri: http://
    mp:
      appId:
      appSecret:
+     cllbackuri: http://
 prod:
   oss:
    accessKeyId:
