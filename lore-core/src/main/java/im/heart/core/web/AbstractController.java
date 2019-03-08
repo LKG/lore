@@ -160,6 +160,9 @@ public abstract  class AbstractController {
     protected void error(ModelMap model, String dataKey, Object attributeValue) {
         this.fail(model, dataKey, attributeValue);
     }
+    protected void error(ModelMap model) {
+        this.error(model, RequestResult.RESULT, false);
+    }
     protected void error(ModelMap model, Object attributeValue) {
         this.error(model, RequestResult.RESULT, attributeValue);
     }

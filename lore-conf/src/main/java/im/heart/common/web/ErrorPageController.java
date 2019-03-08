@@ -1,17 +1,25 @@
 package im.heart.common.web;
 
+import im.heart.core.web.AbstractController;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
-public class ErrorPageController implements ErrorController {
+public class ErrorPageController extends AbstractController implements ErrorController  {
     private static final String ERROR_PATH = "/error";
-
     @RequestMapping(ERROR_PATH)
-    public String error(){
-        return "/errors/404";
+    public ModelAndView error(HttpServletRequest request, HttpServletResponse response,
+                                ModelMap model){
+        super.error(model);
+        return  new ModelAndView("/errors/404");
     }
+
     @Override
     public String getErrorPath() {
         return ERROR_PATH;
