@@ -63,7 +63,7 @@
 			  <div class="panel-body" style="min-height:500px;">
 			  	 <form class="form-horizontal" id="J_changePwdForm"  action="${contextPath}/userinfo/changePwd.json" method="post" >
 			  	  <div class="form-group">
-				    <label for="oldPassWord" class="col-sm-2 col-xs-2 control-label"><sapn class="text-danger" >*</span><@spring.message  code="label.login.password" /></label>
+				    <label for="oldPassWord" class="col-sm-2 col-xs-2 control-label"><span class="text-danger" >*</span><@spring.message  code="label.login.password" /></label>
 				     <div class="col-sm-6 col-xs-6">
 					    <div class="input-group">
 					      <div class="input-group-addon"><i class="fa fa-key"></i></div>
@@ -72,7 +72,7 @@
 				    </div>
 				  </div>
 			 	  <div class="form-group">
-				    <label for="passWord" class="col-sm-2 col-xs-2 control-label"><sapn class="text-danger" >*</span>新密码：</label>
+				    <label for="passWord" class="col-sm-2 col-xs-2 control-label"><span class="text-danger" >*</span>新密码：</label>
 				     <div class="col-sm-6 col-xs-6">
 					    <div class="input-group">
 					      <div class="input-group-addon"><i class="fa fa-key"></i></div>
@@ -87,7 +87,7 @@
 				    </div>
 				  </div>
 			  	   <div class="form-group">
-				    <label for="retryPassWord" class="col-sm-2 col-xs-2 control-label"><sapn class="text-danger" >*</span><@spring.message  code="label.user.password.confirm" /></label>
+				    <label for="retryPassWord" class="col-sm-2 col-xs-2 control-label"><span class="text-danger" >*</span><@spring.message  code="label.user.password.confirm" /></label>
 				     <div class="col-sm-6 col-xs-6">
 					    <div class="input-group">
 					      <div class="input-group-addon"><i class="fa fa-key"></i></div>

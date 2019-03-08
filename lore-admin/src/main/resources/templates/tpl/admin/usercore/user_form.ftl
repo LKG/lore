@@ -16,7 +16,7 @@
 		<script type="text/javascript">(function(x){x&&(x.className+=" loading")})(document.getElementById("J_RegisterBox"))</script>
 		<form class="form-horizontal" id="J_RegisterForm"  action="${contextPath}/admin/user/save" method="post" >
 		  <div class="form-group">
-		    <label for="userName" class="col-sm-1 col-xs-1 control-label"><sapn class="text-danger" >*</span><@spring.message  code="label.login.username" /></label>
+		    <label for="userName" class="col-sm-1 col-xs-1 control-label"><b class="text-danger" >*</b><@spring.message  code="label.login.username" /></label>
 		     <div class="col-sm-9 col-xs-9">
 			    <div class="input-group">
 			      <div class="input-group-addon"><i class="fa fa-user"></i></div>
@@ -25,7 +25,7 @@
 		    </div>
 		  </div>
 		  <div class="form-group">
-		     <label for="userPhone" class="col-sm-1 col-xs-1 control-label"><sapn class="text-danger" >*</span><@spring.message  code="label.user.phone" /></label>
+		     <label for="userPhone" class="col-sm-1 col-xs-1 control-label"><b class="text-danger" >*</b><@spring.message  code="label.user.phone" /></label>
 		    <div class="col-sm-9 col-xs-9">
 			    <div class="input-group ">
 			      <div class="input-group-addon"><i class="fa fa-mobile"></i></div>
@@ -37,7 +37,7 @@
 		  </div>
 		  <!--
 		  <div class="form-group">
-		     <label for="password" class="col-sm-1 col-xs-1 control-label"><sapn class="text-danger" >*</span><@spring.message  code="label.login.password" /></label>
+		     <label for="password" class="col-sm-1 col-xs-1 control-label"><span class="text-danger" >*</span><@spring.message  code="label.login.password" /></label>
 		    <div class="col-sm-9 col-xs-9">
 			    <div class="input-group">
 			      <div class="input-group-addon"><i class="fa fa-key"></i></div>
@@ -53,7 +53,7 @@
 		  </div>
 	
 		   <div class="form-group">
-		     <label for="retryPassWord" class="col-sm-1 col-xs-1 control-label"><sapn class="text-danger" >*</span><@spring.message  code="label.user.password.confirm" /></label>
+		     <label for="retryPassWord" class="col-sm-1 col-xs-1 control-label"><span class="text-danger" >*</span><@spring.message  code="label.user.password.confirm" /></label>
 		    <div class="col-sm-9 col-xs-9">
 			    <div class="input-group">
 			      <div class="input-group-addon"><i class="fa fa-key"></i></div>
@@ -64,7 +64,7 @@
 		  	  -->
 		 <!----  
 		  <div class="form-group">
-		     <label for="phoneCode" class="col-sm-1 col-xs-1 control-label"><sapn class="text-danger" >*</span>短信码：</label>
+		     <label for="phoneCode" class="col-sm-1 col-xs-1 control-label"><span class="text-danger" >*</span>短信码：</label>
 		    <div class="col-sm-9 col-xs-9">
 			    <div class="input-group">
 			      <div class="input-group-addon"><i class="fa fa-comment"></i></div>

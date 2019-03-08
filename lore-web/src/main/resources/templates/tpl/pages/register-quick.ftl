@@ -3,7 +3,7 @@
 <script type="text/javascript">(function(x){x&&(x.className+=" loading")})(document.getElementById("J_RegisterBox"))</script>
 <form class="form-horizontal" id="Q_RegisterForm"  action="${contextPath}/regist/quickRegister.jhtml" method="post" >
   <div class="form-group">
-     <label for="Q_userPhone" class="col-sm-3 col-xs-3 control-label"><sapn class="text-danger" >*</span><@spring.message  code="label.user.phone" /></label>
+     <label for="Q_userPhone" class="col-sm-3 col-xs-3 control-label"><b class="text-danger" >*</b><@spring.message  code="label.user.phone" /></label>
     <div class="col-sm-6 col-xs-6">
 	    <div class="input-group ">
 	      <div class="input-group-addon"><i class="fa fa-mobile"></i></div>
@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="form-group">
-     <label for="password" class="col-sm-3 col-xs-3 control-label"><sapn class="text-danger" >*</span><@spring.message  code="label.login.password" /></label>
+     <label for="password" class="col-sm-3 col-xs-3 control-label"><b class="text-danger" >*</b><@spring.message  code="label.login.password" /></label>
     <div class="col-sm-6 col-xs-6">
 	    <div class="input-group">
 	      <div class="input-group-addon"><i class="fa fa-key"></i></div>
@@ -23,7 +23,7 @@
     </div>
   </div>
    <div class="form-group">
-     <label for="retryPassWord" class="col-sm-3 col-xs-3 control-label"><sapn class="text-danger" >*</span><@spring.message  code="label.user.password.confirm" /></label>
+     <label for="retryPassWord" class="col-sm-3 col-xs-3 control-label"><b class="text-danger" >*</b><@spring.message  code="label.user.password.confirm" /></label>
     <div class="col-sm-6 col-xs-6">
 	    <div class="input-group">
 	      <div class="input-group-addon"><i class="fa fa-key"></i></div>
@@ -33,7 +33,7 @@
   </div>
 
   <div class="form-group">
-     <label for="phoneCode" class="col-sm-3 col-xs-3 control-label"><sapn class="text-danger" >*</span>短信码：</label>
+     <label for="phoneCode" class="col-sm-3 col-xs-3 control-label"><b class="text-danger" >*</b>短信码：</label>
     <div class="col-sm-6 col-xs-6">
 	    <div class="input-group">
 	      <div class="input-group-addon"><i class="fa fa-comment"></i></div>
@@ -54,7 +54,7 @@
 	       <div class="input-group">
 	       		<input type="checkbox" name="readme" id='Q_readme'>
 	       		<p class="text-left">
-	       		我已阅读并同意<a href="javascript:;" class="blue" data-toggle="modal" data-target="#myModal" >《用户注册协议》</a>
+	       		我已阅读并同意<a href="javascript:;" class="blue" id="Q_protocol-btn"  data-toggle="modal" data-target="#myModal" >《用户注册协议》</a>
 	       		 </p>
 	       	</div>
 		</label>
