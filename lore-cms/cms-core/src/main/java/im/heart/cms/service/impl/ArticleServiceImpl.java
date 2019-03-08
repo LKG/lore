@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,5 +32,13 @@ public class ArticleServiceImpl extends CommonServiceImpl<Article, BigInteger> i
 	public boolean existsById(BigInteger id) {
 		return this.articleRepository.existsById(id);
 	}
-
+	@Override
+	public void updateHitsById(BigInteger id) {
+		this.articleRepository.updateHitsById(id);
+	}
+	@Async
+	@Override
+	public void addUpdateHitsTask(BigInteger id) {
+		this.updateHitsById(id);
+	}
 }

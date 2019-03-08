@@ -5,10 +5,10 @@
 <!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
-<title>${result.type}${result.seo_title}</title>
+<title>${result.type!''}${result.seo_title!''}</title>
   <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
-    <meta name="description" content="${result.seo_description}" />
-    <meta name="Keywords" content="${result.seo_keywords}" />
+    <meta name="description" content="${result.seo_description!''}" />
+    <meta name="Keywords" content="${result.seo_keywords!''}" />
 
   <#include "/includes/head.ftl" />
 	<style>
@@ -32,13 +32,13 @@
 			<div class="col-xs-12" >
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <h2 class="newstitle" title="${result.title}">${result.title}</h2>
+                        <h2 class="newstitle" title="${result.title}">${result.title!''}</h2>
                         <div class="borline clearfix">
-                            <p class="artinfo"><span class="author">${result.author}</span>　时间：${result.pushTime}　|　字体：【<a class="cgray" href="javascript:zoom(16)">大</a> <a class="cgray" href="javascript:zoom(14)">中</a> <a class="cgray" href="javascript:zoom(12)">小</a>】|阅读: ${result.hits}</p>
+                            <p class="artinfo"><span class="author">${result.author!''}</span>　时间：${result.pushTime!''}　|　字体：【<a class="cgray" href="javascript:zoom(16)">大</a> <a class="cgray" href="javascript:zoom(14)">中</a> <a class="cgray" href="javascript:zoom(12)">小</a>】|阅读: ${result.hits!''}</p>
                             <!-- <p class="share">分享到：</p> -->
                         </div>
 						<div class="" style="padding-top: 20px;">
-							${result.content}
+							${result.content!''}
 
 						</div>
                     </div>

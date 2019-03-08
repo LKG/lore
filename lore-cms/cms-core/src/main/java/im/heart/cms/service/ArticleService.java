@@ -30,4 +30,8 @@ public interface   ArticleService extends CommonService<Article, BigInteger>{
 	 * @return
 	 */
 	public boolean existsById(BigInteger id);
+
+	public void addUpdateHitsTask(BigInteger id);
+
+	public void updateHitsById(BigInteger id);
 }

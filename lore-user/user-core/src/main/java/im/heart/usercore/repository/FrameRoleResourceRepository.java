@@ -26,7 +26,7 @@ public interface FrameRoleResourceRepository extends JpaRepository<FrameRoleReso
 
 	public List<FrameRoleResource> findByRoleCodeIn(String... roleCodes);
 	@Modifying
-	@Transactional
+	@Transactional(rollbackOn = Exception.class)
 	@Query("DELETE FROM FrameRoleResource model WHERE model.roleId = :roleId")
 	public void deleteByRoleId(@Param("roleId") BigInteger roleId);
 }
