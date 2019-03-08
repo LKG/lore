@@ -5,6 +5,15 @@ define(function (require, exports, moudles) {
 	 var $baseRoot=$("#baseRoot");
 	 var baseRoot=$baseRoot.attr("href");
 	 var dialog = require('artDialog');
+    $("#Q_protocol-btn").on("click",function(){
+        var agreements=$("#agreements-body").html();
+        var d = dialog({
+            id : "protocol-btn",
+            title: '用户注册协议',
+            content: agreements,
+        });
+        d.showModal();
+    });
 	//发送短信验证码
 	$("#Q_PhoneCodeBtn").on("click",function(){
 		var a=null;

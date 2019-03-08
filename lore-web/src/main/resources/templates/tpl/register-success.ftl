@@ -8,14 +8,16 @@
 <title><@spring.message  code="label.register.title" />-成功</title>
   <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
   <#include "/includes/head.ftl" />
-<style>
-</style>
 </head> 
 <body class="page-header-fixed">
-	<!------页面header信息 begin----->
-	<#include "/pages/header-navbar-top.ftl" />
-	<!------页面header信息 end----->
-	<div class="container" id="register-container">
+<!-- toolbar begin-->
+<#include "/index-toolbar.ftl"/>
+<!-- toolbar end-->
+<!-----------------------------------------顶部-------------->
+	<!-- header begin-->
+	<#include "/index-header.ftl" />
+	<!-- header end-->
+	<div class="container main-container" id="register-container">
 		<div class="panel panel-default">
 			<div class="panel-heading"><@spring.message  code="label.register.title" /></div>
 	  		<div class="panel-body">

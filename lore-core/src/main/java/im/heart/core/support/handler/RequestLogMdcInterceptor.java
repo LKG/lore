@@ -4,12 +4,14 @@ import im.heart.core.web.utils.WebUtilsEx;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.slf4j.MDC;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Slf4j
+@Component
 public class RequestLogMdcInterceptor extends HandlerInterceptorAdapter {
 
     @Override

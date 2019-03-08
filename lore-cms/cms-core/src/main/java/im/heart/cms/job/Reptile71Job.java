@@ -29,14 +29,10 @@ public class Reptile71Job {
     //http://www.71.cn/acastudies/expcolumn/
     //http://www.71.cn/acastudies/expcolumn/politics/1.shtml
     //http://www.71.cn/acastudies/expcolumn/economy/1.shtml
-    @Scheduled(cron = "0/15 * * * * *")
+    @Scheduled(cron = "0/60 * * * * *")
     void executeJob()throws Exception{
         log.info(".....................");
-        String url="http://www.71.cn/2019/0306/1036178.shtml";
-        Article entity= parseArticle(url);
-        if(entity!=null){
-
-        }
+        expcolumn();
     }
 
     private Map<String ,String> expcolumn(){

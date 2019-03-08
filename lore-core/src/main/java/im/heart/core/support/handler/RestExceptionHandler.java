@@ -50,7 +50,7 @@ public class RestExceptionHandler{
 		};
 		return new ModelAndView(RequestResult.PAGE_ERROR, errorMap);
 	}
-	
+
 	@ResponseStatus(HttpStatus.OK)
 	@ExceptionHandler(DataIntegrityViolationException.class)
 	public ModelAndView handleException(HttpServletRequest request, DataIntegrityViolationException e) {

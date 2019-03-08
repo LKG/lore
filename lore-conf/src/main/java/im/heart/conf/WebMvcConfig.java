@@ -89,6 +89,10 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.enableContentNegotiation(jsonpView());
     }
     @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+
+    }
+    @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/" + STATIC_UPLOAD_ROOT+ "/**")
                 .addResourceLocations(ResourceUtils.FILE_URL_PREFIX + prodUploadFilePath);
