@@ -17,6 +17,9 @@
 	  href="http://browsehappy.com/" target="_blank">升级浏览器</a>
 	  以获得更好的体验！</p>
   <![endif]-->
+  <!-- header begin-->
+    <#include "/index-header.ftl" />
+  <!-- header end-->
 <!------页面header信息 begin----->
 	<div class="clearfix"></div>
     <div class="container main-container" tyle="min-height:500px;" >
