@@ -64,11 +64,11 @@ public class SysRrouteController extends AbstractController {
 			System.arraycopy(pack, 2, key, 0, key.length);
 			// 取出消息体
 			System.arraycopy(pack, 10, body, 0, body.length);
-			logger.info("解压key：" + new String(key, "UTF-8"));
+			logger.info("解压key：{} " ,new String(key, "UTF-8"));
 			// 转换压缩文件流为普通流
 			byte[] unpack = FileUtilsEx.uncompressToStringback(body);
 			String signBoby = DesUtils.parseSignback(unpack, new String(key,"UTF-8"));
-			logger.info("解压signBoby ：" + signBoby);
+			logger.info("解压signBoby ：{}" ,signBoby);
 			requestParameters = JSON.parseObject(signBoby, RequestParas.class);
 		} catch (IOException e) {
 			logger.error(e.getStackTrace()[0].getMethodName(), e);
