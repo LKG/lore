@@ -9,8 +9,6 @@ info:
   app-name: lore
   app-description: ${info.app-name} 描述
   app-version: ${project.version}
-
-
 #######maven pom \u91cc\u7684\u914d\u7f6e
 management:
   endpoints:
@@ -31,6 +29,8 @@ management:
 spring:
   main:
     banner-mode: "off"
+  profiles:
+    include: shiro
   http:
     encoding:
       charset: UTF-8
@@ -55,7 +55,6 @@ spring:
     database: 0
     port: 6379
     password:
-  include: shiro
   output:
     ansi:
       enabled: DETECT
