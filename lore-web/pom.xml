@@ -5,7 +5,7 @@
     <parent>
         <artifactId>lore</artifactId>
         <groupId>im.heart</groupId>
-        <version>0.1.3</version>
+        <version>0.1.4</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -34,32 +34,32 @@
         <dependency>
             <groupId>im.heart</groupId>
             <artifactId>material-core</artifactId>
-            <version>0.1.3</version>
+            <version>0.1.4</version>
         </dependency>
         <dependency>
             <groupId>im.heart</groupId>
             <artifactId>user-core</artifactId>
-            <version>0.1.3</version>
+            <version>0.1.4</version>
         </dependency>
         <dependency>
             <groupId>im.heart</groupId>
             <artifactId>material-core</artifactId>
-            <version>0.1.3</version>
+            <version>0.1.4</version>
         </dependency>
         <dependency>
             <groupId>im.heart</groupId>
             <artifactId>shop-core</artifactId>
-            <version>0.1.3</version>
+            <version>0.1.4</version>
         </dependency>
         <dependency>
             <groupId>im.heart</groupId>
             <artifactId>cms-core</artifactId>
-            <version>0.1.3</version>
+            <version>0.1.4</version>
         </dependency>
         <dependency>
             <groupId>im.heart</groupId>
             <artifactId>lore-conf</artifactId>
-            <version>0.1.3</version>
+            <version>0.1.4</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -80,14 +80,58 @@
                 <version>2.1.1.RELEASE</version>
                 <configuration>
                     <mainClass>im.heart.App</mainClass>
-                  <!--<layout>ZIP</layout>-->
-                    <!--<excludeGroupIds>im.heart</excludeGroupIds>-->
-                    <!--<includes>-->
-                        <!--<include>-->
-                            <!--<groupId>${project.groupId}</groupId>-->
-                            <!--<artifactId></artifactId>-->
-                        <!--</include>-->
-                    <!--</includes>-->
+                  <layout>ZIP</layout>
+                    <excludeGroupIds>im.heart</excludeGroupIds>
+                    <includes>
+                        <include>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>lore-core</artifactId>
+                        </include>
+                        <include>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>lore-conf</artifactId>
+                        </include>
+                        <include>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>frame-core</artifactId>
+                        </include>
+                        <include>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>frame-domain</artifactId>
+                        </include>
+                        <include>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>shop-core</artifactId>
+                        </include>
+                        <include>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>shop-domain</artifactId>
+                        </include>
+                        <include>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>user-core</artifactId>
+                        </include>
+                        <include>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>user-domain</artifactId>
+                        </include>
+                        <include>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>material-core</artifactId>
+                        </include>
+                        <include>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>material-domain</artifactId>
+                        </include>
+                        <include>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>cms-core</artifactId>
+                        </include>
+                        <include>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>cms-domain</artifactId>
+                        </include>
+                    </includes>
                 </configuration>
                 <executions>
                     <execution>
