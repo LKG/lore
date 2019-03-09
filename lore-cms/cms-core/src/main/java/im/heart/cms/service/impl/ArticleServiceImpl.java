@@ -19,7 +19,7 @@ import im.heart.cms.service.ArticleService;
 import im.heart.core.service.impl.CommonServiceImpl;
 
 @Service(value = ArticleService.BEAN_NAME)
-@Transactional(propagation = Propagation.SUPPORTS)
+@Transactional(propagation = Propagation.SUPPORTS,rollbackFor = Exception.class)
 public class ArticleServiceImpl extends CommonServiceImpl<Article, BigInteger> implements ArticleService {
 	@Autowired
 	private ArticleRepository articleRepository;

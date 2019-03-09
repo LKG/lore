@@ -5,9 +5,9 @@ import java.math.BigInteger;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-import im.heart.cms.entity.FrameNotice;
+import im.heart.cms.entity.Notice;
 
 
-public interface FrameNoticeRepository  extends JpaRepository<FrameNotice, BigInteger> ,JpaSpecificationExecutor<FrameNotice> {
+public interface FrameNoticeRepository  extends JpaRepository<Notice, BigInteger> ,JpaSpecificationExecutor<Notice> {
 
 }

@@ -1,7 +1,7 @@
 package im.heart.cms.web;
 
-import im.heart.cms.entity.FrameNotice;
-import im.heart.cms.service.FrameNoticeService;
+import im.heart.cms.entity.Notice;
+import im.heart.cms.service.NoticeService;
 import im.heart.core.CommonConst;
 import im.heart.core.plugins.persistence.DynamicPageRequest;
 import im.heart.core.plugins.persistence.DynamicSpecifications;
@@ -26,10 +26,10 @@ import java.math.BigInteger;
  * @desc 公告
  */
 @Controller
-public class ApiFrameNoticeController extends AbstractController {
+public class ApiNoticeController extends AbstractController {
 	protected static final String apiVer = "/api/v1/notice";
 	@Autowired
-	private FrameNoticeService frameNoticeService;
+	private NoticeService noticeService;
 	protected static final String VIEW_LIST="admin/frameNotice/list";
 	protected static final String VIEW_CREATE="admin/frameNotice/create";
 	protected static final String VIEW_UPDATE="admin/frameNotice/update";
@@ -60,9 +60,9 @@ public class ApiFrameNoticeController extends AbstractController {
 			@RequestParam(value = "access_token", required = false) String token,
 			HttpServletRequest request, HttpServletResponse response,
 			ModelMap model) throws Exception {
-		Specification<FrameNotice> spec=DynamicSpecifications.bySearchFilter(request, FrameNotice.class);
-		PageRequest pageRequest=DynamicPageRequest.buildPageRequest(page,size,sort,order,FrameNotice.class);
-		Page<FrameNotice> pag = this.frameNoticeService.findAll(spec, pageRequest);
+		Specification<Notice> spec=DynamicSpecifications.bySearchFilter(request, Notice.class);
+		PageRequest pageRequest=DynamicPageRequest.buildPageRequest(page,size,sort,order, Notice.class);
+		Page<Notice> pag = this.noticeService.findAll(spec, pageRequest);
 		super.success(model, pag);
 		return new ModelAndView(VIEW_LIST);
 	}
@@ -78,13 +78,13 @@ public class ApiFrameNoticeController extends AbstractController {
 	 * @throws Exception
 	 */
 	@RequestMapping(value=apiVer+"/{id}" ,method = RequestMethod.GET)
-	protected ModelAndView findByKey(
+	protected ModelAndView findById(
 			@RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
 			@PathVariable BigInteger id,
 			@RequestParam(value = "access_token", required = false) String token,
 			HttpServletRequest request, HttpServletResponse response,
 			ModelMap model) throws Exception {
-		FrameNotice po = this.frameNoticeService.findById(id);
+		Notice po = this.noticeService.findById(id);
 		super.success(model, po);
 		return new ModelAndView(VIEW_DETAILS);
 	}
@@ -102,18 +102,18 @@ public class ApiFrameNoticeController extends AbstractController {
 			HttpServletRequest request,
 			@RequestParam(value = "access_token", required = false) String token,
 			ModelMap model) {
-		Specification<FrameNotice> spec=DynamicSpecifications.bySearchFilter(request, FrameNotice.class);
-		Long count = this.frameNoticeService.count(spec);
+		Specification<Notice> spec=DynamicSpecifications.bySearchFilter(request, Notice.class);
+		Long count = this.noticeService.count(spec);
 		super.success(model,count);
 		return new ModelAndView(RESULT_PAGE);
 	}
 	@RequestMapping(value=apiVer+"/create", method=RequestMethod.GET)
-	protected ModelAndView preCreate(@ModelAttribute(CommonConst.RequestResult.RESULT) FrameNotice frameNotice, ModelMap model) {
-		super.success(model, frameNotice);
+	protected ModelAndView preCreate(@ModelAttribute(CommonConst.RequestResult.RESULT) Notice notice, ModelMap model) {
+		super.success(model, notice);
 		return new ModelAndView(VIEW_CREATE);
 	}
 	@RequestMapping(value=apiVer+"/create", method=RequestMethod.POST)
-	public ModelAndView  create(@Valid FrameNotice frameNotice) {
+	public ModelAndView  create(@Valid Notice notice) {
 		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22");
 		return new ModelAndView(VIEW_CREATE);
 	}

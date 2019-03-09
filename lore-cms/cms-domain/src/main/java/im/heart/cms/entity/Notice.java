@@ -1,15 +1,8 @@
 package im.heart.cms.entity;
 
 
-
+import com.alibaba.fastjson.annotation.JSONField;
 import im.heart.core.entity.AbstractEntity;
-
-import java.math.BigInteger;
-import java.util.Date;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
 import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -17,7 +10,10 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.alibaba.fastjson.annotation.JSONField;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.math.BigInteger;
+import java.util.Date;
 
 
 /**
@@ -26,11 +22,11 @@ import com.alibaba.fastjson.annotation.JSONField;
  * @功能说明：宣传图片信息
  */
 @Entity
-@Table(name = "cms_frame_notice")
+@Table(name = "cms_notice")
 @DynamicUpdate()
 @DynamicInsert()
 @Data
-public class FrameNotice implements AbstractEntity<BigInteger>  {
+public class Notice implements AbstractEntity<BigInteger>  {
 	
 	/**
 	 * 
