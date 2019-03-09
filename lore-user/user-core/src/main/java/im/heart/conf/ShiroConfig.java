@@ -99,6 +99,11 @@ public class ShiroConfig {
 		filterChainDefinitionMap.put("/doc/**", "anon");
 		filterChainDefinitionMap.put("/articles/**", "anon");
 		filterChainDefinitionMap.put("/article/**", "anon");
+		filterChainDefinitionMap.put("/questions**", "anon");
+		filterChainDefinitionMap.put("/help**", "anon");
+		filterChainDefinitionMap.put("/vip**", "anon");
+		filterChainDefinitionMap.put("/contact**", "anon");
+		filterChainDefinitionMap.put("/agreements**", "anon");
 		filterChainDefinitionMap.put("/logout*", "logout");
 		filterChainDefinitionMap.put("/", "anon");
 		filterChainDefinitionMap.put("/uploads/**", "anon");

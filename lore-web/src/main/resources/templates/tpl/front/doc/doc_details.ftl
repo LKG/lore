@@ -5,8 +5,12 @@
 <!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
-    <title>${result.periodicalName!''}详情</title>
-  <#include "/includes/head.ftl" />
+    <#include "/includes/head.ftl" />
+    <title>${result.periodicalName!''}</title>
+    <meta name="title" content="${result.periodicalName!''}" />
+    <meta name="keywords" content="${result.seoKeywords!''}" />
+    <meta content="${result.periodicalName!''}" itemprop="name" />
+    <meta name="description" itemprop="description" content="${result.seoDesc!''}" />
     <style>
         .tab-pane{
             padding-top:30px;

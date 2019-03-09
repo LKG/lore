@@ -365,7 +365,7 @@
 
             </div>
 
-            <div class="trends-bottom-box">
+            <div class="trends-bottom-box"  >
                 <div class="trends-unit unit1">
                     <h4>
                         <span>教育</span>
