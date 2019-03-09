@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,6 +56,27 @@ public class PeriodicalServiceImpl   extends CommonServiceImpl<Periodical, BigIn
 		Specification<Periodical> spec = DynamicSpecifications.bySearchFilter(filters, Periodical.class);
 		return this.periodicalRepository.findAll(spec);
 	}
+	@Override
+	public void updateHitsById(BigInteger id) {
+		this.periodicalRepository.updateHitsById(id);
+	}
+	@Async
+	@Override
+	public void addUpdateHitsTask(BigInteger id) {
+		this.updateHitsById(id);
+	}
+
+	@Override
+	public void updateRateTimesById(BigInteger id) {
+		this.periodicalRepository.updateRateTimesById(id);
+	}
+	@Async
+	@Override
+	public void addUpdateRateTimesTask(BigInteger id) {
+		this.updateRateTimesById(id);
+	}
+
+
 	@Override
 	public Page<Periodical> findInitPeriodicalByType(PeriodicalType type,Pageable pageable) {
 		final Collection<SearchFilter> filters = Sets.newHashSet();

@@ -24,12 +24,6 @@ public interface   ArticleService extends CommonService<Article, BigInteger>{
 	 */
 	public List<Article>  saveAll(Iterable<Article> entities);
 
-	/**
-	 * @Desc 判断文章是否存在
-	 * @param id
-	 * @return
-	 */
-	public boolean existsById(BigInteger id);
 
 	public void addUpdateHitsTask(BigInteger id);
 

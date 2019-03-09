@@ -1,4 +1,4 @@
-<div class="w" style="height: 70px;">
+<div class="w" style="height: 77px;">
     <div class="logo"><a href=""></a></div>
     <div class="search" style="height: 26px;">
         <input type="text"  value="" class="text" id="textt">
@@ -7,8 +7,8 @@
     <a type="button" id="desk-btn"
        style="margin-top: 14px; margin-right: 20px;"
        class="btn btn-primary pull-right" href="${contextPath}/userinfo/desk.jhtml" ><i class="fa fa-cloud-upload">上传我的文档</i></a>
-    <div class="right hide">
-        <i class="gw-left" style="background:url(./images/jd2015img.png)0 -58px no-repeat;width:24px;height:24px;"></i>
+    <div class="right">
+        <i class="gw-left" style="background:url(${contextPath}/images/jd2015img.png)0 -58px no-repeat;width:24px;height:24px;"></i>
         <i class="gw-right">></i>
         <i class="gw-count">0</i>
         <a href="#">我的购物车</a>

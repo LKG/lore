@@ -65,7 +65,6 @@ public class ArticleController extends AbstractController {
         super.success(model,pag);
         return new ModelAndView(VIEW_LIST);
     }
-
     public void updateHitsById(BigInteger id){
         this.articleService.addUpdateHitsTask(id);
     }

@@ -25,6 +25,11 @@ public interface PeriodicalService extends CommonService<Periodical, BigInteger>
 	public List<Periodical>  findAllById(Iterable<BigInteger> ids);
 	
 	public Page<Periodical> findInitPeriodicalByType(PeriodicalType type, Pageable pageable);
+	public void addUpdateHitsTask(BigInteger id);
 
+	public void updateHitsById(BigInteger id);
 	public  void updateStatusByPeriodicalId(BigInteger periodicalId, Status status);
+
+	public void updateRateTimesById(BigInteger id);
+	public  void addUpdateRateTimesTask(BigInteger id);
 }

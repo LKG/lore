@@ -16,7 +16,7 @@
             padding: 5px 13px;
         }
         .panel-heading  h4{
-            border-left: 2px solid #f35d5d;
+            border-left: 2px solid #189ae5;
             padding-left:15px;
             margin-left:-13px;
         }

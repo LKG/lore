@@ -8,8 +8,8 @@
     <#include "/includes/head.ftl" />
     <title>${result.periodicalName!''}</title>
     <meta name="title" content="${result.periodicalName!''}" />
-    <meta name="keywords" content="${result.seoKeywords!''}" />
     <meta content="${result.periodicalName!''}" itemprop="name" />
+    <meta name="keywords" content="${result.seoKeywords!''}" />
     <meta name="description" itemprop="description" content="${result.seoDesc!''}" />
     <style>
         .tab-pane{
@@ -19,9 +19,12 @@
             margin-top: -27px;
         }
         .panel-heading  h4{
-            border-left: 2px solid #f35d5d;
+            border-left: 2px solid #189ae5;
             padding-left:15px;
             margin-left:-13px;
+        }
+        #praise-btn{
+            margin-top: -13px;
         }
         .isStuck{
             z-index: 99;
@@ -45,11 +48,19 @@
 <!-- banner 广告 begin-->
   <#include "/index-top-banner.ftl" />
 <!-- banner 广告 end-->
-<div class="container" style="margin-top: 35px;">
+
+<div class="container" style="margin-top: 15px;">
+    <ol class="breadcrumb">
+        <li><a href="${contextPath}/"><@spring.message  code="label.system.index" /></a></li>
+        <li><a href="${contextPath}/docs.jhtml">${result.type!''}</a></li>
+        <li class="active">文档</li>
+    </ol>
+</div>
+<div class="container" >
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading" id="doc-nav-top" ><h4>${result.periodicalName!''}</h4>
-
+                <i class="fa fa-thumbs-o-up fa-lg pull-right" id="praise-btn"  data-url="${contextPath}/doc/${result.id}/praise.json" ></i>
                 <a type="button" id="vip-btn" class="btn pull-right" target="_blank" href="${contextPath}/vip.jttml" ><i class="fa fa-free-code-camp">加入Vip免费下载</i></a>
                 <a type="button" id="down-btn" class="btn btn-danger pull-right" href="${contextPath}/order/getOrderInfo.jhtml?id=${result.id!''}" ><i class="fa  fa-cloud-download">立即下载</i></a>
                 <button type="button" id="focus-btn" class="btn btn-danger pull-right" data-url="${contextPath}/doc/${result.id}/collect.json"><i class="fa heart fa-lg"></i><span id="collect-txt">收藏</span></button>

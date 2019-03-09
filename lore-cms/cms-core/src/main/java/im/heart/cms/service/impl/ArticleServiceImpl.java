@@ -29,10 +29,6 @@ public class ArticleServiceImpl extends CommonServiceImpl<Article, BigInteger> i
 	}
 
 	@Override
-	public boolean existsById(BigInteger id) {
-		return this.articleRepository.existsById(id);
-	}
-	@Override
 	public void updateHitsById(BigInteger id) {
 		this.articleRepository.updateHitsById(id);
 	}

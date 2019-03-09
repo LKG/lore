@@ -41,7 +41,7 @@ public class DocController extends AbstractController {
     protected static final String VIEW_DETAILS="front/doc/doc_details";
 
     @Autowired
-    private PeriodicalService materialPeriodicalService;
+    private PeriodicalService periodicalService;
 
     @Autowired
     private FrameUserFollowService frameUserFollowService;
@@ -53,7 +53,8 @@ public class DocController extends AbstractController {
             @RequestParam(value = "access_token", required = false) String token,
             HttpServletRequest request,
             ModelMap model) {
-        Periodical po = this.materialPeriodicalService.findById(id);
+        this.updateHitsById(id);
+        Periodical po = this.periodicalService.findById(id);
         super.success(model, new PeriodicalVO(po));
         return new ModelAndView(VIEW_DETAILS);
     }
@@ -70,7 +71,7 @@ public class DocController extends AbstractController {
         filters.add(new SearchFilter("isPub", SearchFilter.Operator.EQ,Boolean.TRUE));
         Specification<Periodical> spec= DynamicSpecifications.bySearchFilter(filters, Periodical.class);
         PageRequest pageRequest= DynamicPageRequest.buildPageRequest(page,size,sort,order,Periodical.class);
-        Page<Periodical> pag = this.materialPeriodicalService.findAll(spec, pageRequest);
+        Page<Periodical> pag = this.periodicalService.findAll(spec, pageRequest);
         if(pag!=null&&pag.hasContent()){
             List<PeriodicalVO> vos = Lists.newArrayList();
             for(Periodical po:pag.getContent()){
@@ -83,7 +84,9 @@ public class DocController extends AbstractController {
         super.success(model,pag);
         return new ModelAndView(VIEW_LIST);
     }
-
+    public void updateHitsById(BigInteger id){
+        this.periodicalService.addUpdateHitsTask(id);
+    }
     @RequestMapping(value = apiVer+"/{id}/praise")
     protected ModelAndView praise(
             @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
@@ -91,8 +94,8 @@ public class DocController extends AbstractController {
             @RequestParam(value = "access_token", required = false) String token,
             HttpServletRequest request,
             ModelMap model) {
-//        Periodical po = this.materialPeriodicalService.findOne(id);
-//        super.success(model, po);
+        this.periodicalService.addUpdateRateTimesTask(id);
+        super.success(model);
         return new ModelAndView(VIEW_DETAILS);
     }
     @RequiresAuthentication
@@ -104,7 +107,7 @@ public class DocController extends AbstractController {
             HttpServletRequest request,
             ModelMap model) {
         BigInteger userId= SecurityUtilsHelper.getCurrentUser().getUserId();
-        Periodical materialPeriodical=this.materialPeriodicalService.findById(id);
+        Periodical materialPeriodical=this.periodicalService.findById(id);
         Optional<FrameUserFollow> optional= this.frameUserFollowService.findByUserIdAndRelateId(userId,id);
         if(!optional.isPresent()){
             FrameUserFollow userFollow=new FrameUserFollow();
