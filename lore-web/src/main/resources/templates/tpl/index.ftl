@@ -286,8 +286,6 @@
                             <a href="http://www.cbad.cnki.net/" target="_blank">图书评价</a>
                             <a href="http://cdmdpj.cnki.net/" target="_blank">博硕统计</a>
                             <a href="http://pj.cnki.net/" target="_blank">医院评价</a>
-                            <a href="http://www.usad.cnki.net/" target="_blank">高校评价</a>
-                            <a href="http://www.tsad.cnki.net/" target="_blank">智库评价</a>
                         </li>
                         <li>
                             <h6><a href="http://oversea.cnki.net/" target="_blank">国际出版</a></h6>
@@ -652,41 +650,35 @@
         <div class="foot-top">
             <ul class="content">
                 <li>
-                    <b>读者服务</b>
-                    <a target="_blank" href="http://my.cnki.net/">我的CNKI</a>
-                    <a target="_blank" href="/help.jhtml">帮助中心</a>
-                </li>
-                <li>
                     <b>客服咨询</b>
-                    <span>在线咨询：<a target="_blank" href="http://help.cnki.net">help.cnki.net</a></span>
-                    <span>邮件咨询：<a target="_blank" href="mailto:help@cnki.net">help@cnki.net</a></span>
+                    <span>QQ咨询：<a target="_blank" href="#"></a></span>
+                    <span>邮件咨询：<a target="_blank" href="mailto:help@lkg61230413@163.com">lkg61230413@163.com</a></span>
                 </li>
-                <li class="weibo" style="display: none;">
-                    <a target="_blank" href="http://e.weibo.com/u/3059308095">
-                        <img src="//piccache.cnki.net/kdn/index/nvsm/nimages/logo_xl.png" alt="新浪微博客服">
-                        <span>新浪微博客服</span>
-                    </a>
+                <li >
+                    <a target="_blank"   href="http://e.weibo.com/u/3059308095" alt="新浪微博客服" ><span> <i class="fa fa-4x fa-weibo"></i>新浪微博客服</span></a>
                 </li>
             </ul>
         </div>
 
         <div class="foot-bot clearfix">
             <div class="t" style="height: 80px;">
-                <img src="//piccache.cnki.net/kdn/index/nvsm/nimages/foot-logo.png" alt="中国知网" />
+                <img src="" alt="" />
                 <p class="mid">
                         <span>
-                            <a target="_blank" href="//www.cnki.net/gycnki/gycnki.htm">关于我们</a>
+                            <a target="_blank" href="${contextPath}/aboutus.jhtml">关于我们</a>
+                              <a target="_blank" href="${contextPath}/contact.html">联系我们</a>
+                            <a target="_blank" href="${contextPath}/questions.html">常见问题</a>
                         </span>
-                    <span id="copyright">© 2009-${.now?string("yyyy")} </span>
+                    <span id="copyright">© 2009-${.now?string("yyyy")} lkg </span>
                 </p>
                 <p class="right">
                     <!--可信网站图片LOGO安装开始-->
                     <a id="___szfw_logo___" href="https://ss.knet.cn/verifyseal.dll?sn=e13111111010043364isll000000&a=1&pa=0.08881110103584755" target="_blank">
-                        <img alt="可信网站" src="//piccache.cnki.net/kdn/index/nvsm/nimages/kxwz.jpg" height="33" width="86"></a>
+                        <img alt="可信网站" src="${contextPath}/imgs/kxwz.jpg" height="33" width="86"></a>
                     <!--可信网站图片LOGO安装结束-->
                     <!--诚信网站图片LOGO安装开始-->
                     <a id="A1" href="https://credit.cecdc.com/CX20140929005220005306.html" target="_blank">
-                        <img alt="诚信网站" src="//piccache.cnki.net/kdn/index/nvsm/nimages/cert.jpg" height="33" width="86">
+                        <img alt="诚信网站" src="${contextPath}/imgs/cert.jpg" height="33" width="86">
                     </a>
                     <!--诚信网站图片LOGO安装结束-->
                 </p>
