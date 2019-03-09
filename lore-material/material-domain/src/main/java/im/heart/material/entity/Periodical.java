@@ -144,9 +144,14 @@ public class Periodical implements AbstractEntity<BigInteger> {
 	 */
 	@Column(name = "COVER_IMG_URL", nullable = false,length=256)
 	private String  coverImgUrl;
+
 	@Column(name = "RATE", nullable = false)
 	private  Integer rate=0;
-
+	/**
+	 * 
+	 */
+	@Column(name = "RATE_TIMES", nullable = false, length=20)
+	private Long rateTimes=0L;
 	/** 点击数 . */
 	@Column(name = "HITS", nullable = false, length=20)
 	private Long hits=0L;

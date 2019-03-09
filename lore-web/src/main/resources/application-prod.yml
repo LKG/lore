@@ -111,17 +111,17 @@ spring:
      hibernate:
        dialect: org.hibernate.dialect.MySQL5Dialect
        enable_lazy_load_no_trans: true
-  data:
-    elasticsearch:
-      cluster-name: elasticsearch #节点名字，默认elasticsearch
-      cluster-nodes: 127.0.0.1:9200 #节点地址，多个节点用逗号隔开
-      local: false
-      repositories:
-        enable: true
-      properties:
-        path:
-          logs: /var/log/elasticsearch #elasticsearch日志存储目录
-          data: /var/elasticsearch/data #elasticsearch数据存储目录
+#  data:
+#    elasticsearch:
+#      cluster-name: elasticsearch #节点名字，默认elasticsearch
+#      cluster-nodes: 127.0.0.1:9200 #节点地址，多个节点用逗号隔开
+#      local: false
+#      repositories:
+#        enable: true
+#      properties:
+#        path:
+#          logs: /var/log/elasticsearch #elasticsearch日志存储目录
+#          data: /var/elasticsearch/data #elasticsearch数据存储目录
 #jodconverter:
 #  local:
 #    enabled: true

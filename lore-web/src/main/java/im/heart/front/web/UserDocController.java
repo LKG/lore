@@ -1,6 +1,7 @@
 package im.heart.front.web;
 
 import com.google.common.collect.Lists;
+import im.heart.cms.entity.Article;
 import im.heart.core.CommonConst;
 import im.heart.core.enums.Status;
 import im.heart.core.plugins.persistence.DynamicPageRequest;
@@ -8,7 +9,6 @@ import im.heart.core.plugins.persistence.DynamicSpecifications;
 import im.heart.core.plugins.persistence.SearchFilter;
 import im.heart.core.web.AbstractController;
 import im.heart.material.entity.Periodical;
-import im.heart.material.service.PeriodicalImgService;
 import im.heart.material.service.PeriodicalService;
 import im.heart.material.vo.PeriodicalVO;
 import im.heart.security.utils.SecurityUtilsHelper;
@@ -35,10 +35,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-public class DocController extends AbstractController {
-    protected static final String apiVer = "/doc";
-    protected static final String VIEW_LIST="front/doc/doc_list";
-    protected static final String VIEW_DETAILS="front/doc/doc_details";
+public class UserDocController extends AbstractController {
+    protected static final String apiVer = "/user/doc";
+    protected static final String VIEW_LIST="userinfo/doc_list";
+    protected static final String VIEW_DETAILS="userinfo/doc_details";
 
     @Autowired
     private PeriodicalService materialPeriodicalService;
@@ -54,7 +54,8 @@ public class DocController extends AbstractController {
             HttpServletRequest request,
             ModelMap model) {
         Periodical po = this.materialPeriodicalService.findById(id);
-        super.success(model, new PeriodicalVO(po));
+        PeriodicalVO vo=new PeriodicalVO(po);
+        super.success(model, vo);
         return new ModelAndView(VIEW_DETAILS);
     }
     @RequestMapping(apiVer+"s")
@@ -66,8 +67,9 @@ public class DocController extends AbstractController {
                              @RequestParam(value = "order", required = false,defaultValue = CommonConst.Page.DEFAULT_ORDER) String order,
                              @RequestParam(value = "access_token", required = false) String token,
                              ModelMap model) {
+        BigInteger userId= SecurityUtilsHelper.getCurrentUser().getUserId();
         final Collection<SearchFilter> filters= DynamicSpecifications.buildSearchFilters(request);
-        filters.add(new SearchFilter("isTop", SearchFilter.Operator.EQ,Boolean.TRUE));
+        filters.add(new SearchFilter("userId", SearchFilter.Operator.EQ,userId));
         Specification<Periodical> spec= DynamicSpecifications.bySearchFilter(filters, Periodical.class);
         PageRequest pageRequest= DynamicPageRequest.buildPageRequest(page,size,sort,order,Periodical.class);
         Page<Periodical> pag = this.materialPeriodicalService.findAll(spec, pageRequest);
@@ -82,41 +84,5 @@ public class DocController extends AbstractController {
         }
         super.success(model,pag);
         return new ModelAndView(VIEW_LIST);
-    }
-
-    @RequestMapping(value = apiVer+"/{id}/praise")
-    protected ModelAndView praise(
-            @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
-            @PathVariable BigInteger id,
-            @RequestParam(value = "access_token", required = false) String token,
-            HttpServletRequest request,
-            ModelMap model) {
-//        Periodical po = this.materialPeriodicalService.findOne(id);
-//        super.success(model, po);
-        return new ModelAndView(VIEW_DETAILS);
-    }
-    @RequiresAuthentication
-    @RequestMapping(value = apiVer+"/{id}/collect")
-    protected ModelAndView collect(
-            @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
-            @PathVariable BigInteger id,
-            @RequestParam(value = "access_token", required = false) String token,
-            HttpServletRequest request,
-            ModelMap model) {
-        BigInteger userId= SecurityUtilsHelper.getCurrentUser().getUserId();
-        Periodical materialPeriodical=this.materialPeriodicalService.findById(id);
-        Optional<FrameUserFollow> optional= this.frameUserFollowService.findByUserIdAndRelateId(userId,id);
-        if(!optional.isPresent()){
-            FrameUserFollow userFollow=new FrameUserFollow();
-            userFollow.setRelateId(id);
-            userFollow.setType(materialPeriodical.getPeriodicalType());
-            userFollow.setUserId(userId);
-            userFollow.setStatus(Status.enabled);
-            userFollow.setItemTitle(materialPeriodical.getPeriodicalName());
-            userFollow.setItemImgUrl(materialPeriodical.getCoverImgUrl());
-            this.frameUserFollowService.save(userFollow);
-        }
-        super.success(model,true);
-        return new ModelAndView(VIEW_DETAILS);
     }
 }
