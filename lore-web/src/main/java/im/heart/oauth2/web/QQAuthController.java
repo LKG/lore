@@ -21,13 +21,23 @@ public class QQAuthController {
     @Autowired
     private FrameUserService userService;
 
-    //访问登陆页面，然后会跳转到 QQ 的登陆页面
+    /**
+     * 访问登陆页面，然后会跳转到 QQ 的登陆页面
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "/qqLoginPage",method = RequestMethod.GET)
     public JSONObject qqLogin() throws Exception {
         String uri = this.qqAuthService.getAuthorizationUrl();
         return null;
     }
-    //qq授权后会回调此方法，并将code传过来
+    /**
+     * qq授权后会回调此方法，并将code传过来
+     * @param code
+     * @param request
+     * @param response
+     * @throws Exception
+     */
     @RequestMapping("/qq")
     public void getQQCode(String code, HttpServletRequest request, HttpServletResponse response) throws Exception {
         //根据code获取token

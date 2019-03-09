@@ -32,7 +32,7 @@ public class Reptile71Job {
     @Scheduled(cron = "0/60 * * * * *")
     void executeJob()throws Exception{
         log.info(".....................");
-        expcolumn();
+        //expcolumn();
     }
 
     private Map<String ,String> expcolumn(){
