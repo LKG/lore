@@ -5,7 +5,9 @@ import im.heart.cms.service.ArticleService;
 import im.heart.core.CommonConst;
 import im.heart.core.plugins.persistence.DynamicPageRequest;
 import im.heart.core.plugins.persistence.DynamicSpecifications;
+import im.heart.core.plugins.persistence.SearchFilter;
 import im.heart.core.web.AbstractController;
+import im.heart.material.entity.PeriodicalImg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.math.BigInteger;
+import java.util.Collection;
 
 @Controller
 public class ArticleController extends AbstractController {
@@ -53,7 +56,10 @@ public class ArticleController extends AbstractController {
                              @RequestParam(value = "order", required = false,defaultValue = CommonConst.Page.DEFAULT_ORDER) String order,
                              @RequestParam(value = "access_token", required = false) String token,
                              ModelMap model) {
-        Specification<Article> spec=DynamicSpecifications.bySearchFilter(request, Article.class);
+        final Collection<SearchFilter> filters= DynamicSpecifications.buildSearchFilters(request);
+        filters.add(new SearchFilter("isPub", SearchFilter.Operator.EQ,Boolean.TRUE));
+        filters.add(new SearchFilter("isDeleted", SearchFilter.Operator.EQ,Boolean.FALSE));
+        Specification<Article> spec= DynamicSpecifications.bySearchFilter(filters, Article.class);
         PageRequest pageRequest=DynamicPageRequest.buildPageRequest(page,size,sort,order,Article.class);
         Page<Article> pag = this.articleService.findAll(spec, pageRequest);
         super.success(model,pag);
