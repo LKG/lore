@@ -7,7 +7,7 @@
     <groupId>im.heart</groupId>
     <artifactId>lore</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.52</version>
+    <version>0.1.53</version>
     <!-- 开发人员信息begin -->
     <!--项目开发者列表 -->
     <developers>
@@ -341,26 +341,4 @@
             <!-- Docker maven plugin -->
         </plugins>
     </build>
-    <profiles>
-        <profile>
-            <!-- windows环境 -->
-            <id>win</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <pom.uploads.home>D:/var/www/uploads/</pom.uploads.home>
-                <pom.office.home>C:\Program Files (x86)\OpenOffice 4</pom.office.home>
-            </properties>
-        </profile>
-        <profile>
-            <!-- linux环境 -->
-            <id>linux</id>
-            <properties>
-                <pom.uploads.home>/var/www/uploads/</pom.uploads.home>
-                <pom.office.home>/opt/OpenOffice</pom.office.home>
-            </properties>
-        </profile>
-    </profiles>
-
 </project>

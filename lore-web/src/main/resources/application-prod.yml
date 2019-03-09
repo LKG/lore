@@ -72,7 +72,7 @@ spring:
           required: true
       debug: true
   datasource:
-    url: jdbc:mysql://ss.itaobao.pub:3306/lore-test?Unicode=true&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/lore-test?Unicode=true&characterEncoding=UTF-8&useSSL=false
     username: root
     password: omw@178.Im
       #配置监控统计拦截的filters，去掉后监控界面sql将无法统计,'wall'用于防火墙
@@ -125,7 +125,7 @@ spring:
 #jodconverter:
 #  local:
 #    enabled: true
-#    office-home: C:\Program Files (x86)\OpenOffice 4 # 设置Office主目录
+#    office-home: /opt/OpenOffice # 设置Office主目录
 #    portNumbers: 8100,8101,8102 ,8103,,8104 # 开启多个Office进程，每个端口对应一个进程
 #    maxTasksPerProcess: 50 # Office进程重启前的最大进程数
 wechat:
@@ -149,7 +149,7 @@ prod:
     bucketName:
   upload:
     path:
-      root: D:/var/www/uploads/
+      root: /var/www/uploads/
   material:
     file:
        path: material
