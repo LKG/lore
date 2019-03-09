@@ -1,32 +1,23 @@
 package im.heart.material.vo;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import im.heart.core.enums.Status;
 import im.heart.material.entity.Periodical;
+import im.heart.material.entity.PeriodicalImg;
 import org.springframework.beans.BeanUtils;
 
 import java.util.Date;
 
-public class PeriodicalVO  extends Periodical {
-
-    /**
-     * //用户是否收藏该商品
-     */
-    private Boolean isCollect;
-
-    /**
-     * //用户是否购买过该商品
-     */
-    private Boolean isBuy;
+public class PeriodicalImgVO extends PeriodicalImg {
 
     @JSONField(format="yyyy-MM-dd")
     private Date createTime;
-
     @JSONField (serialize = false)
     private Date modiTime;
     @JSONField (serialize = false)
     private Boolean isPub;
-//    @JSONField (serialize = false)
-//    private Status checkStatus;
+    @JSONField (serialize = false)
+    private Status checkStatus;
 
     @JSONField (serialize = false)
     private String pathUrl;
@@ -34,12 +25,11 @@ public class PeriodicalVO  extends Periodical {
     @JSONField (serialize = false)
     private String realFilePath;
 
-//    @JSONField (serialize = false)
-//    private Status status;
-    public PeriodicalVO(Periodical po){
+
+    public PeriodicalImgVO(PeriodicalImg po){
         this(po,true);
     }
-    public PeriodicalVO(Periodical po,boolean lazy){
+    public PeriodicalImgVO(PeriodicalImg po, boolean lazy){
         BeanUtils.copyProperties(po, this);
     }
 }

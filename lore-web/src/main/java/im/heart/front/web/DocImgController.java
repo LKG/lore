@@ -1,14 +1,19 @@
 package im.heart.front.web;
 
+import com.google.common.collect.Lists;
 import im.heart.core.CommonConst;
 import im.heart.core.plugins.persistence.DynamicPageRequest;
 import im.heart.core.plugins.persistence.DynamicSpecifications;
 import im.heart.core.plugins.persistence.SearchFilter;
 import im.heart.core.web.AbstractController;
+import im.heart.material.entity.Periodical;
 import im.heart.material.entity.PeriodicalImg;
 import im.heart.material.service.PeriodicalImgService;
+import im.heart.material.vo.PeriodicalImgVO;
+import im.heart.material.vo.PeriodicalVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Controller;
@@ -22,6 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.math.BigInteger;
 import java.util.Collection;
+import java.util.List;
 
 @Controller
 public class DocImgController extends AbstractController {
@@ -46,6 +52,15 @@ public class DocImgController extends AbstractController {
         Specification<PeriodicalImg> spec= DynamicSpecifications.bySearchFilter(filters, PeriodicalImg.class);
         PageRequest pageRequest= DynamicPageRequest.buildPageRequest(page,size,sort,order,PeriodicalImg.class);
         Page<PeriodicalImg> pag = this.periodicalImgService.findAll(spec, pageRequest);
+        if(pag!=null&&pag.hasContent()){
+            List<PeriodicalImgVO> vos = Lists.newArrayList();
+            for(PeriodicalImg po:pag.getContent()){
+                vos.add(new PeriodicalImgVO(po));
+            }
+            Page<PeriodicalImgVO> docVos  =new PageImpl<PeriodicalImgVO>(vos,pageRequest,pag.getTotalElements());
+            super.success(model,docVos);
+            return new ModelAndView(VIEW_LIST);
+        }
         super.success(model,pag);
         return new ModelAndView(VIEW_LIST);
     }
