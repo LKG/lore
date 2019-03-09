@@ -708,8 +708,6 @@
 </div><!--wrapper-->
 
 <div id="__droplist" class="dictdiv"></div>
-<!-- Track -->
 <#include "/pages/track.ftl"/>
-<!-- End Track Code -->
 </body>
 </html>
