@@ -95,7 +95,7 @@ public class ShiroConfig {
 		filterChainDefinitionMap.put("/findPwd/**", "anon");
 		filterChainDefinitionMap.put("/api/**", "anon");
 		filterChainDefinitionMap.put("/index/**", "anon");
-		filterChainDefinitionMap.put("/docs/**", "anon");
+		filterChainDefinitionMap.put("/docs**", "anon");
 		filterChainDefinitionMap.put("/doc/**", "anon");
 		filterChainDefinitionMap.put("/articles/**", "anon");
 		filterChainDefinitionMap.put("/article/**", "anon");

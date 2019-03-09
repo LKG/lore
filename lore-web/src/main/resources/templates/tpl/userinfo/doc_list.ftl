@@ -114,7 +114,7 @@
                                     <td title="${model.periodicalCode}" class="text-center">${model.periodicalCode}</td>
                                     <td title="${model.periodicalType}" class="text-center">${model.periodicalType}</td>
                                     <td title="${model.fileHeader}" class="text-center">${model.fileHeader}</td>
-                                    <td><a href="${contextPath}/doc/${model.id}.jhtml" >${model.periodicalName}</a>
+                                    <td><a href="${contextPath}/doc/${model.id!''}.jhtml" >${model.periodicalName}</a>
                                         <code>${model.dataSizeHuman}</code> ，共<code>${model.pageNum}</code>页
                                     </td>
                                     <td>${model.createTime}</td>
