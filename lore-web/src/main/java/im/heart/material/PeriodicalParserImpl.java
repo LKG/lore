@@ -39,8 +39,8 @@ import java.util.List;
 public class PeriodicalParserImpl implements PeriodicalParser {
     protected static final Logger logger = LoggerFactory.getLogger(PeriodicalParserImpl.class);
     protected static final String  FILE_ROOT_PATH= CommonConst.STATIC_UPLOAD_ROOT;
-//    @Resource
-//    private DocumentConverter documentConverter;
+    @Resource
+    private DocumentConverter documentConverter;
     @Autowired
     private PeriodicalService periodicalService;
     @Autowired
@@ -51,23 +51,20 @@ public class PeriodicalParserImpl implements PeriodicalParser {
     private String uploadFilePath="";
     @Override
     public void parser(Periodical periodical, InputStream is) {
-//        String suffixes=periodical.getFileHeader();
-//        String realFilePath=periodical.getRealFilePath();
-//        File targetFile=new File(realFilePath+".pdf");
-//        DocumentFormat documentFormat= DefaultDocumentFormatRegistry.getInstance().getFormatByExtension(suffixes);
-//        try {
-//            this.documentConverter.convert(is,true).as(documentFormat).to(targetFile).as(DefaultDocumentFormatRegistry.PDF).execute();
-//            PeriodicalLog periodicalLog=new PeriodicalLog();
-//            periodicalLog.setUserId(periodical.getUserId());
-//            periodicalLog.setPeriodicalId(periodical.getId());
-//            periodicalLog.setType("convert");
-//            periodicalLog.setLogDesc( "{desc: ' pdf 转换成功！'}");
-//            this.periodicalLogService.save(periodicalLog);
-//            Integer pageNum=this.pdf2Image(targetFile, "",10,periodical);
-//        } catch (OfficeException e) {
-//            e.printStackTrace();
-//        } finally {
-//        }
+        String suffixes=periodical.getFileHeader();
+        String realFilePath=periodical.getRealFilePath();
+        File targetFile=new File(realFilePath+".pdf");
+        DocumentFormat documentFormat= DefaultDocumentFormatRegistry.getInstance().getFormatByExtension(suffixes);
+        String type="convert";
+        try {
+            this.documentConverter.convert(is,true).as(documentFormat).to(targetFile).as(DefaultDocumentFormatRegistry.PDF).execute();
+            parserLog(periodical, type,"{desc: ' pdf 转换成功！'}");
+            Integer pageNum=this.pdf2Image(targetFile, "",10,periodical);
+        } catch (OfficeException e) {
+            logger.error(e.getStackTrace()[0].getMethodName(), e);
+            parserLog(periodical, type,"{desc:  '"+e.getMessage()+" ' }");
+        } finally {
+        }
     }
 
     @Async
@@ -149,14 +146,12 @@ public class PeriodicalParserImpl implements PeriodicalParser {
             periodical.setStatus(CommonConst.FlowStatus.PROCESSED);
             this.periodicalService.save(periodical);
             this.periodicalImgService.saveAll(entities);
-            PeriodicalLog periodicalLog=new PeriodicalLog();
-            periodicalLog.setPeriodicalId(periodical.getId());
-            periodicalLog.setUserId(periodical.getUserId());
-            periodicalLog.setType("parser");
-            periodicalLog.setLogDesc( "{desc:  '解析文件并生成图片成功！' }");
-            this.periodicalLogService.save(periodicalLog);
+            String type="parser";
+            this.parserLog(periodical,type,"{desc:  '解析文件并生成图片成功！' }");
         } catch (Exception e) {
             logger.error(e.getStackTrace()[0].getMethodName(), e);
+            String type="parser";
+            parserLog(periodical, type,"{desc:  '"+e.getMessage()+" ' }");
         }finally {
             IOUtils.closeQuietly(pdDocument);
             //删除pdf 文件
@@ -165,5 +160,16 @@ public class PeriodicalParserImpl implements PeriodicalParser {
         }
         return pageNum;
     }
+
+    @Async
+    public void parserLog(Periodical periodical,String type,String desc){
+        PeriodicalLog periodicalLog=new PeriodicalLog();
+        periodicalLog.setPeriodicalId(periodical.getId());
+        periodicalLog.setUserId(periodical.getUserId());
+        periodicalLog.setType(type);
+        periodicalLog.setLogDesc(desc);
+        this.periodicalLogService.save(periodicalLog);
+    }
+
 
 }
