@@ -30,9 +30,6 @@ public class App extends SpringBootServletInitializer implements CommandLineRunn
     public void run(String... args) throws Exception {
     }
     public static void main(String[] args) {
-        if(args.length==0){
-            //	args=new String[] {"--spring.config.location=file:/mnt/conf/itaobao/application-prod.properties"};
-        }
         SpringApplication application=new SpringApplication(App.class);
         System.setProperty("es.set.netty.runtime.available.processors", "false");
         application.setBannerMode(Banner.Mode.OFF);

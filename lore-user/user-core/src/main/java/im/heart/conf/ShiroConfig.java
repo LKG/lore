@@ -75,8 +75,6 @@ public class ShiroConfig {
 		filters.put("ssl",new SslFilter());
 		/*<!-- 控制并发登录人数 -->*/
 		filters.put("kickout",kickoutSessionControlFilter());
-		/*<!-- 强制退出用户 -->*/
-//		filters.put("forceLogout",forceLogoutFilter());
 		filterChainDefinitionMap.put("/static/**", "anon");
 		filterChainDefinitionMap.put("/favicon.ico", "anon");
 		filterChainDefinitionMap.put("**.ico", "anon");
@@ -96,6 +94,9 @@ public class ShiroConfig {
 		filterChainDefinitionMap.put("/regist/**", "anon");
 		filterChainDefinitionMap.put("/findPwd/**", "anon");
 		filterChainDefinitionMap.put("/api/**", "anon");
+		filterChainDefinitionMap.put("/index/**", "anon");
+		filterChainDefinitionMap.put("/docs/**", "anon");
+		filterChainDefinitionMap.put("/articles/**", "anon");
 		filterChainDefinitionMap.put("/logout*", "logout");
 		filterChainDefinitionMap.put("/", "anon");
 		filterChainDefinitionMap.put("/uploads/**", "anon");
@@ -113,11 +114,6 @@ public class ShiroConfig {
 		KickOutSessionControlFilter kickoutSessionControlFilter = new KickOutSessionControlFilter();
 		return kickoutSessionControlFilter;
 	}
-//	@Bean(name = "forceLogout")
-////	public ForceLogoutFilter forceLogoutFilter() {
-////		ForceLogoutFilter forceLogoutFilter = new ForceLogoutFilter();
-////		return forceLogoutFilter;
-////	}
 
 	@Bean(name = "credentialsMatcher")
 	public RetryLimitCredentialsMatcher credentialsMatcher() {
