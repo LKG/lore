@@ -1,6 +1,8 @@
 package im.heart.common.web;
 
 import im.heart.core.web.AbstractController;
+import im.heart.core.web.ResponseError;
+import im.heart.core.web.enums.WebError;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,7 +18,7 @@ public class ErrorPageController extends AbstractController implements ErrorCont
     @RequestMapping(ERROR_PATH)
     public ModelAndView error(HttpServletRequest request, HttpServletResponse response,
                                 ModelMap model){
-        super.error(model);
+        super.error(model,new ResponseError(WebError.REQUEST_EXCEPTION));
         return  new ModelAndView("/errors/404");
     }
 
