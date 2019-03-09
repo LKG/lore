@@ -31,16 +31,15 @@
 			     <!--userInfo begin---->
 	 			    <div class="alert alert-danger alert-dismissible fade in" role="alert">
 				      <h4>Oh snap! You got an error!</h4>
-				      <p><#if message??>${message!''}</#if></p>
+				      <p><#if message??>${message!''}</#if>
+						  <#if result??><code>${result.error_code!''}</code>${result.error_description!''}</#if>
+					  </p>
 				      <p>
 				        <button type="button" class="btn btn-danger">Take this action</button>
 				        <button type="button" class="btn btn-default">Or do this</button>
 				      </p>
 				    </div>
 	 	 		 <!--userInfo end---->
-			  </div>
-			  <div class="panel-footer">
-			  	
 			  </div>
 			</div>
 		  <!--用户面板 end--->

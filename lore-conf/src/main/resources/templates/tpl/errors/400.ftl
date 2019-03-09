@@ -32,12 +32,6 @@
 	 			    <div class="alert alert-danger alert-dismissible fade in" role="alert">
 				      <h4>Oh snap! You got an error!</h4>
 				      <p>
-						  <#if result??>
-						<div class="alert alert-warning alert-dismissible" role="alert">
-							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<strong>Warning!</strong<#if result.error_description??>${result.error_description!''} </#if>
-						</div>
-						</#if>
 						  ${message!''}
 						</p>
 				      <p>
@@ -61,9 +55,6 @@
 					   (______|______)
 				</pre>
 	 	 		 <!--userInfo end---->
-			  </div>
-			  <div class="panel-footer">
-			  	
 			  </div>
 			</div>
 		  <!--用户面板 end--->
