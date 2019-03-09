@@ -370,42 +370,6 @@
                     <h4>
                         <span>教育</span>
                     </h4>
-                    <ul>
-                        <li>
-                            <p>
-                                <a href="http://gj.cnki.net" target="_blank">本科院校</a>
-                            </p>
-                            <p>
-                                <a href="http://zyjy.cnki.net/" target="_blank">高职院校</a>
-                                <a class="nohref">中职院校</a>
-                                <a class="nohref">成人高校</a>
-                                <a class="nohref">独立学院</a>
-                                <a class="nohref">军队院校</a>
-                            </p>
-                            <p>
-                                <a href="http://www.cfed.cnki.net/" target="_blank">中小学&nbsp;&nbsp;&nbsp;</a>
-                                <a href="http://pret.cnki.net/" target="_blank">学前机构</a>
-                            </p>
-                        </li>
-                        <li class="b">
-                            <p>
-                                <!--<a href="#" target="_blank">研究生培养协同创新平台</a>-->
-                                <a href="http://cy.cnki.net" target="_blank">创业学苑</a>
-                                <a href="http://job.cnki.net" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;就业学苑</a>
-                                <!--<a href="#" target="_blank">高校教材深度学习平台</a>-->
-                            </p>
-                            <p>
-                                <a href="http://ve.cnki.net" target="_blank">专业与课程协同建设平台</a>
-                                <a href="http://cved.cnki.net" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;职业教育教学资源库</a>
-                            </p>
-                            <p>
-                                <a href="http://bk.cnki.net/" target="_blank">协同备课平台</a>
-                                <a href="http://bianke.cnki.net/orglib/cnkijcjy002" target="_blank">校本课程编创平台</a>
-                                <a href="http://yd.cnki.net/" target="_blank">CNKI经典导读</a>
-                                <a href="http://pret.cnki.net/" target="_blank">学前教育平台</a>
-                            </p>
-                        </li>
-                    </ul>
 
                     <div class="slideBox">
                         <!--rollImg start-->
@@ -448,29 +412,6 @@
                     <h4>
                         <span>众知 · 众创</span>
                     </h4>
-                    <ul>
-                        <li>
-                            <span class="tit">知</span>
-                            <p>
-                                <a href="http://www.cnki.com.cn" target="_blank">知网空间</a>
-                                <a href="http://wap.cnki.net/cnkiclient.aspx" target="_blank">手机知网</a>
-                                <a href="http://bianke.cnki.net/" target="_blank">知网书</a>
-                                <a href="http://mall.cnki.net" target="_blank">书刊超市</a>
-                                <a href="http://wuxizazhi.cnki.net" target="_blank">吾喜杂志</a>
-                                <a class="nohref">保健时报</a>
-                            </p>
-                        </li>
-                        <li>
-                            <span class="tit">创</span>
-                            <p>
-                                <a href="http://bianke.cnki.net" target="_blank">大成编客</a>
-                                <a href="http://jiangtan.cnki.net" target="_blank">大成讲坛</a>
-                                <a href="http://saishi.cnki.net" target="_blank">赛事星</a>
-                                <a href="http://p.bianke.cnki.net/chief/authentication" target="_blank">专家认证</a>
-                                <a href="http://bianke.cnki.net/Org/SignUp/Index" target="_blank">团体认证</a>
-                            </p>
-                        </li>
-                    </ul>
 
                     <div class="slideBox">
                         <!--rollImg start-->
@@ -490,11 +431,6 @@
                                 <li>
                                     <a href="http://www.carf.org.cn/html/2018-10/3919.html" target="_blank" title="第七届中国行政改革论坛">
                                         <img src="//piccache.cnki.net/kdn/index/nvsm/nimages/temp/pic-5.jpg" alt="第七届中国行政改革论坛" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://bianke.cnki.net/pulpit/home/guide" target="_blank" title="大成讲坛_在这里讲出你的精彩">
-                                        <img src="//piccache.cnki.net/kdn/index/nvsm/nimages/temp/pic-4.jpg" alt="大成讲坛_在这里讲出你的精彩" />
                                     </a>
                                 </li>
                                 <li>
@@ -520,36 +456,6 @@
                         <span>软件产品</span>
                     </h4>
                     <ul>
-                        <li>
-                            <a href="http://check.cnki.net" title="学术不端文献检测系统" target="_blank">
-                                <i class="icon icon1"></i>学术不端文献检测系统
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://dp.cnki.net" title="腾云数字出版系统" target="_blank">
-                                <i class="icon icon2"></i>腾云数字出版系统
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://pom.cnki.net" title="网络舆情监测系统" target="_blank">
-                                <i class="icon icon3"></i>网络舆情监测系统
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://kms.cnki.net/know.html" title="机构知识管理与服务平台" target="_blank">
-                                <i class="icon icon4"></i>机构知识管理与服务平台
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://estudy.cnki.net/" title="E-Study" target="_blank">
-                                <i class="icon icon5"></i>E-Study
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://kms.cnki.net/" title="TPI专业信息资源建设管理系统" target="_blank">
-                                <i class="icon icon6"></i>TPI专业信息资源建设管理系统
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -568,7 +474,7 @@
                     <span>邮件咨询：<a target="_blank" href="mailto:help@lkg61230413@163.com">lkg61230413@163.com</a></span>
                 </li>
                 <li >
-                    <a target="_blank"   href="http://e.weibo.com/u/3059308095" alt="新浪微博客服" ><span> <i class="fa fa-4x fa-weibo"></i>新浪微博客服</span></a>
+                    <a target="_blank"   href="#" alt="新浪微博客服" ><span> <i class="fa fa-4x fa-weibo"></i>新浪微博客服</span></a>
                 </li>
             </ul>
         </div>
@@ -597,8 +503,10 @@
                 </p>
             </div>
             <div class="b">
-                <span>京 ICP 证 040431 号<a target="_blank" href="//piccache.cnki.net/index/images/gb/271.jpg">网络出版服务许可证 (总)网出证(京)字第 271 号</a>
-                    <a target="_blank" href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202005012100021">经营性网站备案信息</a> 京公网安备 11010802020460 号</span>
+                <span>
+                 <a target="_blank" href="//piccache.cnki.net/index/images/gb/271.jpg">网络出版服务许可证 (总)网出证(京)字第 271 号</a>
+                 <a target="_blank" href="http://www.hd315.gov.cn/beian/view.asp?bianhao=">经营性网站备案信息</a>
+                </span>
             </div>
         </div>
         <!--foot-bot-->
