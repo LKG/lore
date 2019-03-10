@@ -269,10 +269,8 @@
                             <h6>出版平台</h6>
                             <a href="http://cb.cnki.net" target="_blank">选刊投稿</a>
                             <a href="http://find.cb.cnki.net/" target="_blank">期刊采编发</a>
-                            <a href="//piccache.cnki.net/index/images2009/other/2018/中国知网网络出版文献出版状态变更与内容更正规范（试行）.pdf" target="_blank">知网出版规范</a><br />
                             <a href="http://caj.cnki.net/eapf/cajn" target="_blank">网络首发</a>
                             <a href="http://caj.cnki.net/eapf" target="_blank">优先出版</a>
-                            <a href="http://fast.cnki.net" target="_blank">印后上网</a>
                             <a href="http://www.graduate.cnki.net" target="_blank">研究生综合管理与学位论文出版</a>
                             <a href="http://conf.cnki.net" target="_blank">中国学术会议信息</a>
                             <a href="//www.cnki.net/other/gonggao/GCTG/全国各位研究生敬启2.html" target="_blank">学位论文领取稿酬通告</a>
@@ -377,16 +375,6 @@
                             <!--items start-->
                             <ul class="items">
                                 <li>
-                                    <a target="_blank" href="//piccache.cnki.net/index/images2009/other/2018/关于谨防《中国误诊学杂志》假冒期刊的郑重申明.pdf" title="关于谨防《中国误诊学杂志》假冒期刊的郑重申明">
-                                        <img src="//piccache.cnki.net/kdn/index/nvsm/nimages/temp/pic05.jpg" alt="关于谨防《中国误诊学杂志》假冒期刊的郑重申明" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a target="_blank" href="//piccache.cnki.net/index/CNKIRecruit/index.html" title="2019年中国知网校园招聘">
-                                        <img src="//piccache.cnki.net/kdn/index/nvsm/nimages/temp/pic04.jpg" alt="2019年中国知网校园招聘" />
-                                    </a>
-                                </li>
-                                <li>
                                     <a target="_blank" href="//www.cnki.net/fpgl.html" title="防诈骗专栏">
                                         <img src="//piccache.cnki.net/kdn/index/nvsm/nimages/temp/pic01.jpg" alt="防诈骗专栏" />
                                     </a>
@@ -424,18 +412,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="http://www.csgpc.org/News/n1/20181114183937.html" target="_blank" title="中国测绘学会-关于举办‘2018奖励申报专题培训班’的通知">
-                                        <img src="//piccache.cnki.net/kdn/index/nvsm/nimages/temp/pic-6.jpg" alt="中国测绘学会-关于举办‘2018奖励申报专题培训班’的通知" />
-                                    </a>
-                                </li>
-                                <li>
                                     <a href="http://www.carf.org.cn/html/2018-10/3919.html" target="_blank" title="第七届中国行政改革论坛">
                                         <img src="//piccache.cnki.net/kdn/index/nvsm/nimages/temp/pic-5.jpg" alt="第七届中国行政改革论坛" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://manu25.magtech.com.cn/Jwk3_jzjgxb/CN/news/news76.shtml" target="_blank" title="《建筑结构学报》创刊四十周年纪念暨第五届建筑结构基础理论与创新实践论坛">
-                                        <img src="//piccache.cnki.net/kdn/index/nvsm/nimages/temp/pic-3.jpg" alt="《建筑结构学报》创刊四十周年纪念暨第五届建筑结构基础理论与创新实践论坛" />
                                     </a>
                                 </li>
                                 <li>
@@ -470,11 +448,11 @@
             <ul class="content">
                 <li>
                     <b>客服咨询</b>
-                    <span>QQ咨询：<a target="_blank" href="#"></a></span>
+                    <span>QQ咨询：<a target="_blank" href="javascript:void(0)"></a></span>
                     <span>邮件咨询：<a target="_blank" href="mailto:help@lkg61230413@163.com">lkg61230413@163.com</a></span>
                 </li>
                 <li >
-                    <a target="_blank"   href="#" alt="新浪微博客服" ><span> <i class="fa fa-4x fa-weibo"></i>新浪微博客服</span></a>
+                    <a   href="javascript:void(0)" alt="新浪微博客服" ><span> <i class="fa fa-4x fa-weibo"></i>新浪微博客服</span></a>
                 </li>
             </ul>
         </div>
@@ -492,11 +470,11 @@
                 </p>
                 <p class="right">
                     <!--可信网站图片LOGO安装开始-->
-                    <a id="___szfw_logo___" href="https://ss.knet.cn/verifyseal.dll?sn=e13111111010043364isll000000&a=1&pa=0.08881110103584755" target="_blank">
+                    <a id="___szfw_logo___" href="javascript:void(0)" target="_blank">
                         <img alt="可信网站" src="${contextPath}/imgs/kxwz.jpg" height="33" width="86"></a>
                     <!--可信网站图片LOGO安装结束-->
                     <!--诚信网站图片LOGO安装开始-->
-                    <a id="A1" href="https://credit.cecdc.com/CX20140929005220005306.html" target="_blank">
+                    <a id="A1" href="javascript:void(0)" target="_blank">
                         <img alt="诚信网站" src="${contextPath}/imgs/cert.jpg" height="33" width="86">
                     </a>
                     <!--诚信网站图片LOGO安装结束-->
@@ -504,8 +482,8 @@
             </div>
             <div class="b">
                 <span>
-                 <a target="_blank" href="//piccache.cnki.net/index/images/gb/271.jpg">网络出版服务许可证 (总)网出证(京)字第 271 号</a>
-                 <a target="_blank" href="http://www.hd315.gov.cn/beian/view.asp?bianhao=">经营性网站备案信息</a>
+                 <a target="_blank" href="javascript:void(0)">网络出版服务许可证 (总)网出证(京)字第 271 号</a>
+                 <a target="_blank" href="javascript:void(0)">经营性网站备案信息</a>
                 </span>
             </div>
         </div>
