@@ -32,7 +32,7 @@ public class Reptile71Job {
     //http://www.71.cn/acastudies/expcolumn/
     //http://www.71.cn/acastudies/expcolumn/politics/1.shtml
     //http://www.71.cn/acastudies/expcolumn/economy/1.shtml
-    @Scheduled(cron = "0 0 23 03 * ?")
+    @Scheduled(cron = "0 05 23 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
         expcolumn();
