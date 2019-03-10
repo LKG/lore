@@ -32,7 +32,7 @@ public class Reptile71Job {
     //http://www.71.cn/acastudies/expcolumn/
     //http://www.71.cn/acastudies/expcolumn/politics/1.shtml
     //http://www.71.cn/acastudies/expcolumn/economy/1.shtml
-    @Scheduled(cron = "0 05 23 * * ?")
+    @Scheduled(cron = "0 31 23 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
         expcolumn();
@@ -47,7 +47,11 @@ public class Reptile71Job {
             Elements aEles=liEle.select("ul.subvideotree").select("a");
             for(Element aEle: aEles){
                 String href=aEle.attr("href");
-                parseArticleList(href);
+                try {
+                    parseArticleList(href);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 break;
             }
         }catch (MalformedURLException e){
@@ -65,14 +69,19 @@ public class Reptile71Job {
             String articleUrl=article.attr("href");
             try {
                 Thread.sleep( RandomUtils.nextLong(100,800));
+                parseArticle(articleUrl);
             } catch (InterruptedException e) {
                 log.error(e.getStackTrace()[0].getMethodName(), e);
             }
-            parseArticle(articleUrl);
+
         }
         Node page=listEle.select(".page_box li").last();
         String aUrl=page.childNode(0).attr("href");
-        parseArticleList(aUrl);
+        try {
+            parseArticleList(aUrl);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
