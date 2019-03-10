@@ -5,7 +5,7 @@
 <!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
-    <title>资料分类</title>
+    <title>文章列表</title>
   <#include "/includes/head.ftl" />
 <#include "/includes/laypage-css.ftl" />
     <style>
@@ -101,10 +101,10 @@
                               <#else>
                                   <#list result.content as article>
                                       <li class="list-group-item">
-                                          <span class="item-type" style="padding-right: 50px;">[${article.type}]</span>
+                                          <span class="item-type" style="padding-right: 50px;">[${article.type!''}]</span>
                                           <a class="item-href"  href="${contextPath}/article/${article.id!''}.jhtml"
-                                             target="_blank" >${article.title}</a>
-                                          <span class="pull-right">${article.pushTime}</span>
+                                             target="_blank" >${article.title!''}</a>
+                                          <span class="pull-right">${article.pushTime!''}</span>
                                       </li>
                                   </#list >
                               </#if>

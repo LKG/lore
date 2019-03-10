@@ -207,7 +207,6 @@
                     <a href="http://r.cnki.net/index/zwwb" target="_blank">文博</a>
                     <a href="http://r.cnki.net/index/zwly" target="_blank">旅游</a>
                     <a href="http://r.cnki.net/index/cul" target="_blank">文艺文化</a>
-                    <a href="http://fybh.cnki.net/" target="_blank">非遗</a>
                     <a href="http://r.cnki.net/index/sports" target="_blank">体育</a>
                     <a href="http://r.cnki.net/index/arc" target="_blank">档案</a>
                     <a href="http://r.cnki.net/index/sti" target="_blank">科情</a>
@@ -269,13 +268,6 @@
                     <h6>金融</h6>
                     <a href="http://itfin.cnki.net" target="_blank">互联网金融</a>
                     <a href="http://finrisk.cnki.net" target="_blank">金融风险</a>
-                </li>
-                <li>
-                    <h6>文化知识</h6>
-                    <a href="http://wenbao.cnki.net" target="_blank">文物保护</a>
-                    <a href="http://mq.cnki.net" target="_blank">明清史</a>
-                    <a href="http://www.wysl.cnki.net" target="_blank">文艺史论</a>
-                    <a href="http://yd.cnki.net" target="_blank">文学经典</a>
                 </li>
             </ul>
         </div>

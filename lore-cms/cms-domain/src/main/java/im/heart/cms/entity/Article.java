@@ -110,16 +110,16 @@ public class Article implements AbstractEntity<BigInteger>{
 
 	/** 页面标题. */
 	@Column(name = "SEO_TITLE", nullable = false)
-	@Length(max = 200)
+	@Length(max = 512)
 	private String seoTitle="";
 
 	/** 页面关键词. */
-	@Length(max = 200)
+	@Length(max = 512)
 	@Column(name = "SEO_KEYWORDS", nullable = false)
 	private String seoKeywords="";
 
 	/** 页面描述 . */
-	@Length(max = 200)
+	@Length(max = 512)
 	@Column(name = "SEO_DESCRIPTION", nullable = false)
 	private String seoDescription="";
 

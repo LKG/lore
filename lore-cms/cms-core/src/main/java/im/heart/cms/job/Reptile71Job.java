@@ -3,10 +3,13 @@ package im.heart.cms.job;
 import im.heart.cms.entity.Article;
 import im.heart.cms.service.ArticleService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
@@ -29,10 +32,10 @@ public class Reptile71Job {
     //http://www.71.cn/acastudies/expcolumn/
     //http://www.71.cn/acastudies/expcolumn/politics/1.shtml
     //http://www.71.cn/acastudies/expcolumn/economy/1.shtml
-    @Scheduled(cron = "0/60 * * * * *")
+    @Scheduled(cron = "0 0 23 03 * ?")
     void executeJob()throws Exception{
         log.info(".....................");
-        //expcolumn();
+        expcolumn();
     }
 
     private Map<String ,String> expcolumn(){
@@ -43,7 +46,9 @@ public class Reptile71Job {
             Element liEle=htmlEle.select("a.cur[href="+url+"]").parents().first();
             Elements aEles=liEle.select("ul.subvideotree").select("a");
             for(Element aEle: aEles){
-                log.info(aEle.attr("href"));
+                String href=aEle.attr("href");
+                parseArticleList(href);
+                break;
             }
         }catch (MalformedURLException e){
             log.error(e.getStackTrace()[0].getMethodName(), e);
@@ -52,6 +57,24 @@ public class Reptile71Job {
         }
         return null;
     }
+
+    public void parseArticleList(String url) throws  IOException{
+        Document listEle=Jsoup.parse(new URL(url),3000);
+        Elements articleEle=listEle.select(".articlelist_title a");
+        for (Element article:articleEle){
+            String articleUrl=article.attr("href");
+            try {
+                Thread.sleep( RandomUtils.nextLong(100,800));
+            } catch (InterruptedException e) {
+                log.error(e.getStackTrace()[0].getMethodName(), e);
+            }
+            parseArticle(articleUrl);
+        }
+        Node page=listEle.select(".page_box li").last();
+        String aUrl=page.childNode(0).attr("href");
+        parseArticleList(aUrl);
+    }
+
 
     @Async
     public   Article parseArticle(String url){
@@ -63,8 +86,14 @@ public class Reptile71Job {
             Document html=Jsoup.parse(uri,3000);
             Elements tIco=html.select("a.t-ico");
             String href=tIco.attr("href");
-            String id=StringUtils.substringAfter(href,"contentid=");
-            entity.setId(new BigInteger(id));
+            String idStr=StringUtils.substringAfter(href,"contentid=");
+            BigInteger id=new BigInteger(idStr);
+            boolean exist=this.articleService.existsById(id);
+            if (exist){
+                log.info(url);
+                return null;
+            }
+            entity.setId(id);
             Elements keywordsEle=html.select("meta[name=keywords]");
             String keywords=keywordsEle.attr("content");
             entity.setSeoKeywords(keywords);
@@ -87,6 +116,7 @@ public class Reptile71Job {
             entity.setObtainUrl(url);
             url=StringUtils.substringAfter(url,"//");
             url=StringUtils.substringAfter(url,"/");
+            entity.setIsPub(Boolean.TRUE);
             entity.setUrl(url);
             entity.setSource(source);
             entity.setContent(contentEle.outerHtml());
