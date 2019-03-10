@@ -55,15 +55,10 @@
     <#include "/index-header.ftl" />
     <!-- header end-->
     <!--header start-->
-    <div class="header">
-        <div class="head-main">
-            <a class="link-home" href="/"></a>
-            <!--head-right-->
-        </div>
-        <!--head-main-->
+    <div class="header" style="height: 50px">
+
     </div>
     <!--header end-->
-    <!--searchmain start   onclick="LinkDb(this,'http://ref.cnki.net');return false;"-->
     <div class="searchmain">
 
         <ul class="search-tab">
@@ -223,74 +218,11 @@
         <!--unit-box1-->
 
         <div class="unit unit-box2">
-            <h4>研究学习平台</h4>
-            <dl>
-                <dd class="t">
-                    <ul>
-                        <li class="left">
-                            <h6><a href="http://x.cnki.net" target="_blank">研究型学习平台</a></h6>
-                            <a href="http://yjs.x.cnki.net" target="_blank">研究生</a>
-                            <a href="http://bks.x.cnki.net" target="_blank">本科生</a>
-                            <a href="http://x.cnki.net" target="_blank">高职学生</a>
-                            <a href="http://x.cnki.net" target="_blank">中职学生</a>
-                            <a href="http://yx.cnki.net" target="_blank">中学生</a>
-                        </li>
-                        <li class="right">
-                            <h6>大数据研究平台</h6>
-                            <a href="http://pta.cnki.net" target="_blank">专利分析</a>
-                            <a href="http://image.cnki.net" target="_blank">学术图片</a>
-                            <a href="http://data.cnki.net" target="_blank">统计数据</a>
-                            <a href="http://elib.cnki.net/grid2008/brief/result.aspx?DbPrefix=hotspotcomp&amp;showTitle=%u5B66%u79D1%u5B66%u672F%u70ED%u70B9" target="_blank">学术热点</a>
-                            <a href="http://expert.cnki.net" target="_blank">学者库</a>
-                            <a href="http://bd.cnki.net" target="_blank">统计分析</a>
-                        </li>
-                        <li>
-                            <h6><a href="http://okms.cnki.net/home/#page1" target="_blank">协同研究平台</a></h6>
-                        </li>
-                        <li>
-                            <h6><a href="http://okms.cnki.net/home/zthome/ztindex" target="_blank">协同研究平台教学版</a></h6>
-                        </li>
-                        <li>
-                            <h6><a href="http://projects.cnki.net/" target="_blank">科研项目申报信息库</a></h6>
-                        </li>
-                    </ul>
-                </dd>
-            </dl>
             <img src="//piccache.cnki.net/kdn/index/nvsm/nimages/temp/bar.jpg" alt="中国学术期刊（网络版）|外文资源总库" usemap="#guidemap" />
             <map name="guidemap">
                 <area shape="rect" coords="0,0,340,125" href="http://cajn.cnki.net" target="_blank" hidefocus="true" onfocus="this.blur()" />
                 <area shape="rect" coords="340,0,500,125" href="http://scholar.cnki.net/new" target="_blank" hidefocus="true" onfocus="this.blur()" />
             </map>
-            <h4>出版平台&amp;评价</h4>
-            <dl>
-                <dd class="b">
-                    <ul>
-                        <li class="left">
-                            <h6>出版平台</h6>
-                            <a href="http://cb.cnki.net" target="_blank">选刊投稿</a>
-                            <a href="http://find.cb.cnki.net/" target="_blank">期刊采编发</a>
-                            <a href="http://caj.cnki.net/eapf/cajn" target="_blank">网络首发</a>
-                            <a href="http://caj.cnki.net/eapf" target="_blank">优先出版</a>
-                            <a href="http://www.graduate.cnki.net" target="_blank">研究生综合管理与学位论文出版</a>
-                            <a href="http://conf.cnki.net" target="_blank">中国学术会议信息</a>
-                            <a href="//www.cnki.net/other/gonggao/GCTG/全国各位研究生敬启2.html" target="_blank">学位论文领取稿酬通告</a>
-                        </li>
-                        <li class="right">
-                            <h6><a href="http://epub.cnki.net/kns/subPage/Evalu.aspx" target="_blank">科研统计与期刊评价</a></h6>
-                            <a href="http://www.jif.cnki.net/Core/" target="_blank">个刊分析</a>
-                            <a href="http://cjcr.cnki.net/" target="_blank">期刊评价</a>
-                            <a href="http://www.jif.cnki.net/Core/Cajes.aspx " target="_blank">期刊管理</a>
-                            <a href="http://xsjy.cnki.net/" target="_blank">论文评价</a>
-                            <a href="http://www.cbad.cnki.net/" target="_blank">图书评价</a>
-                            <a href="http://cdmdpj.cnki.net/" target="_blank">博硕统计</a>
-                            <a href="http://pj.cnki.net/" target="_blank">医院评价</a>
-                        </li>
-                        <li>
-                            <h6><a href="http://oversea.cnki.net/" target="_blank">国际出版</a></h6>
-                        </li>
-                    </ul>
-                </dd>
-            </dl>
         </div>
         <!--unit-box2-->
 
