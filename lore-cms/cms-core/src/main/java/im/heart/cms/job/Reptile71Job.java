@@ -34,10 +34,10 @@ public class Reptile71Job {
     //http://www.71.cn/acastudies/expcolumn/
     //http://www.71.cn/acastudies/expcolumn/politics/1.shtml
     //http://www.71.cn/acastudies/expcolumn/economy/1.shtml
-    @Scheduled(cron = "0 13 15 * * ?")
+    @Scheduled(cron = "0 35 21 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
-        expcolumn();
+        parseArticleList("http://www.71.cn/acastudies/expcolumn/economy","经济");
     }
 
     private Map<String ,String> expcolumn(){
@@ -50,13 +50,7 @@ public class Reptile71Job {
             for(Element aEle: aEles){
                 String type=aEle.attr("title");
                 String href=aEle.attr("href");
-                try {
-                    parseArticleList(href,type);
-                } catch (IOException e) {
-                    log.error(url);
-                    log.error(e.getStackTrace()[0].getMethodName(), e);
-                }
-                break;
+                parseArticleList(href,type);
             }
         }catch (MalformedURLException e){
             log.error(url);
@@ -67,31 +61,28 @@ public class Reptile71Job {
         }
         return null;
     }
-
-    public static void main(String[] args) {
-        System.out.println(RandomUtils.nextLong(10,100));
-    }
-    public void parseArticleList(String url,String type) throws  IOException{
-        Document listEle=Jsoup.parse(new URL(url),3000);
-        Elements articleEle=listEle.select(".articlelist_title a");
-        for (Element article:articleEle){
-            String articleUrl=article.attr("href");
-            try {
-                Thread.sleep( RandomUtils.nextLong(10,20));
-                parseArticle(articleUrl,type);
-            } catch (InterruptedException e) {
-                log.error(url);
-                log.error(e.getStackTrace()[0].getMethodName(), e);
+    @Async
+    public void parseArticleList(String url,String type){
+        try {
+            Document listEle=Jsoup.parse(new URL(url),3000);
+            Elements articleEle=listEle.select(".articlelist_title a");
+            for (Element article:articleEle){
+                String articleUrl=article.attr("href");
+                try {
+                    Thread.sleep( RandomUtils.nextLong(10,20));
+                    parseArticle(articleUrl,type);
+                } catch (InterruptedException e) {
+                    log.error(url);
+                    log.error(e.getStackTrace()[0].getMethodName(), e);
+                }
             }
 
-        }
-        Node page=listEle.select(".page_box li").last();
-        String aUrl=page.childNode(0).attr("href");
-        try {
+            Node page=listEle.select(".page_box li").last();
+
+            String aUrl=page.childNode(0).attr("href");
             parseArticleList(aUrl,type);
         } catch (IOException e) {
-            log.error(aUrl);
-            e.printStackTrace();
+            log.error(url);
         }
     }
 
@@ -108,6 +99,10 @@ public class Reptile71Job {
             Elements tIco=html.select("a.t-ico");
             String href=tIco.attr("href");
             String idStr=StringUtils.substringAfter(href,"contentid=");
+            if (StringUtils.isBlank(idStr)){
+                log.info(url);
+                return null;
+            }
             BigInteger id=new BigInteger(idStr);
             boolean exist=this.articleService.existsById(id);
             if (exist){
