@@ -34,7 +34,7 @@ public class WeChatAuthServiceImpl extends DefaultAuthServiceImpl implements WeC
     private static final String APP_ID="xxxxxx";
     private static final String APP_SECRET="xxxxxx";
     private static final String SCOPE = "snsapi_login";
-    private String callbackUrl = "https://www.xxx.cn/auth/wechat"; //回调域名
+    private String callbackUrl = "https://www.xxx.cn/auth/wechat";
     @Override
     public String getAuthorizationUrl() throws UnsupportedEncodingException {
         callbackUrl = URLEncoder.encode(callbackUrl,"UTF-8");
@@ -96,9 +96,12 @@ public class WeChatAuthServiceImpl extends DefaultAuthServiceImpl implements WeC
         }
     }
 
-    //微信的token只有2小时的有效期，过时需要重新获取，所以官方提供了
-    //根据refresh_token 刷新获取token的方法，本项目仅仅是获取用户
-    //信息，并将信息存入库，所以两个小时也已经足够了
+    /**
+     * 微信的token只有2小时的有效期，过时需要重新获取，所以官方提供了
+     * /根据refresh_token 刷新获取token的方法，本项目仅仅是获取用户信息，并将信息存入库
+     * @param refresh_token
+     * @return
+     */
     @Override
     public String refreshToken(String refresh_token) {
 

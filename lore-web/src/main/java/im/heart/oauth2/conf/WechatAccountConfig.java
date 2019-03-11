@@ -7,9 +7,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
-/**
- * Created by SqMax on 2018/3/23.
- */
 @Data
 @Component
 @ConfigurationProperties(prefix = "wechat")

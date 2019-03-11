@@ -34,7 +34,7 @@ public class Reptile71Job {
     //http://www.71.cn/acastudies/expcolumn/
     //http://www.71.cn/acastudies/expcolumn/politics/1.shtml
     //http://www.71.cn/acastudies/expcolumn/economy/1.shtml
-    @Scheduled(cron = "0 29 14 * * ?")
+    @Scheduled(cron = "0 58 14 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
         expcolumn();
@@ -68,13 +68,16 @@ public class Reptile71Job {
         return null;
     }
 
+    public static void main(String[] args) {
+        System.out.println(RandomUtils.nextLong(10,100));
+    }
     public void parseArticleList(String url,String type) throws  IOException{
         Document listEle=Jsoup.parse(new URL(url),3000);
         Elements articleEle=listEle.select(".articlelist_title a");
         for (Element article:articleEle){
             String articleUrl=article.attr("href");
             try {
-                Thread.sleep( RandomUtils.nextLong(100,800));
+                Thread.sleep( RandomUtils.nextLong(10,100));
                 parseArticle(articleUrl,type);
             } catch (InterruptedException e) {
                 log.error(url);
@@ -106,11 +109,11 @@ public class Reptile71Job {
             String href=tIco.attr("href");
             String idStr=StringUtils.substringAfter(href,"contentid=");
             BigInteger id=new BigInteger(idStr);
-            boolean exist=this.articleService.existsById(id);
-            if (exist){
-                log.info(url);
-                return null;
-            }
+//            boolean exist=this.articleService.existsById(id);
+//            if (exist){
+//                log.info(url);
+//                return null;
+//            }
             entity.setId(id);
             Elements keywordsEle=html.select("meta[name=keywords]");
             String keywords=keywordsEle.attr("content");

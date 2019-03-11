@@ -17,7 +17,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class DefaultAuthServiceImpl implements AuthService {
-    public static RestTemplate getRestTemplate() {// 手动添加
+
+    public static RestTemplate getRestTemplate() {
         SimpleClientHttpRequestFactory requestFactory=new SimpleClientHttpRequestFactory();
         requestFactory.setReadTimeout(120000);
         List<HttpMessageConverter<?>> messageConverters = Lists.newLinkedList();
