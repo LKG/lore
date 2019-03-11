@@ -34,10 +34,10 @@ public class Reptile71Job {
     //http://www.71.cn/acastudies/expcolumn/
     //http://www.71.cn/acastudies/expcolumn/politics/1.shtml
     //http://www.71.cn/acastudies/expcolumn/economy/1.shtml
-    @Scheduled(cron = "0 35 21 * * ?")
+    @Scheduled(cron = "0 09 22 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
-        parseArticleList("http://www.71.cn/acastudies/expcolumn/economy","经济");
+        parseArticleList("http://www.71.cn/acastudies/expcolumn/economy/330.shtml","经济");
     }
 
     private Map<String ,String> expcolumn(){
@@ -68,21 +68,14 @@ public class Reptile71Job {
             Elements articleEle=listEle.select(".articlelist_title a");
             for (Element article:articleEle){
                 String articleUrl=article.attr("href");
-                try {
-                    Thread.sleep( RandomUtils.nextLong(10,20));
-                    parseArticle(articleUrl,type);
-                } catch (InterruptedException e) {
-                    log.error(url);
-                    log.error(e.getStackTrace()[0].getMethodName(), e);
-                }
+                parseArticle(articleUrl,type);
             }
-
             Node page=listEle.select(".page_box li").last();
-
             String aUrl=page.childNode(0).attr("href");
             parseArticleList(aUrl,type);
         } catch (IOException e) {
             log.error(url);
+            log.error(e.getStackTrace()[0].getMethodName(), e);
         }
     }
 
@@ -149,6 +142,9 @@ public class Reptile71Job {
             log.error(url);
             log.error(e.getStackTrace()[0].getMethodName(), e);
         }catch (IOException e){
+            log.error(url);
+            log.error(e.getStackTrace()[0].getMethodName(), e);
+        }catch (Exception e){
             log.error(url);
             log.error(e.getStackTrace()[0].getMethodName(), e);
         }
