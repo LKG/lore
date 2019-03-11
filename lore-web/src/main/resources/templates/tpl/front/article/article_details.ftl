@@ -26,6 +26,9 @@
             border-bottom: 1px solid #e4e4e4;
             padding-bottom: 2px;
         }
+        .artinfo{
+            padding-left: 2px;
+        }
         .isStuck{
             z-index: 99;
             /*min-width: 77%;*/
@@ -64,7 +67,7 @@
             <div class="row" style="padding: 5px 15px">
                 <h2 class="newstitle" title="${result.title}">${result.title!''}</h2>
                 <div class="borline clearfix">
-                    <p class="artinfo"><span class="author">${result.author!''}</span>　时间：${result.pushTime!''}　|　字体：【<a class="cgray" href="javascript:zoom(16)">大</a> <a class="cgray" href="javascript:zoom(14)">中</a> <a class="cgray" href="javascript:zoom(12)">小</a>】|　阅读: ${result.hits!''}</p>
+                    <p class="artinfo">　时间：${result.pushTime!''} |　<span class="author"><#if result.author??><code>${result.author!''}</code></#if></span>  |　字体：【<a class="cgray" href="javascript:zoom(16)">大</a> <a class="cgray" href="javascript:zoom(14)">中</a> <a class="cgray" href="javascript:zoom(12)">小</a>】|　阅读: ${result.hits!''}</p>
                     <!-- <p class="share">分享到：</p> -->
                 </div>
                 <div class="article-content-dev" style="padding-top: 10px; font-size: 16px;">

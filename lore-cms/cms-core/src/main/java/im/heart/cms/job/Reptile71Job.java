@@ -77,7 +77,7 @@ public class Reptile71Job {
         for (Element article:articleEle){
             String articleUrl=article.attr("href");
             try {
-                Thread.sleep( RandomUtils.nextLong(10,100));
+                Thread.sleep( RandomUtils.nextLong(10,20));
                 parseArticle(articleUrl,type);
             } catch (InterruptedException e) {
                 log.error(url);
@@ -109,11 +109,11 @@ public class Reptile71Job {
             String href=tIco.attr("href");
             String idStr=StringUtils.substringAfter(href,"contentid=");
             BigInteger id=new BigInteger(idStr);
-//            boolean exist=this.articleService.existsById(id);
-//            if (exist){
-//                log.info(url);
-//                return null;
-//            }
+            boolean exist=this.articleService.existsById(id);
+            if (exist){
+                log.info(url);
+                return null;
+            }
             entity.setId(id);
             Elements keywordsEle=html.select("meta[name=keywords]");
             String keywords=keywordsEle.attr("content");
