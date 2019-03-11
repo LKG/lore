@@ -34,7 +34,7 @@ public class Reptile71Job {
     //http://www.71.cn/acastudies/expcolumn/
     //http://www.71.cn/acastudies/expcolumn/politics/1.shtml
     //http://www.71.cn/acastudies/expcolumn/economy/1.shtml
-    @Scheduled(cron = "0 15 13 * * ?")
+    @Scheduled(cron = "0 21 14 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
         expcolumn();
@@ -123,11 +123,11 @@ public class Reptile71Job {
             String title= titleEle.text();
             entity.setTitle(title);
             Elements subtitle=article.select(".article-subtitle");
-            Elements editorsEle=article.select(".editors");
+            Elements editorsEle=article.select(".article-infos .editors");
             String editors=editorsEle.text();
             entity.setAuthor(editors);
-            Elements dateEle=article.select(".date");
-            Elements sourceEle=article.select(".source");
+            Elements dateEle=article.select(".article-infos .date");
+            Elements sourceEle=article.select(".article-infos .source");
             String source=sourceEle.text();
             Elements describe=article.select("#describe");
             Elements contentEle=article.select("#article-content");
