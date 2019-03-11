@@ -104,6 +104,8 @@
                                           <span class="item-type" style="padding-right: 50px;">[${article.type!''}]</span>
                                           <a class="item-href"  href="${contextPath}/article/${article.id!''}.jhtml"
                                              target="_blank" >${article.title!''}</a>
+                                          <span >阅读量：<code>${article.hits!'0'}</code></span>
+                                          <span >点赞数：<code>${article.rateTimes!'0'}</code></span>
                                           <span class="pull-right">${article.pushTime!''}</span>
                                       </li>
                                   </#list >
@@ -116,6 +118,8 @@
                                         <span class="item-type" style="padding-right: 50px;">[{{article.type}}]</span>
                                         <a class="item-href"  href="${contextPath}/article/{{article.id}}.jhtml"
                                            target="_blank" >{{article.title}}</a>
+                                        <span class="">阅读量：<code>{{article.hits}}</code></span>
+                                        <span class="">点赞数：<code>{{article.rateTimes}}</code></span>
                                         <span class="pull-right">{{article.pushTime}}</span>
                                     </li>
                                 {{/each}}

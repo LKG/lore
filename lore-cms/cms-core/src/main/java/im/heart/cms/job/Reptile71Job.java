@@ -32,7 +32,7 @@ public class Reptile71Job {
     //http://www.71.cn/acastudies/expcolumn/
     //http://www.71.cn/acastudies/expcolumn/politics/1.shtml
     //http://www.71.cn/acastudies/expcolumn/economy/1.shtml
-    @Scheduled(cron = "0 31 23 * * ?")
+    @Scheduled(cron = "0 06 11 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
         expcolumn();
@@ -46,31 +46,35 @@ public class Reptile71Job {
             Element liEle=htmlEle.select("a.cur[href="+url+"]").parents().first();
             Elements aEles=liEle.select("ul.subvideotree").select("a");
             for(Element aEle: aEles){
+                String type=aEle.attr("title");
                 String href=aEle.attr("href");
                 try {
-                    parseArticleList(href);
+                    parseArticleList(href,type);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 break;
             }
         }catch (MalformedURLException e){
+            log.error(url);
             log.error(e.getStackTrace()[0].getMethodName(), e);
         }catch (IOException e){
+            log.error(url);
             log.error(e.getStackTrace()[0].getMethodName(), e);
         }
         return null;
     }
 
-    public void parseArticleList(String url) throws  IOException{
+    public void parseArticleList(String url,String type) throws  IOException{
         Document listEle=Jsoup.parse(new URL(url),3000);
         Elements articleEle=listEle.select(".articlelist_title a");
         for (Element article:articleEle){
             String articleUrl=article.attr("href");
             try {
                 Thread.sleep( RandomUtils.nextLong(100,800));
-                parseArticle(articleUrl);
+                parseArticle(articleUrl,type);
             } catch (InterruptedException e) {
+                log.error(url);
                 log.error(e.getStackTrace()[0].getMethodName(), e);
             }
 
@@ -78,20 +82,22 @@ public class Reptile71Job {
         Node page=listEle.select(".page_box li").last();
         String aUrl=page.childNode(0).attr("href");
         try {
-            parseArticleList(aUrl);
+            parseArticleList(aUrl,type);
         } catch (IOException e) {
+            log.error(aUrl);
             e.printStackTrace();
         }
     }
 
 
     @Async
-    public   Article parseArticle(String url){
+    public   Article parseArticle(String url,String type){
         Article entity=null;
         try
         {
             URL uri=new URL(url);
             entity= new Article();
+            entity.setType(type);
             Document html=Jsoup.parse(uri,3000);
             Elements tIco=html.select("a.t-ico");
             String href=tIco.attr("href");
@@ -133,8 +139,10 @@ public class Reptile71Job {
             entity.setUserId(BigInteger.ZERO);
             this.articleService.save(entity);
         }catch (MalformedURLException e){
+            log.error(url);
             log.error(e.getStackTrace()[0].getMethodName(), e);
         }catch (IOException e){
+            log.error(url);
             log.error(e.getStackTrace()[0].getMethodName(), e);
         }
         return entity;
