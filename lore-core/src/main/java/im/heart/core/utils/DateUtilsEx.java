@@ -144,4 +144,7 @@ public class DateUtilsEx extends DateUtils {
 	public static Date stringToDate(String strDate) throws ParseException {
 		return stringToDate(strDate, DATE_PATTERN);
 	}
+	public static Date stringToDateTime(String strDate) throws ParseException {
+		return stringToDate(strDate, TIME_PATTERN);
+	}
 }

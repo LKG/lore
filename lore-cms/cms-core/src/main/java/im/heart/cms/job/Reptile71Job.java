@@ -2,6 +2,7 @@ package im.heart.cms.job;
 
 import im.heart.cms.entity.Article;
 import im.heart.cms.service.ArticleService;
+import im.heart.core.utils.DateUtilsEx;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
@@ -20,6 +21,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.ParseException;
 import java.util.Map;
 import java.util.Set;
 
@@ -32,7 +34,7 @@ public class Reptile71Job {
     //http://www.71.cn/acastudies/expcolumn/
     //http://www.71.cn/acastudies/expcolumn/politics/1.shtml
     //http://www.71.cn/acastudies/expcolumn/economy/1.shtml
-    @Scheduled(cron = "0 06 11 * * ?")
+    @Scheduled(cron = "0 12 13 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
         expcolumn();
@@ -123,7 +125,7 @@ public class Reptile71Job {
             Elements editorsEle=article.select(".editors");
             String editors=editorsEle.text();
             entity.setAuthor(editors);
-            Elements date=article.select(".date");
+            Elements dateEle=article.select(".date");
             Elements sourceEle=article.select(".source");
             String source=sourceEle.text();
             Elements describe=article.select("#describe");
@@ -132,6 +134,11 @@ public class Reptile71Job {
             url=StringUtils.substringAfter(url,"//");
             url=StringUtils.substringAfter(url,"/");
             entity.setIsPub(Boolean.TRUE);
+            try {
+                entity.setPushTime(DateUtilsEx.stringToDateTime(dateEle.text()));
+            } catch (ParseException e) {
+                log.error(e.getStackTrace()[0].getMethodName(), e);
+            }
             entity.setUrl(url);
             entity.setSource(source);
             entity.setContent(contentEle.outerHtml());
