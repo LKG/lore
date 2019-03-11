@@ -34,7 +34,7 @@ public class Reptile71Job {
     //http://www.71.cn/acastudies/expcolumn/
     //http://www.71.cn/acastudies/expcolumn/politics/1.shtml
     //http://www.71.cn/acastudies/expcolumn/economy/1.shtml
-    @Scheduled(cron = "0 12 13 * * ?")
+    @Scheduled(cron = "0 15 13 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
         expcolumn();
@@ -53,7 +53,8 @@ public class Reptile71Job {
                 try {
                     parseArticleList(href,type);
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    log.error(url);
+                    log.error(e.getStackTrace()[0].getMethodName(), e);
                 }
                 break;
             }
@@ -137,6 +138,7 @@ public class Reptile71Job {
             try {
                 entity.setPushTime(DateUtilsEx.stringToDateTime(dateEle.text()));
             } catch (ParseException e) {
+                log.error(url);
                 log.error(e.getStackTrace()[0].getMethodName(), e);
             }
             entity.setUrl(url);

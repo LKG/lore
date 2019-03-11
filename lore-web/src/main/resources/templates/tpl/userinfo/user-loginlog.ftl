@@ -24,9 +24,11 @@
    </style>
 </head> 
 <body class="page-header-fixed">
-	<!------页面header信息 begin----->
-	<#include "/pages/header-navbar-top.ftl" />
-	<!------页面header信息 end----->
+<!-- header begin-->
+<#include "/index-header.ftl" />
+<!-- banner 广告 begin-->
+  <#include "/index-top-banner.ftl" />
+<!-- banner 广告 end-->
 	<div class="clearfix"></div>
     <div class="full-container main-container">
    	   	<div class="row">
