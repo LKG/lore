@@ -132,7 +132,7 @@ minor-latin;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
 mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">、</span></u></b></span></span><span style="mso-bookmark:OLE_LINK6"><span style="mso-bookmark:OLE_LINK5"><b style="mso-bidi-font-weight:normal"><u><span style="mso-bidi-font-size:10.5pt;
 line-height:150%"> </span></u></b></span></span><span style="mso-bookmark:OLE_LINK6"><span style="mso-bookmark:OLE_LINK5"><b style="mso-bidi-font-weight:normal"><u><span style="mso-bidi-font-size:10.5pt;line-height:150%;font-family:宋体;mso-ascii-font-family:
 Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:宋体;mso-fareast-theme-font:
-minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">法律管辖和适用《本网站隐私政策》</span></u></b></span></span><span style="mso-bookmark:OLE_LINK6"><span style="mso-bookmark:OLE_LINK5"><b style="mso-bidi-font-weight:normal"><u><span lang="EN-US" style="mso-bidi-font-size:
+minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">法律管辖和适用《网站隐私政策》</span></u></b></span></span><span style="mso-bookmark:OLE_LINK6"><span style="mso-bookmark:OLE_LINK5"><b style="mso-bidi-font-weight:normal"><u><span lang="EN-US" style="mso-bidi-font-size:
 10.5pt;line-height:150%"><o:p></o:p></span></u></b></span></span></p>
         </div>
     </div>
@@ -273,11 +273,11 @@ color:black">如您对以上协议内容有任何疑问，您可随时通过隐�
 
     <p class="MsoNormal" style="line-height:150%"><b><span style="mso-bidi-font-size:
 10.5pt;line-height:150%;font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;;color:black">点击同意即表示您已阅读并同意</span></b><b><u><span lang="EN-US" style="mso-bidi-font-size:10.5pt;line-height:150%;font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;;
-color:red"><a href="https://in.m.jd.com/help/app/register_info.html" target="_blank"><span lang="EN-US" style="color:red"><span lang="EN-US">《本网站用户注册协议》</span></span></a></span></u></b><b><span style="mso-bidi-font-size:10.5pt;line-height:150%;font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;;
+color:red"><a href="https://in.m.jd.com/help/app/register_info.html" target="_blank"><span lang="EN-US" style="color:red"><span lang="EN-US">《网站用户注册协议》</span></span></a></span></u></b><b><span style="mso-bidi-font-size:10.5pt;line-height:150%;font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;;
 color:black">与</span></b><b><u><span lang="EN-US" style="mso-bidi-font-size:10.5pt;
-line-height:150%;font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;;color:red"><a href="https://in.m.jd.com/help/app/private_policy.html" target="_blank"><span lang="EN-US" style="color:red"><span lang="EN-US">《本网站隐私政策》</span></span></a></span></u></b><b><span style="mso-bidi-font-size:10.5pt;line-height:150%;font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;;
+line-height:150%;font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;;color:red"><a href="https://in.m.jd.com/help/app/private_policy.html" target="_blank"><span lang="EN-US" style="color:red"><span lang="EN-US">《网站隐私政策》</span></span></a></span></u></b><b><span style="mso-bidi-font-size:10.5pt;line-height:150%;font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;;
 color:black">，并同意我们将您的订单信息共享给为完成此订单所必须的第三方合作方（详情查看【</span></b><b><u><span lang="EN-US" style="mso-bidi-font-size:10.5pt;line-height:150%;font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;;
-color:red"><a href="https://in.m.jd.com/help/app/order_sharing_info.html" target="_blank"><span lang="EN-US" style="color:red"><span lang="EN-US">订单共享与安全</span></span></a></span></u></b><b><u><span style="mso-bidi-font-size:10.5pt;line-height:150%;font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;;
+color:red"><a href="#" target="_blank"><span lang="EN-US" style="color:red"><span lang="EN-US">订单共享与安全</span></span></a></span></u></b><b><u><span style="mso-bidi-font-size:10.5pt;line-height:150%;font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;;
 color:black">】</span></u></b><b><span style="mso-bidi-font-size:10.5pt;
 line-height:150%;font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;;color:black">。</span></b><span lang="EN-US" style="mso-bidi-font-size:10.5pt;line-height:150%"><o:p></o:p></span></p>
 
@@ -927,7 +927,7 @@ normal"><span lang="EN-US" style="mso-bidi-font-size:10.5pt;line-height:150%"><o
     <p class="MsoNormal" style="line-height:150%;layout-grid-mode:char;mso-layout-grid-align:
 none"><a name="OLE_LINK18"></a><a name="OLE_LINK17"><span style="mso-bookmark:
 OLE_LINK18"><b style="mso-bidi-font-weight:normal"><span style="font-size:14.0pt;
-line-height:150%;font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;">《本网站隐私政策》正文<span lang="EN-US"><o:p></o:p></span></span></b></span></a></p>
+line-height:150%;font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;">《网站隐私政策》正文<span lang="EN-US"><o:p></o:p></span></span></b></span></a></p>
 
     <p class="MsoNormal" align="left" style="text-align:left;line-height:150%;
 layout-grid-mode:char;mso-layout-grid-align:none"><span style="mso-bookmark:
@@ -967,7 +967,7 @@ layout-grid-mode:char;mso-layout-grid-align:none"><span style="mso-bookmark:
 OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span style="mso-bidi-font-size:
 10.5pt;line-height:150%;font-family:宋体;mso-ascii-theme-font:minor-fareast;
 mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-theme-font:
-minor-fareast">本网站（“我们”）非常重视用户的隐私和个人信息保护。您在使用我们的产品与<span lang="EN-US">/</span>或服务时，我们可能会收集和使用您的相关信息。我们希望通过《本网站隐私政策》（“本隐私政策”）向您说明我们在您使用我们的产品与<span lang="EN-US">/</span>或服务时如何收集、使用、保存、共享和转让这些信息，以及我们为您提供的访问、更新、删除和保护这些信息的方式。<span lang="EN-US"><o:p></o:p></span></span></span></span></p>
+minor-fareast">本网站（“我们”）非常重视用户的隐私和个人信息保护。您在使用我们的产品与<span lang="EN-US">/</span>或服务时，我们可能会收集和使用您的相关信息。我们希望通过《网站隐私政策》（“本隐私政策”）向您说明我们在您使用我们的产品与<span lang="EN-US">/</span>或服务时如何收集、使用、保存、共享和转让这些信息，以及我们为您提供的访问、更新、删除和保护这些信息的方式。<span lang="EN-US"><o:p></o:p></span></span></span></span></p>
 
     <p class="MsoNormal" align="left" style="text-align:left;line-height:150%;
 layout-grid-mode:char;mso-layout-grid-align:none"><span style="mso-bookmark:
@@ -2203,7 +2203,7 @@ mso-char-indent-count:2.0;line-height:150%;layout-grid-mode:char;mso-layout-grid
 none"><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><b><u><span style="mso-bidi-font-size:10.5pt;line-height:150%;font-family:宋体;mso-ascii-theme-font:
 minor-fareast;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
 mso-hansi-theme-font:minor-fareast">您可以在我们的产品中直接申请注销账户。请您注意，如果<span class="GramE">您存在</span>完成不满一年的订单，可能需要您履行完毕后方可注销账户。关于您注销账户的方式以及您应满足的条件，请详见
-                    <a href="https://safe.jd.com/validate/accountcancel/showCancelNotice.action" target="_blank"><span lang="EN-US" style="color:red"><span lang="EN-US">《本网站账户注销须知》</span></span></a>
+                    <a href="#" target="_blank"><span lang="EN-US" style="color:red"><span lang="EN-US">《网站账户注销须知》</span></span></a>
                     。您注销账户后，我们将停止为您提供产品与<span lang="EN-US">/</span>或服务，并依据您的要求，除法律法规另有规定外，我们将<span class="GramE">删除您</span>的个人信息。<span lang="EN-US"><o:p></o:p></span></span></u></b></span></span></p>
 
     <p class="MsoNormal" align="left" style="text-align:left;text-indent:21.0pt;
@@ -2422,9 +2422,9 @@ none"><span lang="EN-US" style="mso-bidi-font-size:10.5pt;line-height:150%;
 font-family:宋体;mso-ascii-theme-font:minor-fareast;mso-fareast-font-family:宋体;
 mso-fareast-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast">1</span><span style="mso-bidi-font-size:10.5pt;line-height:150%;font-family:宋体;mso-ascii-theme-font:
 minor-fareast;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
-mso-hansi-theme-font:minor-fareast">、如您对本隐私政策或您个人信息的相关事宜有任何问题、意见或建议，<a name="OLE_LINK3"></a><a name="OLE_LINK4"><span style="mso-bookmark:OLE_LINK3">请通过访问</span></a></span><span style="mso-bookmark:OLE_LINK4"><span style="mso-bookmark:OLE_LINK3"></span></span><a href="https://help.jd.com" target="_blank"><span style="mso-bookmark:OLE_LINK4"><span style="mso-bookmark:OLE_LINK3"><span lang="EN-US" style="mso-bidi-font-size:10.5pt;
+mso-hansi-theme-font:minor-fareast">、如您对本隐私政策或您个人信息的相关事宜有任何问题、意见或建议，<a name="OLE_LINK3"></a><a name="OLE_LINK4"><span style="mso-bookmark:OLE_LINK3">请通过访问</span></a></span><span style="mso-bookmark:OLE_LINK4"><span style="mso-bookmark:OLE_LINK3"></span></span><a href="/helps.jhtml" target="_blank"><span style="mso-bookmark:OLE_LINK4"><span style="mso-bookmark:OLE_LINK3"><span lang="EN-US" style="mso-bidi-font-size:10.5pt;
 line-height:150%;font-family:宋体;mso-ascii-theme-font:minor-fareast;mso-fareast-font-family:
-宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast">https://help.jd.com</span></span></span></a><span style="mso-bookmark:OLE_LINK4"><span style="mso-bookmark:OLE_LINK3"><span style="mso-bidi-font-size:10.5pt;line-height:150%;font-family:宋体;mso-ascii-theme-font:
+宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast">帮助中心</span></span></span></a><span style="mso-bookmark:OLE_LINK4"><span style="mso-bookmark:OLE_LINK3"><span style="mso-bidi-font-size:10.5pt;line-height:150%;font-family:宋体;mso-ascii-theme-font:
 minor-fareast;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
 mso-hansi-theme-font:minor-fareast">在线客服系统、发送邮件至<span lang="EN-US">privacy@jd.com</span>或拨打我们的任何一部客<span class="GramE">服电话</span>等多种方式与我们联系</span></span></span><span style="mso-bidi-font-size:
 10.5pt;line-height:150%;font-family:宋体;mso-ascii-theme-font:minor-fareast;
@@ -2458,7 +2458,7 @@ layout-grid-mode:char;mso-layout-grid-align:none"><span style="mso-bookmark:
 OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span style="mso-bidi-font-size:
 10.5pt;line-height:150%;font-family:宋体;mso-ascii-theme-font:minor-fareast;
 mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-theme-font:
-minor-fareast">注：本《本网站隐私政策》版本更新日期为<span lang="EN-US">2017</span>年<span lang="EN-US">8</span>月<span lang="EN-US">20</span>日，将于<span lang="EN-US">2017</span>年<span lang="EN-US">8</span>月<span lang="EN-US">27</span>日正式生效，在<span lang="EN-US">2017</span>年<span lang="EN-US">8</span>月<span lang="EN-US">20</span>日至<span lang="EN-US">2017</span>年<span lang="EN-US">8</span>月<span lang="EN-US">27</span>日期间，如您认为更新的《本网站隐私政策》对<span class="GramE">您更为</span>有利，我们同意双方适用新的《本网站隐私政策》内容。<span lang="EN-US"><o:p></o:p></span></span></span></span></p>
+minor-fareast">注：本《网站隐私政策》版本更新日期为<span lang="EN-US">2017</span>年<span lang="EN-US">8</span>月<span lang="EN-US">20</span>日，将于<span lang="EN-US">2017</span>年<span lang="EN-US">8</span>月<span lang="EN-US">27</span>日正式生效，在<span lang="EN-US">2017</span>年<span lang="EN-US">8</span>月<span lang="EN-US">20</span>日至<span lang="EN-US">2017</span>年<span lang="EN-US">8</span>月<span lang="EN-US">27</span>日期间，如您认为更新的《网站隐私政策》对<span class="GramE">您更为</span>有利，我们同意双方适用新的《网站隐私政策》内容。<span lang="EN-US"><o:p></o:p></span></span></span></span></p>
 
     <p class="a" align="left" style="text-align:left;text-indent:24.1pt;line-height:
 150%;tab-stops:21.0pt;layout-grid-mode:char;mso-layout-grid-align:none"><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><b style="mso-bidi-font-weight:normal"><span lang="EN-US" style="font-size:12.0pt;
@@ -2492,7 +2492,7 @@ mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-fo
 none"><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><b style="mso-bidi-font-weight:normal"><span style="font-size:12.0pt;line-height:
 150%;mso-ascii-font-family:宋体;mso-ascii-theme-font:minor-fareast;mso-fareast-font-family:
 宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:宋体;mso-hansi-theme-font:
-minor-fareast">附件一：《本网站账户注销须知》<span lang="EN-US"><o:p></o:p></span></span></b></span></span></p>
+minor-fareast">附件一：《网站账户注销须知》<span lang="EN-US"><o:p></o:p></span></span></b></span></span></p>
 
     <p class="MsoNormal" style="mso-pagination:widow-orphan"><span style="mso-bookmark:
 OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span lang="EN-US" style="mso-bidi-font-size:10.5pt;mso-ascii-font-family:Calibri;mso-fareast-font-family:
@@ -2501,7 +2501,7 @@ OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span lang="EN-US" style="mso-
     <p class="MsoNormal" style="mso-pagination:widow-orphan"><span style="mso-bookmark:
 OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span style="mso-bidi-font-size:
 10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;
-mso-bidi-font-family:宋体;mso-font-kerning:0pt">您在申请注销流程中点击下一步前，应当认真阅读《本网站账户注销须知》（以下称“《注销须知》”）。<b style="mso-bidi-font-weight:normal">请您务必审慎阅读、充分理解协议中相关条款内容，其中包括：</b></span></span></span><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span lang="EN-US" style="mso-bidi-font-size:10.5pt;mso-ascii-font-family:Calibri;
+mso-bidi-font-family:宋体;mso-font-kerning:0pt">您在申请注销流程中点击下一步前，应当认真阅读《网站账户注销须知》（以下称“《注销须知》”）。<b style="mso-bidi-font-weight:normal">请您务必审慎阅读、充分理解协议中相关条款内容，其中包括：</b></span></span></span><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span lang="EN-US" style="mso-bidi-font-size:10.5pt;mso-ascii-font-family:Calibri;
 mso-fareast-font-family:宋体;mso-hansi-font-family:Calibri;mso-bidi-font-family:
 宋体;mso-font-kerning:0pt"><o:p></o:p></span></span></span></p>
 
@@ -2540,9 +2540,9 @@ OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span lang="EN-US" style="mso-
     <p class="MsoNormal" style="mso-pagination:widow-orphan"><span style="mso-bookmark:
 OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span style="mso-bidi-font-size:
 10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;
-mso-bidi-font-family:宋体;mso-font-kerning:0pt">如您对本《注销须知》有任何疑问，可拨打我们的客<span class="GramE">服电话</span>联系客服，您也可联系在线客服或通过</span></span></span><a href="https://help.jd.com"><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span lang="EN-US" style="mso-bidi-font-size:
+mso-bidi-font-family:宋体;mso-font-kerning:0pt">如您对本《注销须知》有任何疑问，可拨打我们的客<span class="GramE">服电话</span>联系客服，您也可联系在线客服或通过</span></span></span><a href="/helps.jhtml"><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span lang="EN-US" style="mso-bidi-font-size:
 10.5pt;mso-ascii-font-family:Calibri;mso-fareast-font-family:宋体;mso-hansi-font-family:
-Calibri;mso-bidi-font-family:宋体;mso-font-kerning:0pt">https://help.jd.com</span></span></span></a><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+Calibri;mso-bidi-font-family:宋体;mso-font-kerning:0pt">帮助中心</span></span></span></a><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
 mso-hansi-font-family:Calibri;mso-bidi-font-family:宋体;mso-font-kerning:0pt">自助查询。</span></span></span><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span lang="EN-US" style="mso-bidi-font-size:10.5pt;mso-ascii-font-family:Calibri;
 mso-fareast-font-family:宋体;mso-hansi-font-family:Calibri;mso-bidi-font-family:
 宋体;mso-font-kerning:0pt"><o:p></o:p></span></span></span></p>
@@ -2774,7 +2774,7 @@ minor-fareast">附件二：<span lang="EN-US"><o:p></o:p></span></span></b></spa
 none"><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><b style="mso-bidi-font-weight:normal"><span style="font-size:12.0pt;line-height:
 150%;mso-ascii-font-family:宋体;mso-ascii-theme-font:minor-fareast;mso-fareast-font-family:
 宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:宋体;mso-hansi-theme-font:
-minor-fareast">上一版《本网站隐私政策》<span lang="EN-US"><o:p></o:p></span></span></b></span></span></p>
+minor-fareast">上一版《网站隐私政策》<span lang="EN-US"><o:p></o:p></span></span></b></span></span></p>
 
     <p class="MsoNormal" style="line-height:150%"><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span style="mso-bidi-font-size:10.5pt;
 line-height:150%;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
@@ -2893,7 +2893,7 @@ line-height:150%;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-them
 minor-latin;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
 mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">（</span></span></span><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span lang="EN-US" style="mso-bidi-font-size:10.5pt;line-height:150%">4</span></span></span><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span style="mso-bidi-font-size:10.5pt;line-height:150%;font-family:宋体;mso-ascii-font-family:
 Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:宋体;mso-fareast-theme-font:
-minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">）其他您与本网站或本网站的关联方所签署的协议（包括<span class="GramE">在线签署</span>的电子协议，例如《本网站用户注册协议》）以及本网站平台规则中明确约定或提示您不适用本隐私政策的与<span class="GramE">您有关</span>的信息。</span></span></span><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span lang="EN-US" style="mso-bidi-font-size:
+minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">）其他您与本网站或本网站的关联方所签署的协议（包括<span class="GramE">在线签署</span>的电子协议，例如《网站用户注册协议》）以及本网站平台规则中明确约定或提示您不适用本隐私政策的与<span class="GramE">您有关</span>的信息。</span></span></span><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span lang="EN-US" style="mso-bidi-font-size:
 10.5pt;line-height:150%"><br>
 <br>
 </span></span></span><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><b><span style="mso-bidi-font-size:10.5pt;
@@ -2956,7 +2956,7 @@ mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">、根据法律�
 3</span></span></span><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span style="mso-bidi-font-size:10.5pt;
 line-height:150%;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
 minor-latin;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
-mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">、出于实现“我们对您个人信息的管理和使用”部分所述目的，或为履行我们在《本网站用户注册协议》或本隐私政策中的义务和行使我们的权利，向本网站的关联方、合作伙伴或代表本网站履行某项职能的第三方（例如代表我们发出推送通知的通讯服务商、处理银行卡的支付机构等）分享您的个人信息。</span></span></span><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span lang="EN-US" style="mso-bidi-font-size:10.5pt;line-height:150%"><br>
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">、出于实现“我们对您个人信息的管理和使用”部分所述目的，或为履行我们在《网站用户注册协议》或本隐私政策中的义务和行使我们的权利，向本网站的关联方、合作伙伴或代表本网站履行某项职能的第三方（例如代表我们发出推送通知的通讯服务商、处理银行卡的支付机构等）分享您的个人信息。</span></span></span><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span lang="EN-US" style="mso-bidi-font-size:10.5pt;line-height:150%"><br>
 4</span></span></span><span style="mso-bookmark:OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span style="mso-bidi-font-size:10.5pt;
 line-height:150%;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
 minor-latin;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
@@ -3137,7 +3137,7 @@ layout-grid-mode:char;mso-layout-grid-align:none"><span style="mso-bookmark:
 OLE_LINK17"><span style="mso-bookmark:OLE_LINK18"><span style="mso-bidi-font-size:
 10.5pt;line-height:150%;font-family:宋体;mso-ascii-theme-font:minor-fareast;
 mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-theme-font:
-minor-fareast">原《本网站隐私政策》<span lang="EN-US"><o:p></o:p></span></span></span></span></p>
+minor-fareast">原《网站隐私政策》<span lang="EN-US"><o:p></o:p></span></span></span></span></p>
 
     <div style="mso-element:para-border-div;border:none;border-bottom:solid #EBEBEB 1.0pt;
 mso-border-bottom-alt:solid #EBEBEB .75pt;padding:0cm 0cm 11.0pt 0cm">
@@ -3173,7 +3173,7 @@ padding:0cm;mso-padding-alt:0cm 0cm 11.0pt 0cm"><span style="mso-bookmark:OLE_LI
 </span>（<span lang="EN-US">1</span>）您在使用本网站提供的搜索服务时输入的关键字信息；<span lang="EN-US"><br>
 </span>（<span lang="EN-US">2</span>）信用评价、违反法律法规规定或违反本网站平台规则行为及本网站已对<span class="GramE">您采取</span>的措施；<span lang="EN-US"><br>
 </span>（<span lang="EN-US">3</span>）应法律法规要求需公示的企业名称等相关工商注册信息以及自然人经营者的信息。<span lang="EN-US"><br>
-</span>（<span lang="EN-US">4</span>）其他您与本网站或本网站的关联方所签署的协议（包括<span class="GramE">在线签署</span>的电子协议，例如《本网站用户注册协议》）以及本网站平台规则中明确约定或提示您不适用本隐私政策的与<span class="GramE">您有关</span>的信息。<span lang="EN-US"><br>
+</span>（<span lang="EN-US">4</span>）其他您与本网站或本网站的关联方所签署的协议（包括<span class="GramE">在线签署</span>的电子协议，例如《网站用户注册协议》）以及本网站平台规则中明确约定或提示您不适用本隐私政策的与<span class="GramE">您有关</span>的信息。<span lang="EN-US"><br>
 <br>
 </span><b>二、我们对您个人信息的管理和使用</b><span lang="EN-US"><br>
 <br>
@@ -3191,7 +3191,7 @@ padding:0cm;mso-padding-alt:0cm 0cm 11.0pt 0cm"><span style="mso-bookmark:OLE_LI
 </span>您的个人信息是我们为您提供服务的重要部分，我们会遵循法律规定对您的信息承担保密义务。<b>除以下情形外，我们不会将您的个人信息披露给第三方：</b><span lang="EN-US"><br>
 1</span>、征得您的同意或授权。<span lang="EN-US"><br>
 2</span>、根据法律法规的规定或行政或司法机构的要求。<span lang="EN-US"><br>
-3</span>、出于实现“我们对您个人信息的管理和使用”部分所述目的，或为履行我们在《本网站用户注册协议》或本隐私政策中的义务和行使我们的权利，向本网站的关联方、合作伙伴或代表本网站履行某项职能的第三方（例如代表我们发出推送通知的通讯服务商、处理银行卡的支付机构等）分享您的个人信息。<span lang="EN-US"><br>
+3</span>、出于实现“我们对您个人信息的管理和使用”部分所述目的，或为履行我们在《网站用户注册协议》或本隐私政策中的义务和行使我们的权利，向本网站的关联方、合作伙伴或代表本网站履行某项职能的第三方（例如代表我们发出推送通知的通讯服务商、处理银行卡的支付机构等）分享您的个人信息。<span lang="EN-US"><br>
 4</span>、如您<span class="GramE">是适格的</span>知识产权投诉人并已提起投诉，应被投诉人要求，向被投诉人披露，以便双方处理可能产生的权利纠纷。<span lang="EN-US"><br>
 5</span>、只有共享您的信息，才能提供您需要的服务，或处理您与他人的纠纷或争议。<span lang="EN-US"><br>
 6</span>、<span class="GramE">您出现</span>违反中国有关法律、法规规定或者违反您与本网站签署的相关协议（包括<span class="GramE">在线签署</span>的电子协议）或违反相关本网站平台规则时需要向第三方披露的情形。<span lang="EN-US"><br>
