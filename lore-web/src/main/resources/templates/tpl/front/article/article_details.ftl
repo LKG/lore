@@ -22,6 +22,10 @@
             padding-left:15px;
             margin-left:-13px;
         }
+        .borline{
+            border-bottom: 1px solid #e4e4e4;
+            padding-bottom: 2px;
+        }
         .isStuck{
             z-index: 99;
             /*min-width: 77%;*/
@@ -44,12 +48,7 @@
 <!-- banner 广告 begin-->
 <#include "/index-top-banner.ftl" />
 <!-- banner 广告 end-->
-<!-- 搜索框 begin-->
-<#include "/index-top-search.ftl" />
-<!-- 搜索框 end-->
-<div style="border-bottom: 1px solid #ddd;margin-top: 5px;">
 
-</div>
 <div class="container" style="margin-top: 15px;">
 <ol class="breadcrumb">
     <li><a href="${contextPath}/"><@spring.message  code="label.system.index" /></a></li>
@@ -60,26 +59,22 @@
 <div class="container" >
 
     <div class="row" style="padding-bottom: 15px;padding-top: 15px;border: 1px solid #ddd;" >
-        <div class="col-md-2  col-xs-2">
-
-        </div>
         <!---文档左侧begin--->
-        <div class="col-md-8  col-xs-8" >
-            <div class="row">
+        <div class="col-md-9  col-xs-9" >
+            <div class="row" style="padding: 5px 15px">
                 <h2 class="newstitle" title="${result.title}">${result.title!''}</h2>
                 <div class="borline clearfix">
-                    <p class="artinfo"><span class="author">${result.author!''}</span>　时间：${result.pushTime!''}　|　字体：【<a class="cgray" href="javascript:zoom(16)">大</a> <a class="cgray" href="javascript:zoom(14)">中</a> <a class="cgray" href="javascript:zoom(12)">小</a>】|阅读: ${result.hits!''}</p>
+                    <p class="artinfo"><span class="author">${result.author!''}</span>　时间：${result.pushTime!''}　|　字体：【<a class="cgray" href="javascript:zoom(16)">大</a> <a class="cgray" href="javascript:zoom(14)">中</a> <a class="cgray" href="javascript:zoom(12)">小</a>】|　阅读: ${result.hits!''}</p>
                     <!-- <p class="share">分享到：</p> -->
                 </div>
-                <div class="" style="padding-top: 20px;">
+                <div class="article-content-dev" style="padding-top: 10px; font-size: 16px;">
                     ${result.content!''}
-
                 </div>
             </div>
         </div>
         <!---文档左侧end--->
         <!---文档右侧begin--->
-        <div class="col-md-2 col-xs-2">
+        <div class="col-md-3 col-xs-3">
             <!---点赞面板begin--->
 
             <!---点赞面板end--->
