@@ -34,7 +34,7 @@ public class Reptile71Job {
     //http://www.71.cn/acastudies/expcolumn/
     //http://www.71.cn/acastudies/expcolumn/politics/1.shtml
     //http://www.71.cn/acastudies/expcolumn/economy/1.shtml
-    @Scheduled(cron = "0 21 14 * * ?")
+    @Scheduled(cron = "0 29 14 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
         expcolumn();
@@ -136,7 +136,7 @@ public class Reptile71Job {
             url=StringUtils.substringAfter(url,"/");
             entity.setIsPub(Boolean.TRUE);
             try {
-                entity.setPushTime(DateUtilsEx.stringToDateTime(dateEle.text()));
+                entity.setPushTime(DateUtilsEx.stringToDate(dateEle.text(),"yyyy-MM-dd HH:mm"));
             } catch (ParseException e) {
                 log.error(url);
                 log.error(e.getStackTrace()[0].getMethodName(), e);
