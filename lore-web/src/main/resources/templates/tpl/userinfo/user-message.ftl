@@ -27,7 +27,7 @@
 </head> 
 <body class="page-header-fixed">
 	<!------页面header信息 begin----->
-	<#include "/pages/header-navbar-top.ftl" />
+<#include "/index-header.ftl" />
 	<!------页面header信息 end----->
 	<div class="clearfix"></div>
     <div class="full-container main-container">

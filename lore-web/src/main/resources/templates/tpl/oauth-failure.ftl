@@ -15,8 +15,7 @@
 	  以获得更好的体验！</p>
   <![endif]-->
 <!------页面header信息 begin----->
-	<#include "/pages/header-navbar-top.ftl" />
-	<#include "/pages/header-navbar-heart.ftl" />
+<#include "/index-header.ftl" />
 <!------页面header信息 end----->
 <div class="container" id="error-container" style="height:531px;">
     <div class="row">

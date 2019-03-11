@@ -18,7 +18,7 @@
 	  以获得更好的体验！</p>
   <![endif]-->
 <!------页面header信息 begin----->
-	<#include "/pages/header-navbar-top.ftl" />
+<#include "/index-header.ftl" />
 	<div class="clearfix"></div>
     <div class="container main-container" tyle="min-height:500px;" >
     	<div class="row">

@@ -12,7 +12,7 @@
 <title>页面跳转提示</title>
 </head> 
 <body class="page-header-fixed">
-	<#include "/pages/header-navbar-top.ftl" />
+<#include "/index-header.ftl" />
 <div class="container-fluid" id="main-add-container" style="padding:0 0px">
 	<div class="panel panel-default">
 	  <div class="panel-body center-block">
