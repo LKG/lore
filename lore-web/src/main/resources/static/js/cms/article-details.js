@@ -22,7 +22,6 @@ define(function (require, exports, moudles) {
         search(true);
     });
     $("#btn-print").on("click", function() {
-        alert("@@@@@@@@@@@@@@");
         $("#article-row").printThis();
     });
 

@@ -6,7 +6,7 @@
 <!-- BEGIN HEAD -->
 <head>
     <#include "/includes/head.ftl" />
-    <title>${result.type!''}${result.itle!''}</title>
+    <title>${result.type!''}-${result.title!''}</title>
     <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
     <meta name="Keywords" content="${result.seoKeywords!''}" />
     <meta name="description" itemprop="description"  content="${result.seoDescription!''}" />

@@ -60,7 +60,7 @@ public class Reptile71EconomyJob {
             log.error(e.getStackTrace()[0].getMethodName(), e);
         }
     }
-    
+
 
     @Async
     public   Article parseArticle(String url,String type){
