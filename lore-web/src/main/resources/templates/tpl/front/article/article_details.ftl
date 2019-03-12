@@ -61,7 +61,7 @@
 </div>
 <div class="container" >
 
-    <div class="row" style="padding-bottom: 15px;padding-top: 15px;border: 1px solid #ddd;" >
+    <div class="row" style="padding-bottom: 15px;padding-top: 15px;border: 1px solid #ddd;box-shadow: 0 1px 5px rgba(4,0,0,.1);" >
         <!---文章begin--->
         <div class="col-md-12  col-xs-12" >
             <div class="row" style="padding: 5px 15px">
@@ -69,6 +69,7 @@
                 <div class="borline clearfix">
                     <p class="artinfo">　时间：${result.pushTime!''} |　<span class="author"><#if result.author??><code>${result.author!''}</code></#if></span>  |　字体：【<a class="cgray" href="javascript:zoom(16)">大</a> <a class="cgray" href="javascript:zoom(14)">中</a> <a class="cgray" href="javascript:zoom(12)">小</a>】|　阅读: ${result.hits!''}</p>
                     <!-- <p class="share">分享到：</p> -->
+                    <i class="fa fa-4x fa-print">打印 </i>
                 </div>
                 <div class="article-content-dev" style="padding-top: 10px; font-size: 16px;">
                     ${result.content!''}

@@ -441,6 +441,7 @@ fieldset legend {
 color: red;
 }
 #footer-lk {
+	margin-top: 10px;
 	border-top: 1px solid #E5E5E5;
 	padding: 20px 0 30px;
 	text-align: center;

@@ -20,6 +20,9 @@ define(function (require, exports, moudles) {
         $("#page").val(1);
         search(true);
     });
+
+
+
     var search = function(loading) {
         $("#btSelectAll").removeAttr("checked");
         var param = $("#search_form").serialize();
