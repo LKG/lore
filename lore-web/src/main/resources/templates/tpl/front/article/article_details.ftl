@@ -62,8 +62,8 @@
 <div class="container" >
 
     <div class="row" style="padding-bottom: 15px;padding-top: 15px;border: 1px solid #ddd;" >
-        <!---文档左侧begin--->
-        <div class="col-md-9  col-xs-9" >
+        <!---文章begin--->
+        <div class="col-md-12  col-xs-12" >
             <div class="row" style="padding: 5px 15px">
                 <h2 class="newstitle" title="${result.title}">${result.title!''}</h2>
                 <div class="borline clearfix">
@@ -75,14 +75,7 @@
                 </div>
             </div>
         </div>
-        <!---文档左侧end--->
-        <!---文档右侧begin--->
-        <div class="col-md-3 col-xs-3">
-            <!---点赞面板begin--->
-
-            <!---点赞面板end--->
-        </div>
-        <!---文档右侧end--->
+        <!---文章end--->
     </div>
 </div>
 <!------footer信息 begin----->

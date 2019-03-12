@@ -428,15 +428,30 @@ fieldset legend {
 .footer  a{
 	color: #666;
 }
-#footer-2014 {
+#footer-lk {
 	border-top: 1px solid #E5E5E5;
 	padding: 20px 0 30px;
 	text-align: center;
 }
-#footer-2014 .links a {
+#footer-lk .links a {
 	margin: 0 10px;
 	text-decoration: none;
 }
-#footer-2014 .links a:hover {
+#footer-lk .links a:hover {
 color: red;
+}
+#footer-lk {
+	border-top: 1px solid #E5E5E5;
+	padding: 20px 0 30px;
+	text-align: center;
+}
+#footer-lk .links a {
+	margin: 0 10px;
+}
+#footer-lk .copyright {
+	margin: 10px 0;
+}
+#footer-lk .authentication a {
+	margin: 0 5px;
+	text-decoration: none;
 }

@@ -260,11 +260,6 @@
                     <a href="http://shuwu.cnki.net" target="_blank">科普</a>
                 </li>
                 <li>
-                    <h6>环保治理</h6>
-                    <a href="http://jiance.cnki.net" target="_blank">环境监测</a>
-                    <a href="http://sthj.cnki.net" target="_blank">生态环境</a>
-                </li>
-                <li>
                     <h6>金融</h6>
                     <a href="http://itfin.cnki.net" target="_blank">互联网金融</a>
                     <a href="http://finrisk.cnki.net" target="_blank">金融风险</a>

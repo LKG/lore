@@ -23,24 +23,24 @@ import java.util.Map;
 
 @Slf4j
 @Component
-public class Reptile71Job {
+public class Reptile71PoliticsJob {
     //http://www.71.cn/2019/0306/1036178.shtml
     @Autowired
     ArticleService articleService;
     //http://www.71.cn/acastudies/expcolumn/
     //http://www.71.cn/acastudies/expcolumn/politics/1.shtml
     //http://www.71.cn/acastudies/expcolumn/economy/1.shtml
-    @Scheduled(cron = "0 06 10 * * ?")
+    @Scheduled(cron = "0 59 10 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
-        parseArticleList("http://www.71.cn/acastudies/expcolumn/economy/1.shtml","经济");
+        parseArticleList("http://www.71.cn/acastudies/expcolumn/politics/1.shtml","政治");
     }
 
     private Map<String ,String> expcolumn(){
         String url="http://www.71.cn/acastudies/expcolumn/";
         try{
             URL uri=new URL(url);
-            Document htmlEle=Jsoup.parse(uri,3000);
+            Document htmlEle=Jsoup.parse(uri,5000);
             Element liEle=htmlEle.select("a.cur[href="+url+"]").parents().first();
             Elements aEles=liEle.select("ul.subvideotree").select("a");
             for(Element aEle: aEles){
@@ -60,7 +60,7 @@ public class Reptile71Job {
     @Async
     public void parseArticleList(String url,String type){
         try {
-            Document listEle=Jsoup.parse(new URL(url),3000);
+            Document listEle=Jsoup.parse(new URL(url),5000);
             Elements articleEle=listEle.select(".articlelist_title a");
             for (Element article:articleEle){
                 String articleUrl=article.attr("href");
@@ -87,7 +87,7 @@ public class Reptile71Job {
             URL uri=new URL(url);
             entity= new Article();
             entity.setType(type);
-            Document html=Jsoup.parse(uri,3000);
+            Document html=Jsoup.parse(uri,5000);
             Elements tIco=html.select("a.t-ico");
             String href=tIco.attr("href");
             String idStr=StringUtils.substringAfter(href,"contentid=");
