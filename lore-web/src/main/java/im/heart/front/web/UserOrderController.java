@@ -38,7 +38,7 @@ public class UserOrderController extends AbstractController {
                              @RequestParam(value = "size", required = false, defaultValue = "5") Integer size,
                              @RequestParam(value = "sort", required = false) String sort,
                              @RequestParam(value = "order", required = false,defaultValue = CommonConst.Page.DEFAULT_ORDER) String order,
-                             @RequestParam(value = "access_token", required = false) String token,
+                             @RequestParam(value = CommonConst.RequestResult.ACCESS_TOKEN, required = false) String token,
                              ModelMap model) {
         BigInteger userId= SecurityUtilsHelper.getCurrentUser().getUserId();
         final Collection<SearchFilter> filters= DynamicSpecifications.buildSearchFilters(request);

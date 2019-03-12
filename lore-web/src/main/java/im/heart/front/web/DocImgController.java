@@ -45,7 +45,7 @@ public class DocImgController extends AbstractController {
                              @RequestParam(value = "size", required = false, defaultValue = CommonConst.Page.DEFAULT_SIZE+"") Integer size,
                              @RequestParam(value = "sort", required = false) String sort,
                              @RequestParam(value = "order", required = false,defaultValue = CommonConst.Page.DEFAULT_ORDER) String order,
-                             @RequestParam(value = "access_token", required = false) String token,
+                             @RequestParam(value = CommonConst.RequestResult.ACCESS_TOKEN, required = false) String token,
                              ModelMap model) {
         final Collection<SearchFilter> filters= DynamicSpecifications.buildSearchFilters(request);
         filters.add(new SearchFilter("periodicalId", SearchFilter.Operator.EQ,id));

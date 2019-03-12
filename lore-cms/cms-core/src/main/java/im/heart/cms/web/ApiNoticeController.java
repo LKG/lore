@@ -57,7 +57,7 @@ public class ApiNoticeController extends AbstractController {
 			@RequestParam(value = "size", required = false, defaultValue = CommonConst.Page.DEFAULT_SIZE+"") Integer size,
 			@RequestParam(value = "sort", required = false) String sort,
 			@RequestParam(value = "order", required = false,defaultValue = CommonConst.Page.DEFAULT_ORDER) String order,
-			@RequestParam(value = "access_token", required = false) String token,
+			@RequestParam(value = CommonConst.RequestResult.ACCESS_TOKEN, required = false) String token,
 			HttpServletRequest request, HttpServletResponse response,
 			ModelMap model) throws Exception {
 		Specification<Notice> spec=DynamicSpecifications.bySearchFilter(request, Notice.class);
@@ -81,7 +81,7 @@ public class ApiNoticeController extends AbstractController {
 	protected ModelAndView findById(
 			@RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
 			@PathVariable BigInteger id,
-			@RequestParam(value = "access_token", required = false) String token,
+			@RequestParam(value = CommonConst.RequestResult.ACCESS_TOKEN, required = false) String token,
 			HttpServletRequest request, HttpServletResponse response,
 			ModelMap model) throws Exception {
 		Notice po = this.noticeService.findById(id);
@@ -100,7 +100,7 @@ public class ApiNoticeController extends AbstractController {
 	protected ModelAndView counts(
 			@RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
 			HttpServletRequest request,
-			@RequestParam(value = "access_token", required = false) String token,
+			@RequestParam(value = CommonConst.RequestResult.ACCESS_TOKEN, required = false) String token,
 			ModelMap model) {
 		Specification<Notice> spec=DynamicSpecifications.bySearchFilter(request, Notice.class);
 		Long count = this.noticeService.count(spec);

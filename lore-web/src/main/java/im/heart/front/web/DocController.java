@@ -50,7 +50,7 @@ public class DocController extends AbstractController {
     protected ModelAndView findById(
             @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
             @PathVariable BigInteger id,
-            @RequestParam(value = "access_token", required = false) String token,
+            @RequestParam(value = CommonConst.RequestResult.ACCESS_TOKEN, required = false) String token,
             HttpServletRequest request,
             ModelMap model) {
         this.updateHitsById(id);
@@ -65,7 +65,7 @@ public class DocController extends AbstractController {
                              @RequestParam(value = "size", required = false, defaultValue = CommonConst.Page.DEFAULT_SIZE+"") Integer size,
                              @RequestParam(value = "sort", required = false) String sort,
                              @RequestParam(value = "order", required = false,defaultValue = CommonConst.Page.DEFAULT_ORDER) String order,
-                             @RequestParam(value = "access_token", required = false) String token,
+                             @RequestParam(value = CommonConst.RequestResult.ACCESS_TOKEN, required = false) String token,
                              ModelMap model) {
         final Collection<SearchFilter> filters= DynamicSpecifications.buildSearchFilters(request);
         filters.add(new SearchFilter("isPub", SearchFilter.Operator.EQ,Boolean.TRUE));
@@ -91,7 +91,7 @@ public class DocController extends AbstractController {
     protected ModelAndView praise(
             @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
             @PathVariable BigInteger id,
-            @RequestParam(value = "access_token", required = false) String token,
+            @RequestParam(value = CommonConst.RequestResult.ACCESS_TOKEN, required = false) String token,
             HttpServletRequest request,
             ModelMap model) {
         this.periodicalService.addUpdateRateTimesTask(id);
@@ -103,7 +103,7 @@ public class DocController extends AbstractController {
     protected ModelAndView collect(
             @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
             @PathVariable BigInteger id,
-            @RequestParam(value = "access_token", required = false) String token,
+            @RequestParam(value = CommonConst.RequestResult.ACCESS_TOKEN, required = false) String token,
             HttpServletRequest request,
             ModelMap model) {
         BigInteger userId= SecurityUtilsHelper.getCurrentUser().getUserId();

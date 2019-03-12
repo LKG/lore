@@ -7,17 +7,14 @@ import im.heart.core.plugins.persistence.DynamicPageRequest;
 import im.heart.core.plugins.persistence.DynamicSpecifications;
 import im.heart.core.plugins.persistence.SearchFilter;
 import im.heart.core.web.AbstractController;
-import im.heart.material.entity.PeriodicalImg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,15 +28,14 @@ public class ArticleController extends AbstractController {
     protected static final String apiVer = "/article";
     protected static final String VIEW_LIST="front/article/article_list";
     protected static final String VIEW_DETAILS="front/article/article_details";
-    protected static final String VIEW_CREATE="front/article/article_create";
     @Autowired
     private ArticleService articleService;
 
     @GetMapping(value = apiVer+"/{id}")
     protected ModelAndView findById(
-            @RequestParam(CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
+            @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
             @PathVariable BigInteger id,
-            @RequestParam(value = "access_token", required = false) String token,
+            @RequestParam(value = CommonConst.RequestResult.ACCESS_TOKEN, required = false) String token,
             HttpServletRequest request,
             ModelMap model) {
         this.updateHitsById(id);
@@ -54,7 +50,7 @@ public class ArticleController extends AbstractController {
                              @RequestParam(value = "size", required = false, defaultValue = CommonConst.Page.DEFAULT_SIZE+"") Integer size,
                              @RequestParam(value = "sort", required = false,defaultValue = "isTop,pushTime") String sort,
                              @RequestParam(value = "order", required = false,defaultValue = CommonConst.Page.DEFAULT_ORDER) String order,
-                             @RequestParam(value = "access_token", required = false) String token,
+                             @RequestParam(value = CommonConst.RequestResult.ACCESS_TOKEN, required = false) String token,
                              ModelMap model) {
         final Collection<SearchFilter> filters= DynamicSpecifications.buildSearchFilters(request);
         filters.add(new SearchFilter("isPub", SearchFilter.Operator.EQ,Boolean.TRUE));

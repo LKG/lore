@@ -32,9 +32,9 @@ public class ApiArticleController extends AbstractController {
 	
 	@RequestMapping(value = apiVer+"/{id}")
 	protected ModelAndView findById(
-			@RequestParam(CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
+			@RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
 			@PathVariable BigInteger id,
-			@RequestParam(value = "access_token", required = false) String token,
+			@RequestParam(value = CommonConst.RequestResult.ACCESS_TOKEN, required = false) String token,
 			HttpServletRequest request,
 			ModelMap model) {
 		Article po = this.articleService.findById(id);
@@ -48,7 +48,7 @@ public class ApiArticleController extends AbstractController {
 			@RequestParam(value = "size", required = false, defaultValue = CommonConst.Page.DEFAULT_SIZE+"") Integer size,
 			@RequestParam(value = "sort", required = false) String sort,
 			@RequestParam(value = "order", required = false,defaultValue = CommonConst.Page.DEFAULT_ORDER) String order,
-			@RequestParam(value = "access_token", required = false) String token,
+			@RequestParam(value = CommonConst.RequestResult.ACCESS_TOKEN, required = false) String token,
 			ModelMap model) {
 		Specification<Article> spec=DynamicSpecifications.bySearchFilter(request, Article.class);
 		PageRequest pageRequest=DynamicPageRequest.buildPageRequest(page,size,sort,order,Article.class);
