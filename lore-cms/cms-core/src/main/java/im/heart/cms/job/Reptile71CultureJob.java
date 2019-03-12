@@ -27,9 +27,7 @@ public class Reptile71CultureJob {
     //http://www.71.cn/2019/0306/1036178.shtml
     @Autowired
     ArticleService articleService;
-    //http://www.71.cn/acastudies/expcolumn/
-    //http://www.71.cn/acastudies/expcolumn/politics/1.shtml
-    //http://www.71.cn/acastudies/expcolumn/economy/1.shtml
+    Integer MAX_PAGE=100;
     @Scheduled(cron = "0 59 10 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
@@ -38,6 +36,12 @@ public class Reptile71CultureJob {
     @Async
     public void parseArticleList(String url,String type){
         try {
+            String pageStr=StringUtils.substringAfterLast(url,"/");
+            pageStr=StringUtils.substringBefore(pageStr,".");
+            if(Integer.valueOf(pageStr)>MAX_PAGE){
+                log.error(url);
+                return;
+            }
             Document listEle=Jsoup.parse(new URL(url),5000);
             Elements articleEle=listEle.select(".articlelist_title a");
             for (Element article:articleEle){
@@ -66,9 +70,8 @@ public class Reptile71CultureJob {
             entity= new Article();
             entity.setType(type);
             Document html=Jsoup.parse(uri,5000);
-            Elements tIco=html.select("a.t-ico");
-            String href=tIco.attr("href");
-            String idStr=StringUtils.substringAfter(href,"contentid=");
+            String idStr=StringUtils.substringAfterLast(url,"/");
+            idStr=StringUtils.substringBefore(idStr,".");
             if (StringUtils.isBlank(idStr)){
                 log.info(url);
                 return null;
