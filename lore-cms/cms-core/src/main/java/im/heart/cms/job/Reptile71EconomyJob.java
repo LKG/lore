@@ -60,11 +60,7 @@ public class Reptile71EconomyJob {
             log.error(e.getStackTrace()[0].getMethodName(), e);
         }
     }
-
-    public static void main(String[] args) {
-        String str=StringUtils.substringAfterLast("http://www.71.cn/2019/0226/1035312.shtml","/");
-       log.info(StringUtils.substringBefore(str,"."));
-    }
+    
 
     @Async
     public   Article parseArticle(String url,String type){
