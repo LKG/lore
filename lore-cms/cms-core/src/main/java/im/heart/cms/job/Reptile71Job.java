@@ -4,13 +4,10 @@ import im.heart.cms.entity.Article;
 import im.heart.cms.service.ArticleService;
 import im.heart.core.utils.DateUtilsEx;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
@@ -23,7 +20,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.Map;
-import java.util.Set;
 
 @Slf4j
 @Component
@@ -34,10 +30,10 @@ public class Reptile71Job {
     //http://www.71.cn/acastudies/expcolumn/
     //http://www.71.cn/acastudies/expcolumn/politics/1.shtml
     //http://www.71.cn/acastudies/expcolumn/economy/1.shtml
-    @Scheduled(cron = "0 09 22 * * ?")
+    @Scheduled(cron = "0 06 10 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
-        parseArticleList("http://www.71.cn/acastudies/expcolumn/economy/330.shtml","经济");
+        parseArticleList("http://www.71.cn/acastudies/expcolumn/economy/1.shtml","经济");
     }
 
     private Map<String ,String> expcolumn(){
@@ -70,8 +66,11 @@ public class Reptile71Job {
                 String articleUrl=article.attr("href");
                 parseArticle(articleUrl,type);
             }
-            Node page=listEle.select(".page_box li").last();
-            String aUrl=page.childNode(0).attr("href");
+            Elements pages=listEle.select(".page_box a.next");
+            if(pages.hasClass("disable")){
+               return;
+            }
+            String aUrl=pages.attr("href");
             parseArticleList(aUrl,type);
         } catch (IOException e) {
             log.error(url);

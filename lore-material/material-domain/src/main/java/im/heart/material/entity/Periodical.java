@@ -204,7 +204,9 @@ public class Periodical implements AbstractEntity<BigInteger> {
 	protected void onCreate() {
 		createTime = new Date();
 		modifyTime = new Date();
-		pushTime = new Date();
+		if(pushTime==null){
+			pushTime = new Date();
+		}
     }
 	@PreUpdate
 	protected void onUpdate() {
