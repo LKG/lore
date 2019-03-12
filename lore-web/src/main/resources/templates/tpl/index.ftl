@@ -143,49 +143,6 @@
             <h4>行业知识服务与知识管理平台</h4>
             <ul style="width:326px; ">
                 <li>
-                    <h6>农林牧渔、卫生、科学研究</h6>
-                    <a href="http://ypt.cnki.net" target="_blank">农业</a>
-                    <a href="http://shipin.cnki.net" target="_blank">食品</a>
-                    <a href="http://www.chkd.cnki.net" target="_blank">医疗</a>
-                    <a href="http://r.cnki.net/index/yaoye" target="_blank">药业</a>
-                    <a href="http://r.cnki.net/index/cdchy" target="_blank">公共卫生</a>
-                    <a href="http://r.cnki.net/index/gtzy" target="_blank">国土</a>
-                    <a href="http://crjt.cnki.net" target="_blank">检验检疫</a>
-                    <a href="http://r.cnki.net/index/sthb" target="_blank">环保</a>
-                    <a href="http://r.cnki.net/index/shuili" target="_blank">水利</a>
-                    <a href="http://r.cnki.net/index/qixiang" target="_blank">气象</a>
-                    <a href="http://r.cnki.net/index/haiyang" target="_blank">海洋</a>
-                    <a href="http://r.cnki.net/index/dizhen" target="_blank">地震</a>
-                </li>
-                <li>
-                    <h6>建筑、能源、冶炼、交通运输</h6>
-                    <a href="http://r.cnki.net/index/up" target="_blank">城乡规划</a>
-                    <a href="http://r.cnki.net/index/bmi" target="_blank">建筑材料</a>
-                    <a href="http://www.hytsg.cnki.net" target="_blank">建筑</a>
-                    <a href="http://r.cnki.net/index/dianli" target="_blank">电力</a>
-                    <a href="http://r.cnki.net/index/yjgy" target="_blank">冶金</a>
-                    <a href="http://oil.cnki.net" target="_blank">石油</a>
-                    <a href="http://mt.cnki.net/" target="_blank">煤炭</a>
-                    <a href="http://r.cnki.net/index/jt" target="_blank">交通</a>
-                    <a href="http://r.cnki.net/index/chb" target="_blank">船舶</a>
-                </li>
-                <li>
-                    <h6>制造、信息技术、贸易</h6>
-                    <a href="http://r.cnki.net/index/qchy" target="_blank">汽车</a>
-                    <a href="http://r.cnki.net/index/jxhy" target="_blank">机械</a>
-                    <a href="http://r.cnki.net/index/hkhy" target="_blank">航空</a>
-                    <a href="http://r.cnki.net/index/hthy" target="_blank">航天</a>
-                    <a href="http://myhk.cnki.net/" target="_blank">民用航空</a>
-                    <a href="http://r.cnki.net/index/dzhy" target="_blank">电子</a>
-                    <a href="http://r.cnki.net/index/dqhy" target="_blank">电气</a>
-                    <a href="http://r.cnki.net/index/jdhy" target="_blank">家电</a>
-                    <a href="http://r.cnki.net/index/chemsci" target="_blank">化工</a>
-                    <a href="http://r.cnki.net/index/ychy" target="_blank">烟草</a>
-                    <a href="http://r.cnki.net/index/fzhy" target="_blank">纺织</a>
-                    <a href="http://r.cnki.net/index/mc" target="_blank">信息通信</a>
-                    <a href="http://smpt.cnki.net/" target="_blank">商贸</a>
-                </li>
-                <li>
                     <h6>党政、社团、国防、法律、金融</h6>
                     <a href="http://r.cnki.net/index/dang" target="_blank">党委</a>
                     <a href="http://r.cnki.net/index/zhengfu" target="_blank">政府</a>
@@ -197,20 +154,6 @@
                     <a href="http://r.cnki.net/index/81" target="_blank">国防</a>
                     <a href="http://law.cnki.net" target="_blank">法律</a>
                     <a href="http://r.cnki.net/index/fin" target="_blank">金融</a>
-                </li>
-                <li>
-                    <h6>教育、公共文化、社会服务</h6>
-                    <a href="http://gj.cnki.net" target="_blank">高教</a>
-                    <a href="http://zyjy.cnki.net/" target="_blank">职教</a>
-                    <a href="http://www.cfed.cnki.net/" target="_blank">基教</a>
-                    <a href="http://r.cnki.net/index/lib" target="_blank">公共图书馆</a>
-                    <a href="http://r.cnki.net/index/zwwb" target="_blank">文博</a>
-                    <a href="http://r.cnki.net/index/zwly" target="_blank">旅游</a>
-                    <a href="http://r.cnki.net/index/cul" target="_blank">文艺文化</a>
-                    <a href="http://r.cnki.net/index/sports" target="_blank">体育</a>
-                    <a href="http://r.cnki.net/index/arc" target="_blank">档案</a>
-                    <a href="http://r.cnki.net/index/sti" target="_blank">科情</a>
-                    <a href="http://r.cnki.net/index/cbcm" target="_blank">出版传媒</a>
                 </li>
             </ul>
         </div>
@@ -250,14 +193,6 @@
                     <a href="http://shuigai.cnki.net" target="_blank">税改</a>
                     <a href="http://ppp.cnki.net" target="_blank">PPP</a>
                     <a href="http://gov.cnki.net/czh/" target="_blank">城镇化</a>
-                </li>
-                <li>
-                    <h6>社会知识</h6>
-                    <a href="http://maker.cnki.net/DZCT/" target="_blank">创业创新</a>
-                    <a href="http://glcx.cnki.net" target="_blank">企业管理</a>
-                    <a href="http://yjgl.cnki.net" target="_blank">应急管理</a>
-                    <a href="http://www.tsk.cnki.net/qmjs/" target="_blank">全民健身</a>
-                    <a href="http://shuwu.cnki.net" target="_blank">科普</a>
                 </li>
                 <li>
                     <h6>金融</h6>

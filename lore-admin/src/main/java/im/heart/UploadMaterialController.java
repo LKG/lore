@@ -70,7 +70,7 @@ package im.heart;//package im.heart;
 //
 //    @RequestMapping(apiVer + "/material")
 //    public ModelAndView importBathMaterialImg(HttpServletRequest request,
-//            @RequestParam(value = "jsoncallback", required = false) String jsoncallback,
+//            @RequestParam(CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
 //            @RequestParam(value = "periodicalCode", required = false) String periodicalCode,
 //            @RequestParam(value = "categoryId", required = false) BigInteger categoryId,
 //            @RequestParam(value = "categoryCode", required = false) String categoryCode,

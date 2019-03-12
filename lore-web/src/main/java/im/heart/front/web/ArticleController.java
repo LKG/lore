@@ -37,7 +37,7 @@ public class ArticleController extends AbstractController {
 
     @GetMapping(value = apiVer+"/{id}")
     protected ModelAndView findById(
-            @RequestParam(value = "jsoncallback", required = false) String jsoncallback,
+            @RequestParam(CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
             @PathVariable BigInteger id,
             @RequestParam(value = "access_token", required = false) String token,
             HttpServletRequest request,
@@ -49,10 +49,10 @@ public class ArticleController extends AbstractController {
     }
     @GetMapping(apiVer+"s")
     public ModelAndView list(HttpServletRequest request, HttpServletResponse response,
-                             @RequestParam(value = "jsoncallback", required = false) String jsoncallback,
+                             @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
                              @RequestParam(value = "page", required = false, defaultValue = CommonConst.Page.DEFAULT_PAGE+"") Integer page,
                              @RequestParam(value = "size", required = false, defaultValue = CommonConst.Page.DEFAULT_SIZE+"") Integer size,
-                             @RequestParam(value = "sort", required = false) String sort,
+                             @RequestParam(value = "sort", required = false,defaultValue = "isTop,pushTime") String sort,
                              @RequestParam(value = "order", required = false,defaultValue = CommonConst.Page.DEFAULT_ORDER) String order,
                              @RequestParam(value = "access_token", required = false) String token,
                              ModelMap model) {

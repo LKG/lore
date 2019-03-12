@@ -32,7 +32,7 @@ public class UserCartController extends AbstractController {
     private CartService cartService;
     @RequestMapping(value={apiVer+"s"},method = RequestMethod.GET)
     public ModelAndView list(HttpServletRequest request, HttpServletResponse response,
-                             @RequestParam(value = "jsoncallback", required = false) String jsoncallback,
+                             @RequestParam(CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
                              @RequestParam(value = "page", required = false, defaultValue = CommonConst.Page.DEFAULT_PAGE+"") Integer page,
                              @RequestParam(value = "size", required = false, defaultValue = CommonConst.Page.DEFAULT_SIZE+"") Integer size,
                              @RequestParam(value = "sort", required = false) String sort,

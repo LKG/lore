@@ -1,6 +1,7 @@
 package im.heart.common.web;
 
 import im.heart.common.utils.CacheUtils;
+import im.heart.core.CommonConst;
 import im.heart.core.CommonConst.RequestResult;
 import im.heart.core.enums.Status;
 import im.heart.core.plugins.captcha.ImageCaptchaExService;
@@ -70,7 +71,7 @@ public class RegistController extends AbstractController {
 	}
 	@RequestMapping(value = apiVer + "/checkUserName", method = RequestMethod.GET)
 	protected ModelAndView checkUserName(
-            @RequestParam(value = "jsoncallback", required = false) String jsoncallback,
+            @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
             @RequestParam(value = "userName", required = false) String userName,
             HttpServletRequest request, HttpServletResponse response,
             ModelMap model) throws Exception {
@@ -90,7 +91,7 @@ public class RegistController extends AbstractController {
 
 	@RequestMapping(value = apiVer + "/checkUserEmail", method = RequestMethod.GET)
 	protected ModelAndView checkUserEmail(
-            @RequestParam(value = "jsoncallback", required = false) String jsoncallback,
+            @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
             @RequestParam(value = "userEmail", required = false) String userEmail,
             HttpServletRequest request, HttpServletResponse response,
             ModelMap model) throws Exception {
@@ -109,7 +110,7 @@ public class RegistController extends AbstractController {
 
 	@RequestMapping(value = apiVer + "/checkUserPhone", method = RequestMethod.GET)
 	protected ModelAndView checkUserPhone(
-            @RequestParam(value = "jsoncallback", required = false) String jsoncallback,
+            @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
             @RequestParam(value = "userPhone", required = false) String userPhone,
             HttpServletRequest request, HttpServletResponse response,
             ModelMap model) throws Exception {

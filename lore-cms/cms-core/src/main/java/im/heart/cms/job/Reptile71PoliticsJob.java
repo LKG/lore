@@ -26,11 +26,11 @@ import java.util.Map;
 public class Reptile71PoliticsJob {
     @Autowired
     ArticleService articleService;
-    Integer MAX_PAGE=100;
-    @Scheduled(cron = "0 59 10 * * ?")
+    Integer MAX_PAGE=1000;
+    @Scheduled(cron = "0 51 19 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
-        parseArticleList("http://www.71.cn/acastudies/expcolumn/politics/1.shtml","政治");
+        parseArticleList("http://www.71.cn/acastudies/expcolumn/politics/200.shtml","政治");
     }
 
     @Async

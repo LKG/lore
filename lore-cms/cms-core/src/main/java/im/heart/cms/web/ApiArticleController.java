@@ -32,7 +32,7 @@ public class ApiArticleController extends AbstractController {
 	
 	@RequestMapping(value = apiVer+"/{id}")
 	protected ModelAndView findById(
-			@RequestParam(value = "jsoncallback", required = false) String jsoncallback,
+			@RequestParam(CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
 			@PathVariable BigInteger id,
 			@RequestParam(value = "access_token", required = false) String token,
 			HttpServletRequest request,

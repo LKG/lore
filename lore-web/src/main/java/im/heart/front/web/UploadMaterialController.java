@@ -69,7 +69,7 @@ public class UploadMaterialController extends AbstractController {
 
     @RequestMapping(apiVer + "/material")
     public ModelAndView importBathImg(HttpServletRequest request,
-            @RequestParam(value = "jsoncallback", required = false) String jsoncallback,
+            @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
             @RequestParam(value = "periodicalCode", required = false) String periodicalCode,
             @RequestParam(value = "categoryId", required = false) BigInteger categoryId,
             @RequestParam(value = "categoryCode", required = false) String categoryCode,
