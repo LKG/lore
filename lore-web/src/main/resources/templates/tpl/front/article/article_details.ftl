@@ -29,6 +29,12 @@
         .artinfo{
             padding-left: 2px;
         }
+        #row-main{
+            padding-bottom: 15px;padding-top: 15px;border: 1px solid #ddd;box-shadow: 0 1px 5px rgba(4,0,0,.1);
+        }
+        #article-content-dev{
+            padding-top: 10px; font-size: 16px;
+        }
         .isStuck{
             z-index: 99;
             /*min-width: 77%;*/
@@ -61,7 +67,7 @@
 </div>
 <div class="container" >
 
-    <div class="row" style="padding-bottom: 15px;padding-top: 15px;border: 1px solid #ddd;box-shadow: 0 1px 5px rgba(4,0,0,.1);" >
+    <div class="row" id="row-main" >
         <!---文章begin--->
         <div class="col-md-12  col-xs-12" >
             <i class="pull-right fa fa-lg fa-print" id="btn-print" >打印 </i>
@@ -72,7 +78,7 @@
                     <!-- <p class="share">分享到：</p> -->
 
                 </div>
-                <div class="article-content-dev" style="padding-top: 10px; font-size: 16px;">
+                <div class="article-content-dev" id="article-content-dev" >
                     ${result.content!''}
                 </div>
             </div>
@@ -89,7 +95,7 @@
 <!------seajs.config   引用信息 end----->
 <#include "/includes/jquery.ftl" />
 <script>
-    seajs.use("js/cms/article-details.js");
+    seajs.use("js/cms/article-details.js?v="+Math.random());
 </script>
 </body>
 </html>
