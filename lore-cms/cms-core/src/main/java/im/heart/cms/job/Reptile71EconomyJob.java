@@ -30,10 +30,10 @@ public class Reptile71EconomyJob {
     //http://www.71.cn/acastudies/expcolumn/
     //http://www.71.cn/acastudies/expcolumn/politics/1.shtml
     //http://www.71.cn/acastudies/expcolumn/economy/1.shtml
-    @Scheduled(cron = "0 59 10 * * ?")
+    @Scheduled(cron = "0 47 14 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
-        parseArticleList("http://www.71.cn/acastudies/expcolumn/economy/30.shtml","经济");
+        parseArticleList("http://www.71.cn/acastudies/expcolumn/economy/130.shtml","经济");
     }
 
     private Map<String ,String> expcolumn(){

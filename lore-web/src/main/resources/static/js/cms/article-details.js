@@ -5,6 +5,7 @@ define(function (require, exports, moudles) {
     var dialog = require('artDialog');
     var $baseRoot=$("#baseRoot");
     var laypage = require('laypage');
+    var printThis = require('printThis');
     window.dialog = dialog;
     var baseRoot=$baseRoot.attr("href");
     var $httpUtil = require('/js/common/httpUtil.js');
@@ -20,7 +21,10 @@ define(function (require, exports, moudles) {
         $("#page").val(1);
         search(true);
     });
-
+    $("#btn-print").on("click", function() {
+        alert("@@@@@@@@@@@@@@");
+        $("#article-row").printThis();
+    });
 
 
     var search = function(loading) {

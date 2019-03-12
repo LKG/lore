@@ -11,7 +11,7 @@
 		'select2': '${contextPath}/modules/select2',
 		'galleria': '${contextPath}/modules/galleria',
 		'swiper': '${contextPath}/modules/swiper',
-		
+		'printThis': '${contextPath}/modules/printThis',
 	  },
 	  alias: {
 		'$': 'jquery/1.8.2/jquery.min.js',
@@ -37,6 +37,7 @@
 	    'fine-uploader': '${contextPath}/js/common/fine-uploader.js',
 	    'lrz': '${contextPath}/modules/localResizeIMG/dist/lrz.all.bundle.js',
 	    'select2': 'select2/4.0.3/js/select2.full.min.js',
+        'printThis': 'printThis/printThis.js',
 	    'galleria': 'galleria/dist/galleria.js',
 	    'swiper': 'swiper/js/swiper.jquery.umd.min.js',
 	  },
