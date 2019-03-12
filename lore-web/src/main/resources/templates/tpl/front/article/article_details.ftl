@@ -68,7 +68,7 @@
             <div class="row" id="article-row"  style="padding: 5px 15px">
                 <h2 class="newstitle" title="${result.title}">${result.title!''}</h2>
                 <div class="borline clearfix">
-                    <p class="artinfo">　时间：${result.pushTime!''} |　<span class="author"><#if result.author??><code>${result.author!''}</code></#if></span>  |　字体：【<a class="cgray" href="javascript:zoom(16)">大</a> <a class="cgray" href="javascript:zoom(14)">中</a> <a class="cgray" href="javascript:zoom(12)">小</a>】|　阅读: ${result.hits!''}</p>
+                    <p class="artinfo">　时间：${result.pushTime!''} |　<span class="author"><#if result.author??><code>${result.author!''}</code></#if></span>  |　字体：【<a class="cgray" data-font="16"  href="javascript:void(0);">大</a> <a class="cgray"  data-font="14"  href="javascript:void(0);" >中</a> <a class="cgray"  data-font="12" href="javascript:void(0);" >小</a>】|　阅读: ${result.hits!''}</p>
                     <!-- <p class="share">分享到：</p> -->
 
                 </div>

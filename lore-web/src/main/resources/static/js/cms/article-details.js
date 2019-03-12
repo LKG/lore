@@ -24,7 +24,10 @@ define(function (require, exports, moudles) {
     $("#btn-print").on("click", function() {
         $("#article-row").printThis();
     });
-
+    $(".artinfo .cgray").on("click", function() {
+        var font=$(this).attr("data-font");
+        $("#article-content-dev").css("font-size",font+"px");;
+    });
 
     var search = function(loading) {
         $("#btSelectAll").removeAttr("checked");
