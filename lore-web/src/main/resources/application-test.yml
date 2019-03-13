@@ -59,10 +59,10 @@ spring:
     ansi:
       enabled: DETECT
   mail:
-    host: smtp.exmail.qq.com
-    username: admin@tabis.cn
-    password: V5BK58tqWnZxYN8
-    from: admin<admin@tabis.cn>
+    host: smtp.163.com
+    username: lkg61230413@163.com
+    password: lkg178wk
+    from: GG<lkg61230413@163.com>
     template-path: classpath:/templates/email/
     properties:mail:
       smtp:
