@@ -52,7 +52,7 @@
 <div class="container" style="margin-top: 15px;">
     <ol class="breadcrumb">
         <li><a href="${contextPath}/"><@spring.message  code="label.system.index" /></a></li>
-        <li><a href="${contextPath}/docs.jhtml">${result.periodicalType!''}</a></li>
+        <li><a href="${contextPath}/docs.jhtml">${result.periodicalTypeName!''}</a></li>
         <li class="active">文档</li>
     </ol>
 </div>
