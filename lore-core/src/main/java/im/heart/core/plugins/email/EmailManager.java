@@ -49,12 +49,12 @@ public class EmailManager {
 			template = cfg.getTemplate(tplFile);
 			content = FreeMarkerUtils.renderTemplate(template, model);
 		} catch (Exception e) {
-			logger.warn("获取配置信息出错开始尝试容错机制"+e.getStackTrace()[0].getMethodName());
+			logger.warn("获取配置信息移除开始尝试容错机制"+e.getStackTrace()[0].getMethodName());
 			try {
 				Configuration cfg = FreeMarkerUtils.buildConfig(this.mailTemplatePath);
 				template = cfg.getTemplate(tplFile);
 				content = FreeMarkerUtils.renderTemplate(template, model);
-			} catch (IOException e1) {
+			} catch (Exception e1) {
 				logger.error(e.getStackTrace()[0].getMethodName(), e);
 			}
 		}
