@@ -32,7 +32,7 @@ public class UrlRewriteFilterConfig  extends UrlRewriteFilter {
         UrlRewriteFilter rewriteFilter=new UrlRewriteFilter();
         FilterRegistrationBean<UrlRewriteFilter> registration = new FilterRegistrationBean<UrlRewriteFilter>(rewriteFilter);
         registration.setUrlPatterns(Collections.singleton("/*"));
-        Map initParam= Maps.newHashMap();
+        Map<String, String> initParam= Maps.newHashMap();
         initParam.put("confPath",URL_REWRITE);
         initParam.put("infoLevel","INFO");
         registration.setInitParameters(initParam);

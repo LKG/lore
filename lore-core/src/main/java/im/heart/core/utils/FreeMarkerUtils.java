@@ -34,7 +34,7 @@ public class FreeMarkerUtils {
 	}
 
 	public static String renderString(String templateString,
-			Map<String, ?> model) {
+			Map<String, Object> model) {
 		try {
 			Template t = new Template("name", new StringReader(templateString),configuration);
 			return renderTemplate(t, model);
