@@ -3,7 +3,7 @@
 <script type="text/javascript">(function(x){x&&(x.className+=" loading")})(document.getElementById("J_RegisterBox"))</script>
 <form class="form-horizontal" id="J_RegisterForm"  action="${contextPath}/regist/subGeneral.jhtml" method="post" >
   <div class="form-group">
-    <label for="userName" class="col-sm-2 col-xs-2 control-label"><b class="text-danger" >*</b><@spring.message  code="label.login.username" /></label>
+    <label for="userName" class="col-sm-3 col-xs-3 control-label"><b class="text-danger" >*</b><@spring.message  code="label.login.username" /></label>
      <div class="col-sm-6 col-xs-6">
 	    <div class="input-group">
 	      <div class="input-group-addon"><i class="fa fa-user"></i></div>
@@ -12,7 +12,7 @@
     </div>
   </div>
     <div class="form-group">
-        <label for="userEmail" class="col-sm-2 col-xs-2 control-label"><b class="text-danger" >*</b><@spring.message  code="label.user.email" /></label>
+        <label for="userEmail" class="col-sm-3 col-xs-3 control-label"><b class="text-danger" >*</b><@spring.message  code="label.user.email" /></label>
         <div class="col-sm-6 col-xs-6">
             <div class="input-group">
                 <div class="input-group-addon"><i class="fa fa-envelope-o"></i></div>
@@ -21,18 +21,18 @@
         </div>
     </div>
   <div class="form-group">
-     <label for="userPhone" class="col-sm-2 col-xs-2 control-label"><b class="text-danger" >*</b><@spring.message  code="label.user.phone" /></label>
+     <label for="userPhone" class="col-sm-3 col-xs-3 control-label"><b class="text-danger" >*</b><@spring.message  code="label.user.phone" /></label>
     <div class="col-sm-6 col-xs-6">
 	    <div class="input-group ">
 	      <div class="input-group-addon"><i class="fa fa-mobile"></i></div>
 	      <input type="text" class="form-control" id="userPhone" name="userPhone" placeholder="<@spring.message  code="label.user.phone" />" >
 	    </div>
 	</div>
-    <div class="col-sm-2 col-xs-2">
+    <div class="col-sm-3 col-xs-3">
     </div>
   </div>
   <div class="form-group">
-     <label for="password" class="col-sm-2 col-xs-2 control-label"><b class="text-danger" >*</b><@spring.message  code="label.login.password" /></label>
+     <label for="password" class="col-sm-3 col-xs-3 control-label"><b class="text-danger" >*</b><@spring.message  code="label.login.password" /></label>
     <div class="col-sm-6 col-xs-6">
 	    <div class="input-group">
 	      <div class="input-group-addon"><i class="fa fa-key"></i></div>
@@ -47,7 +47,7 @@
     </div>
   </div>
    <div class="form-group">
-     <label for="retryPassWord" class="col-sm-2 col-xs-2 control-label"><b class="text-danger" >*</b><@spring.message  code="label.user.password.confirm" /></label>
+     <label for="retryPassWord" class="col-sm-3 col-xs-3 control-label"><b class="text-danger" >*</b><@spring.message  code="label.user.password.confirm" /></label>
     <div class="col-sm-6 col-xs-6">
 	    <div class="input-group">
 	      <div class="input-group-addon"><i class="fa fa-key"></i></div>
@@ -57,7 +57,7 @@
   </div>
 
   <div class="form-group">
-     <label for="phoneCode" class="col-sm-2 col-xs-2 control-label"><b class="text-danger" >*</b>短信码：</label>
+     <label for="phoneCode" class="col-sm-3 col-xs-3 control-label"><b class="text-danger" >*</b>短信码：</label>
     <div class="col-sm-6 col-xs-6">
 	    <div class="input-group">
 	      <div class="input-group-addon"><i class="fa fa-comment"></i></div>
@@ -72,7 +72,7 @@
   </div>
   <!-----
 <div class="form-group">
-     <label for="userIdcard" class="col-sm-2 col-xs-2 control-label">身份证号</label>
+     <label for="userIdcard" class="col-sm-3 col-xs-3 control-label">身份证号</label>
     <div class="col-sm-6 col-xs-6">
 	    <div class="input-group">
 	      <div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
@@ -81,7 +81,7 @@
     </div>
   </div>
   <div class="form-group">
-     <label for="realName" class="col-sm-2 col-xs-2 control-label">真实姓名</label>
+     <label for="realName" class="col-sm-3 col-xs-3 control-label">真实姓名</label>
     <div class="col-sm-6 col-xs-6">
 	    <div class="input-group">
 	      <div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
@@ -90,7 +90,7 @@
     </div>
   </div>
    <div class="form-group">
-     <label for="userQq" class="col-sm-2 col-xs-2 control-label"><@spring.message  code="label.user.qq" /></label>
+     <label for="userQq" class="col-sm-3 col-xs-3 control-label"><@spring.message  code="label.user.qq" /></label>
     <div class="col-sm-6 col-xs-6">
 	    <div class="input-group">
 	      <div class="input-group-addon"><i class="fa fa-qq"></i></div>
@@ -100,7 +100,7 @@
   </div>
     ---->
   <div class="form-group">
-     <label for="readme" class="col-sm-2 col-xs-2 control-label"></label> 
+     <label for="readme" class="col-sm-3 col-xs-3 control-label"></label>
     <div class="col-sm-6 col-xs-6" >
    	 <div class="checkbox">
        <label  >
