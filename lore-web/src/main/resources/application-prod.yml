@@ -101,7 +101,7 @@ spring:
     open-in-view: true
     hibernate:
      show_sql: true
-     format_sql: true
+     format_sql: false
      # Hibernate ddl auto (create, create-drop, update)
      ddl-auto: none
      # Naming strategy
