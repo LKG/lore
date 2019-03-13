@@ -22,45 +22,19 @@ import java.text.ParseException;
 
 @Slf4j
 @Component
-public class Reptile71CommunityJob {
-    //http://www.71.cn/2019/0306/1036178.shtml
+public class Reptile71CommunityJob extends  AbstractJob{
+
     @Autowired
     ArticleService articleService;
-    Integer MAX_PAGE=1000;
+    Integer MAX_PAGE=50;
     @Scheduled(cron = "0 38 22 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
         parseArticleList("http://www.71.cn/acastudies/expcolumn/community/1.shtml","社会");
     }
-    @Async
-    public void parseArticleList(String url,String type){
-        try {
-            String pageStr=StringUtils.substringAfterLast(url,"/");
-            pageStr=StringUtils.substringBefore(pageStr,".");
-            if(Integer.valueOf(pageStr)>MAX_PAGE){
-                log.error(url);
-                return;
-            }
-            Document listEle=Jsoup.parse(new URL(url),5000);
-            Elements articleEle=listEle.select(".articlelist_title a");
-            for (Element article:articleEle){
-                String articleUrl=article.attr("href");
-                parseArticle(articleUrl,type);
-            }
-            Elements pages=listEle.select(".page_box a.next");
-            if(pages.hasClass("disable")){
-               return;
-            }
-            String aUrl=pages.attr("href");
-            parseArticleList(aUrl,type);
-        } catch (IOException e) {
-            log.error(url);
-            log.error(e.getStackTrace()[0].getMethodName(), e);
-        }
-    }
-
 
     @Async
+    @Override
     public   Article parseArticle(String url,String type){
         Article entity=null;
         try

@@ -23,45 +23,18 @@ import java.util.Map;
 
 @Slf4j
 @Component
-public class Reptile71EconomyJob {
+public class Reptile71EconomyJob   extends  AbstractJob{
 
     @Autowired
     ArticleService articleService;
 
-    Integer MAX_PAGE=100;
+    Integer MAX_PAGE=50;
     @Scheduled(cron = "0 47 14 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
         parseArticleList("http://www.71.cn/acastudies/expcolumn/economy/1.shtml","经济");
     }
-    @Async
-    public void parseArticleList(String url,String type){
-        try {
-            String pageStr=StringUtils.substringAfterLast(url,"/");
-            pageStr=StringUtils.substringBefore(pageStr,".");
-            if(Integer.valueOf(pageStr)>MAX_PAGE){
-                log.error(url);
-                return;
-            }
-            Document listEle=Jsoup.parse(new URL(url),5000);
-            Elements articleEle=listEle.select(".articlelist_title a");
-            for (Element article:articleEle){
-                String articleUrl=article.attr("href");
-                parseArticle(articleUrl,type);
-            }
-            Elements pages=listEle.select(".page_box a.next");
-            if(pages.hasClass("disable")){
-               return;
-            }
-            String aUrl=pages.attr("href");
-            parseArticleList(aUrl,type);
-        } catch (IOException e) {
-            log.error(url);
-            log.error(e.getStackTrace()[0].getMethodName(), e);
-        }
-    }
-
-
+    @Override
     @Async
     public   Article parseArticle(String url,String type){
         Article entity=null;

@@ -23,10 +23,10 @@ import java.util.Map;
 
 @Slf4j
 @Component
-public class Reptile71PoliticsJob {
+public class Reptile71PoliticsJob    extends  AbstractJob{
     @Autowired
     ArticleService articleService;
-    Integer MAX_PAGE=100;
+    Integer MAX_PAGE=50;
     @Scheduled(cron = "0 49 20 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
@@ -34,6 +34,7 @@ public class Reptile71PoliticsJob {
     }
 
     @Async
+    @Override
     public void parseArticleList(String url,String type){
         try {
             String pageStr=StringUtils.substringAfterLast(url,"/");
