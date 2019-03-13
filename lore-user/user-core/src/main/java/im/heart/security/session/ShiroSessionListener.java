@@ -17,19 +17,19 @@ public class ShiroSessionListener implements SessionListener {
 	@Override
 	public void onStart(Session session) {
 		// TODO Auto-generated method stub
-		logger.info("回话个数+1=={}",sessionCount.get());
+		logger.info("创建会话=={}",sessionCount.get());
 	}
 
 	@Override
 	public void onStop(Session session) {
 		// TODO Auto-generated method stub
-		logger.info("回话个数-1=={}",sessionCount.get());
+		logger.info("会话onStop=={}",sessionCount.get());
 	}
 
 	@Override
 	public void onExpiration(Session session) {
 		// TODO Auto-generated method stub
-		logger.info("登录过期-1== {}",sessionCount.get());
+		logger.info("登录过期== {}",sessionCount.get());
 	}
 	public int getSessionCount() {
         return sessionCount.get();
