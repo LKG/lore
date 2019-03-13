@@ -7,7 +7,7 @@
     <groupId>im.heart</groupId>
     <artifactId>lore</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.56</version>
+    <version>0.1.57</version>
     <!-- 开发人员信息begin -->
     <!--项目开发者列表 -->
     <developers>
