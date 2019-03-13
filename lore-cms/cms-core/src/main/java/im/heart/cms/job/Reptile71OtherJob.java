@@ -19,20 +19,19 @@ import java.math.BigInteger;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.ParseException;
-import java.util.Map;
 
 @Slf4j
 @Component
-public class Reptile71PoliticsJob {
+public class Reptile71OtherJob {
+    //http://www.71.cn/2019/0306/1036178.shtml
     @Autowired
     ArticleService articleService;
-    Integer MAX_PAGE=100;
-    @Scheduled(cron = "0 49 20 * * ?")
+    Integer MAX_PAGE=1000;
+    @Scheduled(cron = "0 22 23 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
-        parseArticleList("http://www.71.cn/acastudies/expcolumn/politics/320.shtml","政治");
+        parseArticleList("http://www.71.cn/acastudies/expcolumn/other/1.shtml","其他");
     }
-
     @Async
     public void parseArticleList(String url,String type){
         try {

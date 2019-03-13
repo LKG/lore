@@ -27,8 +27,8 @@ public class Reptile71CultureJob {
     //http://www.71.cn/2019/0306/1036178.shtml
     @Autowired
     ArticleService articleService;
-    Integer MAX_PAGE=100;
-    @Scheduled(cron = "0 59 10 * * ?")
+    Integer MAX_PAGE=1000;
+    @Scheduled(cron = "0 42 22 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
         parseArticleList("http://www.71.cn/acastudies/expcolumn/culture/1.shtml","文化");
