@@ -63,10 +63,15 @@ public class FreeMarkerUtils {
 			throw new RuntimeException(e);
 		}
 	}
+	public static Configuration buildConfig(String directory)
+			throws IOException {
+		Resource path = new DefaultResourceLoader().getResource(directory);
+		configuration.setDirectoryForTemplateLoading(path.getFile());
+		return configuration;
+	}
 	public static Configuration buildClassLoaderConfig(String directory)
 			throws IOException {
 		configuration.setClassLoaderForTemplateLoading(ClassUtils.getDefaultClassLoader(),directory);
 		return configuration;
 	}
-
 }

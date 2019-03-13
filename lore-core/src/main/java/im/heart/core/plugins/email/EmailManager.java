@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 
 import javax.mail.internet.MimeMessage;
 import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -29,6 +30,7 @@ public class EmailManager {
 	private String mailFrom="";
 	@Value("${spring.mail.template-path}")
 	private String mailTemplatePath="classpath:/templates/email/";
+
 	@Autowired
 	private JavaMailSender javaMailSender;
 	/**
@@ -41,15 +43,26 @@ public class EmailManager {
 	public String mergeEmailContent(final Map<String, Object> model,
 			final String tplFile) {
 		String content = "";
+		Template template = null;
 		try {
 			Configuration cfg = FreeMarkerUtils.buildClassLoaderConfig(this.mailTemplatePath);
-			Template template = cfg.getTemplate(tplFile);
+			template = cfg.getTemplate(tplFile);
 			content = FreeMarkerUtils.renderTemplate(template, model);
 		} catch (Exception e) {
-			logger.error(e.getStackTrace()[0].getMethodName(), e);
+			logger.warn("获取配置信息出错开始尝试容错机制"+e.getStackTrace()[0].getMethodName());
+			try {
+				Configuration cfg = FreeMarkerUtils.buildConfig(this.mailTemplatePath);
+				template = cfg.getTemplate(tplFile);
+				content = FreeMarkerUtils.renderTemplate(template, model);
+			} catch (IOException e1) {
+				logger.error(e.getStackTrace()[0].getMethodName(), e);
+			}
 		}
 		return content;
 	}
+
+
+
 
 	/**
 	 * 
