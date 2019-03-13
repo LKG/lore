@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="5 seconds">
 	<include resource="org/springframework/boot/logging/logback/base.xml" />
-	<property name="LOG_HOME" value="/var/www/logs" />
+	<property name="LOG_HOME" value="/var/www/logs/lore" />
 	<!-- 控制台日志配置 -->
 	<appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
