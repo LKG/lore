@@ -20,8 +20,7 @@ import java.util.Map;
 @Component(value = SmsSendService.BEAN_NAME)
 public class SampleSmsSendServiceImpl implements SmsSendService {
 	protected static final Logger logger = LoggerFactory.getLogger(SampleSmsSendServiceImpl.class);
-/*	@Autowired
-	private SmsManager smsManager;*/
+
 	
 	@Profile("prod")
 	@Override

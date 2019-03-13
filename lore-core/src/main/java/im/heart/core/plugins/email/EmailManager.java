@@ -42,7 +42,7 @@ public class EmailManager {
 			final String tplFile) {
 		String content = "";
 		try {
-			Configuration cfg = FreeMarkerUtils.buildConfiguration(this.mailTemplatePath);
+			Configuration cfg = FreeMarkerUtils.buildClassLoaderConfig(this.mailTemplatePath);
 			Template template = cfg.getTemplate(tplFile);
 			content = FreeMarkerUtils.renderTemplate(template, model);
 		} catch (Exception e) {
@@ -131,21 +131,4 @@ public class EmailManager {
 		MimeMessagePreparator mimeMessagePreparator =this.buildMimeMessage(mailTo,subject,content,files);
 		this.sendJavaMail(mimeMessagePreparator);
 	}
-	public String getMailFrom() {
-		return mailFrom;
-	}
-
-	public void setMailFrom(String mailFrom) {
-		this.mailFrom = mailFrom;
-	}
-
-	public String getMailTemplatePath() {
-		return mailTemplatePath;
-	}
-
-	public void setMailTemplatePath(String mailTemplatePath) {
-		this.mailTemplatePath = mailTemplatePath;
-	}
-
-
 }
