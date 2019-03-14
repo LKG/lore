@@ -63,10 +63,10 @@
                 <i class="fa fa-thumbs-o-up fa-lg pull-right" id="praise-btn"  data-url="${contextPath}/doc/${result.id}/praise.json" ></i>
                 <a type="button" id="vip-btn" class="btn pull-right" target="_blank" href="${contextPath}/vip.jttml" ><i class="fa fa-free-code-camp">加入Vip免费下载</i></a>
                 <a type="button" id="down-btn" class="btn btn-danger pull-right" href="${contextPath}/order/getOrderInfo.jhtml?id=${result.id!''}" ><i class="fa  fa-cloud-download">立即下载</i></a>
-                <button type="button" id="focus-btn" class="btn btn-danger pull-right" data-url="${contextPath}/doc/${result.id}/collect.json">
-                    <i class="fa fa-heart-o fa-lg"></i>
+                <button type="button" <#if result.isCollect>id="focus-btn"</#if> class="btn btn-danger pull-right" data-url="${contextPath}/doc/${result.id}/collect.json">
+                    <i class="fa  <#if result.isCollect>fa-heart<#else>fa-heart-o</#if> fa-lg"></i>
                     <span id="collect-txt">
-                        ${result.isCollect==true}
+                        <#if result.isCollect>已收藏<#else>收藏</#if>
                         </span>
                 </button>
 

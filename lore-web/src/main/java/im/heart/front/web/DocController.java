@@ -59,7 +59,7 @@ public class DocController extends AbstractController {
         BigInteger userId=SecurityUtilsHelper.getCurrentUserId();
         if(!BigInteger.ZERO.equals(userId)){
             Optional<FrameUserFollow> optional= this.frameUserFollowService.findByUserIdAndRelateIdAndType(userId,po.getId(),po.getPeriodicalType());
-            if(!optional.isPresent()){
+            if(optional.isPresent()){
                 vo.setIsCollect(Boolean.TRUE);
             }
         }

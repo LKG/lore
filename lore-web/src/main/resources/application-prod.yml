@@ -49,7 +49,7 @@ spring:
     settings:
       template_update_delay: 0
       number_format: '0.##'   #数字格式化，无小数点
-      boolean_format: true,false
+      boolean_format: 'true,false'
     request-context-attribute: request
   redis:
     host: 127.0.0.1
