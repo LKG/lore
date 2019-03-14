@@ -28,7 +28,7 @@ public class FrameLogOperate implements AbstractEntity<BigInteger> {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(length = 20, name = "ID", nullable = false, unique = true, updatable = false)
-	private BigInteger id;// Id
+	private BigInteger id;
 	
 	@Column(length = 32, name = "USER_ID", nullable = false, updatable = false)
 	private BigInteger userId;
@@ -37,7 +37,7 @@ public class FrameLogOperate implements AbstractEntity<BigInteger> {
 	@Size(min = 5, max = 32)
 	@Length(max = 32)
 	@Column(length = 32, name = "USER_NAME", nullable = false,updatable = false)
-	private String userName;// 操作用户登录帐号
+	private String userName;
 	
 	@JSONField(format="yyyy-MM-dd HH:mm:ss")
 	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")

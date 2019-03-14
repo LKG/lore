@@ -70,22 +70,18 @@
 			      <thead>
 			        <tr>
 			          <th class="text-center">登录时间</th>
-			          <th class="text-center">登录地点</th>
 			          <th class="text-center">ip地址</th>
 			          <th class="text-center">登录方式</th>
 			        </tr>
 			      </thead>
 			      <tbody>
 			       <#if (result.content?size<=0) >
-	          		 <tr ><td class="text-center" scope="row" colspan='7' ><@spring.message  code="label.default.empty" /></td></tr>
+	          		 <tr ><td class="text-center" scope="row" colspan='3' ><@spring.message  code="label.default.empty" /></td></tr>
 				   <#else>
 					    <#list result.content as model>
 					    	<tr > 
 							    <td  class="text-center" >
 							    	${model.createTime}
-							    </td>
-							    <td  class="text-center" >
-							    	${model.userHost!''}
 							    </td>
 							    <td  class="text-center" >
 							    	${model.userHost!''}

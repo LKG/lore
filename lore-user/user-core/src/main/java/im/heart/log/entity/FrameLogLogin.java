@@ -56,26 +56,23 @@ public class FrameLogLogin implements AbstractEntity<BigInteger> {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(length = 20, name = "ID", nullable = false, unique = true, updatable = false)
-	private BigInteger id;// Id
+	private BigInteger id;
 	
 	@Column(length = 32, name = "USER_ID", nullable = false, updatable = false)
-	private BigInteger userId;// 用户编号
+	private BigInteger userId;
 	@NotBlank
 	@Size(min = 5, max = 32)
 	@Length(max = 32)
 	@Column(length = 32, name = "USER_NAME", nullable = false,updatable = false)
-	private String userName;// 登录帐号
-	
+	private String userName;
 
+	/**
+	 * 日志类型，1登录，2登出
+	 */
 	@Enumerated(EnumType.STRING)
 	@Column(length = 20, name = "LOG_TYPE", nullable = false,updatable = false)
-	private LogType logType;// 日志类型，1登录，2登出
-	
-//	@NotBlank
-//	@Size(min = 6, max = 32)
-//	@Column(length = 32, name = "LOGIN_CHANNEL", nullable = false,updatable = false)
-//	private String loginChannel;
-	
+	private LogType logType;
+
 	@Column(length = 128, name = "USER_IP_INFO",updatable = false)
 	private String userIpInfo;
 	

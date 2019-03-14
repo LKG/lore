@@ -66,7 +66,7 @@
 <div class="alert alert-warning" style="padding: 5px;margin-bottom: 0px;"  role="alert">
     <p class="form-control-static">
         1、请勿上传已设置加密或只读的资源，不支持此类资源在线阅读。
-        2、 目前支持文件格式(ppt,pptx,doc,docx)
+        2、 目前支持文件格式(ppt,pptx,xls,xlsx,doc,docx,txt)
     </p>
 </div>
 <div class="container-full" >
