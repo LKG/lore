@@ -32,7 +32,7 @@ public class Reptile71PoliticsJob    extends  AbstractJob{
         log.info(".....................");
         parseArticleList("http://www.71.cn/acastudies/expcolumn/politics/320.shtml","政治");
     }
-    
+
     @Async
     @Override
     public   Article parseArticle(String url,String type){
