@@ -28,7 +28,7 @@ public class Reptile71EconomyJob   extends  AbstractJob{
     @Autowired
     ArticleService articleService;
 
-    Integer MAX_PAGE=50;
+    Integer MAX_PAGE=10;
     @Scheduled(cron = "0 47 14 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");

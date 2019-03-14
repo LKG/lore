@@ -26,43 +26,15 @@ import java.util.Map;
 public class Reptile71PoliticsJob    extends  AbstractJob{
     @Autowired
     ArticleService articleService;
-    Integer MAX_PAGE=50;
+    Integer MAX_PAGE=10;
     @Scheduled(cron = "0 49 20 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
         parseArticleList("http://www.71.cn/acastudies/expcolumn/politics/320.shtml","政治");
     }
-
+    
     @Async
     @Override
-    public void parseArticleList(String url,String type){
-        try {
-            String pageStr=StringUtils.substringAfterLast(url,"/");
-            pageStr=StringUtils.substringBefore(pageStr,".");
-            if(Integer.valueOf(pageStr)>MAX_PAGE){
-                log.error(url);
-                return;
-            }
-            Document listEle=Jsoup.parse(new URL(url),5000);
-            Elements articleEle=listEle.select(".articlelist_title a");
-            for (Element article:articleEle){
-                String articleUrl=article.attr("href");
-                parseArticle(articleUrl,type);
-            }
-            Elements pages=listEle.select(".page_box a.next");
-            if(pages.hasClass("disable")){
-               return;
-            }
-            String aUrl=pages.attr("href");
-            parseArticleList(aUrl,type);
-        } catch (IOException e) {
-            log.error(url);
-            log.error(e.getStackTrace()[0].getMethodName(), e);
-        }
-    }
-
-
-    @Async
     public   Article parseArticle(String url,String type){
         Article entity=null;
         try
