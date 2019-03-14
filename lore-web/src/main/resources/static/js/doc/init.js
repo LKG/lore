@@ -38,7 +38,7 @@ define(function (require, exports, moudles) {
 	 }
 	getDocImgList();
 
-	 $("#praise-btn").on("click" ,function(){
+	 $("#btn-praise").on("click" ,function(){
 		 var $obj=$(this);
 		 $obj.attr("disabled","disabled");
 		  var dataUrl=$obj.attr("data-url");
@@ -53,7 +53,7 @@ define(function (require, exports, moudles) {
 		         }
 		    }); 
 	 });
-    $("#focus-btn").on("click" ,function(){
+    $("#btn-focus").on("click" ,function(){
         var $obj=$(this);
         $obj.attr("disabled","disabled");
         var dataUrl=$obj.attr("data-url");

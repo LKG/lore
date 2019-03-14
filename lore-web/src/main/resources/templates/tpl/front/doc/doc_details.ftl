@@ -15,7 +15,7 @@
         .tab-pane{
             padding-top:30px;
         }
-        .panel-heading #focus-btn,.panel-heading #cart-btn,.panel-heading #vip-btn,.panel-heading #down-btn{
+        .panel-heading #btn-focus,.panel-heading #btn-cart,.panel-heading #btn-vip,.panel-heading #btn-down{
             margin-top: -27px;
         }
         .panel-heading  h4{
@@ -23,7 +23,7 @@
             padding-left:15px;
             margin-left:-13px;
         }
-        #praise-btn{
+        #btn-praise{
             margin-top: -13px;
         }
         .isStuck{
@@ -60,17 +60,15 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading" id="doc-nav-top" ><h4>${result.periodicalName!''}</h4>
-                <i class="fa fa-thumbs-o-up fa-lg pull-right" id="praise-btn"  data-url="${contextPath}/doc/${result.id}/praise.json" ></i>
-                <a type="button" id="vip-btn" class="btn pull-right" target="_blank" href="${contextPath}/vip.jttml" ><i class="fa fa-free-code-camp">加入Vip免费下载</i></a>
-                <a type="button" id="down-btn" class="btn btn-danger pull-right" href="${contextPath}/order/getOrderInfo.jhtml?id=${result.id!''}" ><i class="fa  fa-cloud-download">立即下载</i></a>
-                <button type="button" <#if result.isCollect>id="focus-btn"</#if> class="btn btn-danger pull-right" data-url="${contextPath}/doc/${result.id}/collect.json">
+                <i class="fa fa-thumbs-o-up fa-lg pull-right" id="btn-praise"  data-url="${contextPath}/doc/${result.id!''}/praise.json" ></i>
+                <a type="button" id="btn-vip" class="btn pull-right" target="_blank" href="${contextPath}/vip.jttml" ><i class="fa fa-free-code-camp">加入Vip免费下载</i></a>
+                <a type="button" id="btn-down" class="btn btn-danger pull-right" href="${contextPath}/order/getOrderInfo.jhtml?id=${result.id!''}" ><i class="fa  fa-cloud-download">立即下载</i></a>
+                <button type="button" id="btn-focus"  class="btn btn-danger pull-right" data-url="${contextPath}/doc/${result.id!''}/collect.json">
                     <i class="fa  <#if result.isCollect>fa-heart<#else>fa-heart-o</#if> fa-lg"></i>
-                    <span id="collect-txt">
-                        <#if result.isCollect>已收藏<#else>收藏</#if>
-                        </span>
+                    <span id="collect-txt"><#if result.isCollect>已收藏<#else>收藏</#if></span>
                 </button>
 
-                <button type="button" id="cart-btn" class="btn btn-primary pull-right hide" data-url="${contextPath}/doc/${result.id!'0'}/praise.json" ><i class="fa fa-cart-plus">加入购物车</i></button>
+                <button type="button" id="cart-btn" class="btn btn-primary pull-right hide" data-url="${contextPath}/doc/${result.id!''}/praise.json" ><i class="fa fa-cart-plus">加入购物车</i></button>
 
             </div>
             <div class="panel-body">

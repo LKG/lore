@@ -14,9 +14,6 @@
         .tab-pane{
             padding-top:30px;
         }
-        .panel-heading #focus-btn,.panel-heading #cart-btn,.panel-heading #vip-btn,.panel-heading #down-btn{
-            margin-top: -27px;
-        }
         .panel-heading  h4{
             border-left: 2px solid #189ae5;
             padding-left:15px;
@@ -76,7 +73,6 @@
                 <div class="borline clearfix">
                     <p class="artinfo">　时间：${result.pushTime!''} |　<span class="author"><#if result.author??><code>${result.author!''}</code></#if></span>  |　字体：【<a class="cgray" data-font="16"  href="javascript:void(0);">大</a> <a class="cgray"  data-font="14"  href="javascript:void(0);" >中</a> <a class="cgray"  data-font="12" href="javascript:void(0);" >小</a>】|　阅读: ${result.hits!''}</p>
                     <!-- <p class="share">分享到：</p> -->
-
                 </div>
                 <div class="article-content-dev" id="article-content-dev" >
                     ${result.content!''}
