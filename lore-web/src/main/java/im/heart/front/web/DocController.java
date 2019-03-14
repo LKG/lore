@@ -55,7 +55,15 @@ public class DocController extends AbstractController {
             ModelMap model) {
         this.updateHitsById(id);
         Periodical po = this.periodicalService.findById(id);
-        super.success(model, new PeriodicalVO(po));
+        PeriodicalVO vo=new PeriodicalVO(po);
+        BigInteger userId=SecurityUtilsHelper.getCurrentUserId();
+        if(!BigInteger.ZERO.equals(userId)){
+            Optional<FrameUserFollow> optional= this.frameUserFollowService.findByUserIdAndRelateIdAndType(userId,po.getId(),po.getPeriodicalType());
+            if(!optional.isPresent()){
+                vo.setIsCollect(Boolean.TRUE);
+            }
+        }
+        super.success(model,vo );
         return new ModelAndView(VIEW_DETAILS);
     }
     @RequestMapping(apiVer+"s")

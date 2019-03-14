@@ -4,10 +4,11 @@ import com.alibaba.fastjson.annotation.JSONField;
 import im.heart.core.enums.Status;
 import im.heart.material.entity.Periodical;
 import im.heart.material.entity.PeriodicalImg;
+import lombok.Data;
 import org.springframework.beans.BeanUtils;
 
 import java.util.Date;
-
+@Data
 public class PeriodicalImgVO extends PeriodicalImg {
 
     @JSONField(format="yyyy-MM-dd")

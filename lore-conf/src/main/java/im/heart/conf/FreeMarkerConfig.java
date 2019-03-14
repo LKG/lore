@@ -6,6 +6,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
+/**
+ *
+ * @author gg
+ * @desc FreeMarker 配置类
+ */
 @Configuration
 public class FreeMarkerConfig  implements InitializingBean {
     @Autowired

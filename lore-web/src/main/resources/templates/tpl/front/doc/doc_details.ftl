@@ -63,9 +63,14 @@
                 <i class="fa fa-thumbs-o-up fa-lg pull-right" id="praise-btn"  data-url="${contextPath}/doc/${result.id}/praise.json" ></i>
                 <a type="button" id="vip-btn" class="btn pull-right" target="_blank" href="${contextPath}/vip.jttml" ><i class="fa fa-free-code-camp">加入Vip免费下载</i></a>
                 <a type="button" id="down-btn" class="btn btn-danger pull-right" href="${contextPath}/order/getOrderInfo.jhtml?id=${result.id!''}" ><i class="fa  fa-cloud-download">立即下载</i></a>
-                <button type="button" id="focus-btn" class="btn btn-danger pull-right" data-url="${contextPath}/doc/${result.id}/collect.json"><i class="fa heart fa-lg"></i><span id="collect-txt">收藏</span></button>
+                <button type="button" id="focus-btn" class="btn btn-danger pull-right" data-url="${contextPath}/doc/${result.id}/collect.json">
+                    <i class="fa fa-heart-o fa-lg"></i>
+                    <span id="collect-txt">
+                        ${result.isCollect==true}
+                        </span>
+                </button>
 
-                <button type="button" id="cart-btn" class="btn btn-primary pull-right hide" data-url="${contextPath}/doc/${result.id}/praise.json" ><i class="fa fa-cart-plus">加入购物车</i></button>
+                <button type="button" id="cart-btn" class="btn btn-primary pull-right hide" data-url="${contextPath}/doc/${result.id!'0'}/praise.json" ><i class="fa fa-cart-plus">加入购物车</i></button>
 
             </div>
             <div class="panel-body">

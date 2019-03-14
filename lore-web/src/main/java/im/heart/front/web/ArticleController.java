@@ -47,13 +47,6 @@ public class ArticleController extends AbstractController {
             ModelMap model) {
         this.updateHitsById(id);
         Article po = this.articleService.findById(id);
-        BigInteger userId=SecurityUtilsHelper.getCurrentUser().getUserId();
-        if(!BigInteger.ZERO.equals(userId)){
-            Optional<FrameUserFollow> optional= this.frameUserFollowService.findByUserIdAndRelateIdAndType(userId,po.getId(),po.getType());
-            if(!optional.isPresent()){
-
-            }
-        }
         super.success(model, po);
         return new ModelAndView(VIEW_DETAILS);
     }

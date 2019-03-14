@@ -134,11 +134,6 @@ public class FrameUser implements AbstractEntity<BigInteger> {
 		return Boolean.FALSE;
 	}
 
-	public static void main(String[] args) {
-
-		;
-		System.out.println(new DateTime("2019-4-12").isAfterNow());
-	}
 	/**
 	 * // 确认密码 非数据库字段
 	 */
