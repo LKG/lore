@@ -43,7 +43,7 @@ public class FrameUserFollow implements AbstractEntity<BigInteger> {
 
 	@Column(length = 32, name = "ITEM_TITLE", nullable = false, updatable = false)
 	private String itemTitle;
-	@Column(length = 32, name = "ITEM_IMGURL", nullable = false, updatable = false)
+	@Column(length = 32, name = "ITEM_IMG_URL", nullable = false, updatable = false)
 	private String itemImgUrl;
 
 	@NotNull

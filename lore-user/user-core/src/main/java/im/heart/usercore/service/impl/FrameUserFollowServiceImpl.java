@@ -33,10 +33,7 @@ public class FrameUserFollowServiceImpl extends CommonServiceImpl<FrameUserFollo
 
 	@Override
 	public List<FrameUserFollow> findByUserId(BigInteger userId) {
-		final Collection<SearchFilter> filters =  Sets.newHashSet();
-		filters.add(new SearchFilter("userId", SearchFilter.Operator.EQ, userId));
-		Specification<FrameUserFollow> spec = DynamicSpecifications.bySearchFilter(filters, FrameUserFollow.class);
-		return this.frameUserFollowRepository.findAll(spec);
+		return this.findByUserIdAndType(userId,null);
 	}
 
 	@Override
@@ -46,11 +43,6 @@ public class FrameUserFollowServiceImpl extends CommonServiceImpl<FrameUserFollo
 		filters.add(new SearchFilter("type", SearchFilter.Operator.EQ, relateType));
 		Specification<FrameUserFollow> spec = DynamicSpecifications.bySearchFilter(filters, FrameUserFollow.class);
 		return this.frameUserFollowRepository.findAll(spec);
-	}
-
-	@Override
-	public Optional<FrameUserFollow>  findByUserIdAndRelateId(BigInteger userId, BigInteger relateId) {
-		return findByUserIdAndRelateIdAndType(userId,relateId,null);
 	}
 	@Override
 	public Optional<FrameUserFollow> findByUserIdAndRelateIdAndType(BigInteger userId, BigInteger relateId, String relateType) {

@@ -5,6 +5,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import com.google.common.collect.Lists;
 import im.heart.usercore.entity.FramePermission;
 import im.heart.usercore.entity.FrameResource;
+import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 
@@ -14,6 +15,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ *
+ * @author gg
+ * 资源VO
+ */
+@Data
 public class FrameResourceVO extends FrameResource{
 	/**
 	 * 
@@ -52,22 +59,8 @@ public class FrameResourceVO extends FrameResource{
 			}
 		}
 	}
-	public Boolean getIschecked() {
-		return ischecked;
-	}
-	public void setIschecked(Boolean ischecked) {
-		this.ischecked = ischecked;
-	}
 
 	public void addPermission(FramePermissionVO permissionVO) {
 		this.permissions.add(permissionVO);
 	}
-	public List<FramePermissionVO> getPermissions() {
-		return permissions;
-	}
-	public void setPermissions(List<FramePermissionVO> permissions) {
-		this.permissions = permissions;
-	}
-
-	
 }

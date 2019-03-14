@@ -3,10 +3,16 @@ package im.heart.usercore.vo;
 import com.alibaba.fastjson.annotation.JSONField;
 import im.heart.core.enums.Status;
 import im.heart.usercore.entity.FramePermission;
+import lombok.Data;
 import org.springframework.beans.BeanUtils;
 
 import java.util.Date;
-
+/**
+ *
+ * @author gg
+ * 权限VO
+ */
+@Data
 public class FramePermissionVO extends FramePermission {
 	/**
 	 * 
@@ -26,11 +32,5 @@ public class FramePermissionVO extends FramePermission {
 	public FramePermissionVO(FramePermission po){
 		BeanUtils.copyProperties(po, this);
 	}
-	public Boolean getIsChecked() {
-		return isChecked;
-	}
-	public void setIsChecked(Boolean isChecked) {
-		this.isChecked = isChecked;
-	}
-	
+
 }

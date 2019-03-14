@@ -30,6 +30,6 @@ public interface FrameUserFollowService extends CommonService<FrameUserFollow, B
 	public List<FrameUserFollow> findByUserId(BigInteger userId);
 
 	public List<FrameUserFollow> findByUserIdAndType(BigInteger userId, String relateType);
-	public Optional<FrameUserFollow> findByUserIdAndRelateId(BigInteger userId, BigInteger relateId);
+
 	public Optional<FrameUserFollow> findByUserIdAndRelateIdAndType(BigInteger userId, BigInteger relateId, String relateType);
 }

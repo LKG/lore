@@ -7,6 +7,9 @@ import im.heart.core.plugins.persistence.DynamicPageRequest;
 import im.heart.core.plugins.persistence.DynamicSpecifications;
 import im.heart.core.plugins.persistence.SearchFilter;
 import im.heart.core.web.AbstractController;
+import im.heart.security.utils.SecurityUtilsHelper;
+import im.heart.usercore.entity.FrameUserFollow;
+import im.heart.usercore.service.FrameUserFollowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,6 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.math.BigInteger;
 import java.util.Collection;
+import java.util.Optional;
 
 @Controller
 public class ArticleController extends AbstractController {
@@ -30,6 +34,9 @@ public class ArticleController extends AbstractController {
     protected static final String VIEW_DETAILS="front/article/article_details";
     @Autowired
     private ArticleService articleService;
+
+    @Autowired
+    private FrameUserFollowService frameUserFollowService;
 
     @GetMapping(value = apiVer+"/{id}")
     protected ModelAndView findById(
@@ -40,6 +47,13 @@ public class ArticleController extends AbstractController {
             ModelMap model) {
         this.updateHitsById(id);
         Article po = this.articleService.findById(id);
+        BigInteger userId=SecurityUtilsHelper.getCurrentUser().getUserId();
+        if(!BigInteger.ZERO.equals(userId)){
+            Optional<FrameUserFollow> optional= this.frameUserFollowService.findByUserIdAndRelateIdAndType(userId,po.getId(),po.getType());
+            if(!optional.isPresent()){
+
+            }
+        }
         super.success(model, po);
         return new ModelAndView(VIEW_DETAILS);
     }

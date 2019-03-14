@@ -156,7 +156,7 @@ public class DynamicSpecifications {
 							}
 						}
 						// 枚举类型转换
-						if (classz.isEnum()) {// 枚举类型转换
+						if (classz.isEnum()) {
 							logger.debug("枚举类型......");
 							if (StringUtilsEx.isNumeric(val.toString())) {
 								Method method = ReflectUtils.getMethod(classz, true, false, "findByIntValue", int.class);

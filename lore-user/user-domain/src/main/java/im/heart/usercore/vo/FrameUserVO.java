@@ -4,14 +4,13 @@ import im.heart.core.utils.StringUtilsEx;
 import im.heart.core.validator.ValidatorUtils;
 import im.heart.usercore.entity.FrameUser;
 import org.springframework.beans.BeanUtils;
-
+/**
+ *
+ * @author gg
+ * 用户VO
+ */
 public class FrameUserVO extends FrameUser {
-	
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 898074790249096640L;
+
 
 	public FrameUserVO(FrameUser po){
 		this(po,true);
@@ -39,5 +38,4 @@ public class FrameUserVO extends FrameUser {
 			setIdCard(idCard);
 		}
 	}
-	
 }

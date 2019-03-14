@@ -2,16 +2,20 @@ package im.heart.usercore.vo;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import im.heart.usercore.entity.FrameRole;
+import lombok.Data;
 import org.springframework.beans.BeanUtils;
 
 import java.math.BigInteger;
 import java.util.Date;
 
+/**
+ *
+ * @author gg
+ * 用户角色VO
+ */
+@Data
 public class FrameUserRoleVO extends  FrameRole {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 6662998853899204880L;
+
 
 	@JSONField (serialize=false)
 	private String roleDesc;
@@ -28,23 +32,5 @@ public class FrameUserRoleVO extends  FrameRole {
 	private Boolean hasRole=Boolean.FALSE;
 	public FrameUserRoleVO(FrameRole po){
 		BeanUtils.copyProperties(po, this);
-	}
-	public Boolean getHasRole() {
-		return hasRole;
-	}
-	public void setHasRole(Boolean hasRole) {
-		this.hasRole = hasRole;
-	}
-	public BigInteger getUserId() {
-		return userId;
-	}
-	public void setUserId(BigInteger userId) {
-		this.userId = userId;
-	}
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
 	}
 }

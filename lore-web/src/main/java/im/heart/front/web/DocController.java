@@ -108,7 +108,7 @@ public class DocController extends AbstractController {
             ModelMap model) {
         BigInteger userId= SecurityUtilsHelper.getCurrentUser().getUserId();
         Periodical materialPeriodical=this.periodicalService.findById(id);
-        Optional<FrameUserFollow> optional= this.frameUserFollowService.findByUserIdAndRelateId(userId,id);
+        Optional<FrameUserFollow> optional= this.frameUserFollowService.findByUserIdAndRelateIdAndType(userId,id,materialPeriodical.getPeriodicalType());
         if(!optional.isPresent()){
             FrameUserFollow userFollow=new FrameUserFollow();
             userFollow.setRelateId(id);

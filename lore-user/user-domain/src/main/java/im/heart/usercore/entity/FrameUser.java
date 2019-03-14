@@ -7,6 +7,8 @@ import im.heart.core.enums.Status;
 import lombok.Data;
 import org.hibernate.annotations.*;
 import org.hibernate.validator.constraints.Length;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeUtils;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -121,6 +123,22 @@ public class FrameUser implements AbstractEntity<BigInteger> {
 	@Column(name = "USER_LEVEL", nullable = false)
 	private Integer userLevel = 1;
 
+	@Column(name = "IS_VIP", nullable = false)
+	private Boolean isVip = Boolean.FALSE;
+
+
+	public  Boolean isExpiry(){
+		if(isVip&&expiryTime!=null){
+			return new DateTime(expiryTime).isAfterNow();
+		}
+		return Boolean.FALSE;
+	}
+
+	public static void main(String[] args) {
+
+		;
+		System.out.println(new DateTime("2019-4-12").isAfterNow());
+	}
 	/**
 	 * // 确认密码 非数据库字段
 	 */
@@ -214,6 +232,8 @@ public class FrameUser implements AbstractEntity<BigInteger> {
 		createTime = new Date();
 		modifyTime = new Date();
 	}
+
+
 
 	@PreUpdate
 	protected void onUpdate() {

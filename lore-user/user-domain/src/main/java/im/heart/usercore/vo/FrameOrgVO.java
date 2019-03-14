@@ -1,14 +1,15 @@
 package im.heart.usercore.vo;
 
 import im.heart.usercore.entity.FrameOrg;
+import lombok.Data;
 import org.springframework.beans.BeanUtils;
-
+/**
+ *
+ * @author gg
+ * 机构VO
+ */
+@Data
 public class FrameOrgVO extends FrameOrg {
-	/**
-		 * 
-		 */
-	private static final long serialVersionUID = 2988400809352832540L;
-
 
 	private Boolean isRelated = Boolean.FALSE;
 	private Boolean isDefault=Boolean.FALSE;
@@ -16,23 +17,5 @@ public class FrameOrgVO extends FrameOrg {
 		BeanUtils.copyProperties(po, this);
 	}
 
-
-	public Boolean getIsRelated() {
-		return isRelated;
-	}
-
-	public void setIsRelated(Boolean isRelated) {
-		this.isRelated = isRelated;
-	}
-
-
-	public Boolean getIsDefault() {
-		return isDefault;
-	}
-
-
-	public void setIsDefault(Boolean isDefault) {
-		this.isDefault = isDefault;
-	}
 	
 }
