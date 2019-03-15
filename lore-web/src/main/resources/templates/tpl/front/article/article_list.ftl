@@ -105,7 +105,7 @@
                                           <a class="item-href"  href="${contextPath}/article/${article.id!''}.jhtml"
                                              target="_blank" >${article.title!''}</a>
                                           <span >阅读量：<code>${article.hits!'0'}</code></span>
-                                          <span >点赞数：<code>${article.rateTimes!'0'}</code></span>
+                  <#--                        <span >点赞数：<code>${article.rateTimes!'0'}</code></span>-->
                                           <span class="pull-right">${article.pushTime!''}</span>
                                       </li>
                                   </#list >
