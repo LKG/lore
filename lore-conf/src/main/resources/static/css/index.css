@@ -191,12 +191,12 @@ _display: block;
 #xx:hover{background:#c81600;}
 /*logo一栏*/
 
-.w{width:1200px;margin:0 auto;position:relative;}
-.w .logo{width:360px;height:45px;padding:15px 0;float:left;}
-.w .search{float:left;margin-top:15px;}
-.w .search .text{float:left;/*height:24px;*/line-height:24px;padding:4px;border-width:2px 0 2px 2px;border-color:#b61d1d;border-style:solid;font-size:14px;font-family:"microsoft yahei";width:455px;outline:0;color: rgb(153, 153, 153);}
+.w{width:1200px;margin:0 auto;position:relative;padding-top:15px ;}
+.w .logo{width:210px;height:45px;padding:15px 0;float:left;}
+.w .search{float:left;}
+.w .search .text{float:left;line-height:24px;padding:4px;border-width:2px 0 2px 2px;border-color:#b61d1d;border-style:solid;font-size:14px;font-family:"microsoft yahei";outline:0;color: rgb(153, 153, 153);}
 .w .search .button{float:left;width:82px;height:36px;background:#b61d1d;border:none;color:#fff;font-size:16px;}
-.w .right{/*width:75px;*/height:34px;border:1px solid #dfdfdf;padding:0 28px 0 34px;text-align:center;line-height:34px;float:right;margin-right:30px;margin-top:15px;font-size:12px;position:relative;}
+.w .right{height:34px;border:1px solid #dfdfdf;padding:0 28px 0 34px;text-align:center;line-height:34px;float:right;font-size:12px;position:relative;}
 .w .right .gw-left{position:absolute;top:8px;left:17px;}
 .w .right .gw-right{font: 400 13px/13px simsun;top:10px;position:absolute;right:11px;color:#999}
 .w .right .gw-count{position:absolute;top:-4px;left:104px;display:inline-block;font: 400 13px/13px simsun;background:#c81623;border-radius:7px 7px 7px 0;min-width: 12px;text-align: center;color:#fff;}
@@ -231,7 +231,7 @@ _display: block;
 .dorpdown-layer{width:308px;height:60px;border:1px solid #ccc;position:absolute;top:34px;left:-185px;text-align:center;display:none;}
 .right:hover{border-bottom:none;}
 .right:hover .dorpdown-layer{display:block;background:#fff;}
-.hotwords{clear:both;width:518px;position:absolute;top:59px;left:351px;}
+.hotwords{clear:both;position:absolute;top:59px;}
 .hotwords a{float:left;margin:0 7px;}
 
 /*轮播图上方 导航栏 横向一栏*/
@@ -1244,9 +1244,17 @@ text-align: right;
 	.header-box{width:768px;}
 	.aa{width:768px;}
 	.w {width:768px;}
+	.w .logo{width:210px;}
+	.w .search .text{
+		width: 300px;
+	}
 }
 @media (min-width: 1200px) {
 	.header-box{width:1200px;}
 	.aa{width:1200px;}
 	.w {width:1200px;}
+	.w .logo{width:360px;}
+	.w .search .text{
+		width: 455px;
+	}
 }
