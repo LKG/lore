@@ -1,10 +1,10 @@
 <script id="doc-carousel-template-js" type="text/html">
     {{each result.content }}
-    <div class="panel panel-default">
-        <div class="panel-body">
+    <div class="panel panel-default" style="margin-bottom: 5px;">
+        <div class="panel-body" style="padding: 0px 0px; ">
             <img   data-original="{{$value.imgUrl}}"  width="765" height="574" class="lazy img-responsive" alt=" {{$value.pageNum}}"/>
         </div>
-        <div class="panel-footer text-right" >第{{$value.pageNum}}页</div>
+        <div class="panel-footer text-right"  style="padding: 5px 15px;" >第{{$value.pageNum}}页</div>
     </div>
     {{/each}}
 </script>

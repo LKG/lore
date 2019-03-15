@@ -23,6 +23,9 @@
             padding-left:15px;
             margin-left:-13px;
         }
+        #row-main{
+           box-shadow: 0 1px 5px rgba(4,0,0,.1);
+        }
         #btn-praise{
             margin-top: -13px;
         }
@@ -57,7 +60,7 @@
     </ol>
 </div>
 <div class="container" >
-    <div class="row">
+    <div class="row"  id="row-main">
         <div class="panel panel-default">
             <div class="panel-heading" id="doc-nav-top" ><h4>${result.periodicalName!''}</h4>
                 <i class="fa fa-thumbs-o-up fa-lg pull-right" id="btn-praise"  data-url="${contextPath}/doc/${result.id!''}/praise.json" ></i>
