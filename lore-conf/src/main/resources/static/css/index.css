@@ -678,12 +678,6 @@ overflow: hidden;
 margin-top: 13px;
 }
 .footer-banner-1{padding: 0 5px;margin-bottom: 10px;}
-/*服装装包*/
-#clothes .mt {
-height: 36px;
-padding: 0;
-margin: 0;
-}
 .floor h2 {
 position: relative;
 color: #333;
@@ -814,10 +808,6 @@ text-decoration: none;
 .floor img {
 vertical-align: top;
 }
-#clothes .themes {
-padding-left: 25px;
-margin-top: -221px;
-}
 .floor .themes {
 position: relative;
 padding-left: 10px;
@@ -827,9 +817,6 @@ overflow: hidden;
 background: rgba(255,255,255,.5);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#88FFFFFF, endColorstr=#88FFFFFF);
 }
-#clothes .themes li {
-width: 100px;
-}
 .floor .themes li {
 float: left;
 width: 98px;
@@ -838,10 +825,6 @@ padding: 10px 0;
 }
 .floor .themes a {
 float: left;
-}
-#clothes .themes .fore1 .icon {
-background: url(../images/clothesicon.png) 0 0 no-repeat;
-_background: url(../images/clothesicon8.png) 0 0 no-repeat;
 }
 .floor .themes .icon {
 width: 26px;
@@ -857,41 +840,12 @@ height: 26px;
 overflow: hidden;
 line-height: 26px;
 }
-#clothes .themes .fore2 .icon {
-background: url(../images/clothesicon.png) 0 -26px no-repeat;
-_background: url(../images/clothesicon8.png) 0 -26px no-repeat;
-}
-#clothes .themes .fore3 .icon {
-background: url(../images/clothesicon.png) 0 -52px no-repeat;
-_background: url(../images/clothesicon8.png) 0 -52px no-repeat;
-}
-#clothes .themes .fore4 .icon {
-background: url(../images/clothesicon.png) 0 -78px no-repeat;
-_background: url(../images/clothesicon8.png) 0 -78px no-repeat;
-}
-#clothes .themes .fore5 .icon {
-background: url(../images/clothesicon.png) 0 -104px no-repeat;
-_background: url(../images/clothesicon8.png) 0 -104px no-repeat;
-}
-#clothes .themes .fore6 .icon {
-background: url(../images/clothesicon.png) 0 -130px no-repeat;
-_background: url(../images/clothesicon8.png) 0 -130px no-repeat;
-}
-
-#clothes .words {
-height: 128px;
-border-bottom: 1px solid #ededed;
-}
 .floor .words {
 position: relative;
 height: 76px;
 background: rgba(255,255,255,.7);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#BBFFFFFF, endColorstr=#BBFFFFFF);
 font-family: \5b8b\4f53;
-}
-#clothes .words li {
-height: 96px;
-padding-top: 16px;
 }
 .floor .words li {
 float: left;
@@ -906,17 +860,6 @@ margin-right: 10px;
 line-height: 24px;
 white-space: nowrap;
 }
-#clothes .side-extra {
-width: 328px;
-height: 158px;
-border: 1px solid #ededed;
-border-left: 1px solid #f7f5ee;
-border-top: 0;
-overflow: hidden;
-}
-#clothes .main {
-height: 633px;
-}
 .floor .main {
 width: 880px;
 }
@@ -925,10 +868,6 @@ position: relative;
 float: left;
 height: 474px;
 overflow: hidden;
-}
-#clothes .slider {
-top: 158px;
-height: 315px;
 }
 .floor .slider {
 position: absolute;
@@ -998,33 +937,11 @@ height: 663px;
 .floor .slider .slider-item {
 border: none;
 }
-#clothes .main-body li.fore1 {
-width: 440px;
-}
-#clothes .main-body li.fore2 {
-width: 440px;
-height: 159px;
-padding-top: 316px;
-}
-#clothes .main-body li.fore2 a {
-height: 158px;
-}
 .floor .main-inner a {
 display: block;
 border-right: 1px solid #EDEDED;
 border-bottom: 1px solid #EDEDED;
 overflow: hidden;
-}
-
-#clothes .main-body li.fore3, #clothes .main-body li.fore4, #clothes .main-body li.fore5, #clothes .main-body li.fore6 {
-float: right;
-}
-#clothes .main-body li {
-float: left;
-height: 158px;
-}
-#clothes .main-body li.fore3 {
-margin-top: -158px;
 }
 
 .root61 .floor .main-extra {
@@ -1034,18 +951,11 @@ display: block;
 float: left;
 width: 220px;
 }
-#clothes .main-extra li {
-height: 158px;
-}
 .floor .main-inner li {
 width: 220px;
 overflow: hidden;
 font-size: 0;
 }
-#clothes .main-extra li.fore3 {
-height: 317px;
-}
-
 .floor .main-inner li {
 width: 220px;
 overflow: hidden;
@@ -1058,9 +968,6 @@ width: 890px;
 .floor .p-list {
 height: 474px;
 overflow: hidden;
-}
-#clothes .p-list li {
-width: 185px;
 }
 .floor .p-list .p-img {
 height: 140px;
@@ -1076,9 +983,6 @@ margin-bottom: 3px;
 font-size: 15px;
 font-family: Verdana;
 color: #E4393C;
-}
-#clothes .p-list li {
-width: 185px;
 }
 .floor .p-list li {
 float: left;

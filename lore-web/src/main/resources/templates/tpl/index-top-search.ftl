@@ -11,7 +11,7 @@
             <a href="#">购销存</a>
         </div>
         <div class="right" style="margin-left: 10px;">
-            <i class="gw-left" style="background:url(${contextPath}/images/jd2015img.png)0 -58px no-repeat;width:24px;height:24px;"></i>
+            <i class="gw-left fa fa-lg fa-cart-arrow-down"></i>
             <i class="gw-right">></i>
             <i class="gw-count">0</i>
             <a href="#">我的购物车</a>
