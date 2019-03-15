@@ -33,7 +33,7 @@ public class AdPosition implements AbstractEntity<BigInteger>{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(length = 20, name = "ID", nullable = false, unique = true, updatable = false)
-	private BigInteger id;// id
+	private BigInteger id;
 
 	/** 名称 */
 	private String name;

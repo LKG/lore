@@ -80,7 +80,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="periodicalName">名称</label>
-                                <input type="text" class="form-control" style="width: 300px;" id="periodicalName" name="periodicalName_LIKE" placeholder="名称">
+                                <input type="text" class="form-control" style="width: 300px;"  value="${periodicalName!''}" id="periodicalName" name="periodicalName_LIKE" placeholder="名称">
                             </div>
                             <div class="form-group">
                                 <select class="form-control" style="display: inline;width: 75px;"name="size" id="paginationSize">
@@ -98,26 +98,20 @@
                         <table style="margin-bottom:0px;"   class="table  table-striped table-bordered table-condensed table-hover">
                             <thead>
                             <tr>
-                                <th  style="width: 60px;">期刊号</th>
-                                <th style="width: 65px;">类型</th>
-                                <th style="width: 65px;" >格式</th>
-                                <th >名称</th>
-                                <th style="width: 150px;">创建时间</th>
+                                <th >文档信息</th>
+                                <th style="width: 150px;">上架时间</th>
                             </tr>
                             </thead>
                             <tbody id="table-tbody"  >
                             <#if (result.content?size<=0) >
-                                <tr ><td class="text-center" scope="row" colspan='5' ><@spring.message  code="label.default.empty" /></td></tr>
+                                <tr ><td class="text-center" scope="row" colspan='2' ><@spring.message  code="label.default.empty" /></td></tr>
                             <#else>
                                 <#list result.content as model>
                                     <tr  >
-                                        <td title="${model.periodicalCode}" class="text-center">${model.periodicalCode}</td>
-                                        <td title="${model.periodicalType}" class="text-center">${model.periodicalType}</td>
-                                        <td title="${model.fileHeader}" class="text-center">${model.fileHeader}</td>
-                                        <td><a href="${contextPath}/doc/${model.id!''}.jhtml" >${model.periodicalName}</a>
-                                            <code>${model.dataSizeHuman}</code> ，共<code>${model.pageNum}</code>页
+                                        <td><a href="${contextPath}/doc/${model.id!''}.jhtml" ><i class="fa fa-file-excel-o"></i>${model.periodicalName}</a>
+                                           (浏览量:  <code>${model.hits!'0'} </code> <code>大小：${model.dataSizeHuman}</code> ，共<code>${model.pageNum}</code>页 )
                                         </td>
-                                        <td>${model.createTime}</td>
+                                        <td>${model.pushTime}</td>
                                     </tr>
                                 </#list >
                             </#if>
@@ -128,17 +122,15 @@
                                 {{each content as model}}
                                 <tr  data-num="{{$index}}">
                                     <td title="{{model.periodicalCode}}" class="text-center">{{model.periodicalCode}}</td>
-                                    <td title="{{model.periodicalType}}" class="text-center">{{model.periodicalType}}</td>
-                                    <td title="{{model.fileHeader}}" class="text-center">{{model.fileHeader}}</td>
-                                    <td><a href="${contextPath}/doc/{{model.id}}.jhtml" >{{model.periodicalName}}</a>
-                                        <code>{{model.dataSizeHuman}}</code> ，共<code>{{model.pageNum}}</code>页
+                                    <td><a href="${contextPath}/doc/{{model.id}}.jhtml" ><i class="fa fa-file-excel-o"></i>{{model.periodicalName}}</a>
+                                        ( 浏览量: <code>{{model.hits}}</code>大小：<code>{{model.dataSizeHuman}}</code> ，共<code>{{model.pageNum}}</code>页)
                                     </td>
-                                    <td>{{model.createTime}}</td>
+                                    <td>{{model.pushTime}}</td>
                                 </tr>
                                 {{/each}}
                                 {{else}}
                                 <tr id="ext_{{$index}}" class="text-center" >
-                                    <td colspan="5"><@spring.message  code="label.default.empty" /></td>
+                                    <td colspan="2"><@spring.message  code="label.default.empty" /></td>
                                 </tr>
                                 {{/if}}
                             </script>

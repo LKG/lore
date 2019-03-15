@@ -99,15 +99,9 @@ public class ShiroConfig {
 		filterChainDefinitionMap.put("/doc/**", "anon");
 		filterChainDefinitionMap.put("/article**", "anon");
 		filterChainDefinitionMap.put("/article/**", "anon");
-		filterChainDefinitionMap.put("/questions**", "anon");
-		filterChainDefinitionMap.put("/help**", "anon");
-		filterChainDefinitionMap.put("/vip**", "anon");
-		filterChainDefinitionMap.put("/contact**", "anon");
-		filterChainDefinitionMap.put("/agreements**", "anon");
 		filterChainDefinitionMap.put("/logout*", "logout");
 		filterChainDefinitionMap.put("/", "anon");
 		filterChainDefinitionMap.put("/uploads/**", "anon");
-		filterChainDefinitionMap.put("/index/**", "anon");
 		filterChainDefinitionMap.put("/admin/druid/**", "perms[druid:monitor]");
 		filterChainDefinitionMap.put("/admin/monitor/**", "perms[monitor:monitor]");
 		filterChainDefinitionMap.put("/authenticated", "authc");

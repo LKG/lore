@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="${contextPath}/modules/bootstrap/3.3.5/css/bootstrap.min.css?v=${ver!'1'}">
     <link href="${contextPath}/css/index.css?v=${ver!'1'}" type="text/css" rel="stylesheet">
     <link href="${contextPath}/css/main.css?v=${ver!'1'}" type="text/css" rel="stylesheet">
+    <link href="${contextPath}/css/style.css?v=${ver!'1'}" type="text/css" rel="stylesheet">
     <style>
         a {
             color: #666;
@@ -84,15 +85,16 @@
         </#list>
     </#if>
 </div>
-<div  class="ms">
-
-
-</div>
 <#include "index-main.ftl" />
-<#include "/includes/footer.ftl" />
 </div>
-
+<!------footer信息 begin----->
+<#include "/includes/footer.ftl" />
+<#include "/includes/footer-js.ftl" />
+<!------footer信息 end----->
+<!------seajs.config 引用信息 begin----->
+<#include "/includes/seajs.config.ftl" />
+<!------seajs.config   引用信息 end----->
 </body>
-<script src="modules/jquery/1.8.2/jquery.js?v=${ver!'1'}" ></script>
+<#include "/includes/jquery.ftl" />
 <script src="js/index.js?v=${ver!'1'}"></script>
 </html>

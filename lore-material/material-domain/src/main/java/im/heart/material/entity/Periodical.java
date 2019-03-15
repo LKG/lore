@@ -6,6 +6,7 @@ import im.heart.core.entity.AbstractEntity;
 import im.heart.core.enums.Status;
 import im.heart.core.utils.FileUtilsEx;
 import lombok.Data;
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.Formula;
@@ -13,7 +14,6 @@ import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -247,7 +247,13 @@ public class Periodical implements AbstractEntity<BigInteger> {
             pushTime = new Date();
         }
     }
-
+    @Transient
+    public String getShortTitle() {
+        if (!StringUtils.isBlank(periodicalName) && (periodicalName.length() > 14)) {
+            return periodicalName.substring(0, 14) + "...";
+        }
+        return periodicalName;
+    }
     public String getDataSizeHuman() {
         return FileUtilsEx.getHumanReadableFileSize(dataSize);
     }

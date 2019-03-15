@@ -33,8 +33,6 @@ import java.util.List;
 public class DocImgController extends AbstractController {
     protected static final String apiVer = "/doc";
     protected static final String VIEW_LIST="front/doc/doc_list";
-    protected static final String VIEW_DETAILS="front/doc/doc_details";
-    protected static final String VIEW_CREATE="front/doc/doc_create";
     @Autowired
     private PeriodicalImgService periodicalImgService;
     @RequestMapping(value = apiVer+"/{id}/imgs")

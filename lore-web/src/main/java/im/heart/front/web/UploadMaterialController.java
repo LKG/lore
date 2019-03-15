@@ -105,7 +105,7 @@ public class UploadMaterialController extends AbstractController {
                     periodical.setCategoryCode(categoryCode);
 //                    periodical.setCityId(cityId);
 //                    periodical.setCityName(cityName);
-                    periodical.setPeriodicalName(filename);
+                    periodical.setPeriodicalName(StringUtils.substringBeforeLast(filename,"."));
                     periodical.setPeriodicalCode(periodicalCode);
                     periodical.setFinalPrice(finalPrice);
                     periodical.setOriginPrice(originPrice);

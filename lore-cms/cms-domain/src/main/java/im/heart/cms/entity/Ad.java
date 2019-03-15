@@ -190,21 +190,21 @@ public class Ad implements AbstractEntity<BigInteger>{
 	private String productList;
 	/**
 	 * 判断是否已开始
-	 * 
+	 *
 	 * @return 是否已开始
 	 */
 	@Transient
-	public boolean hasBegun() {
+	public boolean hasBegin() {
 		return (getStartTime() == null) || new Date().after(getStartTime());
 	}
 
 	/**
 	 * 判断是否已结束
-	 * 
+	 *
 	 * @return 是否已结束
 	 */
 	@Transient
-	public boolean hasEnded() {
+	public boolean hasEnd() {
 		return (getEndTime() != null) && new Date().after(getEndTime());
 	}
 	@PrePersist

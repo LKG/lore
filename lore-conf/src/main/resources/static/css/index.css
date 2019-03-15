@@ -194,7 +194,7 @@ _display: block;
 .w{width:1200px;margin:0 auto;position:relative;padding-top:15px ;}
 .w .logo{width:210px;height:45px;padding:15px 0;float:left;}
 .w .search{float:left;}
-.w .search .text{float:left;line-height:24px;padding:4px;border-width:2px 0 2px 2px;border-color:#b61d1d;border-style:solid;font-size:14px;font-family:"microsoft yahei";outline:0;color: rgb(153, 153, 153);}
+.w .search .text{float:left;line-height:24px;padding:4px;border-width:2px 0 2px 2px;border-style:solid;font-size:14px;font-family:"microsoft yahei";outline:0;color: rgb(153, 153, 153);}
 .w .search .button{float:left;width:82px;height:36px;background:#337ab7;border:none;color:#fff;font-size:16px;}
 .w .right{height:34px;border:1px solid #dfdfdf;padding:0 28px 0 34px;text-align:center;line-height:34px;float:right;font-size:12px;position:relative;}
 .w .right .gw-left{position:absolute;top:8px;left:17px;}
@@ -367,7 +367,7 @@ _display: block;
 #right{position:absolute;right:0px;top:215px;}
 #lunbo:hover .slider-page{display:block;}
 /*轮播图右边快报  服务栏*/
-.m{width:248px;height:200px;border:1px solid #e4e4e4;position:absolute;right:0;top:60px;}
+.m{width:248px;border:1px solid #e4e4e4;position:absolute;right:0;top:60px;padding: 10px 2px;}
 .mt{padding: 0 15px;border-bottom: 1px dotted #E8E8E7;height: 43px;line-height: 43px;}
 .mt h3{float:left;}
 .mt .extra{float:right;font: 400 9px/43px consolas;}
@@ -375,15 +375,6 @@ _display: block;
 
 .mc li span{font-weight:700;margin-right:5px;}
 
-.ms{width:248px;height:256px;border:1px solid #e4e4e4;position:absolute;right:0;top:260px;}
-.ms .mm{padding: 0 15px;height: 43px;line-height: 43px;}
-.ms .mm .extra{float:right;font: 400 9px/43px consolas;}
-.mm h3{float:left;}
-
-.mmm{position:relative;}
-.mmm ul{position:relative;width:260px;height:209px;overflow:hidden;}
-.mmm li{float:left;display:inline;width:61px;height:70px;cursor: pointer;position:relative;border-right: 1px solid #E8E8E7;border-bottom: 1px solid #E8E8E7;border-top: 1px dashed #E8E8E7;}
-.mmm a{display:block;width:62px;height:28px;text-align: center;}
 
 .ci-left{width:25px;height:25px; top:13px;left:18px;position:absolute;top:12px;right:5px;}
 .ci-bottom{position:absolute;bottom:5px;left:18px;}

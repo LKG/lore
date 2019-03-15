@@ -29,15 +29,6 @@ import java.util.Date;
 public class Notice implements AbstractEntity<BigInteger>  {
 
 
-	/**
-	 * 
-	 * 
-	 * @作者： LKG
-	 * @功能说明：项目状态
-	 */
-	public enum NoticeStatus{
-		pending,enabled,disabled
-	}
 	public enum NoticeType{
 		image,music,video,unknown
 	}
@@ -48,8 +39,7 @@ public class Notice implements AbstractEntity<BigInteger>  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(length = 32, name = "NOTICE_ID", nullable = false, unique = true, updatable = false)
 	private BigInteger noticeId;
-	
-	
+
 	@NotNull
 	@Length(max = 64)
 	@Column(length = 64, name = "NOTICE_TITLE", nullable = false)
@@ -62,7 +52,6 @@ public class Notice implements AbstractEntity<BigInteger>  {
 	
 	@Length(max = 15)
 	@Column(length = 15, name = "NOTICE_GROUP")
-	
 	private String noticeGroup=NoticeGroup.index.toString() ;
 
 	/**
@@ -140,7 +129,25 @@ public class Notice implements AbstractEntity<BigInteger>  {
 		createTime = new Date();
 		modifyTime = new Date();
 	}
+	/**
+	 * 判断是否已开始
+	 *
+	 * @return 是否已开始
+	 */
+	@Transient
+	public boolean hasBegin() {
+		return (getStartTime() == null) || new Date().after(getStartTime());
+	}
 
+	/**
+	 * 判断是否已结束
+	 *
+	 * @return 是否已结束
+	 */
+	@Transient
+	public boolean hasEnd() {
+		return (getEndTime() != null) && new Date().after(getEndTime());
+	}
 	@PreUpdate
 	protected void onUpdate() {
 		modifyTime = new Date();

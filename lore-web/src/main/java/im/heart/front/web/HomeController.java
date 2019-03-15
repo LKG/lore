@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class HomeController extends AbstractController {
 	protected static final String apiVer = "/index";
-	protected static final String VIEW="index";
 
 	@RequestMapping(value={"/welcome",apiVer+"/welcome"},method = RequestMethod.GET)
 	public ModelAndView welcome(HttpServletRequest request, HttpServletResponse response,

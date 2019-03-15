@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 public class DeskController extends AbstractController {
 	protected static final String apiVer = "/desk";
 	@RequestMapping(value={"/userinfo/"+apiVer,apiVer,apiVer+"/"})
-	public ModelAndView index(HttpServletRequest request, HttpServletResponse response,
+	public ModelAndView desk(HttpServletRequest request, HttpServletResponse response,
                               ModelMap model) {
 		super.success(model);
 		return new ModelAndView("desk");

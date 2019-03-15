@@ -1,3 +1,4 @@
+<div class="clearfix"></div>
 <div class="layout" ms-controller="IndexCtrl">
     <div class="cb"></div>
     <div class="main" ms-widget="collect, indexCollect">
@@ -31,14 +32,21 @@
                         <div class="cb"></div>
                     </div>
                     <ul class="hot_doc_ul free" >
-                          <#list [0,1,2,3,4] as article>
-                                <li > <a href="${contextPath}/doc/1.jhtml" >通用表格</a> <a href="${contextPath}/doc/1.jhtml"  class="pull-right"><i class="fa fa-download"></i></a> </li>
-                          </#list>
+                        <#if docs??&&docs.content??>
+                            <#list docs.content as doc>
+                                <li > <a href="${contextPath}/doc/${doc.id!''}.jhtml" >${doc.shortTitle!''}</a>
+                                <a href="${contextPath}/doc/${doc.id!''}.jhtml"  class="pull-right"><i class="fa fa-download"></i></a> </li>
+                            </#list>
+                        </#if>
                     </ul>
                     <ul class="hot_doc_ul vip" style="display: none;" >
-                        <#list [0,1,2,3,4] as article>
-                         <li > <a >简历表格007</a> <a  class="pull-right" ><i class="fa fa-download"></i></a> </li>
-                        </#list>
+                        <#if docs??&&docs.content??>
+                            <#list docs.content as doc>
+                                <li > <a href="${contextPath}/doc/${doc.id!''}.jhtml" >${doc.shortTitle!''}</a>
+                                    <a  class="pull-right" ><i class="fa fa-download"></i></a>
+                                </li>
+                            </#list>
+                        </#if>
                     </ul>
                 </div>
             </div>

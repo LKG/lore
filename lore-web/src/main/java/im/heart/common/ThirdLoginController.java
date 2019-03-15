@@ -58,7 +58,7 @@ public class ThirdLoginController extends AbstractController {
 		System.out.println("loginType-"+loginType);
 //		this.qqLoginService.getSingleId(code);
 		super.success(model);
-		return new ModelAndView("index");
+		return new ModelAndView(VIEW_SUCCESS);
 	}
 	
 }

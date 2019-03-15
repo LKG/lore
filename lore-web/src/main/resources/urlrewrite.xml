@@ -9,7 +9,28 @@
         <to type="forward">/$1.jhtml?param=$2</to>
     </rule>
     <rule>
-        <from>^/aboutus.jhtml?(.*)$</from>
+        <from>^/aboutus.?(.*)$</from>
         <to>/index/aboutus.jhtml</to>
     </rule>
+    <rule>
+        <from>^/contact.?(.*)$</from>
+        <to>/index/contact.jhtml</to>
+    </rule>
+    <rule>
+        <from>^/helps.?(.*)$</from>
+        <to>/index/helps.jhtml</to>
+    </rule>
+    <rule>
+        <from>^/vips.?(.*)$</from>
+        <to>/index/vips.jhtml</to>
+    </rule>
+    <rule>
+        <from>^/questions.?(.*)$</from>
+        <to>/index/questions.jhtml</to>
+    </rule>
+    <rule>
+        <from>^/agreements.?(.*)$</from>
+        <to>/index/agreements.jhtml</to>
+    </rule>
+
 </urlrewrite>
