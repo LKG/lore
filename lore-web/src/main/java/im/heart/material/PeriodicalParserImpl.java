@@ -6,9 +6,11 @@ import im.heart.core.CommonConst;
 import im.heart.core.utils.FileUtilsEx;
 import im.heart.core.utils.StringUtilsEx;
 import im.heart.material.entity.Periodical;
+import im.heart.material.entity.PeriodicalContent;
 import im.heart.material.entity.PeriodicalImg;
 import im.heart.material.entity.PeriodicalLog;
 import im.heart.material.parser.PeriodicalParser;
+import im.heart.material.service.PeriodicalContentService;
 import im.heart.material.service.PeriodicalImgService;
 import im.heart.material.service.PeriodicalLogService;
 import im.heart.material.service.PeriodicalService;
@@ -47,6 +49,9 @@ public class PeriodicalParserImpl implements PeriodicalParser {
     private PeriodicalLogService periodicalLogService;
     @Autowired
     private PeriodicalImgService periodicalImgService;
+    @Autowired
+    private PeriodicalContentService periodicalContentService;
+
     @Value("${prod.upload.path.root}")
     private String uploadFilePath="";
     @Override
@@ -110,7 +115,6 @@ public class PeriodicalParserImpl implements PeriodicalParser {
                 //生成文章摘要
                 periodical.setSeoDesc(StringUtilsEx.join(summary,","));
             }
-            periodical.setContent(content);
             List<PeriodicalImg> entities= Lists.newArrayList();
             BigInteger periodicalId= periodical.getId();
             String periodicalCode=periodical.getPeriodicalCode();
@@ -145,13 +149,14 @@ public class PeriodicalParserImpl implements PeriodicalParser {
             periodical.setPageNum(pageNum);
             periodical.setStatus(CommonConst.FlowStatus.PROCESSED);
             this.periodicalService.save(periodical);
+            this.parserContent(periodical,content);
             this.periodicalImgService.saveAll(entities);
             String type="parser";
             this.parserLog(periodical,type,"{desc:  '解析文件并生成图片成功！' }");
         } catch (Exception e) {
             logger.error(e.getStackTrace()[0].getMethodName(), e);
             String type="parser";
-            parserLog(periodical, type,"{desc:  '"+e.getMessage()+" ' }");
+            this.parserLog(periodical, type,"{desc:  '"+e.getMessage()+" ' }");
         }finally {
             IOUtils.closeQuietly(pdDocument);
             //删除pdf 文件
@@ -160,7 +165,15 @@ public class PeriodicalParserImpl implements PeriodicalParser {
         }
         return pageNum;
     }
-
+    @Async
+    public void parserContent(Periodical periodical,String content){
+        PeriodicalContent periodicalContent=new PeriodicalContent();
+        periodicalContent.setPeriodicalId(periodical.getId());
+        periodicalContent.setPeriodicalCode(periodical.getPeriodicalCode());
+        periodicalContent.setPageNum(periodical.getPageNum());
+        periodicalContent.setContent(content);
+        this.periodicalContentService.save(periodicalContent);
+    }
     @Async
     public void parserLog(Periodical periodical,String type,String desc){
         PeriodicalLog periodicalLog=new PeriodicalLog();

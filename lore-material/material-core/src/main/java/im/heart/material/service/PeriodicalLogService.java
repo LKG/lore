@@ -2,7 +2,6 @@ package im.heart.material.service;
 
 import im.heart.core.plugins.persistence.SearchFilter;
 import im.heart.core.service.CommonService;
-import im.heart.material.entity.PeriodicalImg;
 import im.heart.material.entity.PeriodicalLog;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,6 +17,12 @@ import java.util.List;
  */
 public interface PeriodicalLogService extends CommonService<PeriodicalLog, BigInteger>{
 	public static final String BEAN_NAME = "periodicalLogService";
+
+	/**
+	 * 添加异步线程
+	 * @param periodicalLog
+	 */
+	public void addSaveTask(PeriodicalLog periodicalLog) ;
 	/**
 	 *
 	 *批量保存
@@ -33,4 +38,8 @@ public interface PeriodicalLogService extends CommonService<PeriodicalLog, BigIn
 	 * @return
 	 */
 	public Page<PeriodicalLog> findSearchFilters(Collection<SearchFilter> filters, Pageable pageable);
+
+
+
+
 }

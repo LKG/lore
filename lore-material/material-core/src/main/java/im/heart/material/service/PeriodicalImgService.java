@@ -14,7 +14,7 @@ import org.springframework.data.domain.Pageable;
 /**
  * 
  * @author gg
- * 材料表期刊扫描件对外Service 接口
+ * PeriodicalImg对外Service 接口
  */
 public interface PeriodicalImgService extends CommonService<PeriodicalImg, BigInteger>{
 	public static final String BEAN_NAME = "periodicalImgService";
@@ -27,7 +27,7 @@ public interface PeriodicalImgService extends CommonService<PeriodicalImg, BigIn
 	public List<PeriodicalImg>  saveAll(Iterable<PeriodicalImg> entities);
 
 	/**
-	 * 扫描件是否存在
+	 * PeriodicalImg是否存在
 	 * @param periodicalCode
 	 * @param pageNum
 	 * @param cityId
@@ -36,12 +36,12 @@ public interface PeriodicalImgService extends CommonService<PeriodicalImg, BigIn
 	public boolean exit(String periodicalCode, Integer pageNum, String cityId);
 	/**
 	 * 
-	 * 查看所以扫描件
+	 * 查看全部
 	 * @param cityId
 	 * @param periodicalCode
 	 * @return
 	 */
-	public List<PeriodicalImg> findByCityIdAndperiodicalCode(String cityId, String periodicalCode);
+	public List<PeriodicalImg> findByCityIdAndPeriodicalCode(String cityId, String periodicalCode);
 
 	/**
 	 * 根据期刊Id 更新状态

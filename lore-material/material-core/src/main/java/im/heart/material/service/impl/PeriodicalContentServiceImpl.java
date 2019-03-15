@@ -1,14 +1,13 @@
 package im.heart.material.service.impl;
 
 import com.google.common.collect.Sets;
-import im.heart.core.enums.Status;
 import im.heart.core.plugins.persistence.DynamicSpecifications;
 import im.heart.core.plugins.persistence.SearchFilter;
 import im.heart.core.plugins.persistence.SearchFilter.Operator;
 import im.heart.core.service.impl.CommonServiceImpl;
-import im.heart.material.entity.PeriodicalImg;
-import im.heart.material.repository.PeriodicalImgRepository;
-import im.heart.material.service.PeriodicalImgService;
+import im.heart.material.entity.PeriodicalContent;
+import im.heart.material.repository.PeriodicalContentRepository;
+import im.heart.material.service.PeriodicalContentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -25,18 +24,22 @@ import java.util.List;
 /**
  *
  * @author gg
- * PeriodicalImg对外Service 接口实现类
+ * PeriodicalContent对外Service 接口实现类
  */
-@Service(value = PeriodicalImgService.BEAN_NAME)
+@Service(value = PeriodicalContentService.BEAN_NAME)
 @Transactional(propagation = Propagation.SUPPORTS,rollbackFor = Exception.class)
-public class PeriodicalImgServiceImpl  extends CommonServiceImpl<PeriodicalImg, BigInteger> implements PeriodicalImgService {
+public class PeriodicalContentServiceImpl extends CommonServiceImpl<PeriodicalContent, BigInteger> implements PeriodicalContentService {
 
 	@Autowired
-	private PeriodicalImgRepository periodicalImgRepository;
+	private PeriodicalContentRepository periodicalContentRepository;
 
 	@Override
-	public List<PeriodicalImg> saveAll(Iterable<PeriodicalImg> entities) {
-		return this.periodicalImgRepository.saveAll(entities);
+	public void addSaveTask(PeriodicalContent periodicalContent){
+		this.periodicalContentRepository.save(periodicalContent);
+	}
+	@Override
+	public List<PeriodicalContent> saveAll(Iterable<PeriodicalContent> entities) {
+		return this.periodicalContentRepository.saveAll(entities);
 	}
 
 	@Override
@@ -45,35 +48,29 @@ public class PeriodicalImgServiceImpl  extends CommonServiceImpl<PeriodicalImg, 
 		filters.add(new SearchFilter("pageNum", Operator.EQ, pageNum));
 		filters.add(new SearchFilter("cityId", Operator.EQ, cityId));
 		filters.add(new SearchFilter("periodicalCode", Operator.EQ, periodicalCode));
-		Specification<PeriodicalImg> spec = DynamicSpecifications.bySearchFilter(filters, PeriodicalImg.class);
-		long countSign = this.periodicalImgRepository.count(spec);
+		Specification<PeriodicalContent> spec = DynamicSpecifications.bySearchFilter(filters, PeriodicalContent.class);
+		long countSign = this.periodicalContentRepository.count(spec);
 		return countSign <= 0;
 	}
 
 	@Override
-	public List<PeriodicalImg> findByCityIdAndPeriodicalCode(
+	public List<PeriodicalContent> findByCityIdAndPeriodicalCode(
 			String cityId, String periodicalCode) {
 		final Collection<SearchFilter> filters = Sets.newHashSet();
 		filters.add(new SearchFilter("cityId", Operator.EQ, cityId));
 		filters.add(new SearchFilter("periodicalCode", Operator.EQ, periodicalCode));
-		Specification<PeriodicalImg> spec = DynamicSpecifications.bySearchFilter(filters, PeriodicalImg.class);
-		return this.periodicalImgRepository.findAll(spec);
+		Specification<PeriodicalContent> spec = DynamicSpecifications.bySearchFilter(filters, PeriodicalContent.class);
+		return this.periodicalContentRepository.findAll(spec);
 	}
 
 	@Override
-	public void updateStatusByPeriodicalId(BigInteger periodicalId,
-			Status status) {
-		this.periodicalImgRepository.updateStatusByPeriodicalId(periodicalId,status);
-	}
-
-	@Override
-	public Page<PeriodicalImg> findSearchFilters(
+	public Page<PeriodicalContent> findSearchFilters(
 			Collection<SearchFilter> filters, Pageable pageable) {
 		if(filters==null||filters.isEmpty()){
 			return null;
 		}
-		Specification<PeriodicalImg> spec = DynamicSpecifications.bySearchFilter(filters, PeriodicalImg.class);
-		return this.periodicalImgRepository.findAll(spec,pageable);
+		Specification<PeriodicalContent> spec = DynamicSpecifications.bySearchFilter(filters, PeriodicalContent.class);
+		return this.periodicalContentRepository.findAll(spec,pageable);
 
 	}
 }

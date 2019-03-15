@@ -42,8 +42,7 @@ public class PeriodicalLog implements AbstractEntity<BigInteger> {
 
 	@Column(name = "LOG_DESC", nullable = false,length=80000)
 	private String logDesc;
-
-	@Column(name = "PERIODICAL_ID", nullable = false,length=80000)
+	@Column(name = "PERIODICAL_ID", nullable = false)
 	private BigInteger periodicalId;
 
 	@JSONField (format="yyyy-MM-dd HH:mm:ss")

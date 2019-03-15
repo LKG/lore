@@ -163,9 +163,6 @@ public class Periodical implements AbstractEntity<BigInteger> {
     @Length(max = 200)
     @Column(name = "SEO_DESC", nullable = false)
     private String seoDesc = "";
-
-    @Column(name = "CONTENT", nullable = false)
-    private String content;
     /**
      * 封面图片
      */
