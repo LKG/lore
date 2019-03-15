@@ -37,7 +37,6 @@
                     </a>
                 </li>
              <li class="shu"></li>
-                <@shiro.hasPermission name="admin:view" > @@@ </@shiro.hasPermission>
             </@shiro.hasRole >
             </@shiro.user>
             <li class="shu"></li>

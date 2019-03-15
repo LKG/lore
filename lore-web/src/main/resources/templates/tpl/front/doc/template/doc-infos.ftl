@@ -1,4 +1,4 @@
-<!---点赞面板begin--->
+<!---面板begin--->
 <div class="panel panel-default">
    <div class="panel-heading text-center" role="tab" id="headingOne">
        <h4>当前资源信息</h4>
@@ -18,6 +18,4 @@
      </div>
    </div>
 </div>
-<!---点赞面板end--->
-<!--  downTimes
--->
+<!---面板end--->
