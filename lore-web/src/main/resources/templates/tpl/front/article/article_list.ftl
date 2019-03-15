@@ -81,7 +81,7 @@
                 <ul id="my-tab-rule" class="myNavTab nav nav-tabs" role="tablist">
                     <li role="presentation" style="cursor:pointer" class="active">
                         <a id="my-tab-all" data-key="">
-                            文章列表
+                            文章列表 (共<code id="paginationTotal" >${result.totalElements}</code> 篇)
                         </a>
                     </li>
                 </ul>

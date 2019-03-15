@@ -13,7 +13,7 @@ import java.net.URL;
 
 @Slf4j
 public abstract class  AbstractJob {
-    Integer MAX_PAGE=5;
+    Integer MAX_PAGE=3;
     @Async
     public void parseArticleList(String url,String type){
         try {

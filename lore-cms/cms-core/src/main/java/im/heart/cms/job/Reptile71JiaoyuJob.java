@@ -26,7 +26,7 @@ public class Reptile71JiaoyuJob   extends  AbstractJob{
     //http://www.71.cn/2019/0306/1036178.shtml
     @Autowired
     ArticleService articleService;
-    Integer MAX_PAGE=5;
+    Integer MAX_PAGE=3;
     @Scheduled(cron = "0 22 23 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");

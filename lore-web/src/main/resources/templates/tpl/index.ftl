@@ -53,7 +53,7 @@
 <div id="lunbo">
     <ul id="one">
         <#list [1,2,3,2,3] as img>
-            <li><a href=""><img src="${contextPath}/images/20181209184906.png"></a></li>
+            <li><a href=""><img src="//m.360buyimg.com/babel/jfs/t1/11504/11/10668/100795/5c8214cbEee7a36fa/dda4b4d65de0dd91.jpg"></a></li>
         </#list>
     </ul>
     <ul id="two">

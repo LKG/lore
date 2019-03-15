@@ -27,7 +27,7 @@ public class Reptile71CultureJob extends  AbstractJob{
     //http://www.71.cn/2019/0306/1036178.shtml
     @Autowired
     ArticleService articleService;
-    Integer MAX_PAGE=5;
+    Integer MAX_PAGE=3;
     @Scheduled(cron = "0 42 22 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");

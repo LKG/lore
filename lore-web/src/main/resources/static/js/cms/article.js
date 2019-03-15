@@ -32,6 +32,7 @@ define(function (require, exports, moudles) {
             success : function(data) {
                 if (data.success) {
                     var html = template('tr-template-js', data.result);
+                    $("#paginationTotal").html(data.result.totalElements);
                     var $tbody = $("#table-tbody");
                     $tbody.empty();
                     $tbody.append(html);

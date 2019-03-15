@@ -26,7 +26,7 @@ import java.util.Map;
 public class Reptile71PoliticsJob    extends  AbstractJob{
     @Autowired
     ArticleService articleService;
-    Integer MAX_PAGE=5;
+    Integer MAX_PAGE=3;
     @Scheduled(cron = "0 49 20 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");

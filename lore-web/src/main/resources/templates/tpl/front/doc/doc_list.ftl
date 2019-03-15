@@ -65,7 +65,7 @@
 <div class="container" style="margin-top: 35px;">
     <div class="row">
         <div class="panel panel-default">
-            <div class="panel-heading"><h4>全部分类资源 (共<code id="paginationTotal" >${result.totalElements}</code> 份)</h4></div>
+            <div class="panel-heading"><h4>全部分类 (共<code id="paginationTotal" >${result.totalElements}</code> 份)</h4></div>
             <div class="panel-body">
                 <!---文档begin--->
                 <div class="col-md-12  col-xs-12">
