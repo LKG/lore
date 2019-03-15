@@ -5,9 +5,9 @@
 <!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
-<title>资料分类</title>
-  <#include "/includes/head.ftl" />
-<#include "/includes/laypage-css.ftl" />
+    <title>资料分类</title>
+    <#include "/includes/head.ftl" />
+    <#include "/includes/laypage-css.ftl" />
     <style>
         .tab-pane{
             padding-top:30px;
@@ -50,7 +50,7 @@
             clear: none !important;
         }
     </style>
-<#assign template="docs"/>
+    <#assign template="docs"/>
 </head>
 <body class="page-header-fixed">
 <!-- toolbar begin-->
@@ -60,7 +60,7 @@
 <!-- header begin-->
 <#include "/index-header.ftl" />
 <!-- banner 广告 begin-->
-  <#include "/index-top-banner.ftl" />
+<#include "/index-top-banner.ftl" />
 <!-- banner 广告 end-->
 <div class="container" style="margin-top: 35px;">
     <div class="row">
@@ -76,20 +76,20 @@
                                 <label for="periodicalCode">刊号</label>
                                 <input type="text" name="periodicalCode_LIKES" style="width: 80px;" class="Wdate form-control"
                                        onclick="WdatePicker({isShowClear:true,readOnly:false,dateFmt:'yyyyMM',maxDate:'%y-%M-%d'})"})"
-                                       size="10" maxlength="6" id="periodicalCode" value="">
+                                size="10" maxlength="6" id="periodicalCode" value="">
                             </div>
                             <div class="form-group">
                                 <label for="periodicalName">名称</label>
                                 <input type="text" class="form-control" style="width: 300px;" id="periodicalName" name="periodicalName_LIKE" placeholder="名称">
                             </div>
                             <div class="form-group">
-                            <select class="form-control" style="display: inline;width: 75px;"name="size" id="paginationSize">
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                                <option value="200">200</option>
-                            </select>
+                                <select class="form-control" style="display: inline;width: 75px;"name="size" id="paginationSize">
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                    <option value="200">200</option>
+                                </select>
                             </div>
                             <button type="button" id="seach-btn" class="btn btn-primary">搜索</button>
                         </form>
@@ -107,18 +107,18 @@
                             </thead>
                             <tbody id="table-tbody"  >
                             <#if (result.content?size<=0) >
-                            <tr ><td class="text-center" scope="row" colspan='5' ><@spring.message  code="label.default.empty" /></td></tr>
+                                <tr ><td class="text-center" scope="row" colspan='5' ><@spring.message  code="label.default.empty" /></td></tr>
                             <#else>
                                 <#list result.content as model>
-                                <tr  >
-                                    <td title="${model.periodicalCode}" class="text-center">${model.periodicalCode}</td>
-                                    <td title="${model.periodicalType}" class="text-center">${model.periodicalType}</td>
-                                    <td title="${model.fileHeader}" class="text-center">${model.fileHeader}</td>
-                                    <td><a href="${contextPath}/doc/${model.id!''}.jhtml" >${model.periodicalName}</a>
-                                        <code>${model.dataSizeHuman}</code> ，共<code>${model.pageNum}</code>页
-                                    </td>
-                                    <td>${model.createTime}</td>
-                                </tr>
+                                    <tr  >
+                                        <td title="${model.periodicalCode}" class="text-center">${model.periodicalCode}</td>
+                                        <td title="${model.periodicalType}" class="text-center">${model.periodicalType}</td>
+                                        <td title="${model.fileHeader}" class="text-center">${model.fileHeader}</td>
+                                        <td><a href="${contextPath}/doc/${model.id!''}.jhtml" >${model.periodicalName}</a>
+                                            <code>${model.dataSizeHuman}</code> ，共<code>${model.pageNum}</code>页
+                                        </td>
+                                        <td>${model.createTime}</td>
+                                    </tr>
                                 </#list >
                             </#if>
 
@@ -155,14 +155,14 @@
     </div>
 </div>
 <!------footer信息 begin----->
-  	<#include "/includes/footer.ftl" />
-  	<#include "/includes/footer-js.ftl" />
+<#include "/includes/footer.ftl" />
+<#include "/includes/footer-js.ftl" />
 <!------footer信息 end----->
 <!------seajs.config 引用信息 begin----->
 <#include "/includes/seajs.config.ftl" />
 <!------seajs.config   引用信息 end----->
 <!------footer信息 end----->
-  	<#include "/includes/datePicker.ftl" />
+<#include "/includes/datePicker.ftl" />
 <script>
     seajs.use(["js/doc/list.js?v="+Math.random(),"js/left-menu.js?v="+Math.random()]);
 </script>

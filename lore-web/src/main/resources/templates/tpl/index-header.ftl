@@ -77,10 +77,9 @@
                 <div class="kehu1">
                     <h3 class="neirong2">客户</h3>
                     <ul class="kehu2">
-                        <li><a href="">帮助中心</a></li>
-                        <li><a href="">售后服务</a></li>
-                        <li><a href="">在线客服</a></li>
-                        <li><a href="">客服邮箱</a></li>
+                        <li><a href="${contextPath}/helps.jhtml">帮助中心</a></li>
+                        <li><a  href="${contextPath}/helps.jhtml">售后服务</a></li>
+                        <li><a  href="${contextPath}/helps.jhtml">在线客服</a></li>
                     </ul>
                 </div>
             </li>

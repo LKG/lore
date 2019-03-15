@@ -27,11 +27,7 @@ import java.util.Date;
 @DynamicInsert()
 @Data
 public class Notice implements AbstractEntity<BigInteger>  {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5812513752963613301L;
+
 
 	/**
 	 * 
@@ -101,7 +97,32 @@ public class Notice implements AbstractEntity<BigInteger>  {
 	@URL
 	@Column(length = 256, name = "NOTICE_URL")
 	private String noticeUrl="" ;
-	
+
+	/**
+	 * //活动描述信息
+	 */
+	@Length(max = 512)
+	@Column(length = 512, name = "NOTICE_DESC")
+	private String noticeDesc;
+
+	/**
+	 * 开始日期
+	 */
+	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@Column(name = "START_TIME", nullable = false, updatable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date startTime;
+
+	/**
+	 * 结束日期
+	 */
+	@JSONField (format="yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@Column(name = "END_TIME", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date endTime;
+
 	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@Column(name = "CREATE_TIME", nullable = false, updatable = false)
@@ -113,13 +134,6 @@ public class Notice implements AbstractEntity<BigInteger>  {
 	@Column(name = "MODIFY_TIME")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date modifyTime;
-
-	/**
-	 * //活动描述信息
-	 */
-	@Length(max = 512)
-	@Column(length = 512, name = "NOTICE_DESC")
-	private String noticeDesc;
 
 	@PrePersist
 	protected void onCreate() {

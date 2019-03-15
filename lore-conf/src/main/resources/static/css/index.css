@@ -195,7 +195,7 @@ _display: block;
 .w .logo{width:210px;height:45px;padding:15px 0;float:left;}
 .w .search{float:left;}
 .w .search .text{float:left;line-height:24px;padding:4px;border-width:2px 0 2px 2px;border-color:#b61d1d;border-style:solid;font-size:14px;font-family:"microsoft yahei";outline:0;color: rgb(153, 153, 153);}
-.w .search .button{float:left;width:82px;height:36px;background:#b61d1d;border:none;color:#fff;font-size:16px;}
+.w .search .button{float:left;width:82px;height:36px;background:#337ab7;border:none;color:#fff;font-size:16px;}
 .w .right{height:34px;border:1px solid #dfdfdf;padding:0 28px 0 34px;text-align:center;line-height:34px;float:right;font-size:12px;position:relative;}
 .w .right .gw-left{position:absolute;top:8px;left:17px;}
 .w .right .gw-right{font: 400 13px/13px simsun;top:10px;position:absolute;right:11px;color:#999}
