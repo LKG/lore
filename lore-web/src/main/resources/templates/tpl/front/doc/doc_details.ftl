@@ -81,9 +81,12 @@
                 <!---文档左侧end--->
                 <!---文档右侧begin--->
                 <div class="col-md-3 col-xs-3">
-                    <!---点赞面板begin--->
-  				    <#include "/front/doc/template/doc-goods.ftl" />
-                    <!---点赞面板end--->
+                    <!---详情面板begin--->
+  				    <#include "/front/doc/template/doc-infos.ftl" />
+                    <!---详情面板end--->
+                    <!---面板begin--->
+  				    <#include "/front/doc/template/doc-vips.ftl" />
+                    <!---面板end--->
                 </div>
                 <!---文档右侧end--->
             </div>
