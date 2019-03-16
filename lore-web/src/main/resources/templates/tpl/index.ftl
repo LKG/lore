@@ -53,12 +53,15 @@
 <!------------------------------------轮播图------------------------------------>
 <div id="lunbo">
     <ul id="one">
-        <#list [1,2,3,2,3] as img>
+        <#list [1,2,3] as img>
             <li><a href=""><img src="//m.360buyimg.com/babel/jfs/t1/11504/11/10668/100795/5c8214cbEee7a36fa/dda4b4d65de0dd91.jpg"></a></li>
+        </#list>
+        <#list [1,2] as img>
+            <li><a href=""><img src="https://img1.360buyimg.com/pop/jfs/t1/1778/18/9571/74609/5bad19a8Eb0489abb/329eb689314d9123.jpg"></a></li>
         </#list>
     </ul>
     <ul id="two">
-        <#list [1,2,3] as img>
+        <#list [1,2,3,4,5] as img>
             <li class="<#if img_index==0>on</#if>" >${img_index+1}</li>
         </#list>
     </ul>
@@ -68,7 +71,9 @@
         <a href="javascript:void(0)" id="right">></a>
     </div>
 </div>
-
+<div class="m1" style="">
+    <div id="J_rec" class="J_rec rec"><div class="rec_inner"><div class="rec_item"><a class="rec_lk mod_loading" href="//pro.jd.com/mall/active/4DtiBMHCHioVpP4yNGB9g2fGVvPv/index.html" target="_blank" clstag="h|keycount|head|recom_01"><div class="lazyimg lazyimg_loaded J_rec_img rec_img"><img src="//img30.360buyimg.com/babel/s190x150_jfs/t1/15141/39/10791/25732/5c8a3bdcEf04a0bd4/c1e7e30d04486e5b.jpg!q90!cc_190x150" class="lazyimg_img"></div></a></div><div class="rec_item"><a class="rec_lk mod_loading" href="//sale.jd.com/act/K27JuA3YSqLP.html" target="_blank" clstag="h|keycount|head|recom_02"><div class="lazyimg lazyimg_loaded J_rec_img rec_img"><img src="//img30.360buyimg.com/babel/s190x150_jfs/t1/27691/3/9956/99811/5c81e60bEd469abac/e4cd46372a51f079.jpg!q90!cc_190x150" class="lazyimg_img"></div></a></div><div class="rec_item"><a class="rec_lk mod_loading" href="//ccc-x.jd.com/dsp/nc?ext=aHR0cHM6Ly9tYWxsLmpkLmNvbS9pbmRleC0xMDAwMDAwNTI5Lmh0bWw&amp;log=8HKmN9KdivKx3dX_2-8EUx8iy94r2yzS5zJpDT36emKnkesYzXiF_n-O3h2jDdHhOQ6HEaBGo3SiS0N-nseRZ3tWh4Nk-_b-8PqNYtJfysq-CBkjVGTl1bWRyQ0DSlkmHe-yuYL30EByxiLjBAslU8zi1Opz1H6wNlNtI4KYcUwUYotdOHzYWMQE0royovnE-Be6CF7If-yk_kP96imBts4UsW0L9ccpPduUxtAluIZQ1nHsGkfa9jAswLwtBfxiTyY1MJVxUAD0VD3SF6YrGAKOOfFVslM7MnFWpUB5Nks4aUXkX7fCAU6POrftkN0K0xIi-hupI-gj21uYyqPCi3Tub0Wk0pwZjjxXyZi3lsSc6bmAvvrqRDhZDoH-ad6IFlp1m5tgPUcKczqKtaoSVSMwobzp5YSwxBckLCHSjboDS0-Cw-A-uOe4g2wPjwL4&amp;v=404" target="_blank" clstag="h|keycount|head|recom_03"><div class="lazyimg lazyimg_loaded J_rec_img rec_img"><img src="//img1.360buyimg.com/pop/s190x150_jfs/t1/26557/2/11032/31376/5c8b4326E1f01391d/035f488a657ea1c9.jpg!q90!cc_190x150" class="lazyimg_img"></div></a></div></div></div>
+</div>
 <!------------------------------------轮播图右侧一栏------------------------>
 <div class="m">
     <div class="mt" style="padding-top: 5px;">
@@ -85,6 +90,7 @@
         </#list>
     </#if>
 </div>
+
 <#include "index-main.ftl" />
 </div>
 <!------footer信息 begin----->
