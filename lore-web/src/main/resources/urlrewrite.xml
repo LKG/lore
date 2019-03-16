@@ -21,8 +21,8 @@
         <to>/index/helps.jhtml</to>
     </rule>
     <rule>
-        <from>^/vips.?(.*)$</from>
-        <to>/index/vips.jhtml</to>
+        <from>^/vip.?(.*)$</from>
+        <to>/index/vip.jhtml</to>
     </rule>
     <rule>
         <from>^/questions.?(.*)$</from>

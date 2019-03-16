@@ -9,6 +9,7 @@ import im.heart.core.validator.ValidatorUtils;
 import im.heart.core.web.AbstractController;
 import im.heart.frame.entity.FrameArea;
 import im.heart.frame.service.FrameAreaService;
+import im.heart.frame.validator.FrameAreaValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -43,7 +44,7 @@ public class AdminAreaController extends AbstractController {
 	private FrameAreaService frameAreaService;
 	@InitBinder  
     public void initBinder(DataBinder binder) {  
-      // binder.setValidator(new FrameAreaValidator());  
+       binder.setValidator(new FrameAreaValidator());
     }  
 	@RequestMapping(value = apiVer+"/tree")
 	public ModelAndView treeView(ModelMap model){

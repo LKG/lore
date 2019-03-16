@@ -62,7 +62,7 @@
             <div class="cb"></div>
         </div>
         <h2 class="module_h2"><a target="_blank">最新简历范文</a></h2>
-        <p class="module_tag"> <a  target="_blank">更多&gt;&gt;</a> </p>
+        <p class="module_tag"> <a  target="_blank">更多<i class="fa fa-angle-double-right" aria-hidden="true"></i></a> </p>
         <div class="cb"></div>
         <div class="module2">
             <ul class="ml_content_main ml_content_main_word">
@@ -82,7 +82,7 @@
             </ul>
         </div>
         <h2 class="module_h2"><a target="_blank">最新PPT模板</a></h2>
-        <p class="module_tag"> <a target="_blank">更多&gt;&gt;</a> </p>
+        <p class="module_tag"> <a target="_blank">更多<i class="fa fa-angle-double-right" aria-hidden="true"></i></a> </p>
         <div class="cb"></div>
         <div class="module2">
             <ul class="ml_content_main ml_content_main_ppt">

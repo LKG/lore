@@ -27,10 +27,10 @@ public class Reptile71PoliticsJob    extends  AbstractJob{
     @Autowired
     ArticleService articleService;
     Integer MAX_PAGE=3;
-    @Scheduled(cron = "0 49 20 * * ?")
+    @Scheduled(cron = "0 05 21 * * ?")
     void executeJob()throws Exception{
         log.info(".....................");
-        parseArticleList("http://www.71.cn/acastudies/expcolumn/politics/320.shtml","政治");
+        parseArticleList("http://www.71.cn/acastudies/expcolumn/politics/1.shtml","政治");
     }
 
     @Async
