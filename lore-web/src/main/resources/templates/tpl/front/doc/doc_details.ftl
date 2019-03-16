@@ -83,13 +83,19 @@
                 </div>
                 <!---文档左侧end--->
                 <!---文档右侧begin--->
-                <div class="col-md-3 col-xs-3">
+                <div class="col-md-3 col-xs-3"  >
                     <!---详情面板begin--->
-  				    <#include "/front/doc/template/doc-infos.ftl" />
-                    <!---详情面板end--->
-                    <!---面板begin--->
-  				    <#include "/front/doc/template/doc-vips.ftl" />
-                    <!---面板end--->
+                        <#include "/front/doc/template/doc-infos.ftl" />
+                        <!---详情面板end--->
+                        <!---面板begin--->
+                        <#include "/front/doc/template/doc-author-works.ftl" />
+                        <!---面板end--->
+                        <!---面板begin--->
+                        <#include "/front/doc/template/doc-hot-keywords.ftl" />
+                        <!---面板end--->
+                        <!---面板begin--->
+                        <#include "/front/doc/template/doc-vips.ftl" />
+                        <!---面板end--->
                 </div>
                 <!---文档右侧end--->
             </div>

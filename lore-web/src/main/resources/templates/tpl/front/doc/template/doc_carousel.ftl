@@ -8,6 +8,7 @@
     </div>
     {{/each}}
 </script>
+
 <div id="doc-carousel-generic"  data="${result.id}">
 
 </div>

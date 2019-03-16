@@ -352,10 +352,10 @@ _display: block;
 .fore-14:hover .font-item1{display:block;}
 .fore-15:hover .font-item1{display:block;}
 /*轮播图*/
-#lunbo{clear:both;position:absolute;top:63px;left:220px;width:720px;}
-#one{width:730px;overflow:hidden;height:457px;}
+#lunbo{clear:both;position:absolute;top:63px;left:220px;width:620px;}
+#one{width:630px;overflow:hidden;height:457px;}
 #one li{float:left;width:0;}
-#one .on{width:720px;}
+#one .on{width:620px;}
 #two .on{background:red;}
 #two{position:absolute;right:295px;bottom:10px}
 #two li{float:left;padding:1px  6px;border:1px solid #fff;margin-left:10px;background:#666;border-radius:20px;color:#fff;cursor: pointer;text-align:center;}
@@ -375,7 +375,24 @@ _display: block;
 
 .mc li span{font-weight:700;margin-right:5px;}
 
-
+.fa-xlxs:before ,.fa-xls:before{
+	content: "\f1c3";
+}
+.fa-doc:before,.fa-docx:before {
+	content: "\f1c2";
+}
+.fa-ppt:before ,.fa-pptx:before {
+	content: "\f1c4";
+}
+.fa-pdf:before {
+	content: "\f1c1";
+}
+.fa-zip:before, .fa-rar:before, .fa-gz:before  {
+	content: "\f1c6";
+}
+.fa-ppt:before ,.fa-pptx:before {
+	content: "\f1c4";
+}
 .ci-left{width:25px;height:25px; top:13px;left:18px;position:absolute;top:12px;right:5px;}
 .ci-bottom{position:absolute;bottom:5px;left:18px;}
 /*轮播下方*/

@@ -2,7 +2,7 @@
     <div class="logo"><a href=""></a></div>
     <div class="search" style="height: 26px;">
         <input type="text"  value="" class="text" id="textt">
-        <button class="button">搜索</button>
+        <button id="btn-search"  class="button">搜索</button>
         <div class="hotwords">
             <a href="#" class="red">毕业答辩</a>
             <a href="#">个人简历</a>
@@ -24,3 +24,11 @@
            class="btn btn-primary pull-right" href="${contextPath}/userinfo/desk.jhtml" ><i class="fa fa-cloud-upload">上传我的文档</i></a>
     </div>
 </div>
+<#include "/includes/jquery.ftl" />
+<script>
+    $(function(){
+        $("#btn-search").on("click",function () {
+            alert("@@");
+        });
+    });
+</script>

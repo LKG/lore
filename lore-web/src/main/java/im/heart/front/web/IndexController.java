@@ -68,7 +68,7 @@ public class IndexController extends AbstractController {
 		final Collection<SearchFilter> filters= DynamicSpecifications.buildSearchFilters(request);
 		filters.add(new SearchFilter("isPub", SearchFilter.Operator.EQ,Boolean.TRUE));
 		Specification<Periodical> spec= DynamicSpecifications.bySearchFilter(filters, Periodical.class);
-		PageRequest pageRequest= DynamicPageRequest.buildPageRequest(1,10, "pushTime",CommonConst.Page.DEFAULT_ORDER,Periodical.class);
+		PageRequest pageRequest= DynamicPageRequest.buildPageRequest(1,5, "pushTime",CommonConst.Page.DEFAULT_ORDER,Periodical.class);
 		Page<Periodical> pag = this.periodicalService.findAll(spec, pageRequest);
 		if(pag!=null&&pag.hasContent()){
 			List<PeriodicalVO> vos = Lists.newArrayList();

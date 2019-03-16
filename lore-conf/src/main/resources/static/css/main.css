@@ -309,6 +309,7 @@ a.muban_2,a.muban_2:link,a.muban_2:active,a.muban_2:visited {
 	float: left;
 	width: 426px;
 	height: 340px;
+	box-shadow: 0 1px 5px rgba(4,0,0,.1);
 	border: 1px solid #e5e5e5;
 	margin-right: 19px;
 	_margin-right: 10px;
@@ -375,7 +376,9 @@ a.muban_2,a.muban_2:link,a.muban_2:active,a.muban_2:visited {
 .module2 .ml_content_main {
 	width: 1210px;
 	background: #f7f7f7;
-	padding: 5px 0 20px
+	padding: 5px 0 20px;
+	box-shadow: 0 1px 5px rgba(4,0,0,.1);
+	border: 1px solid #e5e5e5;
 }
 
 .module2 .ml_content_main_ppt li {
@@ -396,14 +399,11 @@ a.muban_2,a.muban_2:link,a.muban_2:active,a.muban_2:visited {
 }
 
 .module2 .ml_content_main_word li {
-	height: 265px;
+	height: 200px;
 	margin: 12px 22px 10px;
 	_margin: 12px 20px 10px
 }
 
-.module2 .ml_content_main_word .mcm_img {
-	height: 230px
-}
 
 .module2 .ml_content_main_word .mcm_show {
 	padding-top: 276px
@@ -782,7 +782,7 @@ a.mcm_title {
 
 .ml_content_main_word a.mcm_img {
 	width: 153px;
-	height: 208px;
+	height: 150px;
 	border: 1px solid #e5e5e5
 }
 

@@ -1,11 +1,18 @@
 <!---面板begin--->
-<div class="panel panel-default">
-   <div class="panel-heading text-center" role="tab" id="headingOne">
-       <h4>当前资源信息</h4>
+<div class="panel panel-default pin">
+   <div class="panel-heading" role="tab" id="headingOne">
+      <h4> <i class="fa fa-book"> </i> 当前资源信息</h4>
    </div>
    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
      <div class="panel-body">
          <div class="caption" >
+            <p style="color: #bda837;" >
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+                <i class="fa fa-star-o"></i>
+            </p>
             <p >编号：<code>${result.periodicalCode!''}</code></p>
             <p >类型：<code>${result.periodicalType!''}</code></p>
             <p >格式：<code>${result.fileHeader!''}</code></p>

@@ -1,25 +1,29 @@
 <div class="clearfix"></div>
-<div class="layout" ms-controller="IndexCtrl">
+<div class="layout" ms-controller="IndexCtrl" style="margin-top: 12px;font-size: 12px;">
     <div class="cb"></div>
     <div class="main" ms-widget="collect, indexCollect">
         <div class="like_hot">
             <div class="like_hot_left">
                 <div class="moudle_class">
                     <h3 class="ms_ul_h3"><a href="javascript:;" ms-text="activityAd.pic_text">会员优惠专区</a></h3>
-                    <a  class="moudle_class_groom" target="_blank"> <img src="http://www.docer.com/application/styles/images/loading48.gif"   /> </a>
+                    <a  class="moudle_class_groom" target="_blank"> <img style="width: 385px" alt="党政党风" src="http://www.zhijidoc.com/FileUpload/BookGroup/afa90330-18ef-4a54-aa94-32d892c3848c.jpg"   /> </a>
                     <ul class="ms_ul">
-                         <#list [1,2,3,4,5] as article>
-                         <li><i class="fa fa-angle-down"  style="padding-right: 10px;"></i><a target="_blank">哈佛大学用这12张图，教育了10亿人</a></li>
-                         </#list>
+                        <#if docs??&&docs.content??>
+                            <#list docs.content as doc>
+                                <li><i class="fa fa-angle-down"  style="padding-right: 10px;"></i><a  target="_blank">${doc.shortTitle!''}</a></li>
+                            </#list>
+                        </#if>
                      </ul>
                 </div>
                 <div class="moudle_class">
                     <h3 class="ms_ul_h3"><a href="javascript:;"></a></h3>
-                    <a class="moudle_class_groom" target="_blank"> <img lazyloadsrc="http://img1.template.cache.wps.cn/wps/cdnwps/upload/official/template/vip/commend_img/docer/zhaomu_min_20180820.png" alt="内容创作者招募令" src="http://www.docer.com/application/styles/images/loading48.gif" /> </a>
+                    <a class="moudle_class_groom" target="_blank"> <img alt="党政党风" style="width: 385px" src="http://dl.op.wpscdn.cn/odimg/web/2018-12-27/071038/2019gehsui.png" /> </a>
                     <ul class="ms_ul">
-                        <#list [1,2,3,4,5] as article>
-                            <li><i class="fa fa-angle-down"  style="padding-right: 10px;"></i><a  target="_blank">【PPT教程】关于PPT色彩，少有人知的5个功能！</a></li>
-                        </#list>
+                        <#if docs??&&docs.content??>
+                            <#list docs.content as doc>
+                                <li><i class="fa fa-angle-down"  style="padding-right: 10px;"></i><a  target="_blank">${doc.shortTitle!''}</a></li>
+                            </#list>
+                        </#if>
                     </ul>
                 </div>
             </div>
@@ -34,7 +38,10 @@
                     <ul class="hot_doc_ul free" >
                         <#if docs??&&docs.content??>
                             <#list docs.content as doc>
-                                <li > <a href="${contextPath}/doc/${doc.id!''}.jhtml" >${doc.shortTitle!''}</a>
+                                <li >
+                                    <a href="${contextPath}/doc/${doc.id!''}.jhtml" >
+                                        <i class="fa fa-${doc.fileHeader!''} fa-lg text-primary " style="margin-right: 5px"></i>
+                                        ${doc.shortTitle!''}</a>
                                 <a href="${contextPath}/doc/${doc.id!''}.jhtml"  class="pull-right"><i class="fa fa-download"></i></a> </li>
                             </#list>
                         </#if>
@@ -42,7 +49,9 @@
                     <ul class="hot_doc_ul vip" style="display: none;" >
                         <#if docs??&&docs.content??>
                             <#list docs.content as doc>
-                                <li > <a href="${contextPath}/doc/${doc.id!''}.jhtml" >${doc.shortTitle!''}</a>
+                                <li > <a href="${contextPath}/doc/${doc.id!''}.jhtml" >
+                                        <i class="fa fa-${doc.fileHeader!''} fa-lg text-primary" style="margin-right: 5px"></i>
+                                        ${doc.shortTitle!''}</a>
                                     <a  class="pull-right" ><i class="fa fa-download"></i></a>
                                 </li>
                             </#list>
@@ -57,12 +66,18 @@
         <div class="cb"></div>
         <div class="module2">
             <ul class="ml_content_main ml_content_main_word">
-                       <#list [0,1,2,3,4] as article>
-                          <li ms-hover="hover"> <a  target="_blank" class="mcm_img" id="load3810722" title="求职简历求职模板.docx"> <img src="http://www.docer.com/application/styles/images/loading48.gif" alt="求职简历求职模板.docx" style="display: block;" /> </a> <a target="_blank" class="mcm_title" title="求职简历求职模板.docx">求职简历求职模板</a>
-                              <div class="mcm_show">
-                                  <p> <span class="fwb mcm_title_price">￥<span class="red">9.99</span></span> <span class="gray">预览：506</span> <a href="javascript:void(0)" class="collect" title="收藏" ms-click="clickCollect($event, 3810722, 3, 1)"></a> </p>
-                              </div> </li>
-                      </#list>
+                <#if docs??&&docs.content??>
+                    <#list docs.content as doc>
+                        <li ms-hover="hover">
+                            <a  target="_blank" class="mcm_img" id="load${doc.id!''}" title="${doc.periodicalName!''}">
+                                <img src="${doc.coverImgUrl!''}" alt="${doc.periodicalName!''}" style="display: block;" />
+                            </a>
+                            <a target="_blank" class="mcm_title" title="${doc.periodicalName!''}">${doc.shortTitle!''}</a>
+                            <div class="mcm_show">
+                                <p> <span class="fwb mcm_title_price">￥<span class="red">${doc.originPrice!''}</span></span> <span class="gray">预览：506</span> <a href="javascript:void(0)" class="collect" title="收藏" ms-click="clickCollect($event, 3810722, 3, 1)"></a> </p>
+                            </div> </li>
+                    </#list>
+                </#if>
                 <div class="cb"></div>
             </ul>
         </div>
@@ -71,12 +86,18 @@
         <div class="cb"></div>
         <div class="module2">
             <ul class="ml_content_main ml_content_main_ppt">
-                 <#list [1,2,3,4,5] as article>
-                <li ms-hover="hover"> <a  target="_blank" class="mcm_img" id="load3836251" title="极简极简工作总结极简模板.pptx" > <img src="http://www.docer.com/application/styles/images/loading48.gif" alt="极简极简工作总结极简模板.pptx" style="display: block;" /> </a> <a target="_blank" class="mcm_title" title="极简极简工作总结极简模板.pptx">极简极简工作总结极简模板</a>
-                    <div class="mcm_show">
-                        <p> <span class="fwb mcm_title_price">￥<span class="red">14.99</span></span> <span class="gray">预览：86</span> <a href="javascript:void(0)" class="collect" title="收藏" ></a> </p>
-                    </div> </li>
-                  </#list>
+                <#if docs??&&docs.content??>
+                    <#list docs.content as doc>
+                        <li ms-hover="hover">
+                            <a  target="_blank" class="mcm_img" id="load${doc.id!''}" title="${doc.periodicalName!''}" >
+                                <img src="${doc.coverImgUrl!''}" alt="${doc.periodicalName!''}" style="display: block;" />
+                            </a>
+                            <a target="_blank" class="mcm_title" title="${doc.periodicalName!''}">${doc.shortTitle!''}</a>
+                            <div class="mcm_show">
+                                <p> <span class="fwb mcm_title_price">￥<span class="red">${doc.originPrice!''}</span></span> <span class="gray">预览：${doc.hits!''}</span> <a href="javascript:void(0)" class="collect" title="收藏" ></a> </p>
+                            </div> </li>
+                    </#list>
+                </#if>
                 <div class="cb"></div>
             </ul>
         </div>

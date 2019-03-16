@@ -71,7 +71,7 @@
 <div class="container" style="margin-top: 30px;">
     <ol class="breadcrumb">
         <li><a href="${contextPath}/"><@spring.message  code="label.system.index" /></a></li>
-        <li class="active">文章</li>
+        <li class="active">文章列表</li>
     </ol>
 </div>
 <div class="container" >
@@ -81,9 +81,89 @@
                 <ul id="my-tab-rule" class="myNavTab nav nav-tabs" role="tablist">
                     <li role="presentation" style="cursor:pointer" class="active">
                         <a id="my-tab-all" data-key="">
-                            文章列表 (共<code id="paginationTotal" >${result.totalElements}</code> 篇)
+                            全部 (共<code id="paginationTotal" >${result.totalElements}</code> 篇)
                         </a>
                     </li>
+                    <#--<li role="presentation" style="cursor:pointer" class="" >-->
+                        <#--<a id="my-tab-economy"  data-key="economy"  >-->
+                            <#--经济-->
+                        <#--</a>-->
+                    <#--</li>-->
+                    <#--<li role="presentation" style="cursor:pointer" class="" >-->
+                        <#--<a id="my-tab-politics"  data-key="politics"  >-->
+                            <#--政治-->
+                        <#--</a>-->
+                    <#--</li>-->
+                    <#--<li role="presentation" style="cursor:pointer" class="" >-->
+                        <#--<a id="my-tab-tj"  data-key="tj"  >-->
+                            <#--图解-->
+                        <#--</a>-->
+                    <#--</li>-->
+                    <#--<li role="presentation" style="cursor:pointer" class="" >-->
+                        <#--<a id="my-tab-history"  data-key="history"  >-->
+                            <#--历史-->
+                        <#--</a>-->
+                    <#--</li>-->
+                    <#--<li role="presentation" style="cursor:pointer" class="" >-->
+                        <#--<a id="my-tab-keji"  data-key="keji"  >-->
+                            <#--科技-->
+                        <#--</a>-->
+                    <#--</li>-->
+                    <#--<li role="presentation" style="cursor:pointer" class="" >-->
+                        <#--<a id="my-tab-law"  data-key="law"  >-->
+                            <#--法律-->
+                        <#--</a>-->
+                    <#--</li>-->
+                    <#--<li role="presentation" style="cursor:pointer" class="" >-->
+                        <#--<a id="my-tab-ll"  data-key="ll"  >-->
+                            <#--理论-->
+                        <#--</a>-->
+                    <#--</li>-->
+                    <#--<li role="presentation" style="cursor:pointer" class="" >-->
+                        <#--<a id="my-tab-nationaldefense"  data-key="nationaldefense"  >-->
+                            <#--国防-->
+                        <#--</a>-->
+                    <#--</li>-->
+                    <#--<li role="presentation" style="cursor:pointer" class="" >-->
+                        <#--<a id="my-tab-kejiao"  data-key="kejiao"  >-->
+                            <#--科教-->
+                        <#--</a>-->
+                    <#--</li>-->
+                    <#--<li role="presentation" style="cursor:pointer" class="" >-->
+                        <#--<a id="my-tab-jiaoyu"  data-key="jiaoyu"  >-->
+                            <#--教育-->
+                        <#--</a>-->
+                    <#--</li>-->
+                    <#--<li role="presentation" style="cursor:pointer" class="" >-->
+                        <#--<a id="my-tab-international"  data-key="international"  >-->
+                            <#--国际-->
+                        <#--</a>-->
+                    <#--</li>-->
+                    <#--<li role="presentation" style="cursor:pointer" class="" >-->
+                        <#--<a id="my-tab-culture"  data-key="culture"  >-->
+                            <#--文化-->
+                        <#--</a>-->
+                    <#--</li>-->
+                    <#--<li role="presentation" style="cursor:pointer" class="" >-->
+                        <#--<a id="my-tab-dangjian"  data-key="dangjian"  >-->
+                            <#--党建-->
+                        <#--</a>-->
+                    <#--</li>-->
+                    <#--<li role="presentation" style="cursor:pointer" class="" >-->
+                        <#--<a id="my-tab-community"  data-key="community"  >-->
+                            <#--社会-->
+                        <#--</a>-->
+                    <#--</li>-->
+                    <#--<li role="presentation" style="cursor:pointer" class="" >-->
+                        <#--<a id="my-tab-ecology"  data-key="ecology"  >-->
+                            <#--生态-->
+                        <#--</a>-->
+                    <#--</li>-->
+                    <#--<li role="presentation" style="cursor:pointer" class="" >-->
+                        <#--<a id="my-tab-other"  data-key="other"  >-->
+                            <#--其他-->
+                        <#--</a>-->
+                    <#--</li>-->
                 </ul>
             </div>
             <div class="panel-body">
@@ -119,7 +199,7 @@
                                         <a class="item-href"  href="${contextPath}/article/{{article.id}}.jhtml"
                                            target="_blank" >{{article.title}}</a>
                                         <span class="">阅读量：<code>{{article.hits}}</code></span>
-                                        <span class="">点赞数：<code>{{article.rateTimes}}</code></span>
+<#--                                        <span class="">点赞数：<code>{{article.rateTimes}}</code></span>-->
                                         <span class="pull-right">{{article.pushTime}}</span>
                                     </li>
                                 {{/each}}

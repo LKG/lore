@@ -1,6 +1,7 @@
 define(function (require, exports, moudles) {
 	var $ = require('jquery');
 	var jQuery = require('jquery');
+	var pin = require('jquery.pin');
     var template = require('arttemplate');
     var lazyload = require('../../modules/lazyload/lazyload.min.js');
     var message = require('js/common/messages.js');
@@ -9,6 +10,9 @@ define(function (require, exports, moudles) {
 	$("#xx,#xx a").on("click",function () {
 		$("#top-banner").hide();
     });
+	$(".pin").pin({
+		containerSelector: ".container"
+	})
 	//TODO：后期考虑公用全局配置
 	 function showNum(f){
 		  if(f>=10000){

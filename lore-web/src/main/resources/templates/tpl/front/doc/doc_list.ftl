@@ -65,7 +65,15 @@
 <div class="container" style="margin-top: 35px;">
     <div class="row">
         <div class="panel panel-default">
-            <div class="panel-heading"><h4>全部分类 (共<code id="paginationTotal" >${result.totalElements}</code> 份)</h4></div>
+            <div class="">
+                <ul id="my-tab-rule" class="myNavTab nav nav-tabs" role="tablist">
+                    <li role="presentation" style="cursor:pointer" class="active" >
+                        <a id="my-tab-all"  data-key=""  >
+                            <h4>全部分类 (共<code id="paginationTotal" >${result.totalElements}</code> 份)</h4>
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <div class="panel-body">
                 <!---文档begin--->
                 <div class="col-md-12  col-xs-12">
