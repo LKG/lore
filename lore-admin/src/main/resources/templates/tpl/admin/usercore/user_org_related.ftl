@@ -91,7 +91,7 @@
 							  	<input id="related_isDefault_{{model.relateId}}" data="{{model.relateId}}"  name="isDefault" {{if model.isDefault}}disabled checked{{/if}}  type="radio" value="{{model.relateId}}"/>
 							  </div>
 							</td>
-							<td>{{model.relateOrg.name}}(<code>{{model.relateOrg.orgCode}}</code>)</td>
+							<td>{{model.relate.orgName}}(<code>{{model.relateOrg.orgCode}}</code>)</td>
 							<td>{{model.relateOrg.contacts}}</td>
 							</tr>
 						{{/each}}
