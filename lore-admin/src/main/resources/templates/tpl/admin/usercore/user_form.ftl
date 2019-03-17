@@ -20,7 +20,7 @@
 		     <div class="col-sm-9 col-xs-9">
 			    <div class="input-group">
 			      <div class="input-group-addon"><i class="fa fa-user"></i></div>
-			        <p class="form-control form-control-static"><code>${result.userName}</code></p>
+			        <p class="form-control form-control-static"><code>${result.userName!''}</code></p>
 			    </div>
 		    </div>
 		  </div>
@@ -29,7 +29,7 @@
 		    <div class="col-sm-9 col-xs-9">
 			    <div class="input-group ">
 			      <div class="input-group-addon"><i class="fa fa-mobile"></i></div>
-			       <p class="form-control form-control-static"><code>${result.userPhone}</code></p>
+			       <p class="form-control form-control-static"><code>${result.userPhone!''}</code></p>
 			    </div>
 			</div>
 		    <div class="col-sm-3 col-xs-3">
@@ -81,7 +81,7 @@
 		    <div class="col-sm-9 col-xs-9">
 			    <div class="input-group">
 			      <div class="input-group-addon"><i class="fa fa-envelope-o"></i></div>
-			      	<p class="form-control form-control-static"><code>${result.nickName}</code></p>
+			      	<p class="form-control form-control-static"><code>${result.nickName!''}</code></p>
 			    </div>
 		    </div>
 		  </div>
@@ -90,7 +90,7 @@
 		    <div class="col-sm-9 col-xs-9">
 			    <div class="input-group">
 			      <div class="input-group-addon"><i class="fa fa-envelope-o"></i></div>
-			      <p class="form-control form-control-static"><code>${result.userEmail}</code></p>
+			      <p class="form-control form-control-static"><code>${result.userEmail!''}</code></p>
 			    </div>
 		    </div>
 		  </div>
@@ -99,7 +99,7 @@
 		    <div class="col-sm-9 col-xs-9">
 			    <div class="input-group">
 			      <div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
-			        <p class="form-control form-control-static"><code>${result.userIdcard}</code></p>
+			        <p class="form-control form-control-static"><code>${result.userIdcard!''}</code></p>
 			    </div>
 		    </div>
 		  </div>
@@ -108,7 +108,7 @@
 		    <div class="col-sm-9 col-xs-9">
 			    <div class="input-group">
 			      <div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
-			      <p class="form-control form-control-static"><code>${result.realName}</code></p>
+			      <p class="form-control form-control-static"><code>${result.realName!''}</code></p>
 			    </div>
 		    </div>
 		  </div>
@@ -117,7 +117,7 @@
 		    <div class="col-sm-9 col-xs-9">
 			    <div class="input-group">
 			      <div class="input-group-addon"><i class="fa fa-qq"></i></div>
-			         <p class="form-control form-control-static"><code>${result.userQq}</code></p>
+			         <p class="form-control form-control-static"><code>${result.userQq!''}</code></p>
 			    </div>
 		    </div>
 		  </div>

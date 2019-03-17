@@ -48,7 +48,7 @@
 					 <p  style="background-color: #fff;    display: inline-block;" >
 							共 <code id="related-repair-paginationTotal" >0</code> 记录
 					 </p>
-					 	<select class="form-control" style="display: inline;width: 75px;" name="pag-size" id="related-repair-paginationSize">
+					 	<select class="form-control" style="display: inline;width: 75px;" id="related-repair-paginationSize">
 						  <option value="10">10</option>
 						  <option value="20">20</option>
 						  <option value="50">50</option>
@@ -178,7 +178,7 @@
 							 <p  style="background-color: #fff;    display: inline-block;" >
 									共 <code id="repair-paginationTotal" >0</code> 记录
 							 </p>
-							 	<select class="form-control" style="display: inline;width: 75px;"name="pag-size" id="repair-paginationSize">
+							 	<select class="form-control" style="display: inline;width: 75px;" id="repair-paginationSize">
 								  <option value="10">10</option>
 								  <option value="20">20</option>
 								  <option value="50">50</option>

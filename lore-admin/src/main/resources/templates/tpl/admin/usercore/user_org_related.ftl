@@ -49,7 +49,7 @@
 					 <p  style="background-color: #fff;    display: inline-block;" >
 							共 <code id="related-org-paginationTotal" >0</code> 记录
 					 </p>
-					 	<select class="form-control" style="display: inline;width: 75px;" name="pag-size" id="related-org-paginationSize">
+					 	<select class="form-control" style="display: inline;width: 75px;" id="related-org-paginationSize">
 						  <option value="10">10</option>
 						  <option value="20">20</option>
 						  <option value="50">50</option>
@@ -118,10 +118,10 @@
 							<div class="input-group">
 									<span class="input-group-addon">地区</span>
 									 <input type="hidden" class="form-control" id="hideAreaCode" value="" name="areaCode" />
-							 		<select class="form-control" style="width: 100px;" data-pid='<#if result.areaCode?length gt 1>${result.areaCode?substring(0,2)}</#if>' id="org_provinceId" name="areaCode_LIKES">
+							 		<select class="form-control" style="width: 100px;" data-pid='<#if result.relateOrg.areaCode?length gt 1>${result.relateOrg.areaCode?substring(0,2)}</#if>' id="org_provinceId" name="areaCode_LIKES">
 									    	<option value="" >------</option>
 									</select>
-									<select class="form-control" style="width: 100px;" data-pid='<#if result.areaCode?length gt 3>${result.areaCode?substring(0,4)}</#if>'  id="org_cityId" name="areaCode_LIKES">
+									<select class="form-control" style="width: 100px;" data-pid='<#if result.relateOrg.areaCode?length gt 3>${result.relateOrg.areaCode?substring(0,4)}</#if>'  id="org_cityId" name="areaCode_LIKES">
 									     	<option value="" >------</option>
 									</select>
 					        </div>
@@ -132,7 +132,7 @@
 						 <option value="">---</option>
 					 	<@custom.dict dictCode="org_type" >	
 							<#list items as model>  
-								<option value="${model.itemValue}" >${model.itemName}</option>
+								<option value="${model.itemValue}" >${model.itemName!''}</option>
 							</#list>
 						</@custom.dict>
 						</select>
@@ -154,7 +154,7 @@
 							 <p  style="background-color: #fff;    display: inline-block;" >
 									共 <code id="org-paginationTotal" >0</code> 记录
 							 </p>
-							 	<select class="form-control" style="display: inline;width: 75px;"name="pag-size" id="org-paginationSize">
+							 	<select class="form-control" style="display: inline;width: 75px;" id="org-paginationSize">
 								  <option value="10">10</option>
 								  <option value="20">20</option>
 								  <option value="50">50</option>

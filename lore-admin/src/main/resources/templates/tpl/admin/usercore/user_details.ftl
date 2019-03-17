@@ -61,25 +61,25 @@
 					 	<form  class="form-search form-inline">
 					 		<a href="${contextPath}/admin/users.jhtml" class="btn btn-danger" role="button"><i class="fa fa-reply"></i>返回</a>
 					 		 <div class="form-group">
-					 		 	<label  class="control-label"><@spring.message  code="label.login.username" /></label><span><code>${result.userName}</code></span>
+					 		 	<label  class="control-label"><@spring.message  code="label.login.username" /></label><span><code>${result.userName!''}</code></span>
 					 		 </div>
 					 		<div class="form-group">
-					 			<label  class="control-label"><@spring.message  code="label.user.phone" /></label><span><code>${result.userPhone}</code></span>
+					 			<label  class="control-label"><@spring.message  code="label.user.phone" /></label><span><code>${result.userPhone!''}</code></span>
 					 		</div>
 					 		<div class="form-group">
-					 			<label  class="control-label"><@spring.message  code="label.user.nickName" /></label><span><code>${result.nickName}</code></span>
+					 			<label  class="control-label"><@spring.message  code="label.user.nickName" /></label><span><code>${result.nickName!''}</code></span>
 					 		</div>
 					 		<div class="form-group">
-					 			<label  class="control-label"><@spring.message  code="label.user.email" /></label><span><code>${result.userEmail}</code></span>
+					 			<label  class="control-label"><@spring.message  code="label.user.email" /></label><span><code>${result.userEmail!''}</code></span>
 					 		</div>
 					 		<div class="form-group">
-					 			<label  class="control-label">身份证</label><span><code>${result.userIdcard}</code></span>
+					 			<label  class="control-label">身份证</label><span><code>${result.userIdcard!''}</code></span>
 					 		</div>
 					 		<div class="form-group">
-					 			<label  class="control-label">真实姓名</label><span><code>${result.realName}</code></span>
+					 			<label  class="control-label">真实姓名</label><span><code>${result.realName!''}</code></span>
 					 		</div>
 					 		<div class="form-group">
-					 		<label  class="control-label"><@spring.message  code="label.user.qq" /></label><span><code>${result.userQq}</code></span>
+					 		<label  class="control-label"><@spring.message  code="label.user.qq" /></label><span><code>${result.userQq!''}</code></span>
 					 		</div>
 					 	</form>
 				 	</div>

@@ -49,7 +49,7 @@
 					 <p  style="background-color: #fff;    display: inline-block;" >
 							共 <code id="related-item-paginationTotal" >0</code> 记录
 					 </p>
-					 	<select class="form-control" style="display: inline;width: 75px;" name="pag-size" id="related-item-paginationSize">
+					 	<select class="form-control" style="display: inline;width: 75px;" id="related-item-paginationSize">
 						  <option value="10">10</option>
 						  <option value="20">20</option>
 						  <option value="50">50</option>

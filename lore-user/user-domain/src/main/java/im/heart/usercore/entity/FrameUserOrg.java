@@ -4,11 +4,13 @@ import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import im.heart.core.entity.AbstractEntity;
 import lombok.Data;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.math.BigInteger;
 import java.util.Date;
@@ -37,9 +39,11 @@ public class FrameUserOrg implements AbstractEntity<BigInteger> {
 	@Column(length = 20, name = "USER_ID", nullable = false, updatable = false)
 	private BigInteger userId;
 
-    @ManyToOne(cascade = {CascadeType.REFRESH},fetch = FetchType.LAZY)
-    @JoinColumn(name="ORG_ID")
-    @JSONField(serialzeFeatures={SerializerFeature.DisableCircularReferenceDetect})
+	@OneToOne(cascade = {CascadeType.REFRESH},fetch = FetchType.LAZY, orphanRemoval = true)
+	@JoinColumn(name="ORG_ID" )
+	@JSONField(serialzeFeatures={SerializerFeature.DisableCircularReferenceDetect})
+	@NotFound(action= NotFoundAction.IGNORE)
+	@Fetch(FetchMode.JOIN)
 	private FrameOrg relateOrg;
 
 	@JSONField(serialize = false)

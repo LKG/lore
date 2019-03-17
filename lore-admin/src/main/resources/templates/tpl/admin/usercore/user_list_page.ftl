@@ -28,6 +28,9 @@
 			 <label for="userPhone" >邮箱:</label>
 			 <input type="text" class="form-control" style="width: 200px;" value='' id="userEmail" name="userEmail_LIKES" placeholder="邮箱">
 		 </div>
+		   <div class="form-group">
+			  <input type="checkbox" name="isVip" value="1"> vip
+		   </div>
  		<div class="form-group">
 			 <label for="name" >状态:</label>
 			 <select name="status" class="form-control" style="width: 75px;" >
