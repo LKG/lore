@@ -7,6 +7,7 @@ import im.heart.core.plugins.persistence.DynamicSpecifications;
 import im.heart.core.utils.StringUtilsEx;
 import im.heart.core.validator.ValidatorUtils;
 import im.heart.core.web.AbstractController;
+import im.heart.core.web.utils.WebUtilsEx;
 import im.heart.frame.entity.FrameArea;
 import im.heart.frame.service.FrameAreaService;
 import im.heart.frame.validator.FrameAreaValidator;
@@ -92,6 +93,7 @@ public class AdminAreaController extends AbstractController {
 			@RequestParam(value = "order", required = false,defaultValue = CommonConst.Page.DEFAULT_ORDER) String order,
 			@RequestParam(value = RequestResult.ACCESS_TOKEN, required = false) String token,
 			ModelMap model) {
+		logger.info(WebUtilsEx.getParametersJson(request));
 		Specification<FrameArea> spec= DynamicSpecifications.bySearchFilter(request, FrameArea.class);
 		PageRequest pageRequest= DynamicPageRequest.buildPageRequest(page,size,sort,order,FrameArea.class);
 		Page<FrameArea> pag = this.frameAreaService.findAll(spec, pageRequest);

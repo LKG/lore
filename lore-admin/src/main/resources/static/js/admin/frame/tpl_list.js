@@ -99,7 +99,7 @@ define(function(require, exports, moudles) {
 		$("#btSelectAll").removeAttr("checked");
 		var param = $("#search_form").serialize();
 		$.httpUtil.curl({url : url.api + "s.json",
-			type : "post",
+			type : "get",
 			dataType : "json",
 			loading : loading,
 			data : param,

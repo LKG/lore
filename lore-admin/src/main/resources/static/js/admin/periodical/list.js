@@ -234,7 +234,7 @@ define(function(require, exports, moudles) {
 		var param = $("#search_form").serialize();
 		$.httpUtil.curl({
 					url : url.api + "s.json",
-					type : "post",
+					type : "get",
 					dataType : "json",
 					loading : loading,
 					data : param,
