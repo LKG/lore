@@ -105,13 +105,13 @@
 		<@user.permission>
 	   	     <#list permissions as permission>
 	   	      <label  <#if permission_index==0 > style="padding-left: 30px; "</#if> class="checkbox-inline" > 
-			  	<input type="checkbox" name="permissionIds"  data-id="${permission.permissionId}"
+			  	<input type="checkbox" name="permissionIds"  data-id="${permission.permissionId!''}"
 			  	<#if result.permissionIds??>
 			  		<#list result.permissionIds?split(",") as permissionId>
- 	  					<#if  permissionId==permission.permissionId >checked<#break></#if>
+ 	  					<#if  permissionId?number==permission.permissionId >checked<#break></#if>
 			   		</#list>
 			  	</#if>
-			  	 value="${permission.permissionId}"/>${permission.permissionName}
+			  	 value="${permission.permissionId!''}"/>${permission.permissionName!''}
 			  </label>
 			 </#list>
 		</@user.permission>

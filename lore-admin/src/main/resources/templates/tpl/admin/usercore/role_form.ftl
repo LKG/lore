@@ -6,8 +6,8 @@
 			<div class="input-group">
 			 <span class="input-group-addon">代号</span>
 			 <p class="form-control form-control-static"><code>${result.roleCode}</code></p>
- 			<input type="hidden" class="form-control" id="roleCode"  value="${result.roleCode}" name="roleCode" >
- 			<input type="hidden" class="form-control" id="level"  value="${result.level}" name="level" >
+ 			<input type="hidden" class="form-control" id="roleCode"  value="${result.roleCode!''}" name="roleCode" >
+ 			<input type="hidden" class="form-control" id="level"  value="${result.level!''}" name="level" >
  			</div>
 		<#else>
 			<div class="input-group">

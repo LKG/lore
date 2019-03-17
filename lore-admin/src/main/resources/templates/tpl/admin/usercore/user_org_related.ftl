@@ -118,10 +118,10 @@
 							<div class="input-group">
 									<span class="input-group-addon">地区</span>
 									 <input type="hidden" class="form-control" id="hideAreaCode" value="" name="areaCode" />
-							 		<select class="form-control" style="width: 100px;" data-pid='<#if result.relateOrg.areaCode?length gt 1>${result.relateOrg.areaCode?substring(0,2)}</#if>' id="org_provinceId" name="areaCode_LIKES">
+							 		<select class="form-control" style="width: 100px;" data-pid='<#if result.relateOrg??&&result.relateOrg.areaCode?length gt 1>${result.relateOrg.areaCode?substring(0,2)}</#if>' id="org_provinceId" name="areaCode_LIKES">
 									    	<option value="" >------</option>
 									</select>
-									<select class="form-control" style="width: 100px;" data-pid='<#if result.relateOrg.areaCode?length gt 3>${result.relateOrg.areaCode?substring(0,4)}</#if>'  id="org_cityId" name="areaCode_LIKES">
+									<select class="form-control" style="width: 100px;" data-pid='<#if result.relateOrg??&&result.relateOrg.areaCode?length gt 3>${result.relateOrg.areaCode?substring(0,4)}</#if>'  id="org_cityId" name="areaCode_LIKES">
 									     	<option value="" >------</option>
 									</select>
 					        </div>

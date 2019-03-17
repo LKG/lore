@@ -47,10 +47,10 @@
 			    		<td scope="row" class="text-center" >
 					         <input type="checkbox" id="check_${model.id}" name="id" value="${model.id}" />
 					    </td>
-					     <td title="${model.title}">${model.shortTitle}</td>
-					     <td class="text-center" >${model.type}</td>
+					     <td title="${model.title}">${model.shortTitle!''}</td>
+					     <td class="text-center" >${model.type!''}</td>
 					     <td class="text-center" >
-					     	<code>${model.categoryName} </code>
+					     	<code>${model.categoryName!''} </code>
 					     </td>
 					     <td class="text-center" >
 					     <code><#if (model.isTop) >置顶<#else>未置顶</#if></code>
@@ -58,9 +58,9 @@
 					      <code><#if (model.isPub) >已发布<#else>未发布</#if></code>
 					     </td>
 					     <td class="text-center" >
-					     	<code>${model.hits} </code>
+					     	<code>${model.hits!'0'} </code>
 					     	/
-					     	<code>${model.rateTimes} </code>
+					     	<code>${model.rateTimes!'0'} </code>
 					     </td>
 	 					<td class="operate text-center">
 	 						<a   href="${contextPath}/admin/article/${model.id}.jhtml"  title="修改"  >
