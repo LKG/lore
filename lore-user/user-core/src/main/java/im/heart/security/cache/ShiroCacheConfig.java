@@ -1,5 +1,9 @@
 package im.heart.security.cache;
-
+/**
+ *
+ * @author gg
+ * @desc  ShiroCacheConfig
+ */
 public enum ShiroCacheConfig {
 
 	PASSWORD_RETRY("shiro_password_retry:", 30 * 60 * 1),

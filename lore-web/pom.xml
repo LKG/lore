@@ -38,6 +38,11 @@
         </dependency>
         <dependency>
             <groupId>im.heart</groupId>
+            <artifactId>lore-admin</artifactId>
+            <version>0.1.57</version>
+        </dependency>
+        <dependency>
+            <groupId>im.heart</groupId>
             <artifactId>user-core</artifactId>
             <version>0.1.57</version>
         </dependency>

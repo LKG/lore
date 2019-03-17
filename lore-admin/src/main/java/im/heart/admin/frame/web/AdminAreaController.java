@@ -44,7 +44,7 @@ public class AdminAreaController extends AbstractController {
 	private FrameAreaService frameAreaService;
 	@InitBinder  
     public void initBinder(DataBinder binder) {  
-       binder.setValidator(new FrameAreaValidator());
+//       binder.setValidator(new FrameAreaValidator());
     }  
 	@RequestMapping(value = apiVer+"/tree")
 	public ModelAndView treeView(ModelMap model){

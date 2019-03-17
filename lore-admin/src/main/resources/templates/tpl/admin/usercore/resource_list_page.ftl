@@ -74,7 +74,7 @@
 					     	</span>
 					     </td>
 					     <td>${model.resourceDesc!''}</td>
-					     <td>${model.modiTime}</td>
+					     <td>${model.createTime!''}</td>
 	 					<td class="operate text-center">
 							<i id="edit-${model.resourceId}" data="${model.resourceId}" class="btn-view fa fa-pencil">修改</i>
 							<i id="child-${model.resourceId}" data="${model.resourceId}" class="btn-add-child fa fa-plus">添加</i>

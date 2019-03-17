@@ -36,7 +36,7 @@
 			 <p class="form-control form-control-static"><code>${result.resourceCode}</code></p>
 			 <input type="hidden" class="form-control" id="resourceId"  value="${result.resourceId}" name="resourceId" >
  			<input type="hidden" class="form-control" id="resourceCode"  value="${result.resourceCode}" name="resourceCode" >
- 			<input type="hidden" class="form-control" id="level"  value="${result.level}" name="level" >
+ 			<input type="hidden" class="form-control" id="level"  value="${result.level!''}" name="level" >
  			</div>
 		<#else>
 			<div class="input-group">

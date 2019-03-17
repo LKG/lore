@@ -51,7 +51,7 @@
 					    </td>
 					     <td><code>(${model.roleCode!''})</code>${model.roleName!''}</td>
 					     <td>${model.roleDesc!''}</td>
-					     <td>${model.modiTime}</td>
+					     <td>${model.createTime!''}</td>
 	 					<td class="operate">
 							<i id="edit-${model.roleId}" title="修改"  data="${model.roleId}" class="btn-view fa fa-pencil">修改</i>
 							<#if (!model.hasChildren) >

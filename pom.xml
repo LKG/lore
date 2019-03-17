@@ -81,6 +81,7 @@
         <zxing.version>3.3.3</zxing.version>
         <!-- 二维码end -->
         <weixin-tools.version>3.2.0</weixin-tools.version>
+        <spring-mobile-device.version>2.0.0.M3</spring-mobile-device.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -136,6 +137,11 @@
                 <groupId>org.tuckey</groupId>
                 <artifactId>urlrewritefilter</artifactId>
                 <version>${urlrewrite.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.mobile</groupId>
+                <artifactId>spring-mobile-device</artifactId>
+                <version>${spring-mobile-device.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
