@@ -5,7 +5,7 @@
 <!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
-<title>用户资料</title>
+<title>用户资料- <@spring.message  code="label.system.name" /></title>
   <#include "/includes/head.ftl" />
    <#assign template="changePwd"/>
     <style>

@@ -5,7 +5,7 @@
 <!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
-    <title>订单确认</title>
+    <title> <@spring.message  code="label.system.name" />-订单确认</title>
   <#include "/includes/head.ftl" />
     <style>
         .tab-pane{

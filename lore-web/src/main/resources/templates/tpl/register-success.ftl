@@ -5,7 +5,7 @@
 <!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
-<title><@spring.message  code="label.register.title" />-成功</title>
+<title><@spring.message  code="label.register.title" />-  <@spring.message  code="label.system.name" /></title>
   <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
   <#include "/includes/head.ftl" />
 </head> 

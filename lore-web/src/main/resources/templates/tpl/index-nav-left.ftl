@@ -1,4 +1,3 @@
-<div class="bb"></div>
 <div class="dd-inner">
     <div class="font-item">
         <div class="item fore1">

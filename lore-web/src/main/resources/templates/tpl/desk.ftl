@@ -5,7 +5,7 @@
 <!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
-    <title>文件上传</title>
+    <title>文件上传 - <@spring.message  code="label.system.name" /></title>
     <#include "/includes/head.ftl" />
     <#include "/includes/fine-uploader-css.ftl" />
     <#assign template="desk"/>

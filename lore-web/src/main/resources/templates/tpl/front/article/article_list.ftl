@@ -5,7 +5,7 @@
 <!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
-    <title>文章列表</title>
+    <title>文章列表-<@spring.message  code="label.system.name" /></title>
   <#include "/includes/head.ftl" />
 <#include "/includes/laypage-css.ftl" />
     <style>

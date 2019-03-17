@@ -15,9 +15,9 @@
     <link rel="stylesheet" type="text/css" href="${contextPath}/modules/fontawesome/4.7.0/css/font-awesome.min.css?v=${ver!'1'}" />
     <link rel="stylesheet" type="text/css" href="${contextPath}/modules/nprogress/nprogress.css?v=${ver!'1'}" />
     <link rel="stylesheet" type="text/css" href="${contextPath}/css/animate.css?v=${ver!'1'}" />
-    <title><@spring.message  code="label.system.index" /></title>
-    <meta name="description" content="为您提供愉悦的资料分享体验!" />
-    <meta name="Keywords" content="ppt模板下载，简历模板，PPT定制，视频教程，图片素材下载，ppt素材库、工作总结、工作计划、调研报告、竞聘演讲稿、会议发言稿、学习心得体会、入党申请书、应用公文、论文范文、范文写作技巧" />
+    <title><@spring.message  code="label.system.name" />-<@spring.message  code="label.system.index" /></title>
+    <meta name="description" content="<@spring.message  code="label.system.name" />,为您提供愉悦的资料分享体验!" />
+    <meta name="Keywords" content="公文，公文库，ppt模板下载，简历模板，PPT定制，视频教程，图片素材下载，ppt素材库、工作总结、工作计划、调研报告、竞聘演讲稿、会议发言稿、学习心得体会、入党申请书、应用公文、论文范文、范文写作技巧" />
     <link rel="stylesheet" href="${contextPath}/modules/bootstrap/3.3.5/css/bootstrap.min.css?v=${ver!'1'}">
     <link href="${contextPath}/css/index.css?v=${ver!'1'}" type="text/css" rel="stylesheet">
     <link href="${contextPath}/css/main.css?v=${ver!'1'}" type="text/css" rel="stylesheet">

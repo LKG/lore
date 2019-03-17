@@ -4,7 +4,6 @@
 </div>
 <div class="focus">
     <div class="focus-a">
-        <div class="fouc-img1"><img src="${contextPath}/images/5689d4ebN19f155a6.jpg" class="nav-img2"></div>
         <div class="fouc-font"><a href="">全部分类</a> </div>
     </div>
     <div class="focus-b">

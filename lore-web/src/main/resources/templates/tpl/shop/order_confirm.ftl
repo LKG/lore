@@ -5,7 +5,7 @@
 <!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
-    <title>选择支付方式页面</title>
+    <title> <@spring.message  code="label.system.name" />-选择支付方式页面</title>
   <#include "/includes/head.ftl" />
     <link rel="stylesheet" type="text/css" href="${contextPath}/css/bank.css" />
     <style>

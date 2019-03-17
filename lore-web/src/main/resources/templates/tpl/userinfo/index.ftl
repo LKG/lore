@@ -5,7 +5,7 @@
 <!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
-<title>用户资料</title>
+<title> <@spring.message  code="label.system.name" />-用户资料</title>
   <#include "/includes/head.ftl" />
    <#assign template="userinfo"/>
     <style>

@@ -5,7 +5,7 @@
 <!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
-    <title>资料分类</title>
+    <title>资料分类-<@spring.message  code="label.system.name" /></title>
     <#include "/includes/head.ftl" />
     <#include "/includes/laypage-css.ftl" />
     <style>

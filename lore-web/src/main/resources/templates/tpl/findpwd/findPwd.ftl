@@ -5,7 +5,7 @@
 <!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
-<title>找回密码</title>
+<title>找回密码 - <@spring.message  code="label.system.name" /></title>
   <#include "/includes/head.ftl" />
 <style>
  #forgot_process span.active{

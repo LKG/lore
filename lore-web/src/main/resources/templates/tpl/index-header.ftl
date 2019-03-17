@@ -13,7 +13,7 @@
         </ul>
         <ul class="navbar-menu pull-left" >
             <li class="dorpdown" >
-                <p class="sn-back-home"><i class="fa fa-home"></i><a href="/">首页</a></p>
+                <p class="sn-back-home"><i class="fa fa-home"></i><a href="${contextPath}/">首页</a></p>
             </li>
         </ul>
         <ul class="header-right">

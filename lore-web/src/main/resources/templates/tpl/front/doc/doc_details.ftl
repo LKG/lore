@@ -6,7 +6,7 @@
 <!-- BEGIN HEAD -->
 <head>
     <#include "/includes/head.ftl" />
-    <title>${result.periodicalName!''}</title>
+    <title>${result.periodicalName!''}-<@spring.message  code="label.system.name" /></title>
     <meta name="title" content="${result.periodicalName!''}" />
     <meta content="${result.periodicalName!''}" itemprop="name" />
     <meta name="keywords" content="${result.seoKeywords!''}" />

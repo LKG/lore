@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN" class="no-js">
  <head> 
- <title><@spring.message  code="label.login.title" /></title>
+ <title><@spring.message  code="label.login.title" /> - <@spring.message  code="label.system.name" /></title>
 <!------head 引用信息 begin----->
   	<#include "/includes/head.ftl" />
 <!------head   引用信息 end----->
