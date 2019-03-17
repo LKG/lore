@@ -62,7 +62,6 @@ public class RptConfigController extends AbstractController {
 				//TODO:
 			}
 		});
-		binder.validate(new RptConfigValidator());
 	}
 
 	@RequiresPermissions("rptConfig:view")
