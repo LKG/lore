@@ -29,6 +29,7 @@
         <module>lore-admin</module>
         <module>lore-cms</module>
         <module>lore-search</module>
+        <module>lore-rpt</module>
     </modules>
     <!-- 开发人员信息end -->
     <properties>

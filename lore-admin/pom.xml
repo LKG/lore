@@ -33,6 +33,11 @@
         </dependency>
         <dependency>
             <groupId>im.heart</groupId>
+            <artifactId>rpt-core</artifactId>
+            <version>0.1.57</version>
+        </dependency>
+        <dependency>
+            <groupId>im.heart</groupId>
             <artifactId>material-core</artifactId>
             <version>0.1.57</version>
         </dependency>
