@@ -13,14 +13,15 @@ import java.net.URL;
 
 @Slf4j
 public abstract class  AbstractJob {
-    Integer MAX_PAGE=3;
+    Integer DEFAULT_MAX_PAGE=5;
+    public abstract Integer getMaxPage();
     @Async
     public void parseArticleList(String url,String type){
         try {
             String pageStr= StringUtils.substringAfterLast(url,"/");
             pageStr=StringUtils.substringBefore(pageStr,".");
-            if(Integer.valueOf(pageStr)>MAX_PAGE){
-                log.error(url);
+            if(Integer.valueOf(pageStr)>this.getMaxPage()){
+                log.error("{},达到最大页 {} ,url:{}：",pageStr,this.getMaxPage(),url);
                 return;
             }
             Document listEle= Jsoup.parse(new URL(url),5000);

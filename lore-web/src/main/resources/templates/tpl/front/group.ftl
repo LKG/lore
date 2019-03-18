@@ -18,6 +18,14 @@
 <!-- header begin-->
 <#include "/index-header.ftl" />
 <!-- header end-->
+<!-- banner 广告 begin-->
+<#include "/index-top-banner.ftl" />
+<!-- banner 广告 end-->
+<!-- 搜索框 begin-->
+<#include "/index-top-search.ftl" />
+<!-- 搜索框 end-->
+<!--轮播图上方导航栏  一栏-->
+<#include "/index-nav-top.ftl" />
 <div class="clear"></div>
 <!--轮播图上方导航栏  一栏-->
 <div class="clearfix" ></div>
@@ -27,19 +35,23 @@
         <div class="panel-heading">官方推荐资料群</div>
         <div class="panel-body">
         <div class="row">
-          <#list ["hello","welcome","hi","hello","welcome","hi","hi","hello","welcome","hi","hi","hello","welcome","hi","hi","hello","welcome","hi","hi"] as word >
-                  <div class="col-sm-4 col-md-3">
-                      <div class="thumbnail">
-                          <img src="http://127.0.0.1:9080/images/qq_vip.jpg" style="width: 200px;" alt="...">
-                          <div class="caption">
-                              <p></p>
-                          </div>
-                      </div>
-                  </div>
-          </#list>
+            <#if (result.content?size<=0) >
+            <#else>
+                <#list result.content as model>
+                    <div class="col-sm-4 col-md-3">
+                            <div class="thumbnail">
+                                <img src="/images/qq_vip.jpg" style="width: 200px;" alt="...">
+                                <div class="caption">
+                                    <p>群号：<code>${model.qqNum}</code></p>
+                                    <p>名称：${model.name}</p>
+                                    <p>（<i class="fa fa-group"> </i> ${model.peopleTotal} / ${model.qqTotal}）</p>
+                                </div>
+                            </div>
+                    </div>
+                </#list >
+            </#if>
           </div>
         </div>
-        <div class="panel-footer">Panel footer</div>
     </div>
 </div>
    	<!------footer信息 begin----->

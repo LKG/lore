@@ -64,9 +64,9 @@ public class FrameDictItem implements TreeEntity<BigInteger> {
 	private String parentName="";
 	
 	@JSONField (serialize=false)
-	@Min(1)
+	@Min(0)
 	@Column(name = "LEVEL", nullable = false)
-	private Integer level;
+	private Integer level=0;
 	
 	@NotNull
 	@JSONField (format="yyyy-MM-dd HH:mm:ss" ,serialize=false)

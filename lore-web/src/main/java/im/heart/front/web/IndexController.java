@@ -52,7 +52,7 @@ public class IndexController extends AbstractController {
 		final Collection<SearchFilter> filters= DynamicSpecifications.buildSearchFilters(request);
 		filters.add(new SearchFilter("isPub", SearchFilter.Operator.EQ,Boolean.TRUE));
 		Specification<Article> spec= DynamicSpecifications.bySearchFilter(filters, Article.class);
-		PageRequest pageRequest= DynamicPageRequest.buildPageRequest(1,10, "pushTime",CommonConst.Page.DEFAULT_ORDER,Article.class);
+		PageRequest pageRequest= DynamicPageRequest.buildPageRequest(1,10, "pushTime",CommonConst.Page.ORDER_DESC,Article.class);
 		Page<Article> pag = this.articleService.findAll(spec, pageRequest);
 		if(pag!=null&&pag.hasContent()){
 			List<ArticleVO> vos = Lists.newArrayList();
@@ -68,7 +68,7 @@ public class IndexController extends AbstractController {
 		final Collection<SearchFilter> filters= DynamicSpecifications.buildSearchFilters(request);
 		filters.add(new SearchFilter("isPub", SearchFilter.Operator.EQ,Boolean.TRUE));
 		Specification<Periodical> spec= DynamicSpecifications.bySearchFilter(filters, Periodical.class);
-		PageRequest pageRequest= DynamicPageRequest.buildPageRequest(1,5, "pushTime",CommonConst.Page.DEFAULT_ORDER,Periodical.class);
+		PageRequest pageRequest= DynamicPageRequest.buildPageRequest(1,5, "pushTime",CommonConst.Page.ORDER_DESC,Periodical.class);
 		Page<Periodical> pag = this.periodicalService.findAll(spec, pageRequest);
 		if(pag!=null&&pag.hasContent()){
 			List<PeriodicalVO> vos = Lists.newArrayList();

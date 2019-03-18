@@ -32,5 +32,8 @@
         <from>^/agreements.?(.*)$</from>
         <to>/index/agreements.jhtml</to>
     </rule>
-
+    <rule>
+        <from>^/group.?(.*)$</from>
+        <to>/index/group.jhtml</to>
+    </rule>
 </urlrewrite>

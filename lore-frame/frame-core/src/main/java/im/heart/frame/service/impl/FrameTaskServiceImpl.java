@@ -15,7 +15,7 @@ import im.heart.frame.entity.FrameTask;
 import im.heart.frame.repository.FrameTaskRepository;
 import im.heart.frame.service.FrameTaskService;
 @Service(value = FrameTaskService.BEAN_NAME)
-@Transactional(propagation = Propagation.SUPPORTS)
+@Transactional(propagation = Propagation.SUPPORTS,rollbackFor = Exception.class)
 public class FrameTaskServiceImpl extends CommonServiceImpl<FrameTask, BigInteger> implements FrameTaskService {
 	protected static final Logger logger = LoggerFactory.getLogger(FrameTaskServiceImpl.class);
 	@Autowired
