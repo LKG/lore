@@ -1,6 +1,6 @@
 <div id="navv">
     <div class="nav-img" style="background:url(./images/568a1258N2edec1ab.jpg) repeat-x"></div>
-    <div class="nav-imgs" style="background:url(./images/568a0a8eNe8f4df82.jpg) no-repeat center top"></div>
+    <#--<div class="nav-imgs" style="background:url(./images/568a0a8eNe8f4df82.jpg) no-repeat center top"></div>-->
 </div>
 <div class="focus">
     <div class="focus-a">

@@ -62,7 +62,18 @@
 <!-- banner 广告 begin-->
 <#include "/index-top-banner.ftl" />
 <!-- banner 广告 end-->
-<div class="container" style="margin-top: 35px;">
+<!-- 搜索框 begin-->
+<#include "/index-top-search.ftl" />
+<!-- 搜索框 end-->
+<!--轮播图上方导航栏  一栏-->
+<#include "/index-nav-top.ftl" />
+<div class="container" style="margin-top: 30px;">
+    <ol class="breadcrumb">
+        <li><a href="${contextPath}/"><@spring.message  code="label.system.index" /></a></li>
+        <li class="active">文库列表</li>
+    </ol>
+</div>
+<div class="container" >
     <div class="row">
         <div class="panel panel-default">
             <div class="">
