@@ -19,7 +19,7 @@ right: 0;
 top: 0;
 width: 0;
 height: 100%;
-border-right: 6px solid #7a6e6e;
+border-right: 6px solid #337ab7;
 -webkit-transition: right .3s ease-in-out 0s;
 -moz-transition: right .3s ease-in-out 0s;
 transition: right .3s ease-in-out 0s;
@@ -30,7 +30,7 @@ width: 35px;
 height: 35px;
 margin-bottom: 1px;
 cursor: pointer;
-background-color: #7a6e6e;
+background-color: #337ab7;
 -webkit-border-radius: 3px 0 0 3px;
 -moz-border-radius: 3px 0 0 3px;
 border-radius: 3px 0 0 3px;
@@ -72,7 +72,7 @@ height: 35px;
 margin-left: 1px;
 position: relative;
 z-index: 2;
-background-color: #7a6e6e;
+background-color: #337ab7;
 _display: block;
 }
 .jdm-tbar-panel-header .close-panel, .jdm-tbar-panel-header i, .jdm-toolbar-tab .tab-ico, .jdm-toolbar-tab .tab-tip, .jdm-toolbar-tabs .tabs-tip .ico {
