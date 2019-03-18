@@ -17,4 +17,10 @@
     ready(function() {
       NProgress.inc(0.6);
     }, false);
+    
+    
+    $("#btn-search").on("click",function () {
+          alert("@@");
+          
+     });
   })();

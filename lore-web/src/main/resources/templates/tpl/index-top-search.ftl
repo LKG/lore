@@ -38,10 +38,3 @@
     </div>
 </div>
 <#include "/includes/jquery.ftl" />
-<script>
-    $(function(){
-        $("#btn-search").on("click",function () {
-            alert("@@");
-        });
-    });
-</script>

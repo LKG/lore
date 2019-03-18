@@ -371,8 +371,8 @@ _display: block;
 
 
 /*轮播图左边当行蓝*/
-.dd-inner{height:460px;background:#c81623;width:190px;margin-left:1px;margin-top:7px;margin-left:0px;    box-shadow: 0 1px 5px rgba(4,0,0,.1);}
-.dd-inner .item{height:31px;color:#fff;line-height:31px;border-left:2px solid #c81623;position:relative;}
+.dd-inner{height:460px;background:#337ab7;width:190px;margin-left:1px;margin-top:7px;margin-left:0px;    box-shadow: 0 1px 5px rgba(4,0,0,.1);}
+.dd-inner .item{height:31px;color:#fff;line-height:31px;border-left:2px solid #337ab7;position:relative;}
 .dd-inner .item h3{font-family: "microsoft yahei";font-size:14px;font-weight:400;height:31px;line-height:31px;position: absolute;left:11px;}
 .dd-inner .item a{color:#fff;}
 .dd-inner .item i{font: 400 9px/14px consolas;position:absolute;top:9px;right:14px;width:4px;height:14px;}
