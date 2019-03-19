@@ -33,6 +33,61 @@
             text-decoration: none;
         }
     </style>
+    <style type="text/css">
+        .counter{
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+        .counter .counter-content{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #fff;
+            z-index: 1;
+            position: relative;
+            transition: all 0.3s ease 0s;
+        }
+        .counter .counter-content:before{
+            content: "";
+            width: 122%;
+            height: 122%;
+            border-radius: 50%;
+            border: 15px solid #f19f48;
+            border-bottom: 20px solid transparent;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .counter .counter-value{
+            font-size: 16px;
+            font-weight: 700;
+            color: rgba(0,0,0,0.7);
+            line-height: 80px;
+        }
+        .counter.red .counter-content:before{
+            border-color: #ef5f61;
+            border-bottom-color: transparent;
+        }
+        .counter.red .counter-content:after{ border-top-color: #ef5f61; }
+        .counter.red .counter-icon{ color: #ef5f61; }
+        .counter.red .title{ background: #ef5f61; }
+        .counter.blue .counter-content:before{
+            border-color: #4d9fcf;
+            border-bottom-color: transparent;
+        }
+        .counter.blue .counter-content:after{ border-top-color: #4d9fcf; }
+        .counter.blue .counter-icon{ color: #4d9fcf; }
+        .counter.blue .title{ background: #4d9fcf; }
+        .counter.purple .counter-content:before{
+            border-color: #a98ceb;
+            border-bottom-color: transparent;
+        }
+        .counter.purple .counter-content:after{ border-top-color: #a98ceb; }
+        .counter.purple .counter-icon{ color: #a98ceb; }
+        .counter.purple .title{ background: #a98ceb; }
+    </style>
 </head>
 <body id="top">
 <!-- toolbar begin-->
@@ -71,20 +126,35 @@
 </div>
 <div class="m1" style="">
     <div id="J_rec" class="J_rec rec">
-        <div class="rec_inner">
+        <div class="rec_inner" style="padding-left: 25%;">
             <div class="rec_item">
-                <a class="rec_lk mod_loading" href="" target="_blank" >
-                    <div class="lazyimg lazyimg_loaded J_rec_img rec_img"><img src="/images/abd.jpg" class="lazyimg_img"></div>
+                <a class="rec_lk mod_loading" href="javascript:void(0)" target="_blank" >
+                    <div class="counter  red">
+                        <div class="counter-content">
+                            <i class="fa fa-archive">文章数：</i>
+                            <span class="counter-value">${articles.totalElements!'0'}</span>
+                        </div>
+                    </div>
                 </a>
             </div>
             <div class="rec_item">
-                <a class="rec_lk mod_loading" href="#" target="_blank" >
-                    <div class="lazyimg lazyimg_loaded J_rec_img rec_img"><img src="/images/abd.jpg" class="lazyimg_img"></div>
+                <a class="rec_lk mod_loading" href="javascript:void(0)" target="_blank" >
+                    <div class="counter blue">
+                        <div class="counter-content">
+                            <i class="fa fa-book">文档数：</i>
+                            <span class="counter-value">${docs.totalElements!'0'}</span>
+                        </div>
+                    </div>
                 </a>
             </div>
             <div class="rec_item">
-                <a class="rec_lk mod_loading" href="" target="_blank" >
-                    <div class="lazyimg lazyimg_loaded J_rec_img rec_img"><img src="/images/abd.jpg" class="lazyimg_img"></div>
+                <a class="rec_lk mod_loading" href="javascript:void(0)" target="_blank" >
+                    <div class="counter">
+                        <div class="counter-content">
+                            <i class="fa fa-briefcase">用户数：</i>
+                            <span class="counter-value">1250</span>
+                        </div>
+                    </div>
                 </a>
             </div>
         </div>

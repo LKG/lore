@@ -52,3 +52,4 @@
    	height:583px;
    }
 </style>
+<#include "/includes/baidu-tongji.ftl" />
