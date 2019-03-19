@@ -32,7 +32,6 @@ public class WeChatMaController extends AbstractController {
     public ModelAndView getSessionInfo (String code){
         try{
             WxMaJscode2SessionResult sessionInfo= this.wxMaService.jsCode2SessionInfo(code);
-            this.
         }catch (WxErrorException e){
             log.error(e.getStackTrace()[0].getMethodName(), e);
         }
