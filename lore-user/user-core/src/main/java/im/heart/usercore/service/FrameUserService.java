@@ -90,10 +90,47 @@ public interface   FrameUserService extends CommonService<FrameUser, BigInteger>
 	  * @return
 	  */
 	 public Set<String> findRoleCodesByUserId(BigInteger userId);
+
+	/**
+	 * 设置默认机构
+	 * @param uesrId
+	 * @param defaultOrgId
+	 */
 	public void setUserDefaultOrg(BigInteger uesrId, BigInteger defaultOrgId);
+
+	/**
+	 * 查询用户角色
+	 * @param userId
+	 * @return
+	 */
 	public List<FrameUserRole> findRolesByUserId(BigInteger userId);
+
+	/**
+	 * 判断用户名是否存在
+	 * @param userName
+	 * @return
+	 */
 	 public boolean existsUserName(String userName);
+
+	/**
+	 * 判断手机号是否注册
+	 * @param userPhone
+	 * @return
+	 */
 	 public boolean existsUserPhone(String userPhone);
+
+	/**
+	 * 判断邮箱是否注册
+	 * @param userEmail
+	 * @return
+	 */
 	 public boolean existsUserEmail(String userEmail);
+
+	/**
+	 * 更新用户头像
+	 * @param userId
+	 * @param headPortrait
+	 * @return
+	 */
 	public FrameUser updateFrameUserImgUrl(BigInteger userId, String headPortrait) ;
 }

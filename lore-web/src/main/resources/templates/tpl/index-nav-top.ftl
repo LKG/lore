@@ -8,7 +8,7 @@
     </div>
     <div class="focus-b">
         <ul>
-            <li><a href="${contextPath}/vip.jhtml"">VIP会员</a></li>
+ <#--           <li><a href="${contextPath}/vip.jhtml"">VIP会员</a></li>-->
             <li><a href="${contextPath}/docs.jhtml"">精品资料</a></li>
             <li><a href="${contextPath}/docs.jhtml">免费资料</a></li>
             <li><a href="${contextPath}/group.jhtml"><i class="fa fa-fire text-danger"></i>信息交流</a></li>
