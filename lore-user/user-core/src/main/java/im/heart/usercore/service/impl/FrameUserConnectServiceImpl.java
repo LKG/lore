@@ -3,6 +3,7 @@ package im.heart.usercore.service.impl;
 import com.google.common.collect.Sets;
 import im.heart.core.plugins.persistence.DynamicSpecifications;
 import im.heart.core.plugins.persistence.SearchFilter;
+import im.heart.core.service.impl.CommonServiceImpl;
 import im.heart.usercore.entity.FrameUserConnect;
 import im.heart.usercore.repository.FrameUserConnectRepository;
 import im.heart.usercore.service.FrameUserConnectService;
@@ -18,7 +19,11 @@ import java.math.BigInteger;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
-
+/**
+ *
+ * @author gg
+ * @Desc : 用户账号绑定关联表 Service
+ */
 @Service(value = FrameUserConnectService.BEAN_NAME)
 @Transactional(propagation = Propagation.SUPPORTS,rollbackFor = Exception.class)
 public class FrameUserConnectServiceImpl extends CommonServiceImpl<FrameUserConnect, BigInteger> implements FrameUserConnectService {

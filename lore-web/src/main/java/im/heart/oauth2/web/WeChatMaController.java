@@ -4,6 +4,7 @@ import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
 import com.alibaba.fastjson.JSON;
 import im.heart.core.web.AbstractController;
 import im.heart.oauth2.WeChatAuthService;
+import im.heart.usercore.service.FrameUserConnectService;
 import im.heart.usercore.service.FrameUserService;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.api.WxConsts;
@@ -28,10 +29,14 @@ public class WeChatMaController extends AbstractController {
     private WxMaService wxMaService;
     @Autowired
     private FrameUserService frameUserService;
+    @Autowired
+    private FrameUserConnectService frameUserConnectService;
+
     @RequestMapping("/wx/user/sessionInfo")
     public ModelAndView getSessionInfo (String code){
         try{
             WxMaJscode2SessionResult sessionInfo= this.wxMaService.jsCode2SessionInfo(code);
+            this.frameUserConnectService.findByOpenIdAndType(sessionInfo.getOpenid(),"");
         }catch (WxErrorException e){
             log.error(e.getStackTrace()[0].getMethodName(), e);
         }
