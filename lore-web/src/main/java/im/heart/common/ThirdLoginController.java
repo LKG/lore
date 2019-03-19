@@ -32,8 +32,15 @@ public class ThirdLoginController extends AbstractController {
 //	@Autowired
 //	@Qualifier("sinaLoginService")
 //	private ThirdLoginService sinaLoginService;
-	
-	
+
+	@RequestMapping(apiVer+"/dingding")
+	public ModelAndView dingdingLogin(HttpServletRequest request, HttpServletResponse response,
+								ModelMap model) {
+		String authorizationUrl =null;
+//				this.qqLoginService.getAuthorizationUrl();
+		super.success(model);
+		return new ModelAndView(redirectToUrl(authorizationUrl));
+	}
 	@RequestMapping(apiVer+"/qq")
 	public ModelAndView qqLogin(HttpServletRequest request, HttpServletResponse response,
 			ModelMap model) {

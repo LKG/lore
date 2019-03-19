@@ -138,6 +138,10 @@ wechat:
      appId:
      appSecret:
      cllbackuri: http://
+dingtalk:
+  appId: dingoaqzoeij0scglcaclb
+  appSecret:
+  cllbackuri: http://
 prod:
   oss:
    accessKeyId:
