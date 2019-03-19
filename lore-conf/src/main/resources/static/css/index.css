@@ -265,9 +265,8 @@ _display: block;
 	filter: alpha(opacity=0);
 }
 .w{width:1210px;margin:0 auto;position:relative;padding-top:15px ;}
-.w .search .text{float:left;line-height:24px;padding:4px;border-width:2px 0 2px 2px;border-style:solid;font-size:14px;font-family:"microsoft yahei";outline:0;color: rgb(153, 153, 153);}
 .w .search .button{float:left;width:82px;height:36px;background:#337ab7;border:none;color:#fff;font-size:16px;}
-.w .right{height:34px;border:1px solid #dfdfdf;padding:0 28px 0 34px;text-align:center;line-height:34px;float:right;font-size:12px;position:relative;}
+.w .right{height:34px;width: 124px;border:1px solid #dfdfdf;padding:0 28px 0 34px;text-align:center;line-height:34px;float:right;font-size:12px;position:relative;}
 .w .right .gw-left{position:absolute;top:8px;left:17px;}
 .w .right .gw-right{font: 400 13px/13px simsun;top:10px;position:absolute;right:11px;color:#999}
 .w .right .gw-count{position:absolute;top:-4px;left:104px;display:inline-block;font: 400 13px/13px simsun;background:#c81623;border-radius:7px 7px 7px 0;min-width: 12px;text-align: center;color:#fff;}
@@ -302,7 +301,7 @@ _display: block;
 .dorpdown-layer{width:308px;height:60px;border:1px solid #ccc;position:absolute;top:34px;left:-185px;text-align:center;display:none;}
 .right:hover{border-bottom:none;}
 .right:hover .dorpdown-layer{display:block;background:#fff;}
-.hotwords{clear:both;position:absolute;top:59px;}
+.hotwords{clear:both;position:absolute;top:59px;padding-left: 15px;}
 .hotwords a{float:left;margin:0 7px;}
 
 /*轮播图上方 导航栏 横向一栏*/
@@ -1235,9 +1234,6 @@ text-align: right;
 	.w .logo{width:360px;}
 	.w .search .text{
 		width: 455px;
-		margin-left: 370px;
-	}
-	.w .search .hotwords{
 		margin-left: 370px;
 	}
 }

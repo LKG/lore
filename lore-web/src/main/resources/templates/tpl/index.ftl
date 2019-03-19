@@ -97,9 +97,9 @@
 <!------------------------------------轮播图------------------------------------>
 <div id="lunbo">
     <ul id="one">
-        <li><a href=""><img src="//m.360buyimg.com/babel/jfs/t1/26591/24/9784/85598/5c81ec7fEa8412e69/eb35bc03d4257c41.jpg"></a></li>
-        <li><a href=""><img src="//m.360buyimg.com/babel/jfs/t1/11504/11/10668/100795/5c8214cbEee7a36fa/dda4b4d65de0dd91.jpg"></a></li>
-        <li><a href=""><img src="//img1.360buyimg.com/pop/jfs/t1/1778/18/9571/74609/5bad19a8Eb0489abb/329eb689314d9123.jpg" alt="一带一路”建设的成就与挑战"></a></li>
+        <li><a href=""><img src="https://bootcdn.xuexi.cn/dyxx_5a1d70322da1335610ea6a87/1552620657482/8cb6f33f8d76e643bde4b678f0f7855e.jpg?x-oss-process=image/resize,w_590,h_470"></a></li>
+        <li><a href=""><img src="https://bootcdn.xuexi.cn/dyxx_5a1d70322da1335610ea6a87/1552540175381/8e5493527de2c30dac541811f24ec4d6.jpg?x-oss-process=image/resize,w_590,h_470"></a></li>
+        <li><a href=""><img src="http://media.people.com.cn/NMediaFile/2019/0304/MAIN201903040810553940275526231.jpg" alt="一带一路”建设的成就与挑战"></a></li>
     </ul>
     <ul id="two">
         <#list [1,2,3] as img>

@@ -92,12 +92,6 @@
                         <form class="form-search form-inline" id="search_form">
                             <input type="hidden" name="page" id="page" value="1">
                             <div class="form-group">
-                                <label for="periodicalCode">刊号</label>
-                                <input type="text" name="periodicalCode_LIKES" style="width: 80px;" class="Wdate form-control"
-                                       onclick="WdatePicker({isShowClear:true,readOnly:false,dateFmt:'yyyyMM',maxDate:'%y-%M-%d'})"})"
-                                size="10" maxlength="6" id="periodicalCode" value="">
-                            </div>
-                            <div class="form-group">
                                 <label for="periodicalName">名称</label>
                                 <input type="text" class="form-control" style="width: 300px;"  value="${periodicalName!''}" id="periodicalName" name="periodicalName_LIKE" placeholder="名称">
                             </div>
@@ -140,7 +134,6 @@
                                 {{if (content.length>0) }}
                                 {{each content as model}}
                                 <tr  data-num="{{$index}}">
-                                    <td title="{{model.periodicalCode}}" class="text-center">{{model.periodicalCode}}</td>
                                     <td><a href="${contextPath}/doc/{{model.id}}.jhtml" ><i class="fa fa-file-excel-o"></i>{{model.periodicalName}}</a>
                                         ( 浏览量: <code>{{model.hits}}</code>大小：<code>{{model.dataSizeHuman}}</code> ，共<code>{{model.pageNum}}</code>页)
                                     </td>

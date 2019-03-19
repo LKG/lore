@@ -65,6 +65,10 @@ public enum WebError {
     public String getDescription() {
         return description;
     }
+    public void setDescription(String description) {
+        this.description=description;
+    }
+
     private  String name;
     private  String code;
     private  String description;

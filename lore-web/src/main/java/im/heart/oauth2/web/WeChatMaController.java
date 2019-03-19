@@ -4,6 +4,7 @@ import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
 import com.alibaba.fastjson.JSON;
 import im.heart.core.web.AbstractController;
 import im.heart.oauth2.WeChatAuthService;
+import im.heart.usercore.entity.FrameUserConnect;
 import im.heart.usercore.service.FrameUserConnectService;
 import im.heart.usercore.service.FrameUserService;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.Optional;
 
 @Slf4j
 public class WeChatMaController extends AbstractController {
@@ -35,8 +37,12 @@ public class WeChatMaController extends AbstractController {
     @RequestMapping("/wx/user/sessionInfo")
     public ModelAndView getSessionInfo (String code){
         try{
+
             WxMaJscode2SessionResult sessionInfo= this.wxMaService.jsCode2SessionInfo(code);
-            this.frameUserConnectService.findByOpenIdAndType(sessionInfo.getOpenid(),"");
+            Optional<FrameUserConnect> frameUserConnectOpt=this.frameUserConnectService.findByOpenIdAndType(sessionInfo.getOpenid(),"");
+            if(frameUserConnectOpt.isPresent()){
+
+            }
         }catch (WxErrorException e){
             log.error(e.getStackTrace()[0].getMethodName(), e);
         }

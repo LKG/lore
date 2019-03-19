@@ -119,7 +119,10 @@ public class FrameUser implements AbstractEntity<BigInteger> {
 	@JSONField(serialize = false)
 	@Column(length = 128, name = "PASS_WORD", nullable = false)
 	private String passWord;
-	
+
+	@Column(length = 32, name = "SEX", nullable = false)
+	private Integer sex;
+
 	@Column(name = "USER_LEVEL", nullable = false)
 	private Integer userLevel = 1;
 
