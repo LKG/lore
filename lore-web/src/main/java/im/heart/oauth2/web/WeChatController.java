@@ -18,7 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 @Slf4j
-@Controller
 public class WeChatController  extends AbstractController {
     private Logger logger = LoggerFactory.getLogger(WeChatController.class);
     @Autowired
