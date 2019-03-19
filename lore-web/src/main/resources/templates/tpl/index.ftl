@@ -118,7 +118,7 @@
             <div class="rec_item">
                 <a class="rec_lk mod_loading" href="javascript:void(0)" target="_blank" >
                     <div class="counter  red">
-                        <div class="counter-content">
+                        <div class="counter-content" title="收录文章数量">
                             <i class="fa fa-archive"></i>
                             <span class="counter-value">${articles.totalElements!'0'}</span>
                         </div>
@@ -128,7 +128,7 @@
             <div class="rec_item">
                 <a class="rec_lk mod_loading" href="javascript:void(0)" target="_blank" >
                     <div class="counter blue">
-                        <div class="counter-content">
+                        <div class="counter-content" title="文档数量">
                             <i class="fa fa-book"></i>
                             <span class="counter-value">${docs.totalElements!'0'}</span>
                         </div>
@@ -138,9 +138,9 @@
             <div class="rec_item">
                 <a class="rec_lk mod_loading" href="javascript:void(0)" target="_blank" >
                     <div class="counter">
-                        <div class="counter-content">
+                        <div class="counter-content" title="用户数量">
                             <i class="fa fa-group"></i>
-                            <span class="counter-value">1250</span>
+                            <span class="counter-value">18163</span>
                         </div>
                     </div>
                 </a>

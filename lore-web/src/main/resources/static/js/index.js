@@ -54,20 +54,18 @@ $(function(){
 				},function(){
 					t=setInterval(move,1500);
 				})
-				
-			})
-
+})
 //**************服装鞋包选项卡*******************
 $(function(){
-			 $('.tab li').mouseover(function(){
-              $(this).addClass('active').siblings().removeClass('active');
-$('.tatab-item span').css('right','1px');
+		$('.tab li').mouseover(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+		$('.tatab-item span').css('right','1px');
               var index=$(this).index();
               $('.main').eq(index).show().siblings().hide();
               $('.side').css('display','block');
-            })
+        })
   		  
-		})
+});
 //**************服装鞋包轮播*******************
 $(function(){
             //scroll news
@@ -109,7 +107,7 @@ $(function(){
 					i=0;
 				}
             }
-        })
+});
 //**************今日推荐*******************
 $(function(){
 			var xhRight=null;
@@ -149,37 +147,50 @@ $(function(){
 				  })
 				
             
-        })
+});
 //**************天天特价*******************
 $(function(){
             //scroll news
-            var scrnews=$(".sw ul");
-            if(scrnews.children().length<10){return false;}
-            var newst=setInterval(scro,3500);
-            scrnews.hover(function(){
-                clearInterval(newst);    
-            },function(){
-                newst=setInterval(scro,3500);
-            })
-            function scro(){
-                scrnews.animate({marginTop:-100},1500,function(){
-                    $(this).children("li:first").appendTo(this);
-                    $(this).css("marginTop",'20px');    
-                })
-            }
-            
+     var scrnews=$(".sw ul");
+     if(scrnews.children().length<10){return false;}
+     var newst=setInterval(scro,3500);
+     scrnews.hover(function(){
+        clearInterval(newst);
+      },function(){
+          newst=setInterval(scro,3500);
+     })
+     function scro(){
+        scrnews.animate({marginTop:-100},1500,function(){
+           $(this).children("li:first").appendTo(this);
+           $(this).css("marginTop",'20px');
         })
+    }
+ });
  $(function () {  
-			//当点击跳转链接后，回到页面顶部位置
-            $("#jdm-tbar-tab-top").click(function(){  
-                $('body,html').animate({scrollTop:0},2000);  
-                return false;  
-            });  
-        });  
+	//当点击跳转链接后，回到页面顶部位置
+    $("#jdm-tbar-tab-top").click(function(){
+        $('body,html').animate({scrollTop:0},2000);
+           return false;
+    });
+ });
  //*************hidein*****
- $(function(){
+;$(function(){
  	$('.hidein').click(function(){
  		$(this).css('display','none');
  		$('#jd_chaojidapai').css('display','none');
  	})
  })
+;$(function(){
+    $('.counter-value').each(function(){
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).text()
+        },{
+            duration: 3500,
+            easing: 'swing',
+            step: function (now){
+                $(this).text(Math.ceil(now));
+            }
+        });
+    });
+});
+
