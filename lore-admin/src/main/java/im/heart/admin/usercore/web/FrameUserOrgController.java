@@ -133,20 +133,21 @@ public class  FrameUserOrgController extends AbstractController {
 		String datas = request.getParameter("datas");
 		List<FrameUserOrg> entities=Lists.newArrayList();
 		if(user!=null){
+			System.out.println(datas);
 			List<CheckModel> checkBoxModels = JSON.parseArray(datas, CheckModel.class);
 			for(CheckModel checkBoxModel:checkBoxModels){
 				BigInteger id = checkBoxModel.getId();
 				FrameOrg relateOrg = this.frameOrgService.findById(id);
-				FrameUserOrg entitie=new FrameUserOrg();
-				entitie.setUserId(userId);
-				entitie.setRelateOrg(relateOrg);
+				FrameUserOrg userOrg=new FrameUserOrg();
+				userOrg.setUserId(userId);
+				userOrg.setRelateOrg(relateOrg);
 				//判断用户是否关联机构，如果无关联取第一条数据为默认
 				boolean exists = this.frameUserOrgService.existsUserOrg(userId);
 				if(!exists){
 					this.frameUserService.setUserDefaultOrg(userId, relateOrg.getId());
-					entitie.setIsDefault(Boolean.TRUE);
+					userOrg.setIsDefault(Boolean.TRUE);
 				}
-				entities.add(entitie);
+				entities.add(userOrg);
 			}
 			this.frameUserOrgService.saveAll(entities);
 		}

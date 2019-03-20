@@ -94,9 +94,9 @@ define(function(require, exports, moudles) {
 				var $isDefault=$(this).parents("tr:first").find("input[name='isDefault']");
 				var isDef=$isDefault.attr("name");
 				if($isDefault.is(':checked')){
-					serializeObj[isDef]=1;
+					serializeObj['isDefault']=1;
 				}else{
-					serializeObj[isDef]=0;
+					serializeObj['isDefault']=0;
 				}
 				datas.push(serializeObj)
 			}
