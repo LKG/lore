@@ -120,7 +120,9 @@
                     <div class="counter  red">
                         <div class="counter-content" title="收录文章数量">
                             <i class="fa fa-archive"></i>
-                            <span class="counter-value">${articles.totalElements!'0'}</span>
+                            <span class="counter-value">
+                                <#if articles??> ${articles.totalElements!'0'}</#if>
+                               </span>
                         </div>
                     </div>
                 </a>
@@ -130,7 +132,9 @@
                     <div class="counter blue">
                         <div class="counter-content" title="文档数量">
                             <i class="fa fa-book"></i>
-                            <span class="counter-value">${docs.totalElements!'0'}</span>
+                            <span class="counter-value">
+                                <#if docs??> ${docs.totalElements!'0'}</#if>
+                             </span>
                         </div>
                     </div>
                 </a>

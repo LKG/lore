@@ -10,11 +10,7 @@ import org.springframework.stereotype.Component;
 public class ThepurityofpartyJob extends CommonJob {
     @Autowired
     ArticleService articleService;
-    @Override
-    public Integer  getMaxPage(){
-        return 10;
-    }
-    @Scheduled(cron = "0 42 20 * * ?")
+    @Scheduled(cron = "0 38 23 * * ?")
     void executeJob()throws Exception{
         log.info("...........begin..........");
         parseArticleList("http://www.71.cn/towrite/officialdocument/thoughtandstudy/thepurityofparty/1.shtml","党的纯洁性");

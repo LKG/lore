@@ -19,7 +19,7 @@ import java.util.Date;
  * @作者 LKG
  */
 @Entity
-@Table(name = "shopping_order_item")
+@Table(name = "shop_order_item")
 @DynamicUpdate()
 @DynamicInsert()
 @Data
@@ -29,30 +29,49 @@ public class OrderItem implements AbstractEntity<BigInteger> {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(length = 32, name = "ITEM_ID", nullable = false, unique = true, updatable = false)
 	private BigInteger itemId;
-
+	/**
+	 * 订单号
+	 */
 	@Column(length = 32, name = "ORDER_ID", nullable = false, updatable = false)
-	private BigInteger orderId;// 订单号
+	private BigInteger orderId;
+	/**
+	 * 商品货号
+	 */
 	@Column(length = 32, name = "PROD_ID", nullable = false, updatable = false)
-	private BigInteger prodId;// 商品货号
+	private BigInteger prodId;
+	/**
+	 * 商品名称
+	 */
 	@Column(length = 256, name = "PROD_NAME", nullable = false, updatable = false)
-	private String prodName;// 商品名称
-
+	private String prodName;
+	/**
+	 * 商品价格
+	 */
 	@Column(name = "PROD_ORIGIN_PRICE", nullable = false, updatable = false)
-	private BigDecimal prodOriginPrice;// 商品价格
+	private BigDecimal prodOriginPrice;
+	/**
+	 * 商品数量
+	 */
 	@Column(name = "PROD_QUANTITY", nullable = false, updatable = false)
-	private Integer prodQuantity;// 商品数量
+	private Integer prodQuantity;
 
+	/**
+	 *  商品价格
+	 */
 	@Column(name = "PROD_FINAL_PRICE", nullable = false, updatable = false)
-	private BigDecimal prodFinalPrice;// 商品价格
+	private BigDecimal prodFinalPrice;
 
 	@Column(length = 32, name = "SELLER_ID", nullable = false)
-	private BigInteger sellerId;//
+	private BigInteger sellerId;
 
 	@Length(max = 128)
 	@Column(length = 128, name = "SELLER_NAME", nullable = false)
-	private String sellerName;//
+	private String sellerName;
+	/**
+	 * 商品图片地址
+	 */
 	@Column(name = "PROD_URL", nullable = false, updatable = false)
-	private String prodUrl;// 商品图片地址
+	private String prodUrl;
 	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@Column(name = "CREATE_TIME", nullable = false)
@@ -61,23 +80,26 @@ public class OrderItem implements AbstractEntity<BigInteger> {
 
 	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@Column(name = "MODI_TIME")
+	@Column(name = "MODIFY_TIME")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date modiTime;
+	private Date modifyTime;
+	/**
+	 * // 发货日期
+	 */
 	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@Column(name = "SHIPPED_TIME")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date shippedTime;// 发货日期
+	private Date shippedTime;
 	@PrePersist
 	protected void onCreate() {
 		createTime = new Date();
-		modiTime = new Date();
+		modifyTime = new Date();
 	}
 
 	@PreUpdate
 	protected void onUpdate() {
-		modiTime = new Date();
+		modifyTime = new Date();
 	}
 	@Version
 	@Column( name = "VERSION")

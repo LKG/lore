@@ -1,8 +1,12 @@
 package im.heart.cms.job;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import im.heart.cms.entity.Article;
 import im.heart.cms.service.ArticleService;
 import im.heart.core.utils.DateUtilsEx;
+import im.heart.core.utils.OkHttpClientUtils;
+import im.heart.core.utils.StringUtilsEx;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
@@ -24,6 +28,7 @@ public class CommonJob extends  AbstractJob {
     public Integer  getMaxPage(){
         return DEFAULT_MAX_PAGE;
     }
+
     @Async
     @Override
     public   Article parseArticle(String url,String type){
@@ -33,7 +38,7 @@ public class CommonJob extends  AbstractJob {
             URL uri=new URL(url);
             entity= new Article();
             entity.setType(type);
-            Document html= Jsoup.parse(uri,5000);
+            Document html= Jsoup.parse(uri,10000);
             String idStr= StringUtils.substringAfterLast(url,"/");
             idStr=StringUtils.substringBefore(idStr,".");
             if (StringUtils.isBlank(idStr)){
@@ -47,6 +52,7 @@ public class CommonJob extends  AbstractJob {
                 return null;
             }
             entity.setId(id);
+
             Elements keywordsEle=html.select("meta[name=keywords]");
             String keywords=keywordsEle.attr("content");
             entity.setSeoKeywords(keywords);
@@ -58,14 +64,26 @@ public class CommonJob extends  AbstractJob {
             String title= titleEle.text();
             entity.setTitle(title);
             Elements subtitle=article.select(".article-subtitle");
+            entity.setSeoTitle(subtitle.outerHtml());
             Elements editorsEle=article.select(".article-infos .editors");
             String editors=editorsEle.text();
             entity.setAuthor(editors);
             Elements dateEle=article.select(".article-infos .date");
             Elements sourceEle=article.select(".article-infos .source");
             String source=sourceEle.text();
-            Elements describe=article.select("#describe");
+
+            Elements describeEle=article.select("#describe");
+            entity.setDescribe(describeEle.outerHtml());
             Elements contentEle=article.select("#article-content");
+            //判断是否有分页
+            Elements showallcontEle=article.select("#showallcont");
+            if(showallcontEle.hasText()){
+                String cl= OkHttpClientUtils.fetchEntityString(" http://app.71.cn/?app=article&controller=article&action=fulltext&jsoncallback=jsonp1553093490389&contentid="+id);
+                String jsonContent = StringUtilsEx.substringBetween(cl, "jsonp1553093490389(",");");
+                JSONObject jsonObject = JSON.parseObject(jsonContent);
+                String content=jsonObject.getString("content");
+                contentEle.html(content);
+            }
             entity.setObtainUrl(url);
             url=StringUtils.substringAfter(url,"//");
             url=StringUtils.substringAfter(url,"/");

@@ -11,11 +11,7 @@ import org.springframework.stereotype.Component;
 public class ScientificdevelopJob extends CommonJob {
     @Autowired
     ArticleService articleService;
-    @Override
-    public Integer  getMaxPage(){
-        return 20;
-    }
-    @Scheduled(cron = "0 56 20 * * ?")
+    @Scheduled(cron = "0 10 0 * * ?")
     void executeJob()throws Exception{
         log.info("...........begin..........");
         parseArticleList("http://www.71.cn/towrite/officialdocument/thoughtandstudy/scientificdevelop/1.shtml","科学发展观");

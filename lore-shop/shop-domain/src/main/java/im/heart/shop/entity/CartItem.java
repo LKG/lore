@@ -34,17 +34,23 @@ import java.math.BigInteger;
  * @version 1.0_beta
  */
 @Entity
-@Table(name = "shopping_cart_item")
+@Table(name = "shop_cart_item")
 @DynamicUpdate()
 @DynamicInsert()
 @Data
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shopping_cart_item_sequence")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shop_cart_item_sequence")
 public class CartItem   implements AbstractEntity<BigInteger> {
+	/**
+	 * //购物车子项ID
+	 */
 	@Id
 	@Column(length = 32, name = "ITEM_ID", nullable = false, unique = true, updatable = false)
-	private BigInteger 	itemId;//购物车子项ID
+	private BigInteger 	itemId;
+	/**
+	 * //购物车Id
+	 */
 	@Column(length = 32, name = "CART_ID", nullable = false, unique = true, updatable = false)
-	private BigInteger 	cartId;//购物车Id
+	private BigInteger 	cartId;
 	/** 最大数量 */
 	public static final Integer MAX_QUANTITY = 1000000;
 

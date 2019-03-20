@@ -13,7 +13,7 @@ import java.net.URL;
 
 @Slf4j
 public abstract class  AbstractJob {
-    Integer DEFAULT_MAX_PAGE=5;
+    Integer DEFAULT_MAX_PAGE=800;
     public abstract Integer getMaxPage();
     @Async
     public void parseArticleList(String url,String type){
@@ -24,10 +24,15 @@ public abstract class  AbstractJob {
                 log.error("{},达到最大页 {} ,url:{}：",pageStr,this.getMaxPage(),url);
                 return;
             }
-            Document listEle= Jsoup.parse(new URL(url),5000);
+            Document listEle= Jsoup.parse(new URL(url),10000);
             Elements articleEle=listEle.select(".articlelist_title a");
             for (Element article:articleEle){
                 String articleUrl=article.attr("href");
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 parseArticle(articleUrl,type);
             }
             Elements pages=listEle.select(".page_box a.next");

@@ -11,11 +11,7 @@ import org.springframework.stereotype.Component;
 public class HarsocietyJob extends CommonJob {
     @Autowired
     ArticleService articleService;
-    @Override
-    public Integer  getMaxPage(){
-        return 20;
-    }
-    @Scheduled(cron = "0 59 20 * * ?")
+    @Scheduled(cron = "0 59 4 * * ?")
     void executeJob()throws Exception{
         log.info("...........begin..........");
         parseArticleList("http://www.71.cn/towrite/officialdocument/thoughtandstudy/harsociety/1.shtml","和谐社会");

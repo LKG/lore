@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class Reptile71HistoryJob   extends  CommonJob{
     //http://www.71.cn/2019/0306/1036178.shtml
 
-    @Scheduled(cron = "0 15 23 * * ?")
+    @Scheduled(cron = "0 25 0 * * ?")
     void executeJob()throws Exception{
         log.info("..........begin...........");
         parseArticleList("http://www.71.cn/acastudies/expcolumn/history/1.shtml","历史");

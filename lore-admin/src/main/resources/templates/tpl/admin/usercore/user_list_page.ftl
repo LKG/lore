@@ -94,7 +94,7 @@
 	        </thead>
 	        <tbody  id="table-tbody" >
 	          <#if (result.content?size<=0) >
-	          		 <tr ><td class="text-center" scope="row" colspan='8' ><@spring.message  code="label.default.empty" /></td></tr>
+	          		 <tr ><td class="text-center" scope="row" colspan='9' ><@spring.message  code="label.default.empty" /></td></tr>
 			 <#else>
 			    <#list result.content as model>
 			    	<tr > 
@@ -104,7 +104,7 @@
 					     <td class="text-center">${model.userName!''}</td>
 					     <td class="text-center"><code>${model.userPhone!'无'}</code></td>
 					     <td class="text-center"><code>${model.userEmail!'无'}</code></td>
-					     <td class="text-center">${model.createTime}</td>
+					     <td class="text-center">${model.createTime!''}</td>
 					     <td title="<#if model.relateOrg??&&model.relateOrg.name??>${model.relateOrg.name!'无'}</#if>"  ><code><#if model.relateOrg??&&model.relateOrg.name??>${model.relateOrg.name!'无'}</#if></code></td>
 					     <td  class="text-center">
 					       <#if model.status=='pending'>
@@ -129,7 +129,7 @@
 							已审核
 						   </#if>
 					     </td>
-
+						<td class="text-center">${model.isVip}(<code>${model.expiryTime!''}</code>)</td>
 	 					<td class="operate text-center">
 	 						<a   href="${contextPath}/admin/user/${model.userId}.jhtml"  title="修改"  >
 								<i id="view-${model.userId}" data="${model.userId}" class="btn-view fa fa-eye">查看</i>
@@ -201,7 +201,7 @@
 				已审核
 			{{/if}}
 		 </td>
-
+		  <td class="text-center">{{model.isVip}}(<code>{{model.expiryTime}}</code>)</td>
 		<td class="operate text-center">
 			<a   href="${contextPath}/admin/user/{{model.userId}}.jhtml"  title="修改"  >
 				<i id="view-{{model.userId}}" data="{{model.userId}}" class="btn-view fa fa-eye">查看</i>
@@ -230,7 +230,7 @@
 	{{/each}}
  {{else}}
 	<tr id="ext_{{$index}}" class="text-center" >
-		<td class="text-center" scope="row" colspan='8'><@spring.message  code="label.default.empty" /></td>
+		<td class="text-center" scope="row" colspan='9'><@spring.message  code="label.default.empty" /></td>
 	</tr>
  {{/if}}	
 </script>

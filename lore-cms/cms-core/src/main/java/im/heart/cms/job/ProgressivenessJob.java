@@ -11,11 +11,8 @@ import org.springframework.stereotype.Component;
 public class ProgressivenessJob extends CommonJob {
     @Autowired
     ArticleService articleService;
-    @Override
-    public Integer  getMaxPage(){
-        return 5;
-    }
-    @Scheduled(cron = "0 03 21 * * ?")
+
+    @Scheduled(cron = "0 30 2 * * ?")
     void executeJob()throws Exception{
         log.info("...........begin..........");
         parseArticleList("http://www.71.cn/towrite/officialdocument/thoughtandstudy/progressiveness/1.shtml","先进性教育");

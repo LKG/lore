@@ -108,6 +108,9 @@ public class Article implements AbstractEntity<BigInteger>{
 	@Column(name = "CONTENT", nullable = false)
 	private String content;
 
+	@Column(name = "article_describe")
+	private String describe;
+
 	/** 页面标题. */
 	@Column(name = "SEO_TITLE", nullable = false)
 	@Length(max = 512)

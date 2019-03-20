@@ -10,8 +10,16 @@ import java.math.BigInteger;
  * @作者 LKG
  */
 public class Coupon  implements AbstractEntity<BigInteger> {
-
-	private String couponId;// 优惠券编号
-	private String userId;// 用户Id
-	private String userName;// 用户账号
+	/**
+	 * // 优惠券编号
+	 */
+	private String couponId;
+	/**
+	 * 用户Id
+	 */
+	private String userId;
+	/**
+	 * 用户账号
+	 */
+	private String userName;
 }

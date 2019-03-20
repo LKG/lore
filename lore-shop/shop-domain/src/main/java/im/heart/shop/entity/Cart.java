@@ -15,17 +15,17 @@ import java.math.BigInteger;
  * @功能说明：购物车实体类
  */
 @Entity
-@Table(name = "shopping_cart")
+@Table(name = "shop_cart")
 @DynamicUpdate()
 @DynamicInsert()
 @Data
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shopping_cart_sequence")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shop_cart_sequence")
 public class Cart  implements AbstractEntity<BigInteger> {
 	@Id
 	@Column(length = 32, name = "CART_ID", nullable = false, unique = true, updatable = false)
-	private BigInteger 	cartId;//购物车Id
-	private BigInteger userId;//用户Id
-	private String userName;//用户账号
+	private BigInteger 	cartId;
+	private BigInteger userId;
+	private String userName;
 	/**
 	 * 是否逻辑删除 N:否 Y:是
 	 */
