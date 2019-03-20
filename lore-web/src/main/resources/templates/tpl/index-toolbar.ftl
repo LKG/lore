@@ -3,20 +3,20 @@
         <div class="jdm-toolbar-panels J-panel">
         </div>
         <div class="jdm-toolbar-tabs J-tab">
-            <div data-type="bar" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-cart hide">
+            <div data-type="bar" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-cart hide" data-login="true">
                 <i class="tab-ico"></i><em class="tab-text">购物车</em>
             </div>
-            <div data-type="bar" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-follow hide" data-name="follow" data-login="true">
+            <div data-type="bar" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-follow" data-name="follow" data-login="true">
                 <i class="tab-ico"></i> <em class="tab-text">我的关注</em>
             </div>
-            <div data-type="bar"  class="J-trigger jdm-toolbar-tab jdm-tbar-tab-history" data-name="history">
+            <div data-type="bar"  class="J-trigger jdm-toolbar-tab jdm-tbar-tab-history hide" data-name="history" data-login="true">
                 <i class="tab-ico"></i><em class="tab-text">我的足迹</em>
             </div>
-            <div class="J-trigger jdm-toolbar-tab jdm-tbar-tab-message" data-name="message"><a target="_blank" href="#">
+            <div class="J-trigger jdm-toolbar-tab jdm-tbar-tab-message hide" data-name="message"><a target="_blank" href="#">
                 <i class="tab-ico"></i><em class="tab-text">我的消息</em>
             </a>
             </div>
-            <div data-type="bar" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-jimi" data-name="jimi" data-login="true" >
+            <div data-type="bar" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-jimi" data-name="jimi"  >
                 <i class="tab-ico"></i><em class="tab-text">咨询</em>
             </div>
         </div>
