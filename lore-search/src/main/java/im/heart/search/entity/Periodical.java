@@ -147,16 +147,13 @@ public class Periodical implements AbstractEntity<Long> {
 	@Column(name = "FILE_HEADER", nullable = false,length=32)
 	private String fileHeader;
 
-	@Column(name = "IMPORT_LOG", nullable = false,length=80000)
-	private String importLog;
-
 	@Column(name = "CHECK_STATUS", nullable = false)
 	@Enumerated(EnumType.STRING)
 	private Status checkStatus= Status.pending;
 
 	@Column(name = "STATUS", nullable = false)
 	@Enumerated(EnumType.STRING)
-	private FlowStatus status= FlowStatus.INITIAL;
+	private FlowStatus status= FlowStatus.initial;
 	/**
 	 *  发布日期
 	 */

@@ -45,8 +45,8 @@
      </li>
       <li class="<#if template=='periodical'>active open</#if>"> <a href="javascript:void(0);" class="dropdown-toggle"> <i class="fa fa-book"></i> <span class="menu-text"> 期刊管理 </span> <i class="fa fa-angle-down "></i> </a>
           <ul class="submenu">
-              <li class=" <#if template=='periodical'&&submenu=='index'>active</#if>"> <a href="${contextPath}/admin/periodical.jhtml"> <i class="fa fa-book"></i>期刊管理 </a> </li>
-              <li class=" <#if template=='periodical'&&submenu=='category'>active</#if>"> <a href="${contextPath}/admin/periodical/category.jhtml"> <i class="fa fa-book"></i>期刊分类 </a> </li>
+              <li class=" <#if template=='periodical'&&submenu=='index'>active</#if>"> <a href="${contextPath}/admin/periodicals.jhtml"> <i class="fa fa-book"></i>期刊管理 </a> </li>
+              <li class=" <#if template=='periodical'&&submenu=='category'>active</#if>"> <a href="${contextPath}/admin/periodical/categorys.jhtml"> <i class="fa fa-book"></i>期刊分类 </a> </li>
           </ul>
       </li>
       <li  class="<#if template=='msg'>active open</#if>" > <a href="javascript:void(0);" class="dropdown-toggle"> <i class="fa fa-bell"></i> <span class="menu-text">消息中心</span> <i class="fa fa-angle-down "></i> </a> 

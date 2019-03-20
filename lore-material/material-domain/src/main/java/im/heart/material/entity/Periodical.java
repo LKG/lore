@@ -211,7 +211,7 @@ public class Periodical implements AbstractEntity<BigInteger> {
 
     @Column(name = "STATUS", nullable = false)
     @Enumerated(EnumType.STRING)
-    private FlowStatus status = FlowStatus.INITIAL;
+    private FlowStatus status = FlowStatus.initial;
     /**
      * 发布日期
      */

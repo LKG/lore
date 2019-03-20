@@ -175,16 +175,16 @@
 					 class="<#if model.status=='fail'>text-danger</#if>">
 					<td class="bs-checkbox text-center" >
 						<div >
-							<input id="${model.id}" name="id" type="checkbox" value="${model.id}"/>
+							<input id="${model.id!''}" name="id" type="checkbox" value="${model.id!''}"/>
 						</div>
 					</td>
-					<td title="${model.periodicalCode}" class="text-center">${model.periodicalCode}</td>
-					<td title="${model.periodicalType}" class="text-center">${model.periodicalType}</td>
-					<td title="${model.fileHeader}" class="text-center">${model.fileHeader}</td>
-					<td><a href="${contextPath}${model.pathUrl}" >${model.periodicalName}</a>
+					<td title="${model.periodicalCode!''}" class="text-center">${model.periodicalCode!''}</td>
+					<td title="${model.periodicalType!''}" class="text-center">${model.periodicalType!''}</td>
+					<td title="${model.fileHeader!''}" class="text-center">${model.fileHeader!''}</td>
+					<td><a href="${contextPath}${model.pathUrl!''}" >${model.periodicalName!''}</a>
 					</td>
-					<td title="${model.dataSizeHuman}" class="text-right" >${model.dataSizeHuman}</td>
-					<td title="${model.pageNum}" class="text-right" >${model.pageNum}</td>
+					<td title="${model.dataSizeHuman}" class="text-right" >${model.dataSizeHuman!''}</td>
+					<td title="${model.pageNum}" class="text-right" >${model.pageNum!''}</td>
 					<td class="text-center">
 						<#if model.status=='initial'>
 							待处理
@@ -216,9 +216,6 @@
 						<i id="lock-${model.id}}" title="下架"  data="${model.id}" class="btn-lock fa fa-lock"></i>
 						<a   href="${contextPath}/admin/periodical/${model.id}.jhtml"   title="修改" > <i id="edit-${model.id}" title="修改"  data="${model.id}" class="btn-edit fa fa-edit"></i></a>
 						<i id="view-${model.id}}"   title="查看日志" data="${model.id}" class="btn-view fa fa-eye"></i>
-						<div id="log-${model.id}}" class="hide">
-							${model.importLog}
-						</div>
 						<i id="remove-${model.id}"  title="删除" data="${model.id}" class="btn-remove fa fa-trash-o"></i>
 					</td>
 				</tr>
@@ -270,11 +267,8 @@
                                 <td class="operate">
                                     <i id="publish-{{model.id}}" title="发布"  data="{{model.id}}" class="btn-publish fa fa-key"></i>
                                     <i id="lock-{{model.id}}" title="下架"  data="{{model.id}}" class="btn-lock fa fa-lock"></i>
-                                    <a   href="${contextPath}/admin/periodical/${model.id}.jhtml"   title="修改" > <i id="edit-{{model.id}}" title="修改"  data="{{model.id}}" class="btn-edit fa fa-edit"></i></a>
+                                    <a   href="${contextPath}/admin/periodical/{{model.id}}.jhtml"   title="修改" > <i id="edit-{{model.id}}" title="修改"  data="{{model.id}}" class="btn-edit fa fa-edit"></i></a>
                                     <i id="view-{{model.id}}"   title="查看日志" data="{{model.id}}" class="btn-view fa fa-eye"></i>
-                                    <div id="log-{{model.id}}" class="hide">
-                                        {{#model.importLog}}
-                                    </div>
                                     <i id="remove-{{model.id}}"  title="删除" data="{{model.id}}" class="btn-remove fa fa-trash-o"></i>
                                 </td>
                             </tr>

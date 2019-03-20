@@ -55,7 +55,7 @@ public class PeriodicalPackage implements AbstractEntity<BigInteger>{
 
 	@Column(name = "STATUS", nullable = false)
 	@Enumerated(EnumType.STRING)
-	private CommonConst.FlowStatus status = CommonConst.FlowStatus.INITIAL;
+	private CommonConst.FlowStatus status = CommonConst.FlowStatus.initial;
 
 
 	@Column(name = "DATA_URL", nullable = false,length=256)

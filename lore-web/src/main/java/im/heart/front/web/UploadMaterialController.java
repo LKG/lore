@@ -110,7 +110,7 @@ public class UploadMaterialController extends AbstractController {
                     periodical.setFinalPrice(finalPrice);
                     periodical.setOriginPrice(originPrice);
                     periodical.setDataSize(file.getSize());
-                    periodical.setStatus(CommonConst.FlowStatus.INITIAL);
+                    periodical.setStatus(CommonConst.FlowStatus.initial);
                     String url = StringUtilsEx.replace(path + realFileName, File.separator, "/");
                     String pathUrl="/"+FILE_ROOT_PATH+"/"+url;
                     periodical.setPathUrl(pathUrl);

@@ -80,7 +80,7 @@ public class PeriodicalServiceImpl   extends CommonServiceImpl<Periodical, BigIn
 	@Override
 	public Page<Periodical> findInitPeriodicalByType(PeriodicalType type,Pageable pageable) {
 		final Collection<SearchFilter> filters = Sets.newHashSet();
-		filters.add(new SearchFilter("status", Operator.EQ, CommonConst.FlowStatus.INITIAL));
+		filters.add(new SearchFilter("status", Operator.EQ, CommonConst.FlowStatus.initial));
 		filters.add(new SearchFilter("periodicalType", Operator.EQ, type.value+""));
 		Specification<Periodical> spec = DynamicSpecifications.bySearchFilter(filters, Periodical.class);
 		return this.periodicalRepository.findAll(spec,pageable);

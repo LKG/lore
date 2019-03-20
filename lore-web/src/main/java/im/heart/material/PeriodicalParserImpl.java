@@ -147,7 +147,7 @@ public class PeriodicalParserImpl implements PeriodicalParser {
                 entities.add(materialPeriodicalImg);
             }
             periodical.setPageNum(pageNum);
-            periodical.setStatus(CommonConst.FlowStatus.PROCESSED);
+            periodical.setStatus(CommonConst.FlowStatus.processed);
             this.periodicalService.save(periodical);
             this.parserContent(periodical,content);
             this.periodicalImgService.saveAll(entities);

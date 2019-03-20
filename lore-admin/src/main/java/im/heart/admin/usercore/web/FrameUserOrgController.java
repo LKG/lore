@@ -10,6 +10,8 @@ import im.heart.core.plugins.persistence.DynamicSpecifications;
 import im.heart.core.plugins.persistence.SearchFilter;
 import im.heart.core.plugins.persistence.SearchFilter.Operator;
 import im.heart.core.web.AbstractController;
+import im.heart.core.web.ResponseError;
+import im.heart.core.web.enums.WebError;
 import im.heart.core.web.utils.WebUtilsEx;
 import im.heart.usercore.entity.FrameOrg;
 import im.heart.usercore.entity.FrameUser;
@@ -20,6 +22,7 @@ import im.heart.usercore.service.FrameUserOrgService;
 import im.heart.usercore.service.FrameUserService;
 import im.heart.usercore.vo.FrameOrgVO;
 import im.heart.usercore.vo.FrameUserVO;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -41,7 +44,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ *
+ */
 @Controller
 @RequestMapping("/admin")
 public class  FrameUserOrgController extends AbstractController {
@@ -132,6 +137,10 @@ public class  FrameUserOrgController extends AbstractController {
 		System.out.println(WebUtilsEx.getParametersJson(request));
 		//直接从请求中取值避免spring 转换
 		String datas = request.getParameter("datas");
+		if (StringUtils.isBlank(datas)){
+			super.fail(model,new ResponseError(WebError.REQUEST_PARAMETER_MISSING));
+			return new ModelAndView(RESULT_PAGE);
+		}
 		List<FrameUserOrg> entities=Lists.newArrayList();
 		System.out.println(datas);
 		List<CheckModel> checkBoxModels = JSON.parseArray(datas, CheckModel.class);
