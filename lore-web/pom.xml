@@ -145,7 +145,7 @@
                         </include>
                         <include>
                             <groupId>im.heart</groupId>
-                            <artifactId>lore-domain</artifactId>
+                            <artifactId>lore-admin</artifactId>
                         </include>
                     </includes>
                 </configuration>
