@@ -2,6 +2,7 @@ package im.heart.api.web;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Maps;
+import im.heart.core.CommonConst;
 import im.heart.core.enums.FileHeader;
 import im.heart.core.model.RequestBody;
 import im.heart.core.model.RequestParas;
@@ -171,12 +172,12 @@ public class SysRrouteController extends AbstractController {
 							if (paras.containsKey("ps")) {
 								String value = paras.get("ps");
 								paras.remove("ps");
-								params.put("size", StringUtilsEx.isNotBlank(value) ? value : "10");
+								params.put("size", StringUtilsEx.isNotBlank(value) ? value : CommonConst.Page.DEFAULT_SIZE);
 							}
 							if (paras.containsKey("pn")) {
 								String value = paras.get("pn");
 								paras.remove("pn");
-								params.put("page", StringUtilsEx.isNotBlank(value) ? String.valueOf(Integer.valueOf(value) + 1): "1");
+								params.put("page", StringUtilsEx.isNotBlank(value) ? String.valueOf(Integer.valueOf(value) + 1): CommonConst.Page.DEFAULT_PAGE);
 							}
 							params.putAll(paras);
 						}
