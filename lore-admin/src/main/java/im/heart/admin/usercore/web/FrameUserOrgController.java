@@ -10,6 +10,7 @@ import im.heart.core.plugins.persistence.DynamicSpecifications;
 import im.heart.core.plugins.persistence.SearchFilter;
 import im.heart.core.plugins.persistence.SearchFilter.Operator;
 import im.heart.core.web.AbstractController;
+import im.heart.core.web.utils.WebUtilsEx;
 import im.heart.usercore.entity.FrameOrg;
 import im.heart.usercore.entity.FrameUser;
 import im.heart.usercore.entity.FrameUserOrg;
@@ -128,29 +129,27 @@ public class  FrameUserOrgController extends AbstractController {
 			@PathVariable BigInteger userId,
 			HttpServletRequest request,
 			ModelMap model) {
-		FrameUser user= this.frameUserService.findById(userId);
+		System.out.println(WebUtilsEx.getParametersJson(request));
 		//直接从请求中取值避免spring 转换
 		String datas = request.getParameter("datas");
 		List<FrameUserOrg> entities=Lists.newArrayList();
-		if(user!=null){
-			System.out.println(datas);
-			List<CheckModel> checkBoxModels = JSON.parseArray(datas, CheckModel.class);
-			for(CheckModel checkBoxModel:checkBoxModels){
-				BigInteger id = checkBoxModel.getId();
-				FrameOrg relateOrg = this.frameOrgService.findById(id);
-				FrameUserOrg userOrg=new FrameUserOrg();
-				userOrg.setUserId(userId);
-				userOrg.setRelateOrg(relateOrg);
-				//判断用户是否关联机构，如果无关联取第一条数据为默认
-				boolean exists = this.frameUserOrgService.existsUserOrg(userId);
-				if(!exists){
-					this.frameUserService.setUserDefaultOrg(userId, relateOrg.getId());
-					userOrg.setIsDefault(Boolean.TRUE);
-				}
-				entities.add(userOrg);
+		System.out.println(datas);
+		List<CheckModel> checkBoxModels = JSON.parseArray(datas, CheckModel.class);
+		for(CheckModel checkBoxModel:checkBoxModels){
+			BigInteger id = checkBoxModel.getId();
+			FrameOrg relateOrg = this.frameOrgService.findById(id);
+			FrameUserOrg userOrg=new FrameUserOrg();
+			userOrg.setUserId(userId);
+			userOrg.setRelateOrg(relateOrg);
+			//判断用户是否关联机构，如果无关联取第一条数据为默认
+			boolean exists = this.frameUserOrgService.existsUserOrg(userId);
+			if(!exists){
+				this.frameUserService.setUserDefaultOrg(userId, relateOrg.getId());
+				userOrg.setIsDefault(Boolean.TRUE);
 			}
-			this.frameUserOrgService.saveAll(entities);
+			entities.add(userOrg);
 		}
+		this.frameUserOrgService.saveAll(entities);
 		super.success(model);
 		return new ModelAndView(VIEW_SUCCESS);
 	}
@@ -202,8 +201,8 @@ public class  FrameUserOrgController extends AbstractController {
 				}
 				vos.add(vo);
 			}
-			Page<FrameOrgVO> pagvos =new PageImpl<FrameOrgVO>(vos,pageRequest,pag.getTotalElements());
-			super.success(model,pagvos);
+			Page<FrameOrgVO> pageVos =new PageImpl<FrameOrgVO>(vos,pageRequest,pag.getTotalElements());
+			super.success(model,pageVos);
 			return new ModelAndView(VIEW_RELATED);
 		}
 		super.success(model,pag);
