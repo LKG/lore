@@ -8,10 +8,13 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 /**
  *
@@ -23,6 +26,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @ComponentScan(basePackages={"im.heart"})
 @EnableAsync
 @EnableCaching
+@EnableRedisHttpSession(maxInactiveIntervalInSeconds=60 * 60 * 24 * 7)
 public class App extends SpringBootServletInitializer implements CommandLineRunner{
 
     public static ApplicationContext context;
