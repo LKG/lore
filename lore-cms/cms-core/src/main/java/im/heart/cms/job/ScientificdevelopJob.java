@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class ScientificdevelopJob extends CommonJob {
     @Autowired
     ArticleService articleService;
-    @Scheduled(cron = "0 10 0 * * ?")
+    @Scheduled(cron = "0 25 9 * * ?")
     void executeJob()throws Exception{
         log.info("...........begin..........");
         parseArticleList("http://www.71.cn/towrite/officialdocument/thoughtandstudy/scientificdevelop/1.shtml","科学发展观");

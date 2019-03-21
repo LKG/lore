@@ -12,7 +12,7 @@ public class ProgressivenessJob extends CommonJob {
     @Autowired
     ArticleService articleService;
 
-    @Scheduled(cron = "0 30 2 * * ?")
+    @Scheduled(cron = "0 30 9 * * ?")
     void executeJob()throws Exception{
         log.info("...........begin..........");
         parseArticleList("http://www.71.cn/towrite/officialdocument/thoughtandstudy/progressiveness/1.shtml","先进性教育");

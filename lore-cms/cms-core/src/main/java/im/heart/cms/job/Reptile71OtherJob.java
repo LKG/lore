@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Reptile71OtherJob    extends  CommonJob{
 
-    @Scheduled(cron = "0 30 1 * * ?")
+    @Scheduled(cron = "0 30 9 * * ?")
     void executeJob()throws Exception{
         log.info("..........begin...........");
         parseArticleList("http://www.71.cn/acastudies/expcolumn/other/1.shtml","其他");
