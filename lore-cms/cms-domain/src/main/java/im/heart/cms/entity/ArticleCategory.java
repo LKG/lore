@@ -38,7 +38,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 @DynamicUpdate()
 @DynamicInsert()
 @Data
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "cms_article_category_sequence")
+@SequenceGenerator(name = "cmsArticleCategorySequenceGenerator", sequenceName = "cms_article_category_sequence")
 public class ArticleCategory implements TreeEntity<BigInteger>{
 
 	/**

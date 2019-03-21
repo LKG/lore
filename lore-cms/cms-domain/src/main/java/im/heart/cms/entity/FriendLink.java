@@ -17,6 +17,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
+import im.heart.core.entity.AbstractEntity;
 import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -37,8 +38,8 @@ import im.heart.core.enums.Status;
 @DynamicUpdate()
 @DynamicInsert()
 @Data
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "cms_friend_link_sequence")
-public class FriendLink {
+@SequenceGenerator(name = "cmsFriendLinkSequenceGenerator", sequenceName = "cms_friend_link_sequence")
+public class FriendLink implements AbstractEntity<BigInteger> {
 
 	public enum CheckStatus {
 		pending(-2, "pending", "未审核"), waiting(-1, "waiting", "审核中"), fail(0, "fail", "审核不通过"), success(1, "success",

@@ -8,14 +8,13 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class ProgressivenessJob extends CommonJob {
+public class QianxianzazhiJob extends CommonJob {
     @Autowired
     ArticleService articleService;
-
-    @Scheduled(cron = "0 19 15 * * ?")
+    @Scheduled(cron = "0 04 17 * * ?")
     void executeJob()throws Exception{
         log.info("...........begin..........");
-        parseArticleList("http://www.71.cn/towrite/officialdocument/thoughtandstudy/progressiveness/1.shtml","先进性教育");
+        parseArticleList("http://www.71.cn/acastudies/qianxianzazhi/1.shtml","《前线》杂志");
         log.info("...........end..........");
     }
 

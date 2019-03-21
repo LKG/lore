@@ -19,6 +19,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import im.heart.core.entity.AbstractEntity;
 import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -31,8 +32,8 @@ import com.alibaba.fastjson.annotation.JSONField;
 @DynamicUpdate()
 @DynamicInsert()
 @Data
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "cms_comment_sequence")
-public class Comment {
+@SequenceGenerator(name = "cmsCommentSequenceGenerator", sequenceName = "cms_comment_sequence")
+public class Comment implements AbstractEntity<BigInteger> {
 	
 	public enum CheckStatus {
 		pending(-2, "pending", "未审核"), 

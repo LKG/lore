@@ -24,7 +24,7 @@ import im.heart.core.entity.AbstractEntity;
 @DynamicUpdate()
 @DynamicInsert()
 @Data
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "cms_ad_sequence")
+@SequenceGenerator(name = "cmsAdSequenceGenerator", sequenceName = "cms_ad_sequence")
 public class Ad implements AbstractEntity<BigInteger>{
 
 	/**

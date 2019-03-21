@@ -100,10 +100,10 @@ spring:
   # Specify the DBMS
     database: MYSQL
   # Show or not log for each sql query
-    show-sql: true
+    show-sql: false
     open-in-view: true
     hibernate:
-     show_sql: true
+     show_sql: false
      format_sql: true
      # Hibernate ddl auto (create, create-drop, update)
      ddl-auto: none
