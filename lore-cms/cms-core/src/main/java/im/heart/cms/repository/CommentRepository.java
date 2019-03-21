@@ -7,12 +7,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import im.heart.cms.entity.Comment;
+import org.springframework.stereotype.Repository;
 
 /**
- * 
- * @功能说明：评论接口
- * @作者 LKG
+ *
+ * @author gg
+ * @desc 评论接口
  */
+@Repository
 public interface CommentRepository extends JpaRepository<Comment, BigInteger> ,JpaSpecificationExecutor<Comment> {
 
 

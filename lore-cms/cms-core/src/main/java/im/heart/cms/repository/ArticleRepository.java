@@ -10,12 +10,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import im.heart.cms.entity.Article;
+import org.springframework.stereotype.Repository;
 
 /**
- * 
- * @功能说明：文章接口
- * @作者 gg
+ *
+ * @author gg
+ * @desc 文章接口
  */
+@Repository
 public interface ArticleRepository extends JpaRepository<Article, BigInteger>, JpaSpecificationExecutor<Article> {
     @Modifying
     @Transactional(rollbackOn = Exception.class)

@@ -19,7 +19,7 @@ import java.math.BigInteger;
 @DynamicUpdate()
 @DynamicInsert()
 @Data
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shop_cart_sequence")
+@SequenceGenerator(name = "shopCartSequenceGenerator", sequenceName = "shop_cart_sequence")
 public class Cart  implements AbstractEntity<BigInteger> {
 	@Id
 	@Column(length = 32, name = "CART_ID", nullable = false, unique = true, updatable = false)

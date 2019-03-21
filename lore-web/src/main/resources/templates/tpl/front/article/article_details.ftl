@@ -21,7 +21,8 @@
         }
         .borline{
             border-bottom: 1px solid #e4e4e4;
-            padding-bottom: 2px;
+            padding-bottom: 5px;
+            padding-top: 10px;
         }
         .artinfo{
             padding-left: 2px;
@@ -32,6 +33,17 @@
         #article-content-dev{
             padding-top: 10px; font-size: 16px;
         }
+         .describe {
+            border: 1px solid #eee;
+            background-color: #ffffff;
+            padding: 9px;
+            line-height: 24px;
+            font-size: 14px;
+            color: #555;
+            text-indent: 2em;
+             margin-top: 15px;
+            margin-bottom: 15px;
+        }
         .isStuck{
             z-index: 99;
             /*min-width: 77%;*/
@@ -40,6 +52,9 @@
         }
         .originPrice{
             text-decoration: line-through;
+        }
+        .keywords a{
+            padding: 2px 2px;
         }
     </style>
     <#assign template="project"/>
@@ -69,14 +84,23 @@
         <div class="col-md-12  col-xs-12" >
             <i class="pull-right fa fa-lg fa-print" id="btn-print" >打印 </i>
             <div class="row" id="article-row"  style="padding: 5px 15px">
-                <h2 class="newstitle" title="${result.title}">${result.title!''}</h2>
+                <h2 class="newstitle text-center" title="${result.title}">${result.title!''}</h2>
                 <div class="borline clearfix">
                     <p class="artinfo">　时间：${result.pushTime!''} |　<span class="author"><#if result.author??><code>${result.author!''}</code></#if></span>  |　字体：【<a class="cgray" data-font="16"  href="javascript:void(0);">大</a> <a class="cgray"  data-font="14"  href="javascript:void(0);" >中</a> <a class="cgray"  data-font="12" href="javascript:void(0);" >小</a>】|　阅读: ${result.hits!''}</p>
                     <!-- <p class="share">分享到：</p> -->
                 </div>
+                  ${result.describe!''}
                 <div class="article-content-dev" id="article-content-dev" >
                     ${result.content!''}
                 </div>
+            </div>
+            <div class="keywords text-right"><strong>本文关键词：</strong>
+                <!-- 关键字 -->
+                <#if result.seoKeywords??>
+                    <#list result.seoKeywords?split(",") as keyword>
+                           <a href="#${keyword!''}" title="${keyword!''}" target="_blank">${keyword!''}</a>
+                    </#list>
+                </#if>
             </div>
         </div>
         <!---文章end--->

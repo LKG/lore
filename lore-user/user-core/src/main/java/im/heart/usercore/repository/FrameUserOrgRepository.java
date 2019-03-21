@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.math.BigInteger;
@@ -16,6 +17,7 @@ import java.util.List;
  * @author gg
  * @Desc : 用户机构关联 Repository
  */
+@Repository
 public interface FrameUserOrgRepository extends JpaRepository<FrameUserOrg, BigInteger> ,JpaSpecificationExecutor<FrameUserOrg>{
 	/**
 	 * 

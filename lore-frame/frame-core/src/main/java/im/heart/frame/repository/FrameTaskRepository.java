@@ -6,14 +6,16 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
 /**
  * 
  * @author gg
- * @desc : FrameTask CROD 接口
+ * @desc : FrameTask Crud 接口
  */
+@Repository
 public interface FrameTaskRepository extends JpaRepository<FrameTask, BigInteger> ,JpaSpecificationExecutor<FrameTask> {
 	/**
 	 * 批量删除

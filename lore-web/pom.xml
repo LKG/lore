@@ -80,7 +80,7 @@
                 <version>2.1.1.RELEASE</version>
                 <configuration>
                     <mainClass>im.heart.App</mainClass>
-                <layout>ZIP</layout>
+                    <layout>ZIP</layout>
                     <includes>
                         <include>
                             <groupId>im.heart</groupId>

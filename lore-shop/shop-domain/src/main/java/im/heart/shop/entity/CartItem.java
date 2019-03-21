@@ -38,7 +38,7 @@ import java.math.BigInteger;
 @DynamicUpdate()
 @DynamicInsert()
 @Data
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shop_cart_item_sequence")
+@SequenceGenerator(name = "shopCartItemSequenceGenerator", sequenceName = "shop_cart_item_sequence")
 public class CartItem   implements AbstractEntity<BigInteger> {
 	/**
 	 * //购物车子项ID

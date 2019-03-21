@@ -7,12 +7,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import im.heart.cms.entity.Ad;
+import org.springframework.stereotype.Repository;
 
 /**
- * 
- * @功能说明：Ad接口
- * @作者 gg
+ *
+ * @author gg
+ * @desc Ad接口
  */
+@Repository
 public interface AdRepository extends JpaRepository<Ad, BigInteger> ,JpaSpecificationExecutor<Ad> {
 
 

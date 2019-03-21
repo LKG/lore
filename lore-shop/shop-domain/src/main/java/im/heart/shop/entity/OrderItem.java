@@ -23,7 +23,7 @@ import java.util.Date;
 @DynamicUpdate()
 @DynamicInsert()
 @Data
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shopping_order_item_sequence")
+@SequenceGenerator(name = "shopOrderItemSequenceGenerator", sequenceName = "shop_order_item_sequence")
 public class OrderItem implements AbstractEntity<BigInteger> {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
