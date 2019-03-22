@@ -61,26 +61,6 @@
             </div>
             <div class="cb"></div>
         </div>
-        <h2 class="module_h2"><a target="_blank">最新简历范文</a></h2>
-        <p class="module_tag"> <a  target="_blank">更多<i class="fa fa-angle-double-right" aria-hidden="true"></i></a> </p>
-        <div class="cb"></div>
-        <div class="module2">
-            <ul class="ml_content_main ml_content_main_word">
-                <#if docs??&&docs.content??>
-                    <#list docs.content as doc>
-                        <li ms-hover="hover">
-                            <a  target="_blank" class="mcm_img" id="load${doc.id!''}" title="${doc.periodicalName!''}">
-                                <img src="${doc.coverImgUrl!''}" alt="${doc.periodicalName!''}" style="display: block;" />
-                            </a>
-                            <a target="_blank" class="mcm_title" title="${doc.periodicalName!''}">${doc.shortTitle!''}</a>
-                            <div class="mcm_show">
-                                <p> <span class="fwb mcm_title_price">￥<span class="red">${doc.originPrice!''}</span></span> <span class="gray">预览：506</span> <a href="javascript:void(0)" class="collect" title="收藏" ms-click="clickCollect($event, 3810722, 3, 1)"></a> </p>
-                            </div> </li>
-                    </#list>
-                </#if>
-                <div class="cb"></div>
-            </ul>
-        </div>
         <h2 class="module_h2"><a target="_blank">最新PPT模板</a></h2>
         <p class="module_tag"> <a target="_blank">更多<i class="fa fa-angle-double-right" aria-hidden="true"></i></a> </p>
         <div class="cb"></div>

@@ -20,6 +20,18 @@
             cursor:pointer;
             text-decoration: none;
         }
+        #gonggao-login-container .login-layout .login-footer {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 177px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            overflow: hidden;
+            background: url(https://gonggao.xuexi.cn/public/img/layout-footer.c0db2aaa.png) no-repeat bottom;
+            background-size: contain;
+        }
     </style>
     <style type="text/css">
         .counter{
@@ -178,6 +190,21 @@
 <!------seajs.config 引用信息 begin----->
 <#include "/includes/seajs.config.ftl" />
 <!------seajs.config   引用信息 end----->
+<div id="app">
+    <div id="gonggao-login-container">
+        <div class="login-layout"><div class="login-content"><div class="login-logo"></div>
+            <div class="login-txt"> · 学习平台供稿系统</div>
+            <div>
+                <div>
+
+
+            </div>
+            </div>
+             </div>
+            <div class="login-footer"></div>
+        </div>
+    </div>
+</div>
 </body>
 <#include "/includes/jquery.ftl" />
 <script src="js/index.js?v=${ver!'1'}"></script>
