@@ -129,7 +129,7 @@
 							已审核
 						   </#if>
 					     </td>
-						<td class="text-center">${model.isVip}(<code>${model.expiryTime!''}</code>)</td>
+						<td class="text-center">${model.isVipl?string('是', '否')}( 有效期 ：<code>${model.expiryTime!''}</code>)</td>
 	 					<td class="operate text-center">
 	 						<a   href="${contextPath}/admin/user/${model.userId}.jhtml"  title="修改"  >
 								<i id="view-${model.userId}" data="${model.userId}" class="btn-view fa fa-eye">查看</i>
