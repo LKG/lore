@@ -20,12 +20,11 @@
             cursor:pointer;
             text-decoration: none;
         }
-        #gonggao-login-container .login-layout .login-footer {
-            position: absolute;
+        .login-footer {
             left: 0;
             bottom: 0;
             width: 100%;
-            height: 177px;
+            height: 120px;
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
             overflow: hidden;
@@ -185,26 +184,14 @@
 </div>
 <!------footer信息 begin----->
 <#include "/includes/footer.ftl" />
+<div class="login-footer"></div>
 <#include "/includes/footer-js.ftl" />
 <!------footer信息 end----->
 <!------seajs.config 引用信息 begin----->
 <#include "/includes/seajs.config.ftl" />
 <!------seajs.config   引用信息 end----->
-<div id="app">
-    <div id="gonggao-login-container">
-        <div class="login-layout"><div class="login-content"><div class="login-logo"></div>
-            <div class="login-txt"> · 学习平台供稿系统</div>
-            <div>
-                <div>
-
-
-            </div>
-            </div>
-             </div>
-            <div class="login-footer"></div>
-        </div>
-    </div>
-</div>
+<div class="clearfix" ></div>
+<!------页面header信息 end----->
 </body>
 <#include "/includes/jquery.ftl" />
 <script src="js/index.js?v=${ver!'1'}"></script>

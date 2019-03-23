@@ -29,7 +29,7 @@
 			 <input type="text" class="form-control" style="width: 200px;" value='' id="userEmail" name="userEmail_LIKES" placeholder="邮箱">
 		 </div>
 		   <div class="form-group">
-			  <input type="checkbox" name="isVip" value="1"> vip
+			  <input type="checkbox" name="isVip" value="1"> VIP
 		   </div>
  		<div class="form-group">
 			 <label for="name" >状态:</label>
@@ -89,6 +89,7 @@
 	            <th  class="text-center" style="width:150px;" >注册日期</th>
 	            <th  class="text-center" style="width:150px;" >默认机构</th>
 	            <th  class="text-center" style="width:120px;" >激活/认证</th>
+				  <th  class="text-center" style="width:120px;" >是否VIP</th>
 	            <th  class="text-center" style="width:300px;" >操作</th>
 	          </tr>
 	        </thead>
@@ -129,7 +130,7 @@
 							已审核
 						   </#if>
 					     </td>
-						<td class="text-center">${model.isVipl?string('是', '否')}( 有效期 ：<code>${model.expiryTime!''}</code>)</td>
+						<td class="text-center">${model.isVip?string('是', '否')}( 有效期 ：<code>${model.expiryTime!''}</code>)</td>
 	 					<td class="operate text-center">
 	 						<a   href="${contextPath}/admin/user/${model.userId}.jhtml"  title="修改"  >
 								<i id="view-${model.userId}" data="${model.userId}" class="btn-view fa fa-eye">查看</i>
@@ -201,7 +202,7 @@
 				已审核
 			{{/if}}
 		 </td>
-		  <td class="text-center">{{model.isVip}}(<code>{{model.expiryTime}}</code>)</td>
+		  <td class="text-center">{{if model.isVip==true}} 是{{/if}} {{if model.isVip==false}} 否{{/if}}(有效期：<code>{{model.expiryTime}}</code>)</td>
 		<td class="operate text-center">
 			<a   href="${contextPath}/admin/user/{{model.userId}}.jhtml"  title="修改"  >
 				<i id="view-{{model.userId}}" data="{{model.userId}}" class="btn-view fa fa-eye">查看</i>

@@ -94,6 +94,10 @@ public class CommonJob extends  AbstractJob {
                 log.error(url);
                 log.error(e.getStackTrace()[0].getMethodName(), e);
             }
+            if (!contentEle.hasText()){
+                log.info("获取内容异常"+url);
+                return null;
+            }
             entity.setUrl(url);
             entity.setSource(source);
             entity.setContent(contentEle.outerHtml());

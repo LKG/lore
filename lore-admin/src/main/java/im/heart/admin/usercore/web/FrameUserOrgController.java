@@ -41,6 +41,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.math.BigInteger;
 import java.util.Collection;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 
@@ -134,7 +135,14 @@ public class  FrameUserOrgController extends AbstractController {
 			@PathVariable BigInteger userId,
 			HttpServletRequest request,
 			ModelMap model) {
-		System.out.println(WebUtilsEx.getParametersJson(request));
+		Enumeration<String> headerNames=request.getHeaderNames();
+		while (headerNames.hasMoreElements()){
+			System.out.println(headerNames.nextElement());
+		}
+		Enumeration<String> parameterNames=request.getParameterNames();
+		while (parameterNames.hasMoreElements()){
+			System.out.println(parameterNames.nextElement());
+		}
 		//直接从请求中取值避免spring 转换
 		String datas = request.getParameter("datas");
 		if (StringUtils.isBlank(datas)){

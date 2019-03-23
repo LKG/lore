@@ -110,11 +110,11 @@ define(function(require, exports, moudles) {
 				var that = this;
 				that.title('提交中..');
 				$.httpUtil.curl({
-					url : url.userApi +"/"  +hideId+"/addOrg.json",
+					url : url.userApi +"/"  +hideId+"/addOrg.json?a=1111",
 					type : "post",
 					loading : true,
 					dataType : "json",
-					data : {datas:datas},
+					data : {datas:1111},
 					success : function(data) {
 						 var content="添加成功";
 			        	   if(data.success){

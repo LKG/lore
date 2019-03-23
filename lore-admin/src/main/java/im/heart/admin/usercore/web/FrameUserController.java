@@ -62,8 +62,8 @@ public class FrameUserController extends AbstractController {
 			@RequestParam(value = "userName", required = false) String userName,
 			HttpServletRequest request, HttpServletResponse response,
 			ModelMap model) throws Exception {
-		if (StringUtils.isBlank(userName) || userName.length() < 5
-				|| userName.length() > 30) {
+		if (StringUtils.isBlank(userName) || userName.length() < FrameUser.minAccountLength
+				|| userName.length() > FrameUser.maxAccountLength) {
 			super.fail(model);
 			return new ModelAndView(RESULT_PAGE);
 		}
