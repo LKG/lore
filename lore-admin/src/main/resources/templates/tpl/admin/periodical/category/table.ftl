@@ -65,17 +65,17 @@
 				       <#list result.content as model>	
 				       <tr <#if (model_index%2)=0 >class="info"</#if>>
 				         <th scope="row">
-				        	 <input type="checkbox" id="check_${model.id}" name="id" value="${model.id}" />
+				        	 <input type="checkbox" id="check_${model.id!''}" name="id" value="${model.id!''}" />
 				         </th>
-				          <td>${model.cityName}</td>
-				      	<td><code>${model.materialCode}</code></td>
-				         <td>${model.materialName}</td>
-				         <td>${model.materialFormat}</td>
-				         <td>${model.materialUnit}</td>
-				         <td>${model.createTime}</td>
+				          <td>${model.cityName!''}</td>
+				      	<td><code>${model.materialCode!''}</code></td>
+				         <td>${model.materialName!''}</td>
+				         <td>${model.materialFormat!''}</td>
+				         <td>${model.materialUnit!''}</td>
+				         <td>${model.createTime!''}</td>
 				         <td class="operate">
-							<i id="edit-${model.id}" data="${model.id}" class="fa fa-pencil fa-fw"></i>
-							<i id="disabled-${model.id}" data="${model.id}" class="fa fa-trash-o fa-fw"></i>
+							<i id="edit-${model.id!''}" data="${model.id!''}" class="fa fa-pencil fa-fw"></i>
+							<i id="disabled-${model.id!''}" data="${model.id!''}" class="fa fa-trash-o fa-fw"></i>
 						</td>
 				       </tr>
 				 	 </#list >			       	 
