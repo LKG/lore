@@ -20,6 +20,7 @@ import java.util.Date;
  * @author gg
  * 上传数据包列表
  */
+@Entity
 @Table(name = "media_periodical_package")
 @DynamicUpdate()
 @DynamicInsert()

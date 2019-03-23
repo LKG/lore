@@ -7,6 +7,7 @@ import im.heart.material.enums.PackageType;
 
 import java.math.BigInteger;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author gg
@@ -20,20 +21,11 @@ public interface PeriodicalConfigService extends CommonService<PeriodicalConfig,
 	 * @param entities
 	 * @return
 	 */
-	public List<PeriodicalConfig>  save(Iterable<PeriodicalConfig> entities);
-	/**
-	 * 
-	 * @功能说明：
-	 * @param entitie
-	 * @return
-	 */
-	public PeriodicalConfig save(PeriodicalConfig entitie);
+	public List<PeriodicalConfig>  saveAll(Iterable<PeriodicalConfig> entities);
 	
 	public boolean exits(String cityId, Integer year, String periodicalType);
 	
-	public PeriodicalConfig findBycityIdAndYearAndType(String cityId, Integer year, PackageType periodicalType);
+	public Optional<PeriodicalConfig> findBycityIdAndYearAndType(String cityId, Integer year, PackageType periodicalType);
 	public List<PeriodicalConfig> findByCityIdStartingWithAndTypeAndYear(String cityId, String type, Integer year);
-	
-	public void deleteById(BigInteger id);
 
 }
