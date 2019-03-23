@@ -193,6 +193,10 @@
 <div class="clearfix" ></div>
 <!------页面header信息 end----->
 </body>
+<script>
+    seajs.use("js/search.js?v="+Math.random());
+</script>
 <#include "/includes/jquery.ftl" />
 <script src="js/index.js?v=${ver!'1'}"></script>
+<#include "/includes/baidu-zn.ftl" />
 </html>

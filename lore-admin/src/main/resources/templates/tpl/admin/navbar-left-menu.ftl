@@ -48,7 +48,7 @@
               <li class=" <#if template=='periodical'&&submenu=='index'>active</#if>"> <a href="${contextPath}/admin/periodicals.jhtml"> <i class="fa fa-book"></i>期刊管理 </a> </li>
               <li class=" <#if template=='periodical'&&submenu=='category'>active</#if>"> <a href="${contextPath}/admin/periodical/categorys.jhtml"> <i class="fa fa-book"></i>期刊分类 </a> </li>
               <li class=" <#if template=='periodical'&&submenu=='config'>active</#if>"> <a href="${contextPath}/admin/periodical/configs.jhtml"> <i class="fa fa-book"></i>打包配置 </a> </li>
-              <li class=" <#if template=='periodical'&&submenu=='packs'>active</#if>"> <a href="${contextPath}/admin/periodical/packs.jhtml"> <i class="fa fa-book"></i>数据打包</a> </li>
+              <li class=" <#if template=='periodical'&&submenu=='packages'>active</#if>"> <a href="${contextPath}/admin/periodical/packages.jhtml"> <i class="fa fa-book"></i>数据打包</a> </li>
           </ul>
       </li>
       <li  class="<#if template=='msg'>active open</#if>" > <a href="javascript:void(0);" class="dropdown-toggle"> <i class="fa fa-bell"></i> <span class="menu-text">消息中心</span> <i class="fa fa-angle-down "></i> </a> 

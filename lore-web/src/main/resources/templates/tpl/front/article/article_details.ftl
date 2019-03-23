@@ -113,9 +113,8 @@
 <!------seajs.config 引用信息 begin----->
 <#include "/includes/seajs.config.ftl" />
 <!------seajs.config   引用信息 end----->
-<#include "/includes/jquery.ftl" />
 <script>
-    seajs.use("js/cms/article-details.js?v="+Math.random());
+    seajs.use(["js/cms/article-details.js?v="+Math.random(),"js/search.js?v="+Math.random()]);
 </script>
 </body>
 </html>

@@ -19,9 +19,19 @@
 		  <a id="btn-add" class="btn btn-danger" href="${contextPath}/admin/article/add.jhtml" >
 				 <i class="fa fa-cloud-upload"></i><@spring.message code="label.default.button.create" />
 		  </a>
+		  <button id="btn-publish" class="btn btn-danger" >
+			  <i class="fa fa-trash-o"></i> 发布
+		  </button>
+		  <button id="btn-disabled" class="btn btn-danger" >
+			  <i class="fa fa-trash-o"></i> 下架
+		  </button>
+		  <button id="btn-top" class="btn btn-danger" >
+			  <i class="fa fa-trash-o"></i> 置顶
+		  </button>
 	  </div>
 		<#include "/includes/pagination-total.ftl" />
 	 </div>
+
 	<!---toolbar end-->
 	 	<div class="table-responsive">
 		 <table class="table table-bordered table-condensed table-hover">

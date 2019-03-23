@@ -14,22 +14,22 @@
     </div>
     <!-- --->
     <div class="search" style="height: 26px;">
-        <form class="bs-example bs-example-form" style="margin-left: 370px;">
+        <form  id="search-form" action="http://zhannei.baidu.com/cse/site" style="margin-left: 370px;">
             <div class="row">
                 <div class="col-lg-7">
                     <div class="input-group" >
-                        <input type="text" class="form-control" aria-label="Text input with multiple buttons">
+                        <input type="text" class="form-control" name="q"  value="${q!''}" aria-label="请输入搜索关键词">
                         <div class="input-group-btn">
-                            <select class="form-control" style="width: 110px;padding:6px; 10px;">
+                            <select class="form-control" name="qt" style="width: 110px;padding:6px; 10px;">
                                 <option val="0" >主题</option>
                                 <option val="1" >关键词</option>
-                                <option val="2" >篇名</option>
+                                <option val="2" selected >篇名</option>
                                 <option val="3" >全文</option>
                                 <option val="4" >作者</option>
-                                <option val="5" >单位</option>
+                     <#--           <option val="5" >单位</option>-->
                                 <option val="6" >摘要</option>
-                                <option val="7" >被引文献</option>
-                                <option val="8" >中图分类号</option>
+     <#--                           <option val="7" >被引文献</option>
+                                <option val="8" >中图分类号</option>-->
                                 <option val="9" >文献来源</option>
                             </select>
                             <button type="button"  id="btn-search" class="btn btn-primary">搜索</button>
@@ -60,4 +60,3 @@
         </form>
     </div>
 </div>
-<#include "/includes/jquery.ftl" />

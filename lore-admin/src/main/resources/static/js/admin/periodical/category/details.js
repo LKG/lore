@@ -6,7 +6,7 @@ define(function (require, exports, moudles) {
 	 var dialog = require('artDialog');
 	 var $baseRoot=$("#baseRoot");
 	window.dialog = dialog;
-	var message = require('js/common/messages.js');
+	var $msg= require('/js/common/alerts.js');
 	 var baseRoot=$baseRoot.attr("href");
 	 var url={
 		checkCode: baseRoot+"/admin/material/category/checkCode.json",
@@ -89,9 +89,9 @@ define(function (require, exports, moudles) {
 				type:"post",
 				success: function(data) {
 					if(data.success){
-						message($btn,"<i class='fa  fa-check-circle text-success'></i>数据更新成功");
+						$msg.alert(($btn,"<i class='fa  fa-check-circle text-success'></i>数据更新成功");
 					}else{
-						message($btn,"<i class='fa fa-exclamation-triangle text-danger'></i>数据更新异常");
+						$msg.alert(($btn,"<i class='fa fa-exclamation-triangle text-danger'></i>数据更新异常");
 					}
 					
 				}

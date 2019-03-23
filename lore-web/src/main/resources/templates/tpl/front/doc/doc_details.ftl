@@ -121,7 +121,7 @@
 
 </script>
 <script>
-    seajs.use("js/doc/init");
+    seajs.use(["js/doc/init.js?v="+Math.random(),"js/search.js?v="+Math.random()]);
 </script>
 </body>
 </html>

@@ -108,8 +108,8 @@ public class Article implements AbstractEntity<BigInteger>{
 	@Column(name = "CONTENT", nullable = false)
 	private String content;
 
-	@Column(name = "article_describe")
-	private String describe;
+	@Column(name = "summary")
+	private String summary;
 
 	/** 页面标题. */
 	@Column(name = "SEO_TITLE", nullable = false)
@@ -222,16 +222,6 @@ public class Article implements AbstractEntity<BigInteger>{
 		} else {
 			return content;
 		}
-	}
-
-	/**
-	 * 获取页面关键词.
-	 * 
-	 * @return 页面关键词
-	 */
-	@Length(max = 200)
-	public String getSeoKeywords() {
-		return seoKeywords;
 	}
 
 	/**

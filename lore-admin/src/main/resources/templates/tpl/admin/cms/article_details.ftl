@@ -82,13 +82,13 @@
 						 	<div class="col-xs-5">
 						 		<div class="input-group">
 							 		<span class="input-group-addon">标题</span>
-							 		<input type="text" class="form-control"  name="title" placeholder="标题" value="${result.title}" /> 
+							 		<input type="text" class="form-control"  name="title" placeholder="标题" value="${result.title!''}" />
 								</div>
 							</div>
 							<div class="col-xs-5">
 								<div class="input-group">
 							  		<span class="input-group-addon">seo</span>
-							  		<input type="text" class="form-control" id="seoTitle" name="seoTitle" value="${result.seoTitle}" placeholder="seoTitle标题"/>
+							  		<input type="text" class="form-control" id="seoTitle" name="seoTitle" value="${result.seoTitle!''}" placeholder="seoTitle标题"/>
 						        </div>
 							</div>
 						 </div>
@@ -110,14 +110,14 @@
 							  		<span class="input-group-addon">seo</span>
 							  		<input type="text" class="form-control" id="seoTitle" name="seoTitle" placeholder="seoTitle标题"/> 
 									<div class="input-group-addon">
-						          	 <label><input type="checkbox" id="allowComment" <#if test="model.allowComment">checked</#if> name="allowComment" aria-label="允许评论" value="1"/>允许评论</label>
+						          	 <label><input type="checkbox" id="allowComment" <#if result.allowComment==true >checked</#if> name="allowComment" aria-label="允许评论" value="1"/>允许评论</label>
 						          	</div>
 						        </div>
 							</div>
 						 </div>
 						 <div class="form-group" >
 							<div class="col-xs-10">
-								<textarea class="form-control" id="seoDescription" name="seoDescription" placeholder="SEO描述" rows="2">${result.seoDescription}</textarea>
+								<textarea class="form-control" id="seoDescription" name="seoDescription" placeholder="SEO描述" rows="2">${result.seoDescription!''}</textarea>
 							</div>
 						 </div>
 						 <div class="form-group" >
@@ -125,7 +125,7 @@
 								   <div class="editormd" id="test-editormd">
 									<textarea class="editormd-markdown-textarea" name="test-editormd-markdown-doc"></textarea>
 									<!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
-									<textarea class="editormd-html-textarea" name="content">${result.content}</textarea>
+									<textarea class="editormd-html-textarea" name="content">${result.content!''}</textarea>
 									</div>
 							</div>
 						 </div>

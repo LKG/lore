@@ -116,7 +116,7 @@
 						 </div>
 						 <div class="form-group" >
 							<div class="col-xs-10">
-								<textarea class="form-control" id="seoDescription" name="seoDescription" placeholder="SEO描述" rows="2"><#if result.memo??>${result.memo}</#if></textarea>
+								<textarea class="form-control" id="seoDescription" name="seoDescription" placeholder="SEO描述" rows="2"></textarea>
 							</div>
 						 </div>
 						 <div class="form-group" >

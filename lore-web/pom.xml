@@ -92,6 +92,10 @@
                         </include>
                         <include>
                             <groupId>im.heart</groupId>
+                            <artifactId>lore-admin</artifactId>
+                        </include>
+                        <include>
+                            <groupId>im.heart</groupId>
                             <artifactId>frame-core</artifactId>
                         </include>
                         <include>
@@ -137,10 +141,6 @@
                         <include>
                             <groupId>im.heart</groupId>
                             <artifactId>rpt-core</artifactId>
-                        </include>
-                        <include>
-                            <groupId>im.heart</groupId>
-                            <artifactId>lore-admin</artifactId>
                         </include>
                     </includes>
                 </configuration>

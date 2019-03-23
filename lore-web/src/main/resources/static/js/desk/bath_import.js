@@ -3,9 +3,8 @@ define(function(require, exports, moudles) {
 	var template = require('arttemplate');
 	var dialog = require('artDialog');
 	var fineUploader = require('fine-uploader');
-	var laypage = require('laypage');
 	window.dialog = dialog;
-    var message = require('js/common/messages.js');
+    var $msg= require('/js/common/alerts.js');
 	var httpUtil = require('js/common/httpUtil.js');
 	var $baseRoot = $('#baseRoot');
 	var baseRoot = $baseRoot.attr("href");
@@ -61,16 +60,16 @@ define(function(require, exports, moudles) {
            onComplete: function(id, name, response) {
         	   var content="上传成功，解析任务已提交";
         	   if(response.success){
-                   message($(this),content);
+                   $msg.alert($(this),content);
         		   return ;
         	   }else{
         		   if(response.result &&response.result.error_description){
         			   content=response.result.error_description;
              	   }else{
-             		  content="上传失败";
+             		  content="<i class='fa fa-exclamation-triangle text-danger'></i>上传失败";
              	   }
         	   }
-               message($(this),content);
+               $msg.alert($(this),content);
              },
              onCancel: function(id, name, response) {
 	             	//取消上传
@@ -103,18 +102,18 @@ define(function(require, exports, moudles) {
      $('#trigger-upload').click(function() {
          var periodicalCode=$("#periodicalCode").val();
          if(periodicalCode==null||periodicalCode.length!=6){
-             message($(this),"请选择期刊号");
+             $msg.alert($(this),"请选择期刊号");
              return;
          }
 
          var originPrice=$("#originPrice").val();
          if(originPrice==null||originPrice.length==0){
-             message($(this),"请设置标价");
+             $msg.alert($(this),"请设置标价");
              return;
          }
          var finalPrice=$("#finalPrice").val();
          if(finalPrice==null||finalPrice.length==0){
-             message($(this),"请设置售价");
+             $msg.alert($(this),"请设置售价");
              return;
          }
         $('#fine-uploader-manual-trigger').fineUploader('uploadStoredFiles');

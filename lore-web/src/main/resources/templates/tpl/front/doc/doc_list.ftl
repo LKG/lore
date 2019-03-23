@@ -168,7 +168,7 @@
 <!------footer信息 end----->
 <#include "/includes/datePicker.ftl" />
 <script>
-    seajs.use(["js/doc/list.js?v="+Math.random(),"js/left-menu.js?v="+Math.random()]);
+    seajs.use(["js/doc/list.js?v="+Math.random(),"js/search.js?v="+Math.random()]);
 </script>
 </body>
 </html>

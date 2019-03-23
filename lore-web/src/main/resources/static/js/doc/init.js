@@ -4,7 +4,7 @@ define(function (require, exports, moudles) {
 	var pin = require('jquery.pin');
     var template = require('arttemplate');
     var lazyload = require('../../modules/lazyload/lazyload.min.js');
-    var message = require('js/common/messages.js');
+	var $msg= require('/js/common/alerts.js');
 	var $baseRoot=$("#baseRoot");
 	var baseRoot=$baseRoot.attr("href");
 	$("#xx,#xx a").on("click",function () {
@@ -51,7 +51,7 @@ define(function (require, exports, moudles) {
 		         dataType:"jsonp",
 		         jsonp:"jsoncallback",
 		         success:function(data){
-                     message($(this),"点赞成功！");
+					 $msg.alert($(this),"点赞成功！");
 		        	 $obj.removeAttr("disabled");
 		        	 $obj.find(".bs-smll-support-code").html(showNum(data.result));
 		         }
@@ -67,14 +67,14 @@ define(function (require, exports, moudles) {
             jsonp:"jsoncallback",
             success:function(data){
                 if (data.result) {
-                    message($(this),"收藏成功！");
+					$msg.alert($(this),"收藏成功！");
                     $("#collect-txt").text("已收藏");
                 }else {
                 	if(data.httpstatus==403){
 						window.location.href="/login.jhtml";
 						return;
 					}
-                    message($(this),"已收藏！");
+					$msg.alert($(this),"已收藏！");
 				}
                 $obj.removeAttr("disabled");
                 $obj.find(".bs-smll-support-code").html(showNum(data.result));

@@ -83,7 +83,9 @@ public class XuexiJob extends CommonJob {
         String lists=  OkHttpClientUtils.fetchEntityString("https://www.xuexi.cn/d05cad69216e688d304bb91ef3aac4c6/data"+listid+".js",null);
         String jsonContent1 = StringUtilsEx.substringBetween(lists, "globalCache = ","};");
         JSONObject jsonObject1 = JSON.parseObject(jsonContent1+"}");
+        System.out.println(jsonObject1.keySet());
         JSONArray list=jsonObject1.getJSONObject("fpcka8ayva4e0001").getJSONArray("list");
+
        for(Object obj:list){
            JSONObject jsonObject=(JSONObject)obj;
            String _id=jsonObject.getString("_id");

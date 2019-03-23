@@ -73,7 +73,7 @@ public class CommonJob extends  AbstractJob {
             String source=sourceEle.text();
 
             Elements describeEle=article.select("#describe");
-            entity.setDescribe(describeEle.outerHtml());
+            entity.setSummary(describeEle.outerHtml());
             Elements contentEle=article.select("#article-content");
             //判断是否有分页
             Elements showallcontEle=article.select("#showallcont");

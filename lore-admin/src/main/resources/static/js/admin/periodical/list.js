@@ -10,7 +10,7 @@ define(function(require, exports, moudles) {
 	var url = {
 		api : baseRoot + "/admin/periodical",
 	};
-	var message = require('js/common/messages.js');
+	var $msg= require('/js/common/alerts.js');
 	var getAreas = require('js/common/areas.js');
 	getAreas($("#provinceId"), "0");
 	$("#provinceId").on("change", function() {
@@ -40,11 +40,11 @@ define(function(require, exports, moudles) {
 		var $this=$(this);
 		var dataIds =getCheckedBox();
 		if(dataIds.length==0 ){
-			message($this,"请选择要删除记录数");
+			$msg.alert($this,"请选择要删除记录数");
 			return;
 		}
 		if(dataIds.length>15 ){
-			message($this,"最多一次选择15个数据");
+			$msg.alert($this,"最多一次选择15个数据");
 			return;
 		}
 		var id = $(this).attr("id");
@@ -65,7 +65,7 @@ define(function(require, exports, moudles) {
 					success : function(data) {
                         $("#page").val(1);
 						search(false);
-						message($this,"更新成功");
+						$msg.alert($this,"更新成功");
 					},
 				});
 				return true;
@@ -81,11 +81,11 @@ define(function(require, exports, moudles) {
         var $this=$(this);
         var dataIds =getCheckedBox();
         if(dataIds.length==0 ){
-            message($this,"请选择要发布的数据");
+			$msg.alert($this,"请选择要发布的数据");
             return;
         }
         if(dataIds.length>15 ){
-            message($this,"最多一次发布15期");
+			$msg.alert($this,"最多一次发布15期");
             return;
         }
         var id = $this.attr("id");
@@ -123,11 +123,11 @@ define(function(require, exports, moudles) {
         var $this=$(this);
         var dataIds =getCheckedBox();
         if(dataIds.length==0 ){
-            message($this,"请选择要的下架的数据");
+			$msg.alert($this,"请选择要的下架的数据");
             return;
         }
         if(dataIds.length>15 ){
-            message($this,"最多一次下架15期");
+			$msg.alert($this,"最多一次下架15期");
             return;
         }
         var id = $this.attr("id");
@@ -146,7 +146,7 @@ define(function(require, exports, moudles) {
                     dataType : "json",
                     data : null,
                     success :function(data) {
-                        message($this,"更新成功");
+						$msg.alert($this,"更新成功");
                         $("#page").val(1);
                         $this.removeAttr("disabled");
                         search(false);
@@ -188,7 +188,7 @@ define(function(require, exports, moudles) {
                     dataType : "json",
                     data : null,//修改
                     success : function(data) {
-                        message($this,"更新成功");
+						$msg.alert($this,"更新成功");
                         search(false);
                     },
                 });
@@ -218,7 +218,7 @@ define(function(require, exports, moudles) {
                     dataType : "json",
                     data : null,//修改
                     success :function(data) {
-                        message($this,"更新成功");
+						$msg.alert($this,"更新成功");
                         search(false);
                     },
                 });

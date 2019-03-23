@@ -111,9 +111,10 @@
                   </div>
                  <div class="form-group">
 					 <label for="periodicalType">文档格式</label>
-                        <select class="form-control" id="periodicalType" name="periodicalType">
+                        <select class="form-control" id="fileHeader" name="fileHeader">
 							<option value="" >------</option>
                             <option value="doc" >doc</option>
+							<option value="ppt" >ppt</option>
                         </select>
 				 </div>
 				  <div class="form-group">

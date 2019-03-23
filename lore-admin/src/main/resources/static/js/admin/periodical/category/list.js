@@ -22,15 +22,15 @@ define(function(require, exports, moudles) {
 		var parentCode = $(this).val();
 		getAreas($("#areaId"), parentCode, "");
 	});
-	var message = require('js/common/messages.js');
+	var $msg= require('/js/common/alerts.js');
 	// 新增事件
 	var $add = $("#add");
 	$add.on("click", function() {
-		message($(this));
+		$msg.alert($(this));
 	});
 	var $remove = $("#remove");
 	$remove.on("click", function() {
-		message($(this));
+		$msg.alert($(this));
 	});
 	
 	$("#refresh,#seach-btn").on("click", function() {

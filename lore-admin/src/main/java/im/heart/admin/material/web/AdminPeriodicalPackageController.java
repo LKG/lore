@@ -33,10 +33,10 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping("/admin")
-public class  AdminPackageController extends AbstractController {
-	protected static final String apiVer = "/material/package";
-	protected static final String VIEW_LIST="admin/material/package/list";
-	protected static final String VIEW_DETAILS="admin/package/details";
+public class  AdminPeriodicalPackageController extends AbstractController {
+	protected static final String apiVer = "/periodical/package";
+	protected static final String VIEW_LIST="admin/periodical/package/list";
+	protected static final String VIEW_DETAILS="admin/periodical/package/details";
 	
 	@Autowired
 	private PeriodicalPackageService periodicalPackageService;
