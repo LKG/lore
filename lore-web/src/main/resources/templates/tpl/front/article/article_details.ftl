@@ -86,7 +86,15 @@
             <div class="row" id="article-row"  style="padding: 5px 15px">
                 <h2 class="newstitle text-center" title="${result.title}">${result.title!''}</h2>
                 <div class="borline clearfix">
-                    <p class="artinfo">　时间：${result.pushTime!''} |　<span class="author"><#if result.author??><code>${result.author!''}</code></#if></span>  |　字体：【<a class="cgray" data-font="16"  href="javascript:void(0);">大</a> <a class="cgray"  data-font="14"  href="javascript:void(0);" >中</a> <a class="cgray"  data-font="12" href="javascript:void(0);" >小</a>】|　阅读: ${result.hits!''}</p>
+                    <p class="artinfo">　时间：${result.pushTime!''} |　<span class="author">
+                       <#if result.author??>
+                           <#list result.author?split(" ") as autho>
+                               <a href="${contextPath}/q?v=${ver!'1'}&q=${autho!''}&qt=4" title="${autho!''}" target="_blank">
+                                    <code>${autho!''}</code>
+                                  </a>
+                           </#list>
+                        </#if>
+                        </span>  |　字体：【<a class="cgray" data-font="16"  href="javascript:void(0);">大</a> <a class="cgray"  data-font="14"  href="javascript:void(0);" >中</a> <a class="cgray"  data-font="12" href="javascript:void(0);" >小</a>】|　阅读: ${result.hits!''}</p>
                     <!-- <p class="share">分享到：</p> -->
                 </div>
                   ${result.describe!''}
@@ -98,7 +106,7 @@
                 <!-- 关键字 -->
                 <#if result.seoKeywords??>
                     <#list result.seoKeywords?split(",") as keyword>
-                           <a href="#${keyword!''}" title="${keyword!''}" target="_blank">${keyword!''}</a>
+                           <a href="${contextPath}/q?v=${ver!'1'}&q=${keyword!''}&qt=1" title="${keyword!''}" target="_blank">${keyword!''}</a>
                     </#list>
                 </#if>
             </div>

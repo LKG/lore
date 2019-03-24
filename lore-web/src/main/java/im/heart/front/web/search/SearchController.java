@@ -59,7 +59,7 @@ public class SearchController  extends AbstractController {
     public ModelAndView list(HttpServletRequest request, HttpServletResponse response,
                              @RequestParam(value = CommonConst.RequestResult.JSON_CALLBACK, required = false) String jsoncallback,
                              @RequestParam(value = "page", required = false, defaultValue = CommonConst.Page.DEFAULT_PAGE+"") Integer page,
-                             @RequestParam(value = "size", required = false, defaultValue = CommonConst.Page.DEFAULT_SIZE+"") Integer size,
+                             @RequestParam(value = "size", required = false, defaultValue = "20") Integer size,
                              @RequestParam(value = "q", required = false) String q,
                              @RequestParam(value = "qt", required = false,defaultValue = "1") Integer qt,
                              @RequestParam(value = "sort", required = false,defaultValue = "isTop,pushTime") String sort,
@@ -69,6 +69,9 @@ public class SearchController  extends AbstractController {
         if(StringUtils.isBlank(q)){
             super.fail(model,new ResponseError(WebError.REQUEST_PARAMETER_MISSING));
             return  new ModelAndView(RESULT_PAGE);
+        }
+        if(size>CommonConst.Page.MAX_SIZE){
+            size=CommonConst.Page.MAX_SIZE;
         }
         final Collection<SearchFilter> filters= DynamicSpecifications.buildSearchFilters(request);
         filters.add(new SearchFilter("isPub", SearchFilter.Operator.EQ,Boolean.TRUE));
@@ -109,7 +112,6 @@ public class SearchController  extends AbstractController {
         model.put("q",q);
         model.put("qt",qt);
         super.success(model,pag);
-        logger.info("@@@@@@@@@@@@@@@@@@@@@@@@");
         return new ModelAndView("front/search/search_list");
     }
 }

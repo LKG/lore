@@ -51,6 +51,7 @@ public class CommonConst {
     public static class Page {
         public static final int DEFAULT_PAGE = 1;
         public static final int DEFAULT_SIZE = 10;
+        public static final int MAX_SIZE = 500;
         public static final String ORDER_ASC = "ASC";
         public static final String ORDER_DESC = "DESC";
         public static final String DEFAULT_ORDER = ORDER_ASC;

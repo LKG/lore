@@ -2,7 +2,7 @@ define(function (require, exports, moudles) {
 	var $ = require('jquery');
 	var jQuery = require('jquery');
 	var dialog = require('artDialog');
-	exports.alert=function(obj,content,loading){
+	exports.alert=function(obj,content,loading,isClose){
 		var id = $(obj).attr("id");
 		$(obj).attr("disabled", "disabled");
 		var d = dialog({
@@ -19,8 +19,10 @@ define(function (require, exports, moudles) {
 		}else{
 			d.showModal();
 		}
-		setTimeout(function() {
-			d.close().remove();
-		}, 1000);
+		if(!isClose){
+			setTimeout(function() {
+				d.close().remove();
+			}, 1000);
+		}
 	}
 });
