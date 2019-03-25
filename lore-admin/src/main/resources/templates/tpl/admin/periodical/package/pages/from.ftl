@@ -1,4 +1,4 @@
-<form class="form-horizontal" action="${contextPath}/api/area/subGeneral.json" id="J_MainForm"  method="post"  >
+<form class="form-horizontal" action="${appHost}/api/area/subGeneral.json" id="J_MainForm"  method="post"  >
  <div class="form-group">
 	<label for="resourceCode" class="col-sm-2 control-label">标识</label>
 	<div class="col-sm-4">

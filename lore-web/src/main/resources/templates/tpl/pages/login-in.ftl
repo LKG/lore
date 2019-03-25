@@ -5,7 +5,7 @@
   	<title><@spring.message  code="label.login.title" /></title>
 	<!------head 引用信息 begin----->
   	<#include "/includes/head.ftl" />
-  	<link rel="stylesheet" type="text/css" href="${contextPath}/css/sigin-in.css?v=${ver!'1'}" /> 
+  	<link rel="stylesheet" type="text/css" href="${appHost}/css/sigin-in.css?v=${ver!'1'}" />
   	<!------head   引用信息 end----->
  </head> 
  <body> 
@@ -21,7 +21,7 @@
        <div id="J_Message" class="message <#if _error?? && 2==_error>bg-warning text-danger</#if>" >
       	 <#if _error?? && 2==_error><i class="fa fa-exclamation-triangle">您的账号已在其他地方登录，请留意账号安全</i></#if>
        </div>
-       <form id="J_StaticForm" action="${contextPath}/login.json" method="post"> 
+       <form id="J_StaticForm" action="${appHost}/login.json" method="post">
 		<!--输入组---->
 		<!--输入组---->
         <div class="field ph-hide"> 
@@ -33,7 +33,7 @@
         </div> 
         <div class="field "> 
          <label id="password-label" for="TPL_password_1"><@spring.message  code="label.login.password" /></label> 
-         <a  href="${contextPath}/findPwd/index.html" target="_blank"  id="forget-pw-safe"  style="position: absolute;right: 60px;top: 0;" ><@spring.message  code="label.login.forgot.pass" /></a> 
+         <a  href="${appHost}/findPwd/index.html" target="_blank"  id="forget-pw-safe"  style="position: absolute;right: 60px;top: 0;" ><@spring.message  code="label.login.forgot.pass" /></a>
          <span id="J_StandardPwd">
          	<div class="input-group">
          		<div class="input-group-addon"><i class="fa fa-key"></i></div>
@@ -46,7 +46,7 @@
         
           <div class="field " id="l_f_code" data='${_login_times!'0'}' >
          <input id="J_ValidateCode" type="text" placeholder='<@spring.message  code="label.login.validation" />' title="<@spring.message  code="label.login.validation" />" class="login-text checkcode J_CheckCode" maxlength="5" name="validateCode" tabindex="3" /> 
-         <img id="J_StandardCode_m" src="" data-src="${contextPath}/validate/passcode"  title='<@spring.message  code="label.login.validation.img.title" />'  class="check-code-img" /> 
+         <img id="J_StandardCode_m" src="" data-src="${appHost}/validate/passcode"  title='<@spring.message  code="label.login.validation.img.title" />'  class="check-code-img" />
          <a href="javascript:;" class="change-code right" id="J_StandardCode"  title='<@spring.message  code="label.login.validation.img.title" />' >看不清 </a> 
         </div> 
         
@@ -73,7 +73,7 @@
 	      	</label>
 			<ul class="entries" > 
 			 <li id="registerUrl_1"  >
-				<a id="J_RegisterLink1" href="${contextPath}/regist.jhtml" target="_blank" style="position: absolute;right: 60px;top: 0;" tabindex="8"><@spring.message  code="label.register.button" /></a>
+				<a id="J_RegisterLink1" href="${appHost}/regist.jhtml" target="_blank" style="position: absolute;right: 60px;top: 0;" tabindex="8"><@spring.message  code="label.register.button" /></a>
 			 </li> 
 			</ul> 
 		</div>
@@ -82,8 +82,8 @@
        <div class="clearfix" ></div>
 	    <div class="login-sns" id="J_Login_sns"  >
 		 <ul class="login-sns"> 
-		   <li class="weibo"> <a target="_parent" href="${contextPath}/3rd/login/sina" ><i class="fa fa-weibo"></i></a> </li> 
-		   <li class="qq"> <a target="_parent" href="${contextPath}/3rd/login/qq" ><i class="fa fa-qq"></i></a> </li>
+		   <li class="weibo"> <a target="_parent" href="${appHost}/3rd/login/sina" ><i class="fa fa-weibo"></i></a> </li>
+		   <li class="qq"> <a target="_parent" href="${appHost}/3rd/login/qq" ><i class="fa fa-qq"></i></a> </li>
 		   <li class="weixin"> <a href="javascript:;"  ><i class="fa fa-weixin"></i></a> </li>  
 		   <li class="github"> <a href="javascript:;"><i class="fa fa-github"></i></a> </li>
 		   <li class="plus"> <a href="javascript:;"><i class="fa fa-plus"></i></a> </li>
@@ -105,7 +105,7 @@
         </div> 
         <div class="qrcode-main"> 
          <div class="qrcode-img" id="J_QRCodeImg_div" style="opacity: 1;" >
-         	<img id="J_QRCodeImg"  data-src="${contextPath}/validate/passQRcode?w=111&h=111&m=0" title="二维码" class="animated bounceInLeft check-qrcode-img">
+         	<img id="J_QRCodeImg"  data-src="${appHost}/validate/passQRcode?w=111&h=111&m=0" title="二维码" class="animated bounceInLeft check-qrcode-img">
          </div> 
          <div class="qrcode-help" id="J_QRCodeHelp" style="opacity: 0;"></div> 
         </div> 
@@ -148,7 +148,7 @@
   	<#include "/includes/seajs.config.ftl" />
   	<!------seajs.config   引用信息 end----->
 <script>
-  	seajs.use("${contextPath}/js/login/login.js?v="+Math.random());
+  	seajs.use("${appHost}/js/login/login.js?v="+Math.random());
 </script> 
  </body>
 </html>

@@ -5,7 +5,7 @@
 <title>未知访问权限页面</title>
 <!------head 引用信息 begin----->
 <#include "/includes/head.ftl" />
-  <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
+  <link rel="stylesheet" type="text/css" href="${appHost}/css/style.css?v=${ver!'1'}" />
 <!------head   引用信息 end----->
 </head>
 <body>

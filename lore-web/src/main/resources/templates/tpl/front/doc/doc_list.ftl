@@ -69,7 +69,7 @@
 <#include "/index-nav-top.ftl" />
 <div class="container" style="margin-top: 30px;">
     <ol class="breadcrumb">
-        <li><a href="${contextPath}/"><@spring.message  code="label.system.index" /></a></li>
+        <li><a href="${appHost}/"><@spring.message  code="label.system.index" /></a></li>
         <li class="active">文库列表</li>
     </ol>
 </div>
@@ -121,7 +121,7 @@
                             <#else>
                                 <#list result.content as model>
                                     <tr  >
-                                        <td><a href="${contextPath}/doc/${model.id!''}.jhtml" ><i class="fa fa-file-excel-o"></i>${model.periodicalName}</a>
+                                        <td><a href="${appHost}/doc/${model.id!''}.jhtml" ><i class="fa fa-file-excel-o"></i>${model.periodicalName}</a>
                                            (浏览量:  <code>${model.hits!'0'} </code> <code>大小：${model.dataSizeHuman}</code> ，共<code>${model.pageNum}</code>页 )
                                         </td>
                                         <td>${model.pushTime}</td>
@@ -134,7 +134,7 @@
                                 {{if (content.length>0) }}
                                 {{each content as model}}
                                 <tr  data-num="{{$index}}">
-                                    <td><a href="${contextPath}/doc/{{model.id}}.jhtml" ><i class="fa fa-file-excel-o"></i>{{model.periodicalName}}</a>
+                                    <td><a href="${appHost}/doc/{{model.id}}.jhtml" ><i class="fa fa-file-excel-o"></i>{{model.periodicalName}}</a>
                                         ( 浏览量: <code>{{model.hits}}</code>大小：<code>{{model.dataSizeHuman}}</code> ，共<code>{{model.pageNum}}</code>页)
                                     </td>
                                     <td>{{model.pushTime}}</td>

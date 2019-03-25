@@ -63,7 +63,7 @@
                 <div class="col-md-12  col-xs-12">
                         <div class="media">
                             <div class="media-left">
-                                <a href="${contextPath}/doc/${result.id}.jhtml" >
+                                <a href="${appHost}/doc/${result.id}.jhtml" >
                                     <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="${result.coverImgUrl!''}" data-holder-rendered="true" style="width: 180px;">
                                 </a>
                             </div>

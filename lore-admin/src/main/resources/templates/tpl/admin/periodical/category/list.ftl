@@ -6,10 +6,10 @@
 <!-- BEGIN HEAD -->
 <head>
 <title>材料分类库</title>
-<#--  <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/navbar-left-menu.css" />-->
-    <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
+<#--  <link rel="stylesheet" type="text/css" href="${appHost}/static/css/navbar-left-menu.css" />-->
+    <link rel="stylesheet" type="text/css" href="${appHost}/css/style.css?v=${ver!'1'}" />
   <#include "/includes/head.ftl" />
-    <link rel="stylesheet" type="text/css" href="${contextPath}/css/navbar-left-menu.css?v=${ver!'1'}" />
+    <link rel="stylesheet" type="text/css" href="${appHost}/css/navbar-left-menu.css?v=${ver!'1'}" />
   <#include "/includes/laypage-css.ftl" />
     <#include "/includes/zTree-css.ftl" />
    <style>
@@ -146,7 +146,7 @@
 			return nodes;
 		}
 		function getUrl(treeId, treeNode) {
-			var url="${contextPath}/admin/periodical/categorys.json";
+			var url="${appHost}/admin/periodical/categorys.json";
 			if(undefined===treeNode){
 				url+="?parentId=0";
 			}
@@ -156,7 +156,7 @@
 			//$("#loading").hide();
 		}
 		function  onNodeClick(event, treeId, treeNode, clickFlag){
-			$("#main-body").removeClass("loading").load("${contextPath}/admin/periodical/category/"+treeNode.categoryId+".jhtml");
+			$("#main-body").removeClass("loading").load("${appHost}/admin/periodical/category/"+treeNode.categoryId+".jhtml");
 		};
 		function onAsyncError(event, treeId, treeNode, XMLHttpRequest, textStatus, errorThrown) {
 			var zTree = $.fn.zTree.getZTreeObj("categoryTree");

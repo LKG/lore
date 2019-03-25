@@ -6,7 +6,7 @@
 <!-- BEGIN HEAD -->
 <head>
 <title> 关于我们 - <@spring.message  code="label.system.name" /></title>
-  <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
+  <link rel="stylesheet" type="text/css" href="${appHost}/css/style.css?v=${ver!'1'}" />
   <#include "/includes/head.ftl" />
 <#assign template="aboutus"/>
 </head> 

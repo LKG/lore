@@ -7,7 +7,7 @@
 <head>
     <title> <@spring.message  code="label.system.name" />-选择支付方式页面</title>
   <#include "/includes/head.ftl" />
-    <link rel="stylesheet" type="text/css" href="${contextPath}/css/bank.css" />
+    <link rel="stylesheet" type="text/css" href="${appHost}/css/bank.css" />
     <style>
         .bank_list h6 {
             float: left;

@@ -31,7 +31,7 @@
  	<!---toolbar begin-->
 	 <div id="toolbar">
 	  <div class="bars pull-left" >
-		  <a id="btn-add" class="btn btn-danger" href="${contextPath}/admin/tpl/add.jhtml"  title="<@spring.message code="label.default.button.create" />" >
+		  <a id="btn-add" class="btn btn-danger" href="${appHost}/admin/tpl/add.jhtml"  title="<@spring.message code="label.default.button.create" />" >
 			 <i class="fa fa-cloud-upload"></i> <@spring.message code="label.default.button.create" />
 		  </a>
 	  </div>
@@ -58,7 +58,7 @@
 					     <td class="text-center">${model.tplDesc}</td>
 					     <td class="text-center">${model.createTime}</td>
 	 					<td class="text-center operate">
-	 						<a   href="${contextPath}/admin/tpl/${model.id}.jhtml"  title="修改"  >
+	 						<a   href="${appHost}/admin/tpl/${model.id}.jhtml"  title="修改"  >
 								<i id="edit-${model.id}" data="${model.id}" class="fa fa-pencil">修改</i>
 							</a>
 						</td>
@@ -84,7 +84,7 @@
 		 <td  class="text-center">{{model.tplDesc}}</td>
 		 <td  class="text-center" >{{model.createTime}}</td>
 		<td class="text-center operate">
-			<a   href="${contextPath}/admin/tpl/{{model.id}}.jhtml"  title="修改"  >
+			<a   href="${appHost}/admin/tpl/{{model.id}}.jhtml"  title="修改"  >
 				<i id="edit-{{model.id}}" data="{{model.id}}" class="fa fa-pencil">修改</i>
 			</a>
 		</td>

@@ -12,7 +12,7 @@
 	<!------页面header信息 end----->
 	<div class="full-container" id="main-container" style="height: 531px;padding-right: 10px;">
 	 	
-		 <form class="form-horizontal" id="J_AuthRolForm" action="${contextPath}/admin/user/${result.userId}/auth" method="post" >
+		 <form class="form-horizontal" id="J_AuthRolForm" action="${appHost}/admin/user/${result.userId}/auth" method="post" >
 			  <input type="hidden" class="form-control" id="userId" name="userId" value="${result.userId}" >
 			 <div class="input-group">
 			      <div class="input-group-addon"><i class="fa fa-user"></i></div>

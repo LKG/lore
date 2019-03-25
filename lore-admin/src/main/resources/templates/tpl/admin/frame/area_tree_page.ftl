@@ -12,7 +12,7 @@
 <script>
 		$(document).ready(function(){
 			var url = {
-				api : "${contextPath}/admin/area",
+				api : "${appHost}/admin/area",
 			};
 		  var setting = {
 				async: {

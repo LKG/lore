@@ -4,14 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta name="viewport" content="width=1100, maximum-scale=1.0, user-scalable=yes" />
 <link rel="shortcut icon" href="//www.aliyun.com/favicon.ico" type="image/x-icon" />
-<base href="${contextPath}" id="baseRoot"/>
-<link rel="stylesheet" href="${contextPath}/modules/bootstrap/3.3.5/css/bootstrap.min.css?v=${ver!'1'}">
-<link rel="stylesheet" type="text/css" href="${contextPath}/modules/fontawesome/4.7.0/css/font-awesome.min.css?v=${ver!'1'}" />
-<link rel="stylesheet" type="text/css" href="${contextPath}/modules/nprogress/nprogress.css?v=${ver!'1'}" />
-<link rel="stylesheet" type="text/css" href="${contextPath}/css/animate.css?v=${ver!'1'}" />
-<link rel="stylesheet" type="text/css" href="${contextPath}/modules/artDialog/css/ui-dialog.css?v=${ver!'1'}" />
-<link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
-<link href="${contextPath}/css/index.css?v=${ver!'1'}" type="text/css" rel="stylesheet">
+<base href="${appHost}" id="baseRoot"/>
+<link rel="stylesheet" href="${appHost}/modules/bootstrap/3.3.5/css/bootstrap.min.css?v=${ver!'1'}">
+<link rel="stylesheet" type="text/css" href="${appHost}/modules/fontawesome/4.7.0/css/font-awesome.min.css?v=${ver!'1'}" />
+<link rel="stylesheet" type="text/css" href="${appHost}/modules/nprogress/nprogress.css?v=${ver!'1'}" />
+<link rel="stylesheet" type="text/css" href="${appHost}/css/animate.css?v=${ver!'1'}" />
+<link rel="stylesheet" type="text/css" href="${appHost}/modules/artDialog/css/ui-dialog.css?v=${ver!'1'}" />
+<link rel="stylesheet" type="text/css" href="${appHost}/css/style.css?v=${ver!'1'}" />
+<link href="${appHost}/css/index.css?v=${ver!'1'}" type="text/css" rel="stylesheet">
 <style>
  body{
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif Microsoft Yahei,Arial ;

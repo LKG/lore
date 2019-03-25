@@ -6,9 +6,9 @@
 <!-- BEGIN HEAD -->
 <head>
 <title>角色授权</title>
-  <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
+  <link rel="stylesheet" type="text/css" href="${appHost}/css/style.css?v=${ver!'1'}" />
   <#include "/includes/head.ftl" />
-<link rel="stylesheet" type="text/css" href="${contextPath}/css/navbar-left-menu.css?v=${ver!'1'}" />
+<link rel="stylesheet" type="text/css" href="${appHost}/css/navbar-left-menu.css?v=${ver!'1'}" />
   <#include "/includes/zTree-css.ftl" />
 
    <style>
@@ -60,7 +60,7 @@
 					<!-----panel--->
 				<div class="panel panel-info main-panel">
 			 	<div class="panel-heading" style="padding: 0px 15px;">
-			 		<a href="${contextPath}/admin/roles.jhtml" class="btn btn-danger" role="button"><i class="fa fa-reply"></i>返回</a>
+			 		<a href="${appHost}/admin/roles.jhtml" class="btn btn-danger" role="button"><i class="fa fa-reply"></i>返回</a>
 			 	</div>
 				<div class="panel-body" style="min-height:500px;">
 					<div class="alert alert-info" role="alert">
@@ -170,7 +170,7 @@
 			return nodes;
 		}
 		function getUrl(treeId, treeNode) {
-			var url="${contextPath}/admin/resources.json";
+			var url="${appHost}/admin/resources.json";
 			if(undefined===treeNode){
 				url+="?parentCode=0";
 			}

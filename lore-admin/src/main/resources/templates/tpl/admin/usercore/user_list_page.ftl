@@ -138,7 +138,7 @@
 							</#if >
 						</td>
 	 					<td class="operate text-center">
-	 						<a   href="${contextPath}/admin/user/${model.userId}.jhtml"  title="修改"  >
+	 						<a   href="${appHost}/admin/user/${model.userId}.jhtml"  title="修改"  >
 								<i id="view-${model.userId}" data="${model.userId}" class="btn-view fa fa-eye">查看</i>
 							</a>
 							<#if model.status!='enabled' >
@@ -215,7 +215,7 @@
 			  {{if model.isVip==false}} 否{{/if}}
 		  </td>
 		<td class="operate text-center">
-			<a   href="${contextPath}/admin/user/{{model.userId}}.jhtml"  title="修改"  >
+			<a   href="${appHost}/admin/user/{{model.userId}}.jhtml"  title="修改"  >
 				<i id="view-{{model.userId}}" data="{{model.userId}}" class="btn-view fa fa-eye">查看</i>
 			</a>
 			{{if model.status!='enabled'}} 

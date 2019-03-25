@@ -6,7 +6,7 @@
 <!-- BEGIN HEAD -->
 <head>
 <title>关于我们 - <@spring.message  code="label.system.name" /></title>
-  <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
+  <link rel="stylesheet" type="text/css" href="${appHost}/css/style.css?v=${ver!'1'}" />
   <#include "/includes/head.ftl" />
 <#assign template="contact"/>
 </head> 
@@ -37,7 +37,7 @@
 			<div class="col-xs-9" >
 				<div class="g-inner m-contactus fl">
                 <h2>联系我们</h2>
-                    <img style="width: 300px;" src="${contextPath}/images/qq_vip.jpg">
+                    <img style="width: 300px;" src="${appHost}/images/qq_vip.jpg">
 
             </div>
 			</div>

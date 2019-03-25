@@ -7,7 +7,7 @@
 <head>
 <title>菜单资源-新增</title>
   <#include "/includes/head.ftl" />
-  <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="${appHost}/static/css/style.css" />
   <#include "/includes/zTree-css.ftl" />
 <style>
 </style>

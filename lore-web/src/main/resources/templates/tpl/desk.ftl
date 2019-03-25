@@ -195,7 +195,7 @@
         return nodes;
     }
     function getUrl(treeId, treeNode) {
-        var url="${contextPath}/api/periodical/categorys.json";
+        var url="${appHost}/api/periodical/categorys.json";
         if(undefined===treeNode){
             url+="?parentId=0";
         }

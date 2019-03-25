@@ -1,1 +1,1 @@
-<link rel="stylesheet" href="${contextPath}/modules/jquery.fine-uploader/fine-uploader-new.css">
+<link rel="stylesheet" href="${appHost}/modules/jquery.fine-uploader/fine-uploader-new.css">

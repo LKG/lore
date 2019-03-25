@@ -6,9 +6,9 @@
 <!-- BEGIN HEAD -->
 <head>
 <title>期刊管理</title>
-    <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
+    <link rel="stylesheet" type="text/css" href="${appHost}/css/style.css?v=${ver!'1'}" />
   <#include "/includes/head.ftl" />
-    <link rel="stylesheet" type="text/css" href="${contextPath}/css/navbar-left-menu.css?v=${ver!'1'}" />
+    <link rel="stylesheet" type="text/css" href="${appHost}/css/navbar-left-menu.css?v=${ver!'1'}" />
   <#include "/includes/laypage-css.ftl" />
    <style>
    .main-panel .panel-heading{
@@ -182,7 +182,7 @@
 					<td title="${model.periodicalCode!''}" class="text-center">${model.periodicalCode!''}</td>
 					<td title="${model.periodicalType!''}" class="text-center">${model.periodicalType!''}</td>
 					<td title="${model.fileHeader!''}" class="text-center">${model.fileHeader!''}</td>
-					<td><a href="${contextPath}${model.pathUrl!''}" >${model.periodicalName!''}</a>
+					<td><a href="${appHost}${model.pathUrl!''}" >${model.periodicalName!''}</a>
 					</td>
 					<td title="${model.dataSizeHuman}" class="text-right" >${model.dataSizeHuman!''}</td>
 					<td title="${model.pageNum}" class="text-right" >${model.pageNum!''}</td>
@@ -215,7 +215,7 @@
 					<td class="operate">
 						<i id="publish-${model.id}" title="发布"  data="${model.id}" class="btn-publish fa fa-key"></i>
 						<i id="lock-${model.id}}" title="下架"  data="${model.id}" class="btn-lock fa fa-lock"></i>
-						<a   href="${contextPath}/admin/periodical/${model.id}.jhtml"   title="修改" > <i id="edit-${model.id}" title="修改"  data="${model.id}" class="btn-edit fa fa-edit"></i></a>
+						<a   href="${appHost}/admin/periodical/${model.id}.jhtml"   title="修改" > <i id="edit-${model.id}" title="修改"  data="${model.id}" class="btn-edit fa fa-edit"></i></a>
 						<i id="view-${model.id}}"   title="查看日志" data="${model.id}" class="btn-view fa fa-eye"></i>
 						<i id="remove-${model.id}"  title="删除" data="${model.id}" class="btn-remove fa fa-trash-o"></i>
 					</td>
@@ -238,7 +238,7 @@
                                 <td title="{{model.periodicalCode}}" class="text-center">{{model.periodicalCode}}</td>
                                 <td title="{{model.periodicalType}}" class="text-center">{{model.periodicalType}}</td>
                                 <td title="{{model.fileHeader}}" class="text-center">{{model.fileHeader}}</td>
-                                <td><a href="${contextPath}{{model.pathUrl}}" >{{model.periodicalName}}</a>
+                                <td><a href="${appHost}{{model.pathUrl}}" >{{model.periodicalName}}</a>
                                 </td>
                                 <td title="{{model.dataSizeHuman}}" class="text-right" >{{model.dataSizeHuman}}</td>
                                 <td title="{{model.pageNum}}" class="text-right" >{{model.pageNum}}</td>
@@ -268,7 +268,7 @@
                                 <td class="operate">
                                     <i id="publish-{{model.id}}" title="发布"  data="{{model.id}}" class="btn-publish fa fa-key"></i>
                                     <i id="lock-{{model.id}}" title="下架"  data="{{model.id}}" class="btn-lock fa fa-lock"></i>
-                                    <a   href="${contextPath}/admin/periodical/{{model.id}}.jhtml"   title="修改" > <i id="edit-{{model.id}}" title="修改"  data="{{model.id}}" class="btn-edit fa fa-edit"></i></a>
+                                    <a   href="${appHost}/admin/periodical/{{model.id}}.jhtml"   title="修改" > <i id="edit-{{model.id}}" title="修改"  data="{{model.id}}" class="btn-edit fa fa-edit"></i></a>
                                     <i id="view-{{model.id}}"   title="查看日志" data="{{model.id}}" class="btn-view fa fa-eye"></i>
                                     <i id="remove-{{model.id}}"  title="删除" data="{{model.id}}" class="btn-remove fa fa-trash-o"></i>
                                 </td>

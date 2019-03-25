@@ -22,7 +22,7 @@
 <script>
 		$(document).ready(function(){
 			var url = {
-				api : "${contextPath}/admin/org",
+				api : "${appHost}/admin/org",
 			};
 		  var setting = {
 				async: {

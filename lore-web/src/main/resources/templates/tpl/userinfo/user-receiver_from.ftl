@@ -1,4 +1,4 @@
-<form class="form-horizontal" action="${contextPath}/userinfo/receiver/save.json" id="J_MainForm"  method="post"  >
+<form class="form-horizontal" action="${appHost}/userinfo/receiver/save.json" id="J_MainForm"  method="post"  >
  <div class="form-group">
 	<div class="col-sm-11 col-xs-11">
 		<div class="input-group">

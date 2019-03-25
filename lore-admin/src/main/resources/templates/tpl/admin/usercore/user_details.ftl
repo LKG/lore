@@ -6,9 +6,9 @@
 <!-- BEGIN HEAD -->
 <head>
 <title>角色授权</title>
-  <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
+  <link rel="stylesheet" type="text/css" href="${appHost}/css/style.css?v=${ver!'1'}" />
   <#include "/includes/head.ftl" />
-<link rel="stylesheet" type="text/css" href="${contextPath}/css/navbar-left-menu.css?v=${ver!'1'}" />
+<link rel="stylesheet" type="text/css" href="${appHost}/css/navbar-left-menu.css?v=${ver!'1'}" />
    <style>
    .main-panel{
       margin-top: -20px;
@@ -59,7 +59,7 @@
 				<div class="panel panel-info main-panel">
 				 	<div class="panel-heading" style="padding: 0px 15px;">
 					 	<form  class="form-search form-inline">
-					 		<a href="${contextPath}/admin/users.jhtml" class="btn btn-danger" role="button"><i class="fa fa-reply"></i>返回</a>
+					 		<a href="${appHost}/admin/users.jhtml" class="btn btn-danger" role="button"><i class="fa fa-reply"></i>返回</a>
 					 		 <div class="form-group">
 					 		 	<label  class="control-label"><@spring.message  code="label.login.username" /></label><span><code>${result.userName!''}</code></span>
 					 		 </div>
@@ -87,7 +87,7 @@
 						<#include "/admin/usercore/user_form.ftl" />
 					</div>
 					<div class="panel-footer" style="padding: 0px 15px;">
-				 		<a href="${contextPath}/admin/users.jhtml" class="btn btn-danger" role="button"><i class="fa fa-reply"></i>返回</a>
+				 		<a href="${appHost}/admin/users.jhtml" class="btn btn-danger" role="button"><i class="fa fa-reply"></i>返回</a>
 				 	</div>
 				</div>
 					<!-----panel--->

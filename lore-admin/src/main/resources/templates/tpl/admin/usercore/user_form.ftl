@@ -14,7 +14,7 @@
 	<div class="full-container" id="main-container" style="height: 531px;">
 		<div id="J_RegisterBox" > 
 		<script type="text/javascript">(function(x){x&&(x.className+=" loading")})(document.getElementById("J_RegisterBox"))</script>
-		<form class="form-horizontal" id="J_RegisterForm"  action="${contextPath}/admin/user/save" method="post" >
+		<form class="form-horizontal" id="J_RegisterForm"  action="${appHost}/admin/user/save" method="post" >
 		  <div class="form-group">
 		    <label for="userName" class="col-sm-1 col-xs-1 control-label"><b class="text-danger" >*</b><@spring.message  code="label.login.username" /></label>
 		     <div class="col-sm-9 col-xs-9">
@@ -139,7 +139,7 @@
 	<#include "/includes/seajs.config.ftl" />
 	<!------seajs.config   引用信息 end----->
 	<script>
-  	seajs.use(["${contextPath}/js/common/passwordCheck.js?v=${ver!'1'}"]);
+  	seajs.use(["${appHost}/js/common/passwordCheck.js?v=${ver!'1'}"]);
 	</script>
 </body>
 </html>

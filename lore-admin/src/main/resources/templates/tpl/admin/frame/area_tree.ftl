@@ -6,9 +6,9 @@
 <!-- BEGIN HEAD -->
 <head>
 <title>省份树</title>
-  <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
+  <link rel="stylesheet" type="text/css" href="${appHost}/css/style.css?v=${ver!'1'}" />
   <#include "/includes/head.ftl" />
-<link rel="stylesheet" type="text/css" href="${contextPath}/css/navbar-left-menu.css?v=${ver!'1'}" />
+<link rel="stylesheet" type="text/css" href="${appHost}/css/navbar-left-menu.css?v=${ver!'1'}" />
   <#include "/includes/laypage-css.ftl" />
     <#include "/includes/zTree-css.ftl" />
    <style>
@@ -81,7 +81,7 @@
 <script>
 		$(document).ready(function(){
 			var url = {
-				api : "${contextPath}/admin/area",
+				api : "${appHost}/admin/area",
 			};
 		  var setting = {
 				async: {

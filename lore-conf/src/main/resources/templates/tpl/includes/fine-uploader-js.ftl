@@ -1,1 +1,1 @@
-<script src="${contextPath}/modules/jquery.fine-uploader/jquery.fine-uploader.js" ></script>
+<script src="${appHost}/modules/jquery.fine-uploader/jquery.fine-uploader.js" ></script>

@@ -1,1 +1,1 @@
-<link rel="stylesheet" href="${contextPath}/modules/uploadify/uploadify.css">
+<link rel="stylesheet" href="${appHost}/modules/uploadify/uploadify.css">

@@ -10,7 +10,7 @@
     <title>公文-会议发言稿-工作总结-<@spring.message  code="label.system.name" />-党政- 十九大</title>
     <meta name="description" content="<@spring.message  code="label.system.name" />,为您提供愉悦的资料分享体验!" />
     <meta name="Keywords" content="公文、公文库、文秘、ppt模板下载、简历模板、视频教程、ppt素材库、工作总结、工作计划、调研报告、竞聘演讲稿、会议发言稿、学习心得体会、入党申请书、应用公文、论文范文、范文写作技巧" />
-    <link href="${contextPath}/css/main.css?v=${ver!'1'}" type="text/css" rel="stylesheet">
+    <link href="${appHost}/css/main.css?v=${ver!'1'}" type="text/css" rel="stylesheet">
     <style>
         a {
             color: #666;
@@ -167,13 +167,13 @@
 <div class="m">
     <div class="mt" style="padding-top: 5px;">
         <h3>天天快报</h3>
-        <div class="extra"><a href="${contextPath}/articles.jhtml">更多 ></a></div>
+        <div class="extra"><a href="${appHost}/articles.jhtml">更多 ></a></div>
     </div>
     <#if articles??&&articles.content??>
         <#list articles.content as article>
             <div class="mc">
                 <ul>
-                    <li><a href="${contextPath}/article/${article.id}.jhtml" ><span>[${article.type}]</span>${article.shortTitle}</a></li>
+                    <li><a href="${appHost}/article/${article.id}.jhtml" ><span>[${article.type}]</span>${article.shortTitle}</a></li>
                 </ul>
             </div>
         </#list>

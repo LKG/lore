@@ -70,13 +70,13 @@
 							  </div>
 						</div>
 						<code style="margin-left:50px;">建议您启动全部安全设置，以保障账户及资金安全。</code>
-						<a class="pull-right" href="${contextPath}/userinfo/loginlog.jhtml">查看登录日志</a>	
+						<a class="pull-right" href="${appHost}/userinfo/loginlog.jhtml">查看登录日志</a>
 				</div>
 			  	<div class="alert alert-info" role="alert">
 					 <p>
 					 	<i class="fa fa-check-square fa-lg" ></i>
 					 	<span><@spring.message  code="label.login.password" /></span>
-					 	互联网账号存在被盗风险，建议您定期更改密码以保护账户安全。<a  href="${contextPath}/userinfo/changePwd.jhtml" >修改密码</a>
+					 	互联网账号存在被盗风险，建议您定期更改密码以保护账户安全。<a  href="${appHost}/userinfo/changePwd.jhtml" >修改密码</a>
 					 </p>
 				</div>
 				<div class="alert alert-warning" role="alert">

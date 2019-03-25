@@ -16,7 +16,7 @@
  	<!---toolbar begin-->
 	 <div id="toolbar">
 	  <div class="bars pull-left" >
-		  <a id="btn-add" class="btn btn-danger" href="${contextPath}/admin/article/add.jhtml" >
+		  <a id="btn-add" class="btn btn-danger" href="${appHost}/admin/article/add.jhtml" >
 				 <i class="fa fa-cloud-upload"></i><@spring.message code="label.default.button.create" />
 		  </a>
 	  </div>
@@ -94,7 +94,7 @@
 			<code>{{model.rateTimes}}</code>
 		</td>
 		<td class="operate text-center">
-			<a   href="${contextPath}/admin/article/{{model.id}}.jhtml"  title="修改"  >
+			<a   href="${appHost}/admin/article/{{model.id}}.jhtml"  title="修改"  >
 				<i id="edit-{{model.id}}" data="{{model.id}}" class="fa fa-chain">修改</i>
 			</a>
 		</td>

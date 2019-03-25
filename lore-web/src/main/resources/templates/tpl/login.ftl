@@ -6,7 +6,7 @@
 <!------head 引用信息 begin----->
   	<#include "/includes/head.ftl" />
 <!------head   引用信息 end----->
-<link rel="stylesheet" type="text/css" href="${contextPath}/css/login.css?v=${ver!'1'}" />
+<link rel="stylesheet" type="text/css" href="${appHost}/css/login.css?v=${ver!'1'}" />
  </head> 
  <body id="login_body"> 
   <!--背景图片begin--> 
@@ -55,12 +55,12 @@
   	<#include "/includes/seajs.config.ftl" />
   	<!------seajs.config   引用信息 end----->
  <script>
-  	seajs.use("${contextPath}/js/login/init.js?v=${ver!'1'}");
+  	seajs.use("${appHost}/js/login/init.js?v=${ver!'1'}");
 </script>
  </body>
  	 <#include "/includes/jquery.ftl" />
  <script type="text/javascript">
-  var loginUrl="${contextPath}/login-in.jhtml?logout=${_error!''}";
+  var loginUrl="${appHost}/login-in.jhtml?logout=${_error!''}";
  	document.getElementById('login_box').src = loginUrl;
 </script >
 

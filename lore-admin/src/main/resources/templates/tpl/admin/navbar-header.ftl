@@ -12,7 +12,7 @@
 	  </ul>
 	  <ul class="navbar-menu pull-left" > 
 	  	  <li class="dorpdown" > 
-		  <p class="sn-back-home"><i class="fa fa-home"></i><a href="${contextPath}/"><@spring.message  code="label.system.index" /></a></p>
+		  <p class="sn-back-home"><i class="fa fa-home"></i><a href="${appHost}/"><@spring.message  code="label.system.index" /></a></p>
 		  </li>
 		   <li class="dorpdown hide" > 
 			  <p id="login-info" class="sn-login-info" style="padding-left:150px;" >
@@ -37,13 +37,13 @@
 
           </li>
      	 <li class="sn-sitemap">
-     	 	<a class="header-logo-invertocat" href="${contextPath}/userinfo.jhtml" aria-label="Homepage" >
+     	 	<a class="header-logo-invertocat" href="${appHost}/userinfo.jhtml" aria-label="Homepage" >
      			个人中心
     		</a>  
        	
           </li>
            <li class="sn-sitemap">
-     	 	   <a class="sn-login" href="${contextPath}/logout.jhtml" target="_top"><@spring.message  code="label.default.logout" /></a>
+     	 	   <a class="sn-login" href="${appHost}/logout.jhtml" target="_top"><@spring.message  code="label.default.logout" /></a>
        		    <i class="fa fa-caret-down"></i>    	
           </li>
        </ul>

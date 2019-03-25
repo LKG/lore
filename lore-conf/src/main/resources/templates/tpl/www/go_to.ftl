@@ -4,7 +4,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
-<link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
+<link rel="stylesheet" type="text/css" href="${appHost}/css/style.css?v=${ver!'1'}" />
 <!------head 引用信息 begin----->
 <#include "/includes/head.ftl" />
 <!------head   引用信息 end----->

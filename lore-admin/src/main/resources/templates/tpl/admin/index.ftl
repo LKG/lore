@@ -6,9 +6,9 @@
 <!-- BEGIN HEAD -->
 <head>
 <title>控制台</title>
-  <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
+  <link rel="stylesheet" type="text/css" href="${appHost}/css/style.css?v=${ver!'1'}" />
   <#include "/includes/head.ftl" />
-<link rel="stylesheet" type="text/css" href="${contextPath}/css/navbar-left-menu.css?v=${ver!'1'}" />
+<link rel="stylesheet" type="text/css" href="${appHost}/css/navbar-left-menu.css?v=${ver!'1'}" />
   <#include "/includes/laypage-css.ftl" />
    <style>
    .main-panel .panel-heading{
@@ -81,25 +81,25 @@
 								  <i class="fa fa-book fa-stack-1x fa-inverse"></i>
 								</span>
 							  </a>
-							  	  <a class="btn btn-default" href="${contextPath}/admin/periodical.jhtml">
+							  	  <a class="btn btn-default" href="${appHost}/admin/periodical.jhtml">
 								<span class="fa-stack fa-lg">
 								  <i class="fa fa-circle fa-stack-2x"></i>
 								  <i class="fa fa-flag fa-stack-1x fa-inverse"></i>
 								</span>
 							  </a>
-							   <a class="btn btn-default" href="${contextPath}/admin/material/package.jhtml">
+							   <a class="btn btn-default" href="${appHost}/admin/material/package.jhtml">
 								<span class="fa-stack fa-lg">
 								  <i class="fa fa-circle fa-stack-2x"></i>
 								  <i class="fa fa-archive fa-stack-1x fa-inverse"></i>
 								</span>
 							  </a>
-							     <a class="btn btn-default" href="${contextPath}/admin/material.jhtml">
+							     <a class="btn btn-default" href="${appHost}/admin/material.jhtml">
 								<span class="fa-stack fa-lg">
 								  <i class="fa fa-circle fa-stack-2x"></i>
 								  <i class="fa fa-flag fa-stack-1x fa-inverse"></i>
 								</span>
 							  </a>
-							       <a class="btn btn-default" href="${contextPath}/admin/material/base.jhtml">
+							       <a class="btn btn-default" href="${appHost}/admin/material/base.jhtml">
 								<span class="fa-stack fa-lg">
 								  <i class="fa fa-circle fa-stack-2x"></i>
 								  <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>

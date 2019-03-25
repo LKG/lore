@@ -66,7 +66,7 @@
 			return nodes;
 		}
 		function getUrl(treeId, treeNode) {
-			var url="${contextPath}/admin/resources.json";
+			var url="${appHost}/admin/resources.json";
 			if(undefined===treeNode){
 				url+="?parentId=0";
 			}
@@ -84,7 +84,7 @@
 			flag++;
 		}
 		function  onNodeClick(event, treeId, treeNode, clickFlag){
-			$("#main-body").removeClass("loading").load("${contextPath}/admin/resource/"+treeNode.code+".jhtml");
+			$("#main-body").removeClass("loading").load("${appHost}/admin/resource/"+treeNode.code+".jhtml");
 		};
 		function onAsyncError(event, treeId, treeNode, XMLHttpRequest, textStatus, errorThrown) {
 			var zTree = $.fn.zTree.getZTreeObj("areaTree");

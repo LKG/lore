@@ -61,7 +61,7 @@
 			        <h3 class="panel-title"><i class="fa fa-tag"></i></h3>
 			    </div>
 			  <div class="panel-body" style="min-height:500px;">
-			  	 <form class="form-horizontal" id="J_changePwdForm"  action="${contextPath}/userinfo/changePwd.json" method="post" >
+			  	 <form class="form-horizontal" id="J_changePwdForm"  action="${appHost}/userinfo/changePwd.json" method="post" >
 			  	  <div class="form-group">
 				    <label for="oldPassWord" class="col-sm-2 col-xs-2 control-label"><span class="text-danger" >*</span><@spring.message  code="label.login.password" /></label>
 				     <div class="col-sm-6 col-xs-6">

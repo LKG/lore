@@ -62,7 +62,7 @@
 					     	<code>${model.rateTimes} </code>
 					     </td>
 	 					<td class="operate text-center">
-	 						<a   href="${contextPath}/admin/article/${model.id}.jhtml"  title="修改"  >
+	 						<a   href="${appHost}/admin/article/${model.id}.jhtml"  title="修改"  >
 								<i id="edit-${model.id}" data="${model.id}" class="fa fa-chain">修改</i>
 							</a>
 						</td>
@@ -100,7 +100,7 @@
 			<code>{{model.rateTimes}}</code>
 		</td>
 		<td class="operate text-center">
-			<a   href="${contextPath}/admin/article/{{model.id}}.jhtml"  title="修改"  >
+			<a   href="${appHost}/admin/article/{{model.id}}.jhtml"  title="修改"  >
 				<i id="edit-{{model.id}}" data="{{model.id}}" class="fa fa-chain">修改</i>
 			</a>
 		</td>

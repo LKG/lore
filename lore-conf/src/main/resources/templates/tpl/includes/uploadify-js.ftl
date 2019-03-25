@@ -1,1 +1,1 @@
-<script src="${contextPath}/modules/uploadify/jquery.uploadify.min.js" ></script>
+<script src="${appHost}/modules/uploadify/jquery.uploadify.min.js" ></script>

@@ -1,1 +1,1 @@
-<link rel="stylesheet" href="${contextPath}/modules/laypage/skin/laypage.css"/>
+<link rel="stylesheet" href="${appHost}/modules/laypage/skin/laypage.css"/>

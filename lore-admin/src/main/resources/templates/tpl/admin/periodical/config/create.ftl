@@ -7,7 +7,7 @@
 <head>
 <title>添加期刊</title>
   <#include "/includes/head.ftl" />
-	<link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
+	<link rel="stylesheet" type="text/css" href="${appHost}/css/style.css?v=${ver!'1'}" />
     <#include "/includes/zTree-css.ftl" />
     <#assign template="desk"/>
     <style>
@@ -158,7 +158,7 @@
 				var zNodes =[{code:parentCode, parentId:pid, name: name,checked:true}];
 
 				$.ajax({
-					url : "${contextPath}/admin/areas.json?size=500&status=enabled&parentId=" + parentCode,
+					url : "${appHost}/admin/areas.json?size=500&status=enabled&parentId=" + parentCode,
 					type : "post",
 					dataType : "json",
 					success : function(data) {

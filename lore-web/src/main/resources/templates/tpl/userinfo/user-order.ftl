@@ -136,7 +136,7 @@
                                                                           <div class="media">
                                                                               <div class="media-left">
                                                                                   <div class="thumbnail ">
-                                                                                      <a href="${contextPath}/doc/${item.prodId}.jhtml" ><img class="media-object"  src="${item.prodUrl}" alt="${item.prodName}"></a>
+                                                                                      <a href="${appHost}/doc/${item.prodId}.jhtml" ><img class="media-object"  src="${item.prodUrl}" alt="${item.prodName}"></a>
                                                                                   </div>
                                                                               </div>
                                                                               <div class="media-body">
@@ -155,7 +155,7 @@
                                                             </td>
                                                             <td class="operate text-center" style="vertical-align: middle;">
                                                                 <#if model.orderStatus=='unprocessed' >
-                                                                    <button class="btn btn-danger btn-block"  href="${contextPath}/order/confirmOrderInfo.html?orderId=${model.orderId}"    type="button">支付</button>
+                                                                    <button class="btn btn-danger btn-block"  href="${appHost}/order/confirmOrderInfo.html?orderId=${model.orderId}"    type="button">支付</button>
                                                                     <a id="btn-cancel_${model.orderId!''}" class="btn btn-cancel"  data-orderId="${model.orderId!''}" >取消订单</a>
                                                                 </#if>
                                                                  <#if model.orderStatus=='completed' >
@@ -184,7 +184,7 @@
                                                                           <div class="media">
                                                                               <div class="media-left">
                                                                                   <div class="thumbnail ">
-                                                                                      <a href="${contextPath}/doc/{{item.prodId}}.jhtml" ><img class="media-object"  src="{{item.prodUrl}}" alt="{{item.prodName}}"></a>
+                                                                                      <a href="${appHost}/doc/{{item.prodId}}.jhtml" ><img class="media-object"  src="{{item.prodUrl}}" alt="{{item.prodName}}"></a>
                                                                                   </div>
                                                                               </div>
                                                                               <div class="media-body">
@@ -202,7 +202,7 @@
                                                             </td>
                                                             <td class="operate text-center" style="vertical-align: middle;">
                                                               {{ if (model.orderStatus=='unprocessed') }}
-                                                                  <button class="btn btn-danger btn-block"     href="${contextPath}/order/confirmOrderInfo.html?orderId={{model.orderId}}"     type="button">支付</button>
+                                                                  <button class="btn btn-danger btn-block"     href="${appHost}/order/confirmOrderInfo.html?orderId={{model.orderId}}"     type="button">支付</button>
                                                                   <a id="btn-cancel_{{model.orderId}}" class="btn btn-cancel"  data-orderId="{{model.orderId}}" >取消订单</a>
                                                               {{/if}}
                                                                 {{ if (model.orderStatus=='completed') }}

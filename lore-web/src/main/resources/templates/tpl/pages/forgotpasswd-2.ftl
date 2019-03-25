@@ -1,7 +1,7 @@
 <#include "/includes/taglib.ftl" />
 <div id="J_ForgotPasswordBox" > 
 <script type="text/javascript">(function(x){x&&(x.className+=" loading")})(document.getElementById("J_ForgotPasswordBox"))</script>
-<form class="form-horizontal" id="J_ForgotpasswdForm"  action="${contextPath}/findPwd/sendFindPwd.jhtml" method="post" >
+<form class="form-horizontal" id="J_ForgotpasswdForm"  action="${appHost}/findPwd/sendFindPwd.jhtml" method="post" >
   <div class="form-group">
     <label for="J_Type_choose" class="col-sm-3 col-xs-3 control-label"><b class="text-danger" >*</b>请选择验证身份方式：</label>
      <div class="col-sm-6 col-xs-6">

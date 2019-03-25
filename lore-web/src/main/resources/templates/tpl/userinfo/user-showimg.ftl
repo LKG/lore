@@ -108,8 +108,8 @@
     $(function() {
         debugger;
       $('#file_upload').uploadify({
-				'swf'      : '${contextPath}/modules/uploadify/uploadify.swf',
-				'uploader' : '${contextPath}/upload/userHeadImg.json',
+				'swf'      : '${appHost}/modules/uploadify/uploadify.swf',
+				'uploader' : '${appHost}/upload/userHeadImg.json',
 				'width' : '200',
 				'buttonClass' : 'btn btn-primary',
 				'auto'     : true,//关闭

@@ -8,10 +8,10 @@
     </div>
     <div class="focus-b">
         <ul>
- <#--           <li><a href="${contextPath}/vip.jhtml"">VIP会员</a></li>-->
-            <li><a href="${contextPath}/docs.jhtml"">精品资料</a></li>
-            <li><a href="${contextPath}/docs.jhtml">免费资料</a></li>
-            <li><a href="${contextPath}/topic.jhtml">专题</a></li>
-            <li><a href="${contextPath}/group.jhtml"><i class="fa fa-fire text-danger"></i>信息交流</a></li>
+ <#--           <li><a href="${appHost}/vip.jhtml"">VIP会员</a></li>-->
+            <li><a href="${appHost}/docs.jhtml"">精品资料</a></li>
+            <li><a href="${appHost}/docs.jhtml">免费资料</a></li>
+            <li><a href="${appHost}/topic.jhtml">专题</a></li>
+            <li><a href="${appHost}/group.jhtml"><i class="fa fa-fire text-danger"></i>信息交流</a></li>
         </ul>
     </div>

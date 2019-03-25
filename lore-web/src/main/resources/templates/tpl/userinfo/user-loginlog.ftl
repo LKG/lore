@@ -6,7 +6,7 @@
 <!-- BEGIN HEAD -->
 <head>
 <title>登录日志</title>
-  <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
+  <link rel="stylesheet" type="text/css" href="${appHost}/css/style.css?v=${ver!'1'}" />
   <#include "/includes/head.ftl" />
     <#assign template="safe"/>
    <style>
@@ -59,9 +59,9 @@
 			  	<div class="alert alert-success" role="alert">
 			  		<p>
 			  		最多显示<code>20条</code>登录记录
-			  		，请您核对登录时间及地点，如您确定在某时间未登录过，请立即“<a href="${contextPath}/userinfo/changePwd.jhtml" >修改登录密码</a>”以保障账号安全
+			  		，请您核对登录时间及地点，如您确定在某时间未登录过，请立即“<a href="${appHost}/userinfo/changePwd.jhtml" >修改登录密码</a>”以保障账号安全
 						因宽带提供商导致的IP地址变化，登录地点有可能显示不准确，请您以登录时间为参考基准
-			  		 <a class="pull-right" href="${contextPath}/userinfo/safe.jhtml">返回安全中心</a>
+			  		 <a class="pull-right" href="${appHost}/userinfo/safe.jhtml">返回安全中心</a>
 			  		</p>
 				</div>
 			

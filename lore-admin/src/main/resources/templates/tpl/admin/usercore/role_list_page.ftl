@@ -57,10 +57,10 @@
 							<#if (!model.hasChildren) >
 						    <i id="del-${model.roleId}"  title="删除" data="${model.roleId}" class="btn-del fa fa-trash-o">删除</i>
 						    </#if>
-							<a   href="${contextPath}/admin/role/${model.roleId}/resview.jhtml"  title="授权"  >
+							<a   href="${appHost}/admin/role/${model.roleId}/resview.jhtml"  title="授权"  >
 								<i id="chain-${model.roleId}" data="${model.roleId}" class="btn-chain fa fa-chain">授权</i>
 							</a>
-							<a   href="${contextPath}/admin/role/${model.roleId}/users.jhtml"  title="分配用户"  >
+							<a   href="${appHost}/admin/role/${model.roleId}/users.jhtml"  title="分配用户"  >
 								<i id="allot-${model.roleId}" data="${model.roleId}" class="btn-allot fa fa-users">分配用户</i>
 							</a>
 						</td>
@@ -91,10 +91,10 @@
 			{{if (!model.hasChildren) }}
 			  <i id="del-{{model.roleId}}" data="{{model.roleId}}"  title="删除"  class="btn-del fa fa-trash-o">删除</i>
 			{{/if}} 
-			<a href="${contextPath}/admin/role/{{model.roleId}}/resview.jhtml""   title="授权" >
+			<a href="${appHost}/admin/role/{{model.roleId}}/resview.jhtml""   title="授权" >
 				<i id="chain-{{model.roleId}}" data="{{model.roleId}}" class="btn-chain fa fa-chain">授权</i>
 			</a>
-			<a href="${contextPath}/admin/role/{{model.roleId}}/users.jhtml""   title="分配用户" >
+			<a href="${appHost}/admin/role/{{model.roleId}}/users.jhtml""   title="分配用户" >
 				<i id="allot-{{model.roleId}}" data="{{model.roleId}}" class="btn-allot fa fa-users">分配用户</i>
 			</a>
 		</td>

@@ -6,9 +6,9 @@
 <!-- BEGIN HEAD -->
 <head>
 <title>任务添加</title>
-  <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
+  <link rel="stylesheet" type="text/css" href="${appHost}/css/style.css?v=${ver!'1'}" />
   <#include "/includes/head.ftl" />
-<link rel="stylesheet" type="text/css" href="${contextPath}/css/navbar-left-menu.css?v=${ver!'1'}" />  
+<link rel="stylesheet" type="text/css" href="${appHost}/css/navbar-left-menu.css?v=${ver!'1'}" />
    <style>
    .main-panel .panel-heading{
       padding: 0px 15px;
@@ -68,7 +68,7 @@
 				<!-- .panel  begin -->
 				<div class="panel panel-primary">
 					<div class="panel-heading" style="padding: 0px 15px;"  >
-					  <a class="btn btn-danger" id="btn-reply" href="${contextPath}/admin/tasks.jhtml"> 
+					  <a class="btn btn-danger" id="btn-reply" href="${appHost}/admin/tasks.jhtml">
 				  	  	<i class="fa fa-mail-reply"></i>返回
 				  	   </a>
 				  	    <button type="button" id="heading-btn-save" class="btn btn-danger"><@spring.message  code="label.default.button.save" /></button>

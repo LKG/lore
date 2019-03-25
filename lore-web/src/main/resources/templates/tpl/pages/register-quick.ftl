@@ -1,7 +1,7 @@
 <#include "/includes/taglib.ftl" />
 <div id="J_RegisterBox" > 
 <script type="text/javascript">(function(x){x&&(x.className+=" loading")})(document.getElementById("J_RegisterBox"))</script>
-<form class="form-horizontal" id="Q_RegisterForm"  action="${contextPath}/regist/quickRegister.jhtml" method="post" >
+<form class="form-horizontal" id="Q_RegisterForm"  action="${appHost}/regist/quickRegister.jhtml" method="post" >
   <div class="form-group">
      <label for="Q_userPhone" class="col-sm-3 col-xs-3 control-label"><b class="text-danger" >*</b><@spring.message  code="label.user.phone" /></label>
     <div class="col-sm-6 col-xs-6">

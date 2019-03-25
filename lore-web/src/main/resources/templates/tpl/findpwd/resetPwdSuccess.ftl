@@ -6,7 +6,7 @@
 <!-- BEGIN HEAD -->
 <head>
 <title>找回密码 - <@spring.message  code="label.system.name" /></title>
-  <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
+  <link rel="stylesheet" type="text/css" href="${appHost}/css/style.css?v=${ver!'1'}" />
   <#include "/includes/head.ftl" />
 <style>
  #forgot_process span.active{
@@ -49,7 +49,7 @@
 					  <i class="fa fa-circle fa-stack-2x"></i>
 					  <i class="fa fa-check fa-stack-1x fa-inverse "></i>
 					</span><code> 密码修改成功 </code>
-					立即  <a class="sn-login" href="${contextPath}/login.jhtml" target="_top">登录</a>
+					立即  <a class="sn-login" href="${appHost}/login.jhtml" target="_top">登录</a>
 				 </div>
 				</div>
 	  		</div>

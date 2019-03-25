@@ -7,7 +7,7 @@
 <head>
     <#include "/includes/head.ftl" />
     <title>${result.type!''}-${result.title!''}-<@spring.message  code="label.system.name" /></title>
-    <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
+    <link rel="stylesheet" type="text/css" href="${appHost}/css/style.css?v=${ver!'1'}" />
     <meta name="Keywords" content="${result.seoKeywords!''}" />
     <meta name="description" itemprop="description"  content="${result.seoDescription!''}" />
     <style>
@@ -72,8 +72,8 @@
 
 <div class="container" style="margin-top: 15px;">
 <ol class="breadcrumb">
-    <li><a href="${contextPath}/"><@spring.message  code="label.system.index" /></a></li>
-    <li><a href="${contextPath}/articles.jhtml">${result.type!''}</a></li>
+    <li><a href="${appHost}/"><@spring.message  code="label.system.index" /></a></li>
+    <li><a href="${appHost}/articles.jhtml">${result.type!''}</a></li>
     <li class="active">文章</li>
 </ol>
 </div>
@@ -89,7 +89,7 @@
                     <p class="artinfo">　时间：${result.pushTime!''} |　<span class="author">
                        <#if result.author??>
                            <#list result.author?split(" ") as autho>
-                               <a href="${contextPath}/q?v=${ver!'1'}&q=${autho!''}&qt=4" title="${autho!''}" target="_blank">
+                               <a href="${appHost}/q?v=${ver!'1'}&q=${autho!''}&qt=4" title="${autho!''}" target="_blank">
                                     <code>${autho!''}</code>
                                   </a>
                            </#list>
@@ -106,7 +106,7 @@
                 <!-- 关键字 -->
                 <#if result.seoKeywords??>
                     <#list result.seoKeywords?split(",") as keyword>
-                           <a href="${contextPath}/q?v=${ver!'1'}&q=${keyword!''}&qt=1" title="${keyword!''}" target="_blank">${keyword!''}</a>
+                           <a href="${appHost}/q?v=${ver!'1'}&q=${keyword!''}&qt=1" title="${keyword!''}" target="_blank">${keyword!''}</a>
                     </#list>
                 </#if>
             </div>

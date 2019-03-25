@@ -6,7 +6,7 @@
 <!-- BEGIN HEAD -->
 <head>
 <title>视频搜索</title>
-  <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
+  <link rel="stylesheet" type="text/css" href="${appHost}/css/style.css?v=${ver!'1'}" />
   <#include "/includes/head.ftl" />
     <#assign template="vis"/>
    <style>

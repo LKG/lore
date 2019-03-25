@@ -6,7 +6,7 @@
 	}
 </style>
 <div id="J_RegisterBox" > 
-<form class="form-horizontal" id="J_RegisterForm"  action="${contextPath}/#" method="post" >
+<form class="form-horizontal" id="J_RegisterForm"  action="${appHost}/#" method="post" >
   <div class="form-group">
      <label for="userPhone" class="col-sm-2 col-xs-2 control-label"><@spring.message  code="label.user.phone" /></label>
     <div class="col-sm-6 col-xs-6">

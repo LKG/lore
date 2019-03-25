@@ -39,17 +39,17 @@
                         <#if docs??&&docs.content??>
                             <#list docs.content as doc>
                                 <li >
-                                    <a href="${contextPath}/doc/${doc.id!''}.jhtml" >
+                                    <a href="${appHost}/doc/${doc.id!''}.jhtml" >
                                         <i class="fa fa-${doc.fileHeader!''} fa-lg text-primary " style="margin-right: 5px"></i>
                                         ${doc.shortTitle!''}</a>
-                                <a href="${contextPath}/doc/${doc.id!''}.jhtml"  class="pull-right"><i class="fa fa-download"></i></a> </li>
+                                <a href="${appHost}/doc/${doc.id!''}.jhtml"  class="pull-right"><i class="fa fa-download"></i></a> </li>
                             </#list>
                         </#if>
                     </ul>
                     <ul class="hot_doc_ul vip" style="display: none;" >
                         <#if docs??&&docs.content??>
                             <#list docs.content as doc>
-                                <li > <a href="${contextPath}/doc/${doc.id!''}.jhtml" >
+                                <li > <a href="${appHost}/doc/${doc.id!''}.jhtml" >
                                         <i class="fa fa-${doc.fileHeader!''} fa-lg text-primary" style="margin-right: 5px"></i>
                                         ${doc.shortTitle!''}</a>
                                     <a  class="pull-right" ><i class="fa fa-download"></i></a>

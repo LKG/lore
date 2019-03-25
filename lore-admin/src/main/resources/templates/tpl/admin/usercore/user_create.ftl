@@ -14,7 +14,7 @@
 	<div class="full-container" id="main-container" style="height: 531px;">
 		<div id="J_RegisterBox" > 
 		<script type="text/javascript">(function(x){x&&(x.className+=" loading")})(document.getElementById("J_RegisterBox"))</script>
-		<form class="form-horizontal" id="J_RegisterForm"  action="${contextPath}/admin/user/save" method="post" >
+		<form class="form-horizontal" id="J_RegisterForm"  action="${appHost}/admin/user/save" method="post" >
 			<div class="form-group">
 		     <label for="userType" class="col-sm-3 col-xs-3 control-label"><span class="text-danger" >*</span>用户类型</label>
 		    <div class="col-sm-9 col-xs-9">
@@ -154,7 +154,7 @@
 	<#include "/includes/seajs.config.ftl" />
 	<!------seajs.config   引用信息 end----->
 	<script>
-  	seajs.use(["${contextPath}/js/admin/usercore/user_details.js?v="+Math.random(),"${contextPath}/js/common/passwordCheck.js?v=${ver!'1'}"]);
+  	seajs.use(["${appHost}/js/admin/usercore/user_details.js?v="+Math.random(),"${appHost}/js/common/passwordCheck.js?v=${ver!'1'}"]);
 	</script>
 </body>
 </html>

@@ -11,17 +11,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=1100, maximum-scale=1.0, user-scalable=yes" />
     <link rel="shortcut icon" href="//www.aliyun.com/favicon.ico" type="image/x-icon" />
-    <base href="${contextPath}" id="baseRoot"/>
-    <base href="${contextPath}" id="baseRoot"/>
-    <link rel="stylesheet" type="text/css" href="${contextPath}/modules/fontawesome/4.7.0/css/font-awesome.min.css?v=${ver!'1'}" />
-    <link rel="stylesheet" type="text/css" href="${contextPath}/modules/nprogress/nprogress.css?v=${ver!'1'}" />
-    <link rel="stylesheet" type="text/css" href="${contextPath}/css/animate.css?v=${ver!'1'}" />
+    <base href="${appHost}" id="baseRoot"/>
+    <base href="${appHost}" id="baseRoot"/>
+    <link rel="stylesheet" type="text/css" href="${appHost}/modules/fontawesome/4.7.0/css/font-awesome.min.css?v=${ver!'1'}" />
+    <link rel="stylesheet" type="text/css" href="${appHost}/modules/nprogress/nprogress.css?v=${ver!'1'}" />
+    <link rel="stylesheet" type="text/css" href="${appHost}/css/animate.css?v=${ver!'1'}" />
     <title><@spring.message  code="label.system.index" /></title>
     <meta name="description" content="为您提供愉悦的资料分享体验!" />
     <meta name="Keywords" content="ppt模板下载，简历模板，PPT定制，视频教程，图片素材下载，ppt素材库、工作总结、工作计划、调研报告、竞聘演讲稿、会议发言稿、学习心得体会、入党申请书、应用公文、论文范文、范文写作技巧" />
-    <link rel="stylesheet" href="${contextPath}/modules/bootstrap/3.3.5/css/bootstrap.min.css?v=${ver!'1'}">
-    <link href="${contextPath}/css/index.css?v=${ver!'1'}" type="text/css" rel="stylesheet">
-    <link href="${contextPath}/css/main.css?v=${ver!'1'}" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="${appHost}/modules/bootstrap/3.3.5/css/bootstrap.min.css?v=${ver!'1'}">
+    <link href="${appHost}/css/index.css?v=${ver!'1'}" type="text/css" rel="stylesheet">
+    <link href="${appHost}/css/main.css?v=${ver!'1'}" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="//piccache.cnki.net/kdn/index/nvsm/nvsmCSS_min/kindex.min.css?v=${ver!'1'}">
     <link rel="stylesheet" href="//piccache.cnki.net/kdn/index/nvsm/nvsmCSS_min/royalslider.min.css?v=${ver!'1'}">
     <link rel="stylesheet" href="//piccache.cnki.net/kdn/index/nvsm/nvsmCSS_min/rs-default.min.css?v=${ver!'1'}">
@@ -29,8 +29,8 @@
     <!--[if lte IE 8]>
     <link rel="stylesheet" href="//piccache.cnki.net/kdn/index/nvsm/nvsmCSS_min/index-ie.min.css?v=${ver!'1'}">
     <![endif]-->
-    <base href="${contextPath}" id="baseRoot"/>
-    <script type="text/javascript" src="${contextPath}/js/jQuery-hijack.js?v=${ver!'1'}"></script>
+    <base href="${appHost}" id="baseRoot"/>
+    <script type="text/javascript" src="${appHost}/js/jQuery-hijack.js?v=${ver!'1'}"></script>
     <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/jQuery-1.11.3.min.js?v=${ver!'1'}"></script>
     <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/jquery.cookie.js?v=${ver!'1'}"></script>
     <script type="text/javascript" src="//piccache.cnki.net/kdn/index/nvsm/nvsmScripts/min/GlobalVar.min.js?v=${ver!'1'}"></script>
@@ -400,20 +400,20 @@
                 <img src="" alt="" />
                 <p class="mid">
                         <span>
-                            <a target="_blank" href="${contextPath}/aboutus.jhtml">关于我们</a>
-                              <a target="_blank" href="${contextPath}/contact.html">联系我们</a>
-                            <a target="_blank" href="${contextPath}/questions.html">常见问题</a>
+                            <a target="_blank" href="${appHost}/aboutus.jhtml">关于我们</a>
+                              <a target="_blank" href="${appHost}/contact.html">联系我们</a>
+                            <a target="_blank" href="${appHost}/questions.html">常见问题</a>
                         </span>
                     <span id="copyright">© 2009-${.now?string("yyyy")} lkg </span>
                 </p>
                 <p class="right">
                     <!--可信网站图片LOGO安装开始-->
                     <a id="___szfw_logo___" href="javascript:void(0)" target="_blank">
-                        <img alt="可信网站" src="${contextPath}/imgs/kxwz.jpg" height="33" width="86"></a>
+                        <img alt="可信网站" src="${appHost}/imgs/kxwz.jpg" height="33" width="86"></a>
                     <!--可信网站图片LOGO安装结束-->
                     <!--诚信网站图片LOGO安装开始-->
                     <a id="A1" href="javascript:void(0)" target="_blank">
-                        <img alt="诚信网站" src="${contextPath}/imgs/cert.jpg" height="33" width="86">
+                        <img alt="诚信网站" src="${appHost}/imgs/cert.jpg" height="33" width="86">
                     </a>
                     <!--诚信网站图片LOGO安装结束-->
                 </p>

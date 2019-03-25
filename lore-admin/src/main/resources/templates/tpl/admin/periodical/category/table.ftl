@@ -6,7 +6,7 @@
 <!-- BEGIN HEAD -->
 <head>
 <title>基础材料库</title>
-  <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="${appHost}/static/css/style.css" />
   <#include "/includes/head.ftl" />
 
    <style>

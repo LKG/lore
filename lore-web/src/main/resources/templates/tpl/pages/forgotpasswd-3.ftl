@@ -1,7 +1,7 @@
 <#include "/includes/taglib.ftl" />
 <div id="J_ForgotPasswordBox" > 
 <script type="text/javascript">(function(x){x&&(x.className+=" loading")})(document.getElementById("J_RegisterBox"))</script>
-<form class="form-horizontal" id="J_ForgotpasswdForm"  action="${contextPath}/findPwd/resetPwd.jhtml" method="post" >
+<form class="form-horizontal" id="J_ForgotpasswdForm"  action="${appHost}/findPwd/resetPwd.jhtml" method="post" >
   <div class="form-group">
     <label for="userName" class="col-sm-2 col-xs-2 control-label"><b class="text-danger" >*</b><@spring.message  code="label.login.password" /></label>
      <div class="col-sm-6 col-xs-6">

@@ -6,7 +6,7 @@
 <!-- BEGIN HEAD -->
 <head>
 <title><@spring.message  code="label.register.title" />-  <@spring.message  code="label.system.name" /></title>
-  <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
+  <link rel="stylesheet" type="text/css" href="${appHost}/css/style.css?v=${ver!'1'}" />
   <#include "/includes/head.ftl" />
 </head> 
 <body class="page-header-fixed">
@@ -27,7 +27,7 @@
 					  <i class="fa fa-circle fa-stack-2x"></i>
 					  <i class="fa fa-check fa-stack-1x fa-inverse "></i>
 				</span>
-					用户<!--<code> <#if result.userName??>${result.userName}</#if></code>------>注册成功， 您的昵称为:<code> <#if result.userName??>${result.nickName}</#if></code> 该名称会显示在导航栏上 ，立即  <a class="sn-login" href="${contextPath}/login.jhtml" target="_top">登录</a>
+					用户<!--<code> <#if result.userName??>${result.userName}</#if></code>------>注册成功， 您的昵称为:<code> <#if result.userName??>${result.nickName}</#if></code> 该名称会显示在导航栏上 ，立即  <a class="sn-login" href="${appHost}/login.jhtml" target="_top">登录</a>
 				 </div>
 			 	<!---
 				 <div class="col-sm-4 col-md-4 col-xs-4">

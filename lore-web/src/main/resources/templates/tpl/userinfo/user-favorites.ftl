@@ -6,7 +6,7 @@
 <!-- BEGIN HEAD -->
 <head>
 <title>用户头像</title>
-  <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css?v=${ver!'1'}" />
+  <link rel="stylesheet" type="text/css" href="${appHost}/css/style.css?v=${ver!'1'}" />
   <#include "/includes/head.ftl" />
   <#include "/includes/uploadify-css.ftl" />
    <style>
@@ -99,8 +99,8 @@
 	<script type="text/javascript">
     $(function() {
       $('#file_upload').uploadify({
-				'swf'      : '${contextPath}/modules/uploadify/uploadify.swf',
-				'uploader' : '${contextPath}/upload/userHeadImg.json',
+				'swf'      : '${appHost}/modules/uploadify/uploadify.swf',
+				'uploader' : '${appHost}/upload/userHeadImg.json',
 				'width' : '200',
 				
 				//'auto'     : false,//关闭

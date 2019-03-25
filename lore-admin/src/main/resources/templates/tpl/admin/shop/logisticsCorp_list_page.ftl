@@ -59,7 +59,7 @@
 			    			</#if>
 					    </td>
 					     <td><code>(${model.code!'无'})</code>${model.name!'未知'}</td>
-					     <td><a target="_blank" href="${contextPath}/www/goto?url=${model.url!'#'}">${model.url!'#'}</a></td>
+					     <td><a target="_blank" href="${appHost}/www/goto?url=${model.url!'#'}">${model.url!'#'}</a></td>
 					       <td>${model.tel!'#'}</td>
 					     <td>
 					     <#if (model.status=='pending') >未使用</#if>
@@ -93,7 +93,7 @@
 			{{/if}} 
 		</td>
 		<td><code>({{model.code}})</code>{{model.name}}</td>
-		 <td><a target="_blank" href="${contextPath}/www/goto?url={{model.url}}">{{model.url}}</a></td> 
+		 <td><a target="_blank" href="${appHost}/www/goto?url={{model.url}}">{{model.url}}</a></td>
 		  <td>{{model.tel}}</td> 
 		  <td>
 		   {{if model.status=='pending'}}未使用{{/if}} 

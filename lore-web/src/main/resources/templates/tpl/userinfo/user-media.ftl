@@ -3,7 +3,7 @@
 <!-- user media begin-->
 <div class="media">
 	<div class="media-left user-img">
-	 <a href="${contextPath}/userinfo/showImg.jhtml" class="thumbnail" target="_top">
+	 <a href="${appHost}/userinfo/showImg.jhtml" class="thumbnail" target="_top">
 	   <img class="media-object img-circle" id="headImgUrl" src="<@shiro.principal property='headImgUrl' defaultValue='' />" alt="...">
 	 </a>
 	</div>

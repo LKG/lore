@@ -72,7 +72,7 @@
 </div>
 <div class="container" style="margin-top: 30px;">
     <ol class="breadcrumb">
-        <li><a href="${contextPath}/"><@spring.message  code="label.system.index" /></a></li>
+        <li><a href="${appHost}/"><@spring.message  code="label.system.index" /></a></li>
         <li class="active">文章列表</li>
     </ol>
 </div>
@@ -184,7 +184,7 @@
                                   <#list result.content as article>
                                       <li class="list-group-item">
                                           <span class="item-type" style="padding-right: 50px;">[${article.type!''}]</span>
-                                          <a class="item-href"  href="${contextPath}/article/${article.id!''}.jhtml"
+                                          <a class="item-href"  href="${appHost}/article/${article.id!''}.jhtml"
                                              target="_blank" >${article.title!''}</a>
                                           <span >阅读量：<code>${article.hits!'0'}</code></span>
                   <#--                        <span >点赞数：<code>${article.rateTimes!'0'}</code></span>-->
@@ -198,7 +198,7 @@
                                 {{each content as article}}
                                     <li class="list-group-item">
                                         <span class="item-type" style="padding-right: 50px;">[{{article.type}}]</span>
-                                        <a class="item-href"  href="${contextPath}/article/{{article.id}}.jhtml"
+                                        <a class="item-href"  href="${appHost}/article/{{article.id}}.jhtml"
                                            target="_blank" >{{article.title}}</a>
                                         <span class="">阅读量：<code>{{article.hits}}</code></span>
 <#--                                        <span class="">点赞数：<code>{{article.rateTimes}}</code></span>-->

@@ -1,1 +1,1 @@
-<link rel="stylesheet" href="${contextPath}/modules/swiper/css/swiper.min.css"/>
+<link rel="stylesheet" href="${appHost}/modules/swiper/css/swiper.min.css"/>

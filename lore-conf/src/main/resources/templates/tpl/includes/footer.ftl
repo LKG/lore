@@ -3,7 +3,7 @@
     <div class="w">
         <div id="footer-lk">
             <div class="links">
-                <a rel="nofollow"  target="_blank" href="${contextPath}/aboutus.jhtml">关于我们</a>|<a href="${contextPath}/contact.jhtml">联系我们</a>|<a target="_blank" href="#">友情链接</a>|<a href="${contextPath}/contact.jhtml" target="_blank">Contact Us</a></div>
+                <a rel="nofollow"  target="_blank" href="${appHost}/aboutus.jhtml">关于我们</a>|<a href="${appHost}/contact.jhtml">联系我们</a>|<a target="_blank" href="#">友情链接</a>|<a href="${appHost}/contact.jhtml" target="_blank">Contact Us</a></div>
             <div class="copyright">
 
             </div>
