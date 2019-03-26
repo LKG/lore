@@ -16,10 +16,6 @@ define(function (require, exports, moudles) {
     $("#xx,#xx a").on("click",function () {
         $("#top-banner").hide();
     });
-    $("#refresh,#seach-btn").on("click", function() {
-        $("#page").val(1);
-        search(true);
-    });
     var $pagination=$("#table-pagination");
     laypage({
         cont : $pagination, // 容器。值支持id名、原生dom对象，jquery对象。【如该容器为】：<div	// id="page1"></div>
@@ -32,7 +28,7 @@ define(function (require, exports, moudles) {
             if (!first) {
                 var curr = obj.curr;
                 $("#page").val(obj.curr);
-                var param = $("#search_form").serialize();
+                window.location.href=url.api+"s/p-"+obj.curr+".jhtml";
             }
         }
     });

@@ -3,7 +3,7 @@
 <meta name="referrer" content="origin" /> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta name="viewport" content="width=1100, maximum-scale=1.0, user-scalable=yes" />
-<link rel="shortcut icon" href="//www.aliyun.com/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="//www.gongwk.com/favicon.ico" type="image/x-icon" />
 <base href="${appHost}" id="baseRoot"/>
 <link rel="stylesheet" href="${appHost}/modules/bootstrap/3.3.5/css/bootstrap.min.css?v=${ver!'1'}">
 <link rel="stylesheet" type="text/css" href="${appHost}/modules/fontawesome/4.7.0/css/font-awesome.min.css?v=${ver!'1'}" />

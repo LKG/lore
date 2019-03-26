@@ -101,7 +101,7 @@ spring:
   # Specify the DBMS
     database: MYSQL
   # Show or not log for each sql query
-    show-sql: false
+    show-sql: true
     open-in-view: true
     hibernate:
      show_sql: false

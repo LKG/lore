@@ -50,6 +50,14 @@
             left: 15px;
             right: 15px;
         }
+        @media print{
+            a:after{
+                content: "" !important;
+            }
+            a[href]:after {
+                content: "" !important;
+            }
+        }
         .originPrice{
             text-decoration: line-through;
         }
@@ -57,7 +65,7 @@
             padding: 2px 2px;
         }
     </style>
-    <#assign template="project"/>
+    <#assign template="article"/>
 </head>
 <body class="page-header-fixed">
 <!-- toolbar begin-->
@@ -91,7 +99,7 @@
                            <#list result.author?split(" ") as autho>
                                <a href="${appHost}/q?v=${ver!'1'}&q=${autho!''}&qt=4" title="${autho!''}" target="_blank">
                                     <code>${autho!''}</code>
-                                  </a>
+                                </a>
                            </#list>
                         </#if>
                         </span>  |　字体：【<a class="cgray" data-font="16"  href="javascript:void(0);">大</a> <a class="cgray"  data-font="14"  href="javascript:void(0);" >中</a> <a class="cgray"  data-font="12" href="javascript:void(0);" >小</a>】|　阅读: ${result.hits!''}</p>
