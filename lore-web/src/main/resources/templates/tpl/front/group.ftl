@@ -61,6 +61,8 @@
 <!------seajs.config 引用信息 begin----->
 <#include "/includes/seajs.config.ftl" />
 <!------seajs.config   引用信息 end----->
-
+<script>
+    seajs.use(["js/search.js?v="+Math.random()]);
+</script>
 </body>
 </html>
