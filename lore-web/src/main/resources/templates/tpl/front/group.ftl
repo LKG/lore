@@ -32,7 +32,26 @@
 <div class="container" style="margin-top: 35px" id="main-container">
 
     <div class="panel panel-info">
-        <div class="panel-heading">官方推荐资料群</div>
+        <div class="">
+            <ul id="my-tab-rule" class="myNavTab nav nav-tabs" role="tablist">
+                <li role="presentation" style="cursor:pointer" class="active">
+                    <a id="my-tab-all" data-key="">
+                        全部
+                    </a>
+                </li>
+                <li role="presentation" style="cursor:pointer" class="">
+                    <a id="my-tab-1" data-key="">
+                        党政
+                    </a>
+                </li>
+                <#--<form class="form-inline">-->
+                    <#--<div class="form-group">-->
+                        <#--<input type="text" class="form-control" id="qqS" name="qqS" placeholder="关键词">-->
+                    <#--</div>-->
+                    <#--<button type="button" class="btn btn-default">搜索</button>-->
+                <#--</form>-->
+            </ul>
+        </div>
         <div class="panel-body">
         <div class="row">
             <#if (result.content?size<=0) >
@@ -42,9 +61,9 @@
                             <div class="thumbnail">
                                 <img src="/images/qq_vip.jpg" style="width: 200px;" alt="...">
                                 <div class="caption">
-                                    <p>群号：<code>${model.qqNum}</code></p>
-                                    <p>名称：${model.name}</p>
-                                    <p>（<i class="fa fa-group"> </i> ${model.peopleTotal} / ${model.qqTotal}）</p>
+                                    <p>群号：<code>${model.qqNum!''}</code></p>
+                                    <p>名称：${model.name!''} <code>lv${model.qqLevel!'1'}</code></p>
+                                    <p>（<i class="fa fa-group"> </i> ${model.peopleTotal!'200'} / ${model.qqTotal!'1'}）</p>
                                 </div>
                             </div>
                     </div>
@@ -62,7 +81,7 @@
 <#include "/includes/seajs.config.ftl" />
 <!------seajs.config   引用信息 end----->
 <script>
-    seajs.use(["js/search.js?v="+Math.random()]);
+    seajs.use(["js/search.js?v="+Math.random(),"js/group.js?v="+Math.random()]);
 </script>
 </body>
 </html>
