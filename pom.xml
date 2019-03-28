@@ -80,6 +80,7 @@
         <spring-session.version>2.1.4.RELEASE</spring-session.version>
         <!-- 二维码begin -->
         <zxing.version>3.3.3</zxing.version>
+        <jersey-bundle.version>1.9.1</jersey-bundle.version>
         <!-- 二维码end -->
         <weixin-tools.version>3.2.0</weixin-tools.version>
         <spring-mobile-device.version>2.0.0.M3</spring-mobile-device.version>
@@ -90,6 +91,11 @@
                 <groupId>org.springframework.session</groupId>
                 <artifactId>spring-session-data-redis</artifactId>
                 <version>${spring-session.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.jersey</groupId>
+                <artifactId>jersey-bundle</artifactId>
+                <version>${jersey-bundle.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
