@@ -30,7 +30,7 @@ public class FrameUserOrgsTag extends BaseDirective {
 		if(userVO!=null){
 			FrameUserOrgService userOrgService=	ContextManager.getBean(FrameUserOrgService.class);
 			List<FrameUserOrg> userOrgs = userOrgService.findByUserId(userVO.getUserId());
-			super.setVariable("userOrgs",userOrgs,env);
+			setVariable("userOrgs",userOrgs,env);
 			super.renderBody(env,body);
 		}
 	}

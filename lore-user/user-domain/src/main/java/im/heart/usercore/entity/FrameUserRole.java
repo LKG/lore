@@ -23,11 +23,6 @@ import java.util.Date;
 @DynamicInsert()
 @Data
 public class FrameUserRole implements AbstractEntity<BigInteger> {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 3614248751144766845L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(length = 20, name = "RELATE_ID", nullable = false, unique = true, updatable = false)

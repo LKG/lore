@@ -1,7 +1,7 @@
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="referrer" content="origin" /> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="referrer" content="origin" />
 <meta name="viewport" content="width=1100, maximum-scale=1.0, user-scalable=yes" />
 <link rel="shortcut icon" href="//www.gongwk.com/favicon.ico" type="image/x-icon" />
 <base href="${appHost}" id="baseRoot"/>

@@ -32,7 +32,34 @@
 		      <b></b> 
 		     </div>
      	</li>
-     	
+
+		   <@shiro.authenticated>
+			   <@user.orgs>
+	     	<li  style="top: -7px;position: relative;" >
+                <div class="dorpdown-layer sn-org "  style="" >
+                    <div class="list-group text-center" id="nav-header-org">
+			     	   <#list userOrgs as userOrg>
+                           <a  style="width: 260px;"  class="list-group-item list-group-item-success <#if userOrg_index==0>selected</#if>"
+                               data-orgType="${userOrg.relateOrg.type}" data-relateId="${userOrg.relateId}"
+                               data-orgId="${userOrg.relateOrg.id}" data-orgCode="${userOrg.relateOrg.orgCode}" href="javascript:void(0);" >${userOrg.relateOrg.name} </a>
+					   </#list>
+                    </div>
+                </div>
+            </li>
+           <li  >
+               <a  id="btn-org-sel"  href="javascript:void(0);"  >切换机构</a>
+           </li>
+			   </@user.orgs>
+     	  <li  >
+              <a class="header-logo-invertocat" href="${contextPath}/userinfo.jhtml" aria-label="Homepage" ><@shiro.principal property="nickName" /></a> ,您好
+          </li>
+	       <li  >
+               <a class="sn-login" href="${contextPath}/logout.jhtml" target="_top"><@spring.message  code="label.default.logout" /></a>
+               <i class="fa fa-caret-down"></i>
+           </li>
+
+		   </@shiro.authenticated>
+
      	<li class="sn-sitemap">
 
           </li>

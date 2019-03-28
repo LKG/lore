@@ -26,14 +26,23 @@ public interface FrameUserOrgRepository extends JpaRepository<FrameUserOrg, BigI
 	 * @return
 	 */
 	public List<FrameUserOrg> findByUserId(BigInteger userId);
-	
+
+	/**
+	 *  根据用户id,删除用户机构
+	 * @param userId
+	 */
 	@Modifying
-	@Transactional
+	@Transactional(rollbackOn = Exception.class)
 	@Query("DELETE FROM FrameUserOrg model WHERE model.userId = :userId")
 	public void deleteByUserId(@Param("userId") BigInteger userId);
-	
+
+	/**
+	 * 更新用户默认机构// 设置默认机构
+	 * @param userId
+	 * @param relateId
+	 */
 	@Modifying(clearAutomatically = true)
-	@Transactional
+	@Transactional(rollbackOn = Exception.class)
 	@Query("UPDATE FrameUserOrg model SET  model.isDefault= (CASE  WHEN model.relateId = :relateId  THEN true ELSE false END)  WHERE  model.userId= :userId")
-	public void updateUserDefaultOrg(@Param("userId") BigInteger userId, @Param("relateId") BigInteger relateId);// 设置默认机构
+	public void updateUserDefaultOrg(@Param("userId") BigInteger userId, @Param("relateId") BigInteger relateId);
 }

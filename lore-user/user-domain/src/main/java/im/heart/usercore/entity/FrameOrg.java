@@ -4,6 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import im.heart.core.entity.TreeEntity;
 import im.heart.core.enums.Status;
 import lombok.Data;
+import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.Formula;
 import org.hibernate.validator.constraints.Length;
@@ -24,12 +25,9 @@ import java.util.Date;
 @Entity
 @Table(name = "dic_frame_org")
 @DynamicUpdate()
+@DynamicInsert()
 @Data
 public class FrameOrg implements TreeEntity<BigInteger> {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -2300855058921750187L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

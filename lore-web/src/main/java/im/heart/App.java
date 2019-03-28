@@ -10,6 +10,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
@@ -24,6 +25,7 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 @ComponentScan(basePackages={"im.heart"})
 @EnableAsync
 @EnableCaching
+@EnableJpaRepositories
 @EnableRedisHttpSession(maxInactiveIntervalInSeconds=60 * 60 * 24 * 7)
 public class App extends SpringBootServletInitializer implements CommandLineRunner{
 

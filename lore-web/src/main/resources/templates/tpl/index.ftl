@@ -109,11 +109,10 @@
 <div id="lunbo">
     <ul id="one">
         <li><a href=""><img src="https://bootcdn.xuexi.cn/dyxx_5a1d70322da1335610ea6a87/1552620657482/8cb6f33f8d76e643bde4b678f0f7855e.jpg?x-oss-process=image/resize,w_590,h_470"></a></li>
-        <li><a href=""><img src="https://bootcdn.xuexi.cn/dyxx_5a1d70322da1335610ea6a87/1552540175381/8e5493527de2c30dac541811f24ec4d6.jpg?x-oss-process=image/resize,w_590,h_470"></a></li>
         <li><a href=""><img src="http://media.people.com.cn/NMediaFile/2019/0304/MAIN201903040810553940275526231.jpg" alt="一带一路”建设的成就与挑战"></a></li>
     </ul>
     <ul id="two">
-        <#list [1,2,3] as img>
+        <#list [1,2] as img>
             <li class="<#if img_index==0>on</#if>" >${img_index+1}</li>
         </#list>
     </ul>
