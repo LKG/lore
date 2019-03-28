@@ -81,6 +81,7 @@
         <!-- 二维码begin -->
         <zxing.version>3.3.3</zxing.version>
         <jersey-bundle.version>1.9.1</jersey-bundle.version>
+        <querydsl.version>4.2.1</querydsl.version>
         <!-- 二维码end -->
         <weixin-tools.version>3.2.0</weixin-tools.version>
         <spring-mobile-device.version>2.0.0.M3</spring-mobile-device.version>
@@ -91,6 +92,19 @@
                 <groupId>org.springframework.session</groupId>
                 <artifactId>spring-session-data-redis</artifactId>
                 <version>${spring-session.version}</version>
+            </dependency>
+            <!--QueryDSL支持-->
+            <dependency>
+                <groupId>com.querydsl</groupId>
+                <artifactId>querydsl-apt</artifactId>
+                <version>${querydsl.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <!--QueryDSL支持-->
+            <dependency>
+                <groupId>com.querydsl</groupId>
+                <artifactId>querydsl-jpa</artifactId>
+                <version>${querydsl.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.sun.jersey</groupId>

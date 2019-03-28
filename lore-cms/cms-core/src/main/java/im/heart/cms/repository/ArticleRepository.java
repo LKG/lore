@@ -19,6 +19,10 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, BigInteger>, JpaSpecificationExecutor<Article> {
+    /**
+     * 更新点击次数
+     * @param id
+     */
     @Modifying
     @Transactional(rollbackOn = Exception.class)
     @Query("update Article model set hits=hits+1 WHERE model.id = :id")

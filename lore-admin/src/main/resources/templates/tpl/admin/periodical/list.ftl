@@ -213,8 +213,12 @@
 					</td>
 					<td>${model.createTime}</td>
 					<td class="operate">
+			  			 <#if model.checkStatus!='enabled'>
 						<i id="publish-${model.id}" title="发布"  data="${model.id}" class="btn-publish fa fa-key"></i>
+						 </#if>
+		 				  <#if model.checkStatus=='enabled'>
 						<i id="lock-${model.id}}" title="下架"  data="${model.id}" class="btn-lock fa fa-lock"></i>
+	   					 </#if>
 						<a   href="${appHost}/admin/periodical/${model.id}.jhtml"   title="修改" > <i id="edit-${model.id}" title="修改"  data="${model.id}" class="btn-edit fa fa-edit"></i></a>
 						<i id="view-${model.id}}"   title="查看日志" data="${model.id}" class="btn-view fa fa-eye"></i>
 						<i id="remove-${model.id}"  title="删除" data="${model.id}" class="btn-remove fa fa-trash-o"></i>
@@ -266,8 +270,12 @@
                                 </td>
                                 <td>{{model.createTime}}</td>
                                 <td class="operate">
+                                    {{if model.checkStatus !='enabled'}}
                                     <i id="publish-{{model.id}}" title="发布"  data="{{model.id}}" class="btn-publish fa fa-key"></i>
+                                    {{/if}}
+									{{if model.checkStatus=='enabled'}}
                                     <i id="lock-{{model.id}}" title="下架"  data="{{model.id}}" class="btn-lock fa fa-lock"></i>
+                                    {{/if}}
                                     <a   href="${appHost}/admin/periodical/{{model.id}}.jhtml"   title="修改" > <i id="edit-{{model.id}}" title="修改"  data="{{model.id}}" class="btn-edit fa fa-edit"></i></a>
                                     <i id="view-{{model.id}}"   title="查看日志" data="{{model.id}}" class="btn-view fa fa-eye"></i>
                                     <i id="remove-{{model.id}}"  title="删除" data="{{model.id}}" class="btn-remove fa fa-trash-o"></i>

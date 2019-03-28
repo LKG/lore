@@ -34,7 +34,7 @@
      	</li>
 
 		   <@shiro.authenticated>
-			   <@user.orgs>
+			 <#--  <@user.orgs>
 	     	<li  style="top: -7px;position: relative;" >
                 <div class="dorpdown-layer sn-org "  style="" >
                     <div class="list-group text-center" id="nav-header-org">
@@ -49,7 +49,7 @@
            <li  >
                <a  id="btn-org-sel"  href="javascript:void(0);"  >切换机构</a>
            </li>
-			   </@user.orgs>
+			   </@user.orgs>-->
      	  <li  >
               <a class="header-logo-invertocat" href="${contextPath}/userinfo.jhtml" aria-label="Homepage" ><@shiro.principal property="nickName" /></a> ,您好
           </li>
