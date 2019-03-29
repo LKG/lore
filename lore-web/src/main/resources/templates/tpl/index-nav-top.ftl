@@ -8,6 +8,7 @@
     <div class="focus-b">
         <ul>
  <#--           <li><a href="${appHost}/vip.jhtml"">VIP会员</a></li>-->
+            <li><a href="${appHost}/" class="active"><@spring.message  code="label.system.index" /></a></li>
             <li><a href="${appHost}/docs.jhtml"">精品资料</a></li>
             <li><a href="${appHost}/docs.jhtml">免费资料</a></li>
             <li><a href="${appHost}/topic.jhtml">专题</a></li>
