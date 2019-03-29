@@ -58,7 +58,7 @@
      	 	 <div class="breadcrumbs" id="breadcrumbs">
 				<ul class="breadcrumb">
 				<li ><i class="icon-home home-icon"></i><a href="#"><@spring.message  code="label.system.index" /></a></li>
-				<li>用户管理</li>
+				<li>操作日志</li>
 				</ul><!-- .breadcrumb -->
 			 </div>
 			<!-- .breadcrumb  end -->

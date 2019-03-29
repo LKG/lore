@@ -34,6 +34,7 @@ define(function(require, exports, moudles) {
 		});
 		return dataIds;
 	};
+
 	// 删除
 	var $remove = $("#remove");
 	$remove.on("click", function() {
@@ -169,6 +170,14 @@ define(function(require, exports, moudles) {
 		search(true);
 	});
     var $tbody = $("#table-tbody");
+    $("#btSelectAll").on("change",function() {
+        var $checkBox = $tbody.find("input[name='id']:not(:disabled)");
+        if ($(this).attr("checked")) {
+            $checkBox.attr("checked",'true');// 全选
+        } else {
+            $checkBox.removeAttr("checked");// 反选
+        }
+    });
     $tbody.on("click", ".operate .btn-publish", function() {
         var $this=$(this);
         var id = $(this).attr("id");
@@ -242,7 +251,6 @@ define(function(require, exports, moudles) {
 						if (data.success) {
 							var html = template('tr-template-js', data.result);
 							$("#paginationTotal").html(data.result.totalElements);
-							var $tbody = $("#table-tbody");
 							$tbody.empty();
 							$tbody.append(html);
 							// 查看事件

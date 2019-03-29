@@ -104,6 +104,14 @@ define(function(require, exports, moudles) {
 		search(false);
 	}, 10);
 	var $tbody = $("#table-tbody");
+    $("#btSelectAll").on("change",function() {
+        var $checkBox = $tbody.find("input[name='id']:not(:disabled)");
+        if ($(this).attr("checked")) {
+            $checkBox.attr("checked",'true');// 全选
+        } else {
+            $checkBox.removeAttr("checked");// 反选
+        }
+    });
 	$tbody.on("click", ".showcity",function() {
 		var citynames = $(this).data("citynames");
 		var d = dialog({

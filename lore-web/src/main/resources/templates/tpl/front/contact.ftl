@@ -35,19 +35,22 @@
 			</div>
 			</div>
 			<div class="col-xs-9" >
-				<div class="g-inner m-contactus fl">
-                <h2>联系我们</h2>
-					<p>
-                        如您有网站相关问题，可以采取以下方式反馈：
-                        1、发送邮件至service_reply@gongwk.com；
-                        为了更好地帮助您解决问题，请您将问题清楚描述，并附上账户名及相关截图，谢谢。
-					</p>
-
-                    <div class="alert alert-info" role="alert">...
-                        注：
-                        1. 邮箱回复时间：我们将于七个工作日内回复相关问题，高级会员的问题将于两个工作日内回复。
-					</div>
-            </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2>联系我们</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            如您有网站相关问题，可以采取以下方式反馈：
+                            1、发送邮件至service_reply@gongwk.com；
+                            为了更好地帮助您解决问题，请您将问题清楚描述，并附上账户名及相关截图，谢谢。
+                        </p>
+                        <div class="alert alert-info" role="alert">
+                            注：
+                            1. 邮箱回复时间：我们将于七个工作日内回复相关问题，高级会员的问题将于两个工作日内回复。
+                        </div>
+                    </div>
+                </div>
 			</div>
 		</div>
 		

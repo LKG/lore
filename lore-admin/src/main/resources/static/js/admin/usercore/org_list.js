@@ -38,7 +38,14 @@ define(function(require, exports, moudles) {
 	var $baseRoot = $('#baseRoot');
 	var baseRoot = $baseRoot.attr("href");
 	var $tbody = $("#table-tbody");
-
+    $("#btSelectAll").on("change",function() {
+        var $checkBox = $tbody.find("input[name='id']:not(:disabled)");
+        if ($(this).attr("checked")) {
+            $checkBox.attr("checked",'true');// 全选
+        } else {
+            $checkBox.removeAttr("checked");// 反选
+        }
+    });
 	// 修改事件
 	$tbody.on("click", ".operate .btn-view",function() {
 		var dataId = $(this).attr("data");

@@ -39,6 +39,33 @@ define(function(require, exports, moudles) {
 	setTimeout(function() {
 		search(false);
 	}, 10);
+    var $tbody = $("#table-tbody");
+    // 修改事件
+    $tbody.on("click", ".operate .fa-chain",function() {
+        var id = $(this).attr("data");
+        var model = dialog({
+            id : id,
+            title : "添加规则",
+            cancelValue : '取消',
+            bodyClass : "ui-dialog-body-min",
+            height : "650",
+            width : "750",
+            url : url.api  +"/"+ id+ "/rule.jhtml"
+        });
+        model.showModal();
+    });
+
+    // 全选事件
+    $("#btSelectAll").on("change",function() {
+        var $checkBox = $tbody.find("input[type='checkbox']:not(:disabled)");
+        if ($(this).attr("checked")) {
+            $checkBox.attr("checked",'true');// 全选
+            $("#remove").removeAttr("disabled");
+        } else {
+            $("#remove").attr("disabled","disabled");
+            $checkBox.removeAttr("checked");// 反选
+        }
+    });
 	var search = function(loading) {
 		$("#btSelectAll").removeAttr("checked");
 		var param = $("#search_form").serialize();
@@ -51,46 +78,8 @@ define(function(require, exports, moudles) {
 					success : function(data) {
 						if (data.success) {
 							var html = template('tr-template-js', data.result);
-							var $tbody = $("#table-tbody");
 							$tbody.empty();
 							$tbody.append(html);
-							// 查看事件
-							/*
-							 * $tbody.on("click", ".operate .fa-search-plus",
-							 * function() { var id = $(this).attr("data"); var
-							 * model = dialog({ id : id, title : "查看",
-							 * cancelValue : '取消', bodyClass :
-							 * "ui-dialog-body-min", height : "590", width :
-							 * "780", url : baseRoot + "/project/typical/" + id +
-							 * ".jhtml" }); model.showModal(); });
-							 */
-							// 修改事件
-							$tbody.on("click", ".operate .fa-chain",function() {
-										var id = $(this).attr("data");
-										var model = dialog({
-											id : id,
-											title : "添加规则",
-											cancelValue : '取消',
-											bodyClass : "ui-dialog-body-min",
-											height : "650",
-											width : "750",
-											url : url.api  +"/"+ id+ "/rule.jhtml"
-										});
-										model.showModal();
-									});
-
-							// 全选事件
-							$("#btSelectAll").on("change",function() {
-								var $checkBox = $tbody.find("input[type='checkbox']:not(:disabled)");
-								if ($(this).attr("checked")) {
-									$checkBox.attr("checked",'true');// 全选
-									$("#remove").removeAttr("disabled");
-							    } else {
-									$("#remove").attr("disabled","disabled");
-									$checkBox.removeAttr("checked");// 反选
-								}
-							});
-							
 							// 加载分页组件
 							laypage({
 								cont : 'table-pagination', // 容器。值支持id名、原生dom对象，jquery对象。【如该容器为】：<div	// id="page1"></div>

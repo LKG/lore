@@ -28,7 +28,7 @@
 	        <thead>
 	          <tr>
 	           <th  class="text-center bs-checkbox" style="width: 30px;"  >
-			       <input type="checkbox"  class="text-center bs-checkbox-selectAll"  />
+			       <input type="checkbox"  class="text-center bs-checkbox-selectAll" id="btSelectAll" />
 			   </th>
 	            <th class="page-sort-btn">友链名称</th>
 	            <th >友链地址</th>

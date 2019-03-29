@@ -28,7 +28,7 @@
 	        <thead>
 	          <tr>
 	           <th  class="text-center bs-checkbox" style="width: 30px;"  >
-			       <input type="checkbox"  class="text-center bs-checkbox-selectAll"  />
+			       <input type="checkbox"  class="text-center bs-checkbox-selectAll"  id="btSelectAll"/>
 			   </th>
 	            <th class="page-sort-btn">标题</th>
 	            <th style="width:100px;">类型</th>

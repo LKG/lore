@@ -36,6 +36,14 @@ define(function(require, exports, moudles) {
 		var dataId = $(this).attr("data");
 		alert("@@");
 	});
+    $("#btSelectAll").on("change",function() {
+        var $checkBox = $tbody.find("input[name='id']:not(:disabled)");
+        if ($(this).attr("checked")) {
+            $checkBox.attr("checked",'true');// 全选
+        } else {
+            $checkBox.removeAttr("checked");// 反选
+        }
+    });
 	var search = function(loading) {
 		$("#btSelectAll").removeAttr("checked");
 		var param = $("#search_form").serialize();
