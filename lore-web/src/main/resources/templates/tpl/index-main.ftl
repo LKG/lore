@@ -42,7 +42,7 @@
         <div class="col-xs-12">
             <div class="panel panel-default" style="box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);">
                 <div class="panel-heading" style="border-left: 3px solid #FF970D;">
-
+                    领导讲话稿
                 </div>
                 <div class="panel-body">
 

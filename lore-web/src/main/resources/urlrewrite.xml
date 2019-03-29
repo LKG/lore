@@ -39,6 +39,10 @@
         <to>/articles.jhtml?page=$1</to>
     </rule>
     <rule>
+        <from>^/made.?(.*)$</from>
+        <to>/index/made.jhtml</to>
+    </rule>
+    <rule>
         <from>^/q.?(.*)$</from>
         <to>/index/q.jhtml</to>
     </rule>
