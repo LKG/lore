@@ -11,7 +11,7 @@ import im.heart.cms.service.ArticleCategoryService;
 import im.heart.core.service.impl.CommonServiceImpl;
 
 @Service(value = ArticleCategoryService.BEAN_NAME)
-@Transactional(propagation = Propagation.SUPPORTS)
+@Transactional(propagation = Propagation.SUPPORTS,rollbackFor = Exception.class)
 public class ArticleCategoryServiceImpl extends CommonServiceImpl<ArticleCategory, BigInteger> implements ArticleCategoryService {
 
 }

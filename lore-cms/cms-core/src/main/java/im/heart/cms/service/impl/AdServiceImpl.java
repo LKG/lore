@@ -11,7 +11,7 @@ import im.heart.cms.service.AdService;
 import im.heart.core.service.impl.CommonServiceImpl;
 
 @Service(value = AdService.BEAN_NAME)
-@Transactional(propagation = Propagation.SUPPORTS)
+@Transactional(propagation = Propagation.SUPPORTS,rollbackFor = Exception.class)
 public class AdServiceImpl extends CommonServiceImpl<Ad, BigInteger> implements AdService {
 	
 
