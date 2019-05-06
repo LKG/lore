@@ -25,6 +25,6 @@ public interface ArticleRepository extends JpaRepository<Article, BigInteger>, J
      */
     @Modifying
     @Transactional(rollbackOn = Exception.class)
-    @Query("update Article model set hits=hits+1 WHERE model.id = :id")
+    @Query("UPDATE Article model SET hits=hits+1 WHERE model.id = :id")
     public void updateHitsById(@Param("id") BigInteger id);
 }

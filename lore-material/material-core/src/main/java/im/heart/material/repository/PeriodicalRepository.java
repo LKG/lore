@@ -34,12 +34,12 @@ public interface PeriodicalRepository extends JpaRepository<Periodical, BigInteg
 	public void updateStatusByPeriodicalId(@Param("periodicalId") BigInteger periodicalId, @Param("checkStatus") Status checkStatus);
 	@Modifying
 	@Transactional(rollbackOn = Exception.class)
-	@Query("update Periodical model set hits=hits+1 WHERE model.id = :id")
+	@Query("UPDATE Periodical model SET hits=hits+1 WHERE model.id = :id")
 	public void updateHitsById(@Param("id") BigInteger id);
 
 	@Modifying
 	@Transactional(rollbackOn = Exception.class)
-	@Query("update Periodical model set rateTimes=rateTimes+1 WHERE model.id = :id")
+	@Query("UPDATE Periodical model SET rateTimes=rateTimes+1 WHERE model.id = :id")
 	public void updateRateTimesById(@Param("id") BigInteger id);
 
 	/**

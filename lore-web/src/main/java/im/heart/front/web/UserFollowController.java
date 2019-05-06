@@ -26,9 +26,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Collection;
 
 /**
- * 
- * @作者 LKG 
- * @功能说明：收藏商品
+ *
+ * @author gg
+ * @Desc : 收藏商品
  */
 @Controller
 public class UserFollowController extends AbstractController {
@@ -49,7 +49,7 @@ public class UserFollowController extends AbstractController {
                               @RequestParam(value = CommonConst.RequestResult.ACCESS_TOKEN, required = false) String token,
                               ModelMap model) {
 		final Collection<SearchFilter> filters= DynamicSpecifications.buildSearchFilters(request);
-		filters.add(new SearchFilter("userId", SearchFilter.Operator.EQ, SecurityUtilsHelper.getCurrentUser().getUserId()));//查询
+		filters.add(new SearchFilter("userId", SearchFilter.Operator.EQ, SecurityUtilsHelper.getCurrentUser().getUserId()));
 		Specification<FrameUserFollow> spec= DynamicSpecifications.bySearchFilter(filters, FrameUserFollow.class);
 		PageRequest pageRequest= DynamicPageRequest.buildPageRequest(CommonConst.Page.DEFAULT_PAGE, CommonConst.Page.DEFAULT_SIZE*2,sort,order, FrameLogLogin.class);
 		Page<FrameUserFollow> pag = this.frameUserFollowService.findAll(spec, pageRequest);
