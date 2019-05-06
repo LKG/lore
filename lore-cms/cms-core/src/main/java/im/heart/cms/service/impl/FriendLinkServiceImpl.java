@@ -11,7 +11,7 @@ import im.heart.cms.service.FriendLinkService;
 import im.heart.core.service.impl.CommonServiceImpl;
 
 @Service(value = FriendLinkService.BEAN_NAME)
-@Transactional(propagation = Propagation.SUPPORTS)
+@Transactional(propagation = Propagation.SUPPORTS,rollbackFor = Exception.class)
 public class FriendLinkServiceImpl extends CommonServiceImpl<FriendLink, BigInteger> implements FriendLinkService {
 
 	

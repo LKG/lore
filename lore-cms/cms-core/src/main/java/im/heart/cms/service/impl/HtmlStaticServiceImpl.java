@@ -18,7 +18,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
 import im.heart.cms.service.HtmlStaticService;
 @Service(value = HtmlStaticService.BEAN_NAME)
-@Transactional(propagation = Propagation.SUPPORTS)
+@Transactional(propagation = Propagation.SUPPORTS,rollbackFor = Exception.class)
 public class HtmlStaticServiceImpl implements HtmlStaticService, ServletContextAware {
 	protected static final Logger logger = LoggerFactory.getLogger(HtmlStaticServiceImpl.class);
 	@Resource

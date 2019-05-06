@@ -15,7 +15,7 @@ import im.heart.core.service.impl.CommonServiceImpl;
  * @desc 评论
  */
 @Service(value = CommentService.BEAN_NAME)
-@Transactional(propagation = Propagation.SUPPORTS)
+@Transactional(propagation = Propagation.SUPPORTS,rollbackFor = Exception.class)
 public class CommentServiceImpl extends CommonServiceImpl<Comment, BigInteger> implements CommentService {
 
 	
